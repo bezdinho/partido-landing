@@ -275,56 +275,56 @@ html[lang="ar"] .hero-sub { letter-spacing: 0; line-height: 1.85; }
 }
 html[dir="rtl"] .hero-right { padding: 80px 0 80px 5%; }
 
-/* Hero phones: side-by-side, both sharp, no overlap */
+/* Hero phones: flex side-by-side - overlap impossible with this layout */
 .hero-phones {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 20px;
   position: relative;
-  width: 510px;
-  height: 680px;
   perspective: 1600px;
-  perspective-origin: 50% 46%;
+  perspective-origin: 50% 55%;
+  padding-bottom: 40px;
 }
-/* Ambient glow pool beneath both phones */
+/* Ambient glow beneath both phones */
 .hero-phones::after {
   content: "";
   position: absolute;
-  bottom: -10px; left: 50%;
+  bottom: 0; left: 50%;
   transform: translateX(-50%);
-  width: 420px; height: 130px;
+  width: 440px; height: 130px;
   background: radial-gradient(ellipse at 50% 100%, rgba(153,202,60,0.22) 0%, transparent 65%);
   filter: blur(36px);
-  pointer-events: none; z-index: 0;
+  pointer-events: none;
 }
-/* Right phone: larger, slightly higher, faces inward */
-.hp-main {
-  position: absolute; right: 4px; top: 44%;
-  width: 245px; z-index: 2;
-  filter:
-    drop-shadow(0 52px 100px rgba(0,0,0,0.88))
-    drop-shadow(0 0 52px rgba(153,202,60,0.22))
-    drop-shadow(0 0 1px rgba(255,255,255,0.06));
-  animation: floatRot 9s ease-in-out infinite, fadePhoneIn 1.0s ease .3s both;
-}
-/* Left phone: slightly smaller, lower, faces inward - fully sharp, no blur */
+/* LEFT phone (hp-back = first child): smaller, sits at container bottom */
 .hp-back {
-  position: absolute; left: 4px; top: 56%;
-  width: 222px; z-index: 1;
+  width: 215px;
+  flex-shrink: 0;
   filter:
     drop-shadow(0 40px 80px rgba(0,0,0,0.80))
-    drop-shadow(0 0 36px rgba(153,202,60,0.16));
+    drop-shadow(0 0 32px rgba(153,202,60,0.16));
   animation: floatRotB 12s ease-in-out infinite, fadePhoneIn 1.0s ease .5s both;
 }
-html[dir="rtl"] .hp-main { right: auto; left:  4px; animation-name: floatRotRTL,  fadePhoneIn; }
-html[dir="rtl"] .hp-back  { left: auto; right: 4px; animation-name: floatRotBRTL, fadePhoneIn; }
+/* RIGHT phone (hp-main = second child): larger, raised 50px above left phone */
+.hp-main {
+  width: 235px;
+  flex-shrink: 0;
+  margin-bottom: 52px;
+  filter:
+    drop-shadow(0 52px 100px rgba(0,0,0,0.88))
+    drop-shadow(0 0 50px rgba(153,202,60,0.22));
+  animation: floatRot 9s ease-in-out infinite, fadePhoneIn 1.0s ease .3s both;
+}
+/* RTL: reverse visual order by reversing flex direction */
+html[dir="rtl"] .hero-phones { flex-direction: row-reverse; }
 
-/* Right phone: rotateY(+) = left edge forward, screen faces slightly left/inward, leans right */
-@keyframes floatRot    { 0%,100% { transform:translateY(-50%) rotateY( 14deg) rotateX(5deg) rotate( 3deg) } 50% { transform:translateY(-62%) rotateY( 14deg) rotateX(5deg) rotate( 3deg) } }
-/* Left phone: rotateY(-) = right edge forward, screen faces slightly right/inward, leans left */
-@keyframes floatRotB   { 0%,100% { transform:translateY(-50%) rotateY(-12deg) rotateX(4deg) rotate(-3deg) } 50% { transform:translateY(-61%) rotateY(-12deg) rotateX(4deg) rotate(-3deg) } }
-/* RTL mirrors */
-@keyframes floatRotRTL  { 0%,100% { transform:translateY(-50%) rotateY(-14deg) rotateX(5deg) rotate(-3deg) } 50% { transform:translateY(-62%) rotateY(-14deg) rotateX(5deg) rotate(-3deg) } }
-@keyframes floatRotBRTL { 0%,100% { transform:translateY(-50%) rotateY( 12deg) rotateX(4deg) rotate( 3deg) } 50% { transform:translateY(-61%) rotateY( 12deg) rotateX(4deg) rotate( 3deg) } }
-/* Opacity-only fade - avoids transform conflict with float animations */
-@keyframes fadePhoneIn  { from { opacity:0; } to { opacity:1; } }
+/* Left phone: screen tilted right/inward (right side forward) */
+@keyframes floatRotB { 0%,100% { transform: translateY(0)     rotateY(-10deg) rotateX(4deg) rotate(-2deg); } 50% { transform: translateY(-14px) rotateY(-10deg) rotateX(4deg) rotate(-2deg); } }
+/* Right phone: screen tilted left/inward (left side forward) */
+@keyframes floatRot  { 0%,100% { transform: translateY(0)     rotateY( 12deg) rotateX(5deg) rotate( 2deg); } 50% { transform: translateY(-18px) rotateY( 12deg) rotateX(5deg) rotate( 2deg); } }
+/* Opacity-only fade - no transform conflict */
+@keyframes fadePhoneIn { from { opacity: 0; } to { opacity: 1; } }
 @keyframes fadeUp { from { opacity:0;transform:translateY(20px) } to { opacity:1;transform:translateY(0) } }
 
 /* ══════════════════════════════════════
