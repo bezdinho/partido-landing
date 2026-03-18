@@ -105,6 +105,9 @@ html[lang="ar"] .fc h3 {
   will-change: transform;
 }
 .phone::before {
+  content: '';
+  position: absolute;
+  left: 50%; transform: translateX(-50%);
   top: 9px;
   width: 108px;
   height: 28px;
@@ -275,55 +278,57 @@ html[lang="ar"] .hero-sub { letter-spacing: 0; line-height: 1.85; }
 }
 html[dir="rtl"] .hero-right { padding: 80px 0 80px 5%; }
 
-/* Hero phones: flex side-by-side - overlap impossible with this layout */
+/* HERO PHONES: flex side-by-side, no overlap, both sharp */
 .hero-phones {
   display: flex;
   flex-direction: row;
   align-items: flex-end;
-  gap: 20px;
+  gap: 28px;
   position: relative;
-  perspective: 1600px;
-  perspective-origin: 50% 55%;
-  padding-bottom: 40px;
 }
-/* Ambient glow beneath both phones */
+/* Ambient glow - position:absolute keeps it out of flex flow */
 .hero-phones::after {
   content: "";
   position: absolute;
-  bottom: 0; left: 50%;
+  bottom: -24px; left: 50%;
   transform: translateX(-50%);
-  width: 440px; height: 130px;
-  background: radial-gradient(ellipse at 50% 100%, rgba(153,202,60,0.22) 0%, transparent 65%);
-  filter: blur(36px);
-  pointer-events: none;
+  width: 360px; height: 100px;
+  background: radial-gradient(ellipse at 50% 100%, rgba(153,202,60,0.18) 0%, transparent 65%);
+  filter: blur(28px);
+  pointer-events: none; z-index: -1;
 }
-/* LEFT phone (hp-back = first child): smaller, sits at container bottom */
+/* Left phone (hp-back = first flex child): tilted right, sits at baseline */
 .hp-back {
-  width: 215px;
+  width: 210px;
   flex-shrink: 0;
   filter:
-    drop-shadow(0 40px 80px rgba(0,0,0,0.80))
-    drop-shadow(0 0 32px rgba(153,202,60,0.16));
-  animation: floatRotB 12s ease-in-out infinite, fadePhoneIn 1.0s ease .5s both;
+    drop-shadow(0 28px 56px rgba(0,0,0,0.80))
+    drop-shadow(0 0 24px rgba(153,202,60,0.15));
+  animation: floatRotB 12s ease-in-out infinite, fadePhoneIn 1s ease .5s both;
 }
-/* RIGHT phone (hp-main = second child): larger, raised 50px above left phone */
+/* Right phone (hp-main = second flex child): slightly larger, lifted 40px */
 .hp-main {
-  width: 235px;
+  width: 230px;
   flex-shrink: 0;
-  margin-bottom: 52px;
+  margin-bottom: 40px;
   filter:
-    drop-shadow(0 52px 100px rgba(0,0,0,0.88))
-    drop-shadow(0 0 50px rgba(153,202,60,0.22));
-  animation: floatRot 9s ease-in-out infinite, fadePhoneIn 1.0s ease .3s both;
+    drop-shadow(0 36px 72px rgba(0,0,0,0.85))
+    drop-shadow(0 0 36px rgba(153,202,60,0.20));
+  animation: floatRot 9s ease-in-out infinite, fadePhoneIn 1s ease .3s both;
 }
-/* RTL: reverse visual order by reversing flex direction */
 html[dir="rtl"] .hero-phones { flex-direction: row-reverse; }
 
-/* Left phone: screen tilted right/inward (right side forward) */
-@keyframes floatRotB { 0%,100% { transform: translateY(0)     rotateY(-10deg) rotateX(4deg) rotate(-2deg); } 50% { transform: translateY(-14px) rotateY(-10deg) rotateX(4deg) rotate(-2deg); } }
-/* Right phone: screen tilted left/inward (left side forward) */
-@keyframes floatRot  { 0%,100% { transform: translateY(0)     rotateY( 12deg) rotateX(5deg) rotate( 2deg); } 50% { transform: translateY(-18px) rotateY( 12deg) rotateX(5deg) rotate( 2deg); } }
-/* Opacity-only fade - no transform conflict */
+/* Left phone: tilted to the right (clockwise lean) */
+@keyframes floatRotB {
+  0%,100% { transform: perspective(900px) rotateY(-8deg) rotate(3deg) translateY(0);     }
+  50%      { transform: perspective(900px) rotateY(-8deg) rotate(3deg) translateY(-14px); }
+}
+/* Right phone: tilted to the left (counter-clockwise lean) */
+@keyframes floatRot {
+  0%,100% { transform: perspective(900px) rotateY(10deg) rotate(-3deg) translateY(0);     }
+  50%      { transform: perspective(900px) rotateY(10deg) rotate(-3deg) translateY(-18px); }
+}
+/* Opacity-only fade */
 @keyframes fadePhoneIn { from { opacity: 0; } to { opacity: 1; } }
 @keyframes fadeUp { from { opacity:0;transform:translateY(20px) } to { opacity:1;transform:translateY(0) } }
 
