@@ -1,0 +1,36 @@
+/* === reviews.css === */
+
+/* ══════════════════════════════════════
+   REVIEWS
+══════════════════════════════════════ */
+.rev-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-top: 44px; }
+.rv {
+  background: var(--card); border: 1px solid var(--bdr);
+  border-radius: 16px; padding: 28px;
+  position: relative; overflow: hidden;
+  transition: border-color .3s, transform .25s;
+}
+.rv:hover { border-color: rgba(153,202,60,.22); transform: translateY(-2px); }
+.rv::before {
+  content: '\201C';
+  position: absolute; top: 8px; right: 20px;
+  font-family: 'Satoshi', sans-serif; font-size: 100px; font-weight: 900;
+  color: rgba(153,202,60,.07); line-height: 1;
+  pointer-events: none; user-select: none;
+}
+html[dir="rtl"] .rv::before { right: auto; left: 20px; }
+.rv-stars { color: var(--g); font-size: 11px; letter-spacing: 3px; margin-bottom: 14px; }
+.rv-text  { font-size: 15px; font-weight: 400; line-height: 1.72; margin-bottom: 0; color: var(--text); font-style: italic; }
+html[lang="ar"] .rv-text { font-family:'Cairo',sans-serif; line-height:1.9; font-style:normal; }
+.rv-author { display: flex; align-items: center; gap: 10px; margin-top: 20px; padding-top: 18px; border-top: 1px solid var(--bdr); }
+.rv-av {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--g), #1a5c10);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 13px; color: var(--black); flex-shrink: 0;
+}
+.rv-name { font-size: 13px; font-weight: 700; }
+.rv-city { font-size: 11px; font-weight: 400; color: var(--muted); margin-top: 1px; }
+html[lang="ar"] .rv-name,
+html[lang="ar"] .rv-city { font-family:'Cairo',sans-serif; }
+

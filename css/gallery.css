@@ -1,0 +1,19 @@
+/* === gallery.css === */
+
+/* ══════════════════════════════════════
+   GALLERY STRIP
+══════════════════════════════════════ */
+.gallery-strip {
+  display: flex; gap: 18px; align-items: flex-end;
+  justify-content: center;
+  overflow-x: auto; padding: 0 48px;
+  scrollbar-width: none;
+}
+.gallery-strip::-webkit-scrollbar { display: none; }
+html[dir="rtl"] .gallery-strip { flex-direction: row-reverse; }
+.gs-wrap { flex-shrink: 0; }
+.gs-wrap.xs { width: 160px; transform: translateY(36px); opacity: .45; }
+.gs-wrap.sm { width: 195px; transform: translateY(20px); opacity: .65; }
+.gs-wrap.md { width: 225px; opacity: .85; }
+.gs-wrap.lg { width: 250px; opacity: 1; }
+

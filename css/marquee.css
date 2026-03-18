@@ -1,0 +1,34 @@
+/* === marquee.css === */
+
+/* ══════════════════════════════════════
+   MARQUEE
+══════════════════════════════════════ */
+.marquee-wrap {
+  padding: 18px 0;
+  background: var(--card);
+  border-top: 1px solid var(--bdr);
+  border-bottom: 1px solid var(--bdr);
+  overflow: hidden; white-space: nowrap;
+}
+.marquee-track {
+  display: inline-flex;
+  animation: marquee 28s linear infinite;
+}
+html[dir="rtl"] .marquee-track {
+  animation: marquee-rtl 28s linear infinite;
+}
+.mi {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 12px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--dim); padding: 0 20px;
+  display: flex; align-items: center; gap: 14px;
+}
+html[lang="ar"] .mi {
+  font-family: 'Cairo', sans-serif;
+  letter-spacing: 0; text-transform: none;
+}
+.mi-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--g); }
+@keyframes marquee     { from { transform:translateX(0)    } to { transform:translateX(-50%) } }
+@keyframes marquee-rtl { from { transform:translateX(-50%) } to { transform:translateX(0)    } }
+

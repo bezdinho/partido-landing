@@ -1,0 +1,41 @@
+/* === tournament.css === */
+
+/* ══════════════════════════════════════
+   TOURNAMENT
+══════════════════════════════════════ */
+.tourn-section {
+  position: relative; overflow: hidden;
+  background: linear-gradient(155deg, #0a1a04 0%, var(--black) 55%);
+  border-top: 1px solid rgba(153,202,60,.08);
+  border-bottom: 1px solid rgba(153,202,60,.08);
+}
+.tourn-watermark {
+  position: absolute; right: -2%; top: 50%; transform: translateY(-50%);
+  font-family: 'Satoshi', sans-serif;
+  font-size: clamp(100px, 16vw, 200px); font-weight: 900;
+  letter-spacing: -4px; text-transform: uppercase;
+  color: rgba(153,202,60,.025); pointer-events: none; white-space: nowrap;
+}
+html[dir="rtl"] .tourn-watermark { right: auto; left: -2%; }
+html[lang="ar"] .tourn-watermark { font-family:'Cairo',sans-serif; letter-spacing:0; }
+.tourn-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+.tourn-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  border: 1px solid rgba(153,202,60,.28); border-radius: 100px;
+  padding: 6px 14px; color: var(--g);
+  font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
+  margin-bottom: 18px;
+}
+html[lang="ar"] .tourn-badge { font-family:'Cairo',sans-serif; letter-spacing:0; }
+.tp-list { display: flex; flex-direction: column; gap: 10px; margin-top: 26px; }
+.tp {
+  display: flex; gap: 12px; align-items: center;
+  background: rgba(153,202,60,.05); border: 1px solid rgba(153,202,60,.09);
+  border-radius: 11px; padding: 14px;
+}
+.tp-ic    { font-size: 20px; width: 36px; text-align: center; }
+.tp-val   { font-family: 'Satoshi', sans-serif; font-size: 20px; font-weight: 900; letter-spacing: -0.5px; color: var(--g); }
+.tp-label { font-size: 11px; font-weight: 400; color: var(--muted); }
+html[lang="ar"] .tp-val   { font-family:'Cairo',sans-serif; letter-spacing:0; }
+html[lang="ar"] .tp-label { font-family:'Cairo',sans-serif; }
+
