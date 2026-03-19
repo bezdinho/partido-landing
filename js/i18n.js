@@ -86,6 +86,14 @@ const T = {
       title:   'Ready to get on the pitch?',
       sub:     'Find games, join players, and play whenever you want — all in one app.',
     },
+    story: {
+      label:   'Our Story',
+      title:   'Building connections through the beautiful game',
+      p1:      'Partido was born from a deep love of football and a desire to make the game more accessible to everyone.',
+      p2:      'In Morocco, football is more than just a sport — it\'s part of everyday life, culture, and identity. From local pitches to neighborhoods, the game brings people together.',
+      mission: 'Our mission is simple: to connect players, create opportunities to play, and build a stronger, more united football community.',
+      cta:     'Join the community',
+    },
     cta: {
       label:'Ready to play?',
       title:'YOUR NEXT<br>MATCH IS<br><span style="color:var(--g);">WAITING</span>',
@@ -177,6 +185,14 @@ const T = {
       title:   'Prêt à entrer sur le terrain ?',
       sub:     'Trouve des matchs, rejoins des joueurs et joue quand tu veux — tout dans une seule app.',
     },
+    story: {
+      label:   'Notre Histoire',
+      title:   'Créer des liens à travers le beau jeu',
+      p1:      'Partido est né d\'un amour profond du football et d\'une volonté de rendre le jeu plus accessible à tous.',
+      p2:      'Au Maroc, le football est bien plus qu\'un sport — c\'est une partie de la vie quotidienne, de la culture et de l\'identité. Des terrains locaux aux quartiers, le jeu rassemble les gens.',
+      mission: 'Notre mission est simple : connecter les joueurs, créer des opportunités de jouer et bâtir une communauté football plus forte et plus unie.',
+      cta:     'Rejoindre la communauté',
+    },
     cta: {
       label:'Prêt à jouer ?',
       title:'TON PROCHAIN<br>MATCH<br><span style="color:var(--g);">T\'ATTEND</span>',
@@ -267,6 +283,14 @@ const T = {
       eyebrow: 'انضم لآلاف اللاعبين',
       title:   'مستعد لدخول الملعب؟',
       sub:     'ابحث عن المباريات، انضم للاعبين، والعب متى تشاء — كل ذلك في تطبيق واحد.',
+    },
+    story: {
+      label:   'قصتنا',
+      title:   'نبني روابط من خلال الجميلة',
+      p1:      'وُلد بارتيدو من حب عميق لكرة القدم ورغبة في جعل اللعبة في متناول الجميع.',
+      p2:      'في المغرب، كرة القدم أكثر من مجرد رياضة — إنها جزء من الحياة اليومية والثقافة والهوية. من الملاعب المحلية إلى الأحياء، تجمع اللعبة الناس.',
+      mission: 'مهمتنا بسيطة: ربط اللاعبين، وخلق فرص للعب، وبناء مجتمع كرة قدم أقوى وأكثر وحدة.',
+      cta:     'انضم إلى المجتمع',
     },
     cta: {
       label:'مستعد للعب؟',

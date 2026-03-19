@@ -1,0 +1,240 @@
+/* === our-story.css === */
+
+/* ══════════════════════════════════════
+   OUR STORY
+   Sits directly below the pitch-cta.
+   Emotional, editorial, human.
+══════════════════════════════════════ */
+
+.story-section {
+  background: var(--black);
+  padding: 0 0 120px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ambient top-fade bridge from pitch-cta (var(--dark)) into var(--black) */
+.story-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 120px;
+  background: linear-gradient(to bottom, var(--dark), var(--black));
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Subtle green ambient — bottom-left corner */
+.story-section::after {
+  content: '';
+  position: absolute;
+  bottom: 60px; left: 5%;
+  width: 520px; height: 400px;
+  background: radial-gradient(ellipse at 30% 80%, rgba(153,202,60,.055) 0%, transparent 68%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Inner layout ── */
+.story-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 120px 48px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+/* ── Left: text ── */
+.story-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.story-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--g);
+  margin-bottom: 22px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.story-label::before {
+  content: '';
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: var(--g);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+html[lang="ar"] .story-label {
+  font-family: 'Cairo', sans-serif;
+  letter-spacing: 1px;
+}
+html[dir="rtl"] .story-label::before { order: 2; }
+
+.story-text h2 {
+  font-family: 'Satoshi', sans-serif;
+  font-size: clamp(28px, 3.4vw, 48px);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -1.6px;
+  color: var(--text);
+  margin-bottom: 32px;
+  text-transform: uppercase;
+}
+html[lang="ar"] .story-text h2 {
+  font-family: 'Cairo', sans-serif;
+  letter-spacing: 0;
+  text-transform: none;
+  line-height: 1.2;
+}
+
+/* Editorial paragraphs — deliberate rhythm */
+.story-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+.story-body p {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.8;
+  letter-spacing: -0.1px;
+}
+.story-body p strong {
+  color: var(--text);
+  font-weight: 600;
+}
+html[lang="ar"] .story-body p {
+  font-family: 'Cairo', sans-serif;
+  line-height: 1.95;
+  letter-spacing: 0;
+}
+
+/* Mission line — slightly elevated */
+.story-mission {
+  border-left: 2px solid rgba(153,202,60,.35);
+  padding-left: 18px;
+  font-size: 15px;
+  color: rgba(240,242,234,.65);
+  line-height: 1.75;
+  margin-bottom: 40px;
+  font-style: italic;
+}
+html[dir="rtl"] .story-mission {
+  border-left: none;
+  border-right: 2px solid rgba(153,202,60,.35);
+  padding-left: 0;
+  padding-right: 18px;
+}
+html[lang="ar"] .story-mission {
+  font-family: 'Cairo', sans-serif;
+  font-style: normal;
+  line-height: 1.9;
+}
+
+/* CTA link — text only, no button */
+.story-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--g);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: gap .25s ease, opacity .25s ease;
+  width: fit-content;
+}
+.story-link:hover {
+  gap: 14px;
+  opacity: .8;
+}
+html[lang="ar"] .story-link {
+  font-family: 'Cairo', sans-serif;
+  letter-spacing: 0;
+  flex-direction: row-reverse;
+}
+
+/* ── Right: image ── */
+.story-image {
+  position: relative;
+  border-radius: 24px;
+  overflow: hidden;
+  min-height: 480px;
+  border: 1px solid var(--bdr);
+  background-color: #0e110d;
+  /* RGBA PNG — rendered as background-image to avoid alpha bleed */
+  background-image: url('../assets/Future-Image.png');
+  background-size: cover;
+  background-position: center center;
+  box-shadow:
+    0 0 0 1px rgba(153,202,60,.05),
+    0 40px 100px rgba(0,0,0,.6);
+}
+
+/* Very light bottom vignette for depth — not darkening */
+.story-image::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(10,12,10,.4) 0%,
+    transparent 40%
+  );
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+/* Faint green shimmer top-right */
+.story-image::after {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 280px; height: 280px;
+  background: radial-gradient(circle, rgba(153,202,60,.09) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════ */
+@media (max-width: 900px) {
+  .story-inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    padding-top: 96px;
+  }
+  .story-image {
+    min-height: 320px;
+    order: -1;
+  }
+}
+
+@media (max-width: 580px) {
+  .story-inner {
+    padding: 80px 20px 0;
+  }
+  .story-section {
+    padding-bottom: 80px;
+  }
+  .story-text h2 {
+    letter-spacing: -1px;
+  }
+  .story-image {
+    min-height: 260px;
+    border-radius: 18px;
+  }
+}
