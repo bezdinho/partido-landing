@@ -3,43 +3,256 @@
 /* ══════════════════════════════════════
    HOW IT WORKS
 ══════════════════════════════════════ */
-.how-section { background: var(--dark); }
-.steps-row {
-  display: grid; grid-template-columns: repeat(3,1fr); gap: 0;
-  margin-top: 56px;
-  border: 1px solid var(--bdr); border-radius: 20px; overflow: hidden;
-}
-.step {
-  padding: 40px 30px; border-right: 1px solid var(--bdr);
-  position: relative; transition: background .3s, border-top-color .3s;
-  border-top: 2px solid transparent;
-}
-html[dir="rtl"] .step { border-right: none; border-left: 1px solid var(--bdr); }
-.step:last-child { border-right: none; }
-html[dir="rtl"] .step:last-child { border-left: none; }
-.step:hover { background: rgba(153,202,60,.04); border-top-color: rgba(153,202,60,.55); }
-.step-n {
-  font-family: 'Space Mono', monospace;
-  font-size: 10px; font-weight: 700; letter-spacing: 2.5px;
-  color: var(--g); line-height: 1; margin-bottom: 20px;
-  text-transform: uppercase; opacity: .8;
-}
-html[lang="ar"] .step-n { font-family:'Cairo',sans-serif; letter-spacing:0; }
-.step-ic {
-  width: 48px; height: 48px; background: var(--gd); border-radius: 12px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 22px; margin-bottom: 18px;
-  border: 1px solid rgba(153,202,60,.15);
-}
-.step h3 { font-size: 15px; font-weight: 800; letter-spacing: -0.3px; text-transform: uppercase; margin-bottom: 9px; }
-html[lang="ar"] .step h3 { font-family:'Cairo',sans-serif; letter-spacing:0; text-transform:none; }
-.step p   { font-size: 13px; font-weight: 400; color: var(--muted); line-height: 1.65; }
-html[lang="ar"] .step p { font-family:'Cairo',sans-serif; line-height:1.8; }
-.step-dot {
-  position: absolute; top: 50%; right: -7px; transform: translateY(-50%);
-  width: 12px; height: 12px; border-radius: 50%;
-  background: var(--g); border: 2px solid var(--dark); z-index: 1;
-}
-html[dir="rtl"] .step-dot { right: auto; left: -7px; }
-.step:last-child .step-dot { display: none; }
 
+.how-section { background: var(--dark); }
+
+/* ── Grid container ── */
+.how-steps {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.6fr;
+  gap: 16px;
+  margin-top: 72px;
+  align-items: stretch;
+}
+
+/* ── Base card ── */
+.how-step {
+  position: relative;
+  border-radius: 24px;
+  border: 1px solid var(--bdr);
+  background: var(--card);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 28px 26px;
+  transition: border-color .35s ease, box-shadow .35s ease;
+}
+.how-step:hover {
+  border-color: rgba(153,202,60,.28);
+}
+
+/* ── Step meta: number + badge ── */
+.how-step__meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+.how-step__num {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  color: var(--g);
+  opacity: .9;
+}
+html[lang="ar"] .how-step__num { font-family:'Cairo',sans-serif; letter-spacing:0; }
+.how-step__badge {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: rgba(255,255,255,.04);
+  border: 1px solid var(--bdr);
+  padding: 3px 9px;
+  border-radius: 100px;
+}
+html[lang="ar"] .how-step__badge { font-family:'Cairo',sans-serif; letter-spacing:0; }
+
+/* ── App mockup visual ── */
+.how-step__visual {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 0 24px;
+  min-height: 210px;
+}
+.how-step__mockup {
+  width: 140px;
+  border-radius: 28px;
+  overflow: hidden;
+  border: 1.5px solid rgba(255,255,255,.09);
+  box-shadow:
+    0 24px 56px rgba(0,0,0,.75),
+    0 0 0 1px rgba(153,202,60,.05);
+  background: #040506;
+  position: relative;
+}
+/* Dynamic Island notch */
+.how-step__mockup::before {
+  content: '';
+  position: absolute;
+  top: 7px; left: 50%;
+  transform: translateX(-50%);
+  width: 56px; height: 14px;
+  background: #040506;
+  border-radius: 9px;
+  z-index: 2;
+}
+.how-step__mockup img {
+  display: block;
+  width: 100%;
+}
+/* Counter-tilt between the two mockup cards */
+.how-step--discover .how-step__mockup { transform: rotate(-2deg); }
+.how-step--join    .how-step__mockup { transform: rotate( 2deg); }
+
+/* ── Text ── */
+.how-step__content h3 {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: -.2px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  line-height: 1.2;
+  color: var(--text);
+}
+html[lang="ar"] .how-step__content h3 { font-family:'Cairo',sans-serif; letter-spacing:0; text-transform:none; }
+.how-step__content p {
+  font-size: 12.5px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+html[lang="ar"] .how-step__content p { font-family:'Cairo',sans-serif; line-height:1.8; }
+
+/* ── Offset Step 2 downward for visual rhythm ── */
+.how-step--join { margin-top: 44px; }
+
+/* ══════════════════════════════════════
+   STEP 3 — PLAY  (dominant, emotional)
+══════════════════════════════════════ */
+.how-step--play {
+  background: #060808;
+  border-color: rgba(153,202,60,.12);
+  min-height: 490px;
+  justify-content: flex-end;
+  padding: 32px 30px;
+}
+.how-step--play:hover {
+  border-color: rgba(153,202,60,.32);
+  box-shadow: 0 0 64px rgba(153,202,60,.06);
+}
+
+/* Full-bleed football photo */
+.how-step__photo {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.how-step__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  filter: saturate(.85) brightness(.88);
+}
+/* Gradient overlay */
+.how-step__photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    170deg,
+    rgba(6,8,8,.05)  0%,
+    rgba(6,8,8,.22)  30%,
+    rgba(6,8,8,.78)  62%,
+    rgba(6,8,8,.97) 100%
+  );
+}
+/* Green ambient glow at bottom */
+.how-step--play::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 200px;
+  background: radial-gradient(ellipse at 35% 100%, rgba(153,202,60,.14) 0%, transparent 70%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Meta sits top-left over the photo */
+.how-step--play .how-step__meta {
+  position: absolute;
+  top: 32px; left: 30px;
+  z-index: 2;
+  margin: 0;
+}
+html[dir="rtl"] .how-step--play .how-step__meta { left: auto; right: 30px; }
+
+/* Content at the bottom, above overlay */
+.how-step--play .how-step__content {
+  position: relative;
+  z-index: 2;
+}
+.how-step--play .how-step__content h3 {
+  font-size: clamp(30px, 2.8vw, 44px);
+  font-weight: 900;
+  letter-spacing: -2.5px;
+  line-height: 1.0;
+  color: #fff;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+html[lang="ar"] .how-step--play .how-step__content h3 {
+  font-family:'Cairo',sans-serif; letter-spacing:0; line-height:1.2;
+}
+.how-step--play .how-step__content p {
+  font-size: 14px;
+  color: rgba(240,242,234,.52);
+  margin-bottom: 28px;
+  line-height: 1.6;
+}
+html[lang="ar"] .how-step--play .how-step__content p {
+  font-family:'Cairo',sans-serif; line-height:1.9;
+}
+
+/* CTA button */
+.how-step__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--g);
+  color: #060a04;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  padding: 12px 22px;
+  border-radius: 100px;
+  text-decoration: none;
+  width: fit-content;
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+html[lang="ar"] .how-step__cta { font-family:'Cairo',sans-serif; letter-spacing:0; flex-direction:row-reverse; }
+.how-step__cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(153,202,60,.40);
+}
+.how-step__cta svg { width: 12px; height: 12px; flex-shrink: 0; }
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════ */
+@media (max-width: 960px) {
+  .how-steps {
+    grid-template-columns: 1fr 1fr;
+  }
+  .how-step--play {
+    grid-column: 1 / -1;
+    min-height: 380px;
+  }
+  .how-step--join { margin-top: 0; }
+}
+
+@media (max-width: 580px) {
+  .how-steps {
+    grid-template-columns: 1fr;
+    margin-top: 48px;
+  }
+  .how-step--play { min-height: 320px; }
+  .how-step--discover .how-step__mockup,
+  .how-step--join    .how-step__mockup { transform: none; }
+  .how-step--play .how-step__content h3 { letter-spacing: -1.5px; }
+}
