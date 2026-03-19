@@ -81,6 +81,11 @@ const T = {
       r2:'"I moved to a new city and had zero people to play with. Two days after downloading Partido I was in a regular squad."',
       r3:'"The behavior tracking is underrated. I know exactly who I\'m inviting and whether they actually show up."',
     },
+    pitchcta: {
+      eyebrow: 'Join thousands of players',
+      title:   'Ready to get on the pitch?',
+      sub:     'Find games, join players, and play whenever you want — all in one app.',
+    },
     cta: {
       label:'Ready to play?',
       title:'YOUR NEXT<br>MATCH IS<br><span style="color:var(--g);">WAITING</span>',
@@ -167,6 +172,11 @@ const T = {
       r2:'"J\'ai déménagé dans une nouvelle ville sans personne à qui jouer. Deux jours après Partido j\'étais dans une équipe régulière."',
       r3:'"Le suivi de comportement est sous-estimé. Je sais exactement qui j\'invite et s\'ils vont vraiment se pointer."',
     },
+    pitchcta: {
+      eyebrow: 'Rejoins des milliers de joueurs',
+      title:   'Prêt à entrer sur le terrain ?',
+      sub:     'Trouve des matchs, rejoins des joueurs et joue quand tu veux — tout dans une seule app.',
+    },
     cta: {
       label:'Prêt à jouer ?',
       title:'TON PROCHAIN<br>MATCH<br><span style="color:var(--g);">T\'ATTEND</span>',
@@ -252,6 +262,11 @@ const T = {
       r1:'"أخيراً تطبيق يحل المشكلة الحقيقية. انتهت رسائل واتساب الخمسين لتأكيد 11 شخصاً."',
       r2:'"انتقلت لمدينة جديدة ولم أعرف أحداً. بعد يومين من التنزيل كنت في فريق منتظم."',
       r3:'"تتبع السلوك مُقلَّل القيمة. أعرف تماماً من أدعو وإذا كان سيحضر فعلاً."',
+    },
+    pitchcta: {
+      eyebrow: 'انضم لآلاف اللاعبين',
+      title:   'مستعد لدخول الملعب؟',
+      sub:     'ابحث عن المباريات، انضم للاعبين، والعب متى تشاء — كل ذلك في تطبيق واحد.',
     },
     cta: {
       label:'مستعد للعب؟',
