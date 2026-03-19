@@ -58,15 +58,6 @@ const T = {
       c2t:'Behavior score',      c2s:'Was late, absent, or left early? It\'s recorded. Organizers see it before accepting you.',
       c3t:'Peer accountability', c3s:'Friends\' behavior is tracked too. You know before you invite someone if they\'re reliable.',
     },
-    feat: {
-      label:'Everything you need', title:'BUILT FOR<br>REAL PLAYERS',
-      f1t:'Local match discovery', f1p:'Games near you, filtered by city, level, and day — all in one clean calendar feed.',
-      f2t:'Organizer controls',    f2p:'Review player profiles, approve or reject join requests, manage your squad before match day.',
-      f3t:'Follow & get notified', f3p:'Follow full games and get instantly notified the moment a spot opens up.',
-      f4t:'Match history & stats', f4p:'Every game you\'ve played, tracked and displayed. Your profile gets richer with every match.',
-      f5t:'In-app messaging',      f5p:'Coordinate with your squad inside Partido. No need to share numbers with strangers.',
-      f6t:'Accountability system', f6p:'Player behavior is tracked across games. Keep the community reliable and show-up culture alive.',
-    },
     tourn: {
       watermark:'TOURNAMENTS',
       badge:'Coming Soon',
@@ -157,15 +148,6 @@ const T = {
       c2t:'Score de comportement',  c2s:'En retard, absent ou parti tôt ? C\'est enregistré. Les organisateurs le voient.',
       c3t:'Responsabilité entre pairs', c3s:'Le comportement des amis est aussi suivi. Tu sais à qui tu as affaire.',
     },
-    feat: {
-      label:'Tout ce dont tu as besoin', title:'CONÇU POUR<br>LES VRAIS JOUEURS',
-      f1t:'Découverte locale',       f1p:'Matchs proches de toi, filtrés par ville, niveau et jour — en un seul feed.',
-      f2t:'Contrôles organisateur',  f2p:'Consulte les profils, approuve ou rejette les demandes, gère ton équipe.',
-      f3t:'Suis et sois notifié',    f3p:'Suis les matchs complets et reçois une notification dès qu\'une place se libère.',
-      f4t:'Historique et stats',     f4p:'Chaque match joué, suivi et affiché. Ton profil s\'enrichit à chaque partie.',
-      f5t:'Messagerie intégrée',     f5p:'Coordonne-toi dans l\'app. Inutile de partager ton numéro avec des inconnus.',
-      f6t:'Système de responsabilité', f6p:'Le comportement est suivi sur tous les matchs. Une communauté de confiance.',
-    },
     tourn: {
       watermark:'TOURNOIS',
       badge:'Bientôt disponible',
@@ -255,15 +237,6 @@ const T = {
       c1t:'تتبع النشاط',          c1s:'مباريات لعبتها، نظّمتها، بطولات — سجل كروي كامل.',
       c2t:'درجة السلوك',          c2s:'جئت متأخراً أو غبت؟ مسجّل. المنظمون يرونه قبل قبولك.',
       c3t:'مساءلة الأقران',       c3s:'سلوك أصدقائك يُتتبع أيضاً. تعرف مسبقاً من يمكنك الاعتماد عليه.',
-    },
-    feat: {
-      label:'كل ما تحتاجه', title:'مبني من أجل<br>اللاعبين الحقيقيين',
-      f1t:'اكتشاف محلي',            f1p:'مباريات قريبة منك، مصفّاة حسب المدينة والمستوى واليوم — في تدفق واحد.',
-      f2t:'أدوات المنظم',           f2p:'راجع ملفات اللاعبين، وافق أو ارفض الطلبات، وأدر فريقك.',
-      f3t:'تابع واحصل على إشعارات', f3p:'تابع المباريات الممتلئة واحصل على إشعار فور توفر مكان.',
-      f4t:'السجل والإحصاءات',       f4p:'كل مباراة لعبتها، مُتتبَّعة ومعروضة. ملفك يزداد ثراءً مع كل مباراة.',
-      f5t:'مراسلة داخل التطبيق',   f5p:'نسّق مع فريقك داخل بارتيدو. لا حاجة لمشاركة رقمك مع غرباء.',
-      f6t:'نظام المساءلة',          f6p:'سلوك اللاعبين متتبَّع عبر جميع المباريات. مجتمع موثوق وملتزم.',
     },
     tourn: {
       watermark:'بطولات',
