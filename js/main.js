@@ -30,6 +30,13 @@ function applyLang(lang) {
     if (val !== undefined) el.innerHTML = val;
   });
 
+  // Update placeholder translations
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    const val = key.split('.').reduce((obj, k) => obj?.[k], t);
+    if (val !== undefined) el.placeholder = val;
+  });
+
   // Marquee
   document.getElementById('marquee-track').innerHTML = buildMarquee(lang);
 

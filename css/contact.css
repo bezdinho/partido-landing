@@ -1,0 +1,201 @@
+/* === contact.css === */
+
+/* ══════════════════════════════════════
+   CONTACT SECTION
+══════════════════════════════════════ */
+
+.contact-section {
+  background: var(--dark);
+  padding: 112px 0;
+  position: relative;
+  border-top: 1px solid var(--bdr);
+}
+
+/* Ambient green glow — centered top */
+.contact-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 600px; height: 300px;
+  background: radial-gradient(ellipse at 50% 0%, rgba(153,202,60,.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ── Inner wrapper ── */
+.contact-inner {
+  max-width: 580px;
+  margin: 0 auto;
+  padding: 0 48px;
+  text-align: center;
+}
+
+/* ── Label ── */
+.contact-label {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--g);
+  margin-bottom: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.contact-label::before,
+.contact-label::after {
+  content: '';
+  display: block;
+  width: 14px;
+  height: 2px;
+  background: var(--g);
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+html[lang="ar"] .contact-label {
+  font-family: 'Cairo', sans-serif;
+  letter-spacing: 1px;
+}
+
+/* ── Heading ── */
+.contact-section h2 {
+  font-family: 'Satoshi', sans-serif;
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 900;
+  letter-spacing: -1.8px;
+  line-height: 1.0;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: 14px;
+}
+html[lang="ar"] .contact-section h2 {
+  font-family: 'Cairo', sans-serif;
+  letter-spacing: 0;
+  text-transform: none;
+  line-height: 1.2;
+}
+
+/* ── Subtitle ── */
+.contact-sub {
+  font-size: 15px;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 420px;
+  margin: 0 auto 48px;
+}
+html[lang="ar"] .contact-sub {
+  font-family: 'Cairo', sans-serif;
+  line-height: 1.9;
+}
+
+/* ── Form ── */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  text-align: left;
+}
+html[dir="rtl"] .contact-form { text-align: right; }
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  background: rgba(255,255,255,.03);
+  border: 1px solid var(--bdr);
+  border-radius: 14px;
+  padding: 15px 18px;
+  font-family: 'Satoshi', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text);
+  outline: none;
+  transition: border-color .2s ease, background .2s ease, box-shadow .2s ease;
+  -webkit-appearance: none;
+}
+html[lang="ar"] .contact-form input,
+html[lang="ar"] .contact-form textarea {
+  font-family: 'Cairo', sans-serif;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: var(--dim);
+  font-size: 13.5px;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: rgba(153,202,60,.45);
+  background: rgba(153,202,60,.03);
+  box-shadow: 0 0 0 3px rgba(153,202,60,.07);
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 130px;
+  line-height: 1.6;
+}
+
+/* ── Submit button ── */
+.contact-form .contact-submit {
+  background: var(--g);
+  color: var(--black);
+  font-family: 'Satoshi', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.2px;
+  border: none;
+  border-radius: 100px;
+  padding: 15px 32px;
+  cursor: pointer;
+  transition: transform .2s ease, box-shadow .2s ease;
+  align-self: flex-start;
+  margin-top: 4px;
+}
+html[lang="ar"] .contact-form .contact-submit {
+  font-family: 'Cairo', sans-serif;
+  align-self: flex-end;
+}
+.contact-form .contact-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(153,202,60,.38);
+}
+
+/* ── Direct email line ── */
+.contact-direct {
+  margin-top: 36px;
+  font-size: 13px;
+  color: var(--dim);
+}
+.contact-direct a {
+  color: var(--muted);
+  text-decoration: none;
+  transition: color .2s;
+  font-weight: 500;
+}
+.contact-direct a:hover {
+  color: var(--g);
+}
+html[lang="ar"] .contact-direct {
+  font-family: 'Cairo', sans-serif;
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════ */
+@media (max-width: 580px) {
+  .contact-inner {
+    padding: 0 20px;
+  }
+  .contact-section {
+    padding: 80px 0;
+  }
+  .contact-form .contact-submit {
+    width: 100%;
+    text-align: center;
+  }
+  html[lang="ar"] .contact-form .contact-submit {
+    align-self: stretch;
+  }
+}

@@ -90,6 +90,12 @@ const T = {
       title:'YOUR NEXT<br>MATCH IS<br><span style="color:var(--g);">WAITING</span>',
       sub:  'Download Partido free. Create a match in 60 seconds or find one nearby. Your squad is already out there.',
     },
+    contact: {
+      label:'Contact', title:'Get in touch',
+      sub:'Have a question, feedback, or want to partner with us? We\'d love to hear from you.',
+      name:'Your name', email:'Your email', message:'Your message',
+      btn:'Send message', direct:'Or reach us directly at:',
+    },
     footer: { privacy:'Privacy', terms:'Terms', contact:'Contact', copy:'© 2026 Partido Sports. Morocco 🇲🇦', brand:'Morocco\'s football community — one match at a time.' },
   },
 
@@ -180,6 +186,12 @@ const T = {
       title:'TON PROCHAIN<br>MATCH<br><span style="color:var(--g);">T\'ATTEND</span>',
       sub:  'Télécharge Partido gratuitement. Crée un match en 60 secondes ou trouve-en un. Ton équipe t\'attend.',
     },
+    contact: {
+      label:'Contact', title:'Contactez-nous',
+      sub:'Une question, un retour, ou envie de collaborer ? Nous serions ravis de vous entendre.',
+      name:'Votre nom', email:'Votre email', message:'Votre message',
+      btn:'Envoyer le message', direct:'Ou contactez-nous directement à :',
+    },
     footer: { privacy:'Confidentialité', terms:'CGU', contact:'Contact', copy:'© 2026 Partido Sports. Maroc 🇲🇦', brand:'La communauté football du Maroc — un match à la fois.' },
   },
 
@@ -269,6 +281,12 @@ const T = {
       label:'مستعد للعب؟',
       title:'مباراتك القادمة<br>في<br><span style="color:var(--g);">انتظارك</span>',
       sub:  'حمّل بارتيدو مجاناً. أنشئ مباراة في 60 ثانية أو ابحث عن واحدة بالقرب منك. فريقك موجود هناك.',
+    },
+    contact: {
+      label:'تواصل معنا', title:'ابقَ على تواصل',
+      sub:'هل لديك سؤال، ملاحظة، أو تريد التعاون معنا؟ يسعدنا سماعك.',
+      name:'اسمك', email:'بريدك الإلكتروني', message:'رسالتك',
+      btn:'إرسال الرسالة', direct:'أو تواصل معنا مباشرةً على:',
     },
     footer: { privacy:'الخصوصية', terms:'الشروط', contact:'تواصل معنا', copy:'© 2026 Partido Sports. المغرب 🇲🇦', brand:'مجتمع كرة القدم في المغرب — مباراة واحدة في كل مرة.' },
   },

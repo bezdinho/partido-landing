@@ -21,6 +21,7 @@
   <link rel="stylesheet" href="css/reviews.css">
   <link rel="stylesheet" href="css/proof.css">
   <link rel="stylesheet" href="css/cta.css">
+  <link rel="stylesheet" href="css/contact.css">
   <link rel="stylesheet" href="css/footer.css">
   <link rel="stylesheet" href="css/components.css">
 </head>
@@ -439,6 +440,49 @@
     </div>
   </div>
 </section>
+
+<!-- ══ CONTACT ══ -->
+<section class="contact-section">
+  <div class="contact-inner">
+
+    <span class="contact-label" data-i18n="contact.label">Contact</span>
+    <h2 data-i18n="contact.title">Get in touch</h2>
+    <p class="contact-sub" data-i18n="contact.sub">Have a question, feedback, or want to partner with us? We’d love to hear from you.</p>
+
+    <form class="contact-form reveal" action="https://formspree.io/f/placeholder" method="POST" novalidate>
+      <input
+        type="text"
+        name="name"
+        data-i18n-placeholder="contact.name"
+        placeholder="Your name"
+        required
+        autocomplete="name"
+      >
+      <input
+        type="email"
+        name="email"
+        data-i18n-placeholder="contact.email"
+        placeholder="Your email"
+        required
+        autocomplete="email"
+      >
+      <textarea
+        name="message"
+        data-i18n-placeholder="contact.message"
+        placeholder="Your message"
+        required
+      ></textarea>
+      <button type="submit" class="contact-submit" data-i18n="contact.btn">Send message</button>
+    </form>
+
+    <p class="contact-direct">
+      <span data-i18n="contact.direct">Or reach us directly at:</span>
+      <a href="mailto:contact@partido.app">contact@partido.app</a>
+    </p>
+
+  </div>
+</section>
+
 
 <!-- ══ FOOTER ══ -->
 <div class="footer-brand" data-i18n="footer.brand">Morocco's football community — one match at a time.</div>
