@@ -1,0 +1,234 @@
+/* === editorial.css === */
+
+/* ══════════════════════════════════════
+   INSIDE PARTIDO  — editorial / news
+   Sits directly above the footer.
+══════════════════════════════════════ */
+
+.editorial-section {
+  background: var(--dark);
+  padding: 112px 0 96px;
+  border-top: 1px solid var(--bdr);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Faint ambient glow */
+.editorial-section::before {
+  content: '';
+  position: absolute;
+  top: -80px; right: 5%;
+  width: 560px; height: 420px;
+  background: radial-gradient(ellipse at 70% 20%, rgba(153,202,60,.06) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+/* ── Header ── */
+.editorial-header {
+  max-width: 1160px;
+  margin: 0 auto 60px;
+  padding: 0 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+}
+
+.editorial-header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.editorial-section .sec-label {
+  margin-bottom: 0;
+}
+
+.editorial-title {
+  font-family: 'Satoshi', sans-serif;
+  font-size: clamp(28px, 3.2vw, 44px);
+  font-weight: 900;
+  letter-spacing: -1.4px;
+  line-height: 1.05;
+  text-transform: uppercase;
+  color: var(--text);
+}
+html[lang="ar"] .editorial-title {
+  font-family: 'Cairo', sans-serif;
+  letter-spacing: 0;
+  text-transform: none;
+  line-height: 1.2;
+}
+
+.editorial-subtitle {
+  font-size: 14.5px;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 480px;
+  margin-top: 6px;
+}
+html[lang="ar"] .editorial-subtitle {
+  font-family: 'Cairo', sans-serif;
+  line-height: 1.9;
+}
+
+/* ── Cards grid ── */
+.editorial-grid {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 48px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* ── Single card ── */
+.ed-card {
+  background: var(--card);
+  border: 1px solid var(--bdr);
+  border-radius: 18px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-color .28s ease, transform .28s ease, box-shadow .28s ease;
+  cursor: default;
+  position: relative;
+}
+.ed-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(153,202,60,.055) 0%, transparent 65%);
+  opacity: 0;
+  transition: opacity .35s ease;
+  pointer-events: none;
+  border-radius: inherit;
+}
+.ed-card:hover {
+  border-color: rgba(153,202,60,.25);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 52px rgba(0,0,0,.5), 0 0 0 1px rgba(153,202,60,.1);
+}
+.ed-card:hover::before { opacity: 1; }
+
+/* Card image */
+.ed-card__img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: #0d110c;
+}
+.ed-card__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transition: transform 5s ease;
+  filter: brightness(.88) saturate(.82);
+}
+.ed-card:hover .ed-card__img img {
+  transform: scale(1.05);
+}
+
+/* Card body */
+.ed-card__body {
+  padding: 22px 22px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.ed-card__tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 2.4px;
+  text-transform: uppercase;
+  color: var(--g);
+  opacity: .7;
+}
+html[lang="ar"] .ed-card__tag {
+  font-family: 'Cairo', sans-serif;
+  letter-spacing: 1px;
+}
+
+.ed-card__title {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.35;
+  letter-spacing: -.3px;
+}
+html[lang="ar"] .ed-card__title {
+  font-family: 'Cairo', sans-serif;
+  letter-spacing: 0;
+  line-height: 1.5;
+}
+
+.ed-card__desc {
+  font-size: 12.5px;
+  color: var(--muted);
+  line-height: 1.65;
+  flex: 1;
+}
+html[lang="ar"] .ed-card__desc {
+  font-family: 'Cairo', sans-serif;
+  line-height: 1.8;
+}
+
+.ed-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: .4px;
+  color: rgba(153,202,60,.65);
+  text-transform: uppercase;
+  margin-top: 4px;
+  transition: color .2s, gap .2s;
+  text-decoration: none;
+  cursor: default;
+}
+.ed-card:hover .ed-card__cta {
+  color: var(--g);
+  gap: 8px;
+}
+html[lang="ar"] .ed-card__cta {
+  font-family: 'Cairo', sans-serif;
+  letter-spacing: 0;
+  flex-direction: row-reverse;
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════ */
+@media (max-width: 960px) {
+  .editorial-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+  .editorial-header {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 44px;
+  }
+}
+
+@media (max-width: 580px) {
+  .editorial-section {
+    padding: 80px 0 72px;
+  }
+  .editorial-header {
+    padding: 0 20px;
+    margin-bottom: 32px;
+  }
+  .editorial-grid {
+    grid-template-columns: 1fr;
+    padding: 0 20px;
+    gap: 16px;
+  }
+}
