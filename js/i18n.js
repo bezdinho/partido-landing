@@ -96,7 +96,7 @@ const T = {
       name:'Your name', email:'Your email', message:'Your message',
       btn:'Send message', direct:'Or reach us directly at:',
     },
-    footer: { privacy:'Privacy', terms:'Terms', contact:'Contact', copy:'© 2026 Partido Sports. Morocco 🇲🇦', brand:'Morocco\'s football community — one match at a time.' },
+    footer: { privacy:'Privacy', terms:'Terms', contact:'Contact', getapp:'Get the app', tagline:'Connecting players through the beautiful game.', copy:'Copyright © 2026 Partido. All rights reserved.' },
   },
 
   fr: {
@@ -192,7 +192,7 @@ const T = {
       name:'Votre nom', email:'Votre email', message:'Votre message',
       btn:'Envoyer le message', direct:'Ou contactez-nous directement à :',
     },
-    footer: { privacy:'Confidentialité', terms:'CGU', contact:'Contact', copy:'© 2026 Partido Sports. Maroc 🇲🇦', brand:'La communauté football du Maroc — un match à la fois.' },
+    footer: { privacy:'Confidentialité', terms:'CGU', contact:'Contact', getapp:'Télécharger l\'app', tagline:'Connecter les joueurs à travers le beau jeu.', copy:'Copyright © 2026 Partido. Tous droits réservés.' },
   },
 
   ar: {
@@ -288,6 +288,6 @@ const T = {
       name:'اسمك', email:'بريدك الإلكتروني', message:'رسالتك',
       btn:'إرسال الرسالة', direct:'أو تواصل معنا مباشرةً على:',
     },
-    footer: { privacy:'الخصوصية', terms:'الشروط', contact:'تواصل معنا', copy:'© 2026 Partido Sports. المغرب 🇲🇦', brand:'مجتمع كرة القدم في المغرب — مباراة واحدة في كل مرة.' },
+    footer: { privacy:'الخصوصية', terms:'الشروط', contact:'تواصل معنا', getapp:'حمّل التطبيق', tagline:'نربط اللاعبين من خلال الجميلة.', copy:'حقوق النشر © 2026 Partido. جميع الحقوق محفوظة.' },
   },
 };
