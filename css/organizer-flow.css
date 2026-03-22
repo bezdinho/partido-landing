@@ -1,0 +1,237 @@
+/* === organizer-flow.css === */
+
+/* ══════════════════════════════════════
+   ORGANIZER FLOW
+   3-card grid: Set Up → Manage → Play
+   Mirrors the premium card language of
+   the How It Works section.
+══════════════════════════════════════ */
+
+.org-section {
+  background: var(--black);
+  padding: 96px 0 108px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ambient green — center-bottom */
+.org-section::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 50%; transform: translateX(-50%);
+  width: 700px; height: 360px;
+  background: radial-gradient(ellipse at 50% 100%, rgba(153,202,60,.06) 0%, transparent 65%);
+  pointer-events: none;
+}
+
+/* ── Section header ── */
+.org-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+.org-header .sec-label { margin-bottom: 12px; }
+.org-header .sec-title { margin-bottom: 14px; }
+.org-header .sec-sub   { margin: 0 auto; }
+
+/* ── Card grid ── */
+.org-grid {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 48px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 18px;
+  align-items: stretch;
+}
+
+/* ── Base card ── */
+.org-card {
+  border-radius: 22px;
+  border: 1px solid var(--bdr);
+  background: var(--card);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-color .3s ease, box-shadow .3s ease, transform .3s ease;
+  position: relative;
+}
+.org-card:hover {
+  border-color: rgba(153,202,60,.26);
+  transform: translateY(-4px);
+  box-shadow: 0 24px 60px rgba(0,0,0,.5), 0 0 0 1px rgba(153,202,60,.09);
+}
+
+/* ── Step badge row ── */
+.org-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 22px 22px 0;
+}
+.org-card__num {
+  font-family: 'Space Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  color: var(--g);
+}
+html[lang="ar"] .org-card__num {
+  font-family: 'Cairo', sans-serif;
+  letter-spacing: 0;
+}
+.org-card__badge {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: rgba(255,255,255,.04);
+  border: 1px solid var(--bdr);
+  padding: 3px 9px;
+  border-radius: 100px;
+}
+html[lang="ar"] .org-card__badge {
+  font-family: 'Cairo', sans-serif;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* ── Image block ── */
+.org-card__image {
+  margin: 18px 22px;
+  border-radius: 14px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: #0c0e0b;
+  border: 1px solid rgba(255,255,255,.05);
+}
+
+/* Cards 1 & 2: phone screenshot — portrait aspect */
+.org-card--setup   .org-card__image,
+.org-card--manage  .org-card__image {
+  aspect-ratio: 9 / 16;
+}
+.org-card--setup  .org-card__image img,
+.org-card--manage .org-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  filter: brightness(.9) saturate(.88);
+  transition: transform 5s ease;
+}
+.org-card--setup:hover  .org-card__image img,
+.org-card--manage:hover .org-card__image img {
+  transform: scale(1.04);
+}
+
+/* Card 3: play photo — landscape + full bleed feel */
+.org-card--play .org-card__image {
+  margin: 0;
+  border-radius: 0;
+  border: none;
+  flex: 1;
+  min-height: 220px;
+}
+.org-card--play .org-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+  filter: brightness(.78) saturate(.82);
+  transition: transform 6s ease;
+}
+.org-card--play:hover .org-card__image img {
+  transform: scale(1.04);
+}
+
+/* Gradient overlay on card 3 image */
+.org-card--play .org-card__image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(24,26,21,.85) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+/* ── Text block ── */
+.org-card__text {
+  padding: 18px 22px 26px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.org-card__title {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 13.5px;
+  font-weight: 800;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--text);
+  line-height: 1.25;
+}
+html[lang="ar"] .org-card__title {
+  font-family: 'Cairo', sans-serif;
+  letter-spacing: 0;
+  text-transform: none;
+  line-height: 1.4;
+}
+.org-card__desc {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+html[lang="ar"] .org-card__desc {
+  font-family: 'Cairo', sans-serif;
+  line-height: 1.85;
+}
+
+/* Card 3 text sits on top of image (absolute) */
+.org-card--play {
+  position: relative;
+}
+.org-card--play .org-card__text {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  z-index: 2;
+  padding: 22px 24px 28px;
+}
+.org-card--play .org-card__title { color: #fff; font-size: 14px; }
+.org-card--play .org-card__desc  { color: rgba(255,255,255,.65); }
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════ */
+@media (max-width: 860px) {
+  .org-grid {
+    grid-template-columns: 1fr 1fr;
+    padding: 0 28px;
+  }
+  .org-card--play {
+    grid-column: span 2;
+    min-height: 280px;
+  }
+  .org-card--play .org-card__image {
+    min-height: 280px;
+  }
+}
+
+@media (max-width: 560px) {
+  .org-grid {
+    grid-template-columns: 1fr;
+    padding: 0 20px;
+  }
+  .org-card--play {
+    grid-column: span 1;
+    min-height: 260px;
+  }
+  .org-section {
+    padding: 72px 0 80px;
+  }
+  .org-header {
+    padding: 0 20px;
+    margin-bottom: 44px;
+  }
+}
