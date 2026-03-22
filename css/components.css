@@ -275,15 +275,7 @@ html[lang="ar"] .cta-section h2 { font-family: 'Cairo', sans-serif; line-height:
 html[lang="ar"] .cta-section p { font-family: 'Cairo', sans-serif; line-height: 1.85; }
 .store-btns { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 
-/* -- FOOTER -- */
-footer { border-top: 1px solid var(--bdr); padding: 40px 48px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 18px; }
-.footer-links { display: flex; gap: 20px; }
-.footer-links a { font-size: 12px; color: var(--muted); text-decoration: none; transition: color .2s; }
-.footer-links a:hover { color: var(--text); }
-.footer-copy { font-size: 11px; color: var(--muted); }
-html[lang="ar"] .footer-links a, html[lang="ar"] .footer-copy { font-family: 'Cairo', sans-serif; }
-.footer-brand { border-top: 1px solid rgba(255,255,255,.04); padding: 24px 48px; text-align: center; font-size: 12px; color: var(--dim); letter-spacing: .3px; }
-html[lang="ar"] .footer-brand { font-family: 'Cairo', sans-serif; letter-spacing: 0; }
+/* -- FOOTER: handled entirely by footer.css -- */
 
 /* -- STORE BADGE / BUTTONS -- */
 .store-badge { display: inline-block; transition: transform .2s, filter .2s; }
