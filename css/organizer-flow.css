@@ -96,35 +96,26 @@ html[lang="ar"] .org-card__badge {
   text-transform: none;
 }
 
-/* ── Image block ── */
-.org-card__image {
-  margin: 18px 22px;
-  border-radius: 14px;
-  overflow: hidden;
-  flex-shrink: 0;
-  background: #0c0e0b;
-  border: 1px solid rgba(255,255,255,.05);
+/* ── Phone mockup visual (cards 1 & 2) ── */
+.org-card__visual {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 22px 10px;
 }
 
-/* Cards 1 & 2: phone screenshot — portrait aspect */
-.org-card--setup   .org-card__image,
-.org-card--manage  .org-card__image {
-  aspect-ratio: 9 / 16;
+/* Size the .phone component — inherits all frame
+   styles (border, shadow, notch) from base.css */
+.org-card--setup  .org-card__visual .phone,
+.org-card--manage .org-card__visual .phone {
+  width: 148px;
+  flex-shrink: 0;
 }
-.org-card--setup  .org-card__image img,
-.org-card--manage .org-card__image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  display: block;
-  filter: brightness(.9) saturate(.88);
-  transition: transform 5s ease;
-}
-.org-card--setup:hover  .org-card__image img,
-.org-card--manage:hover .org-card__image img {
-  transform: scale(1.04);
-}
+
+/* Subtle counter-tilt for visual rhythm */
+.org-card--setup  .org-card__visual .phone { transform: rotate(-1.5deg); }
+.org-card--manage .org-card__visual .phone { transform: rotate( 1.5deg); }
 
 /* Card 3: play photo — landscape + full bleed feel */
 .org-card--play .org-card__image {
