@@ -10,17 +10,32 @@
   padding: 52px 0;
 }
 .proof-inner {
-  display: flex; align-items: center; justify-content: center;
-  flex-wrap: wrap;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 48px;
+  width: 100%;
 }
 .proof-stat {
-  display: flex; flex-direction: column; align-items: center; gap: 6px;
-  padding: 10px 40px; text-align: center;
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 16px;
+  text-align: center;
 }
 .proof-num {
   font-family: 'Satoshi', sans-serif;
-  font-size: clamp(14px, 1.5vw, 19px); font-weight: 900;
-  letter-spacing: -0.2px; color: var(--g); line-height: 1.2;
+  font-size: clamp(13px, 1.3vw, 17px);
+  font-weight: 900;
+  letter-spacing: -0.2px;
+  color: var(--g);
+  line-height: 1.2;
   white-space: nowrap;
 }
 html[lang="ar"] .proof-num { font-family:'Cairo',sans-serif; letter-spacing:0; }
