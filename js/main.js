@@ -43,7 +43,7 @@ const T = {
       p1:'Cash prizes', p2v:'City-to-City', p2l:'Nationwide competition across Morocco', p3v:'Every Player', p3l:'Medals & certificates for all participants',
       cta:'Register My Team →',
     },
-    proof: { p1l:'Players on waitlist', p2v:'Summer 2026', p2l:'Launching in Morocco', p3l:'Cities at launch', p4v:'Free', p4l:'Always free to download' },
+    proof: { p1v:'Fill your game in minutes', p1l:'Find the missing players instantly', p2v:'Find games instantly', p2l:"Even if you're playing solo", p3v:'Play for prizes', p3l:'Compete in tournaments across Morocco', p4v:'100% free', p4l:'No fees, no subscriptions' },
     reviews: {
       label:'What players say', title:'PLAYERS ALREADY<br>LOVE IT',
       r1:'"Finally an app that solves the real problem. No more 50-message WhatsApp threads just to confirm 11 people."',
@@ -110,7 +110,7 @@ const T = {
       p1:'Prix en espèces', p2v:'Ville par Ville', p2l:'Compétition nationale à travers le Maroc', p3v:'Chaque Joueur', p3l:'Médailles et certificats pour tous les participants',
       cta:'Inscrire mon Équipe →',
     },
-    proof: { p1l:'Joueurs sur liste d\'attente', p2v:'Été 2026', p2l:'Lancement au Maroc', p3l:'Villes au lancement', p4v:'Gratuit', p4l:'Toujours gratuit à télécharger' },
+    proof: { p1v:'Complétez votre match en minutes', p1l:'Trouvez les joueurs manquants instantanément', p2v:'Trouvez des matchs instantanément', p2l:'Même si vous jouez seul', p3v:'Jouez pour des prix', p3l:'Participez aux tournois au Maroc', p4v:'100% gratuit', p4l:'Sans frais, sans abonnement' },
     reviews: {
       label:'Ce que disent les joueurs', title:'LES JOUEURS<br>L\'ADORENT DÉJÀ',
       r1:'"Enfin une app qui résout le vrai problème. Fini les 50 messages WhatsApp juste pour confirmer 11 personnes."',
@@ -177,7 +177,7 @@ const T = {
       p1:'جوائز نقدية', p2v:'مدينة إلى مدينة', p2l:'منافسة وطنية في أرجاء المغرب', p3v:'كل لاعب', p3l:'ميداليات وشهادات لجميع المشاركين',
       cta:'سجّل فريقي ←',
     },
-    proof: { p1l:'لاعب في قائمة الانتظار', p2v:'صيف 2026', p2l:'الإطلاق في المغرب', p3l:'مدينة عند الإطلاق', p4v:'مجاني', p4l:'مجاني دائماً للتحميل' },
+    proof: { p1v:'أكمل مباراتك في دقائق', p1l:'ابحث عن اللاعبين الناقصين فوراً', p2v:'ابحث عن مباريات فوراً', p2l:'حتى لو كنت تلعب بمفردك', p3v:'العب للفوز بجوائز', p3l:'نافس في بطولات عبر المغرب', p4v:'مجاني 100%', p4l:'بدون رسوم أو اشتراكات' },
     reviews: {
       label:'ما يقوله اللاعبون', title:'اللاعبون<br>أحبوه بالفعل',
       r1:'"أخيراً تطبيق يحل المشكلة الحقيقية. انتهت رسائل واتساب الخمسين لتأكيد 11 شخصاً."',
@@ -380,7 +380,6 @@ window.addEventListener('scroll', () => {
   window.addEventListener('scroll', function() {
     if (ticking) return; ticking = true;
     requestAnimationFrame(function() {
-      var vy = window.scrollY;
       phones.forEach(function(phone) {
         var rect = phone.getBoundingClientRect();
         var mid = rect.top + rect.height / 2;
