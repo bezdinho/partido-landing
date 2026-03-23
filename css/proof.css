@@ -7,7 +7,7 @@
   background: var(--dark);
   border-top: 1px solid var(--bdr);
   border-bottom: 1px solid var(--bdr);
-  padding: 52px 0;
+  padding: 36px 0;
 }
 .proof-inner {
   display: flex;
@@ -25,25 +25,29 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 6px;
-  padding: 0 16px;
+  gap: 4px;
+  padding: 0 20px;
   text-align: center;
 }
 .proof-num {
   font-family: 'Satoshi', sans-serif;
-  font-size: clamp(12px, 1.1vw, 15px);
-  font-weight: 900;
-  letter-spacing: -0.1px;
+  font-size: clamp(18px, 2vw, 26px);
+  font-weight: 800;
+  letter-spacing: -0.3px;
   color: var(--g);
-  line-height: 1.25;
+  line-height: 1.2;
 }
 html[lang="ar"] .proof-num { font-family:'Cairo',sans-serif; letter-spacing:0; }
 .proof-lbl {
-  font-size: 11px; font-weight: 500; color: var(--muted);
-  text-transform: uppercase; letter-spacing: 0.8px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--muted);
+  opacity: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  line-height: 1.4;
 }
 html[lang="ar"] .proof-lbl { font-family:'Cairo',sans-serif; letter-spacing:0; text-transform:none; }
 .proof-div {
-  width: 1px; height: 44px; background: var(--bdr); flex-shrink: 0;
+  width: 1px; height: 40px; background: var(--bdr); flex-shrink: 0;
 }
-
