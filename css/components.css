@@ -1,5 +1,41 @@
 /* === components.css === */
 
+/* ══════════════════════════════════════
+   FLOW BRIDGE  — subtle separator between
+   player flow and organizer flow
+══════════════════════════════════════ */
+.flow-bridge {
+  background: var(--dark);
+  padding: 0 0 2px;
+}
+.flow-bridge__inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 48px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+.flow-bridge__line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(153,202,60,.18), transparent);
+}
+.flow-bridge__text {
+  font-family: 'Space Mono', monospace;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 2.2px;
+  text-transform: uppercase;
+  color: rgba(153,202,60,.5);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+html[lang="ar"] .flow-bridge__text {
+  font-family: 'Cairo', sans-serif;
+  letter-spacing: 0;
+}
+
 /* ═════════════════════════════════════════════
    PARTIDO — SPORTS INTELLIGENCE v4
 ═════════════════════════════════════════════ */
