@@ -43,7 +43,7 @@ const T = {
       p1:'Cash prizes', p2v:'City-to-City', p2l:'Nationwide competition across Morocco', p3v:'Every Player', p3l:'Medals & certificates for all participants',
       cta:'Register My Team →',
     },
-    proof: { p1v:'Fill your game in minutes', p1l:'Find the missing players instantly', p2v:'Find games instantly', p2l:"Even if you're playing solo", p3v:'Play for prizes', p3l:'Compete in tournaments across Morocco', p4v:'100% free', p4l:'No fees, no subscriptions' },
+    proof: { p1v:'Fill games fast', p1l:'Find missing players instantly', p2v:'Find games solo', p2l:'Join games anytime', p3v:'Play for prizes', p3l:'Tournaments across Morocco', p4v:'100% free', p4l:'No fees, no subscriptions' },
     reviews: {
       label:'What players say', title:'PLAYERS ALREADY<br>LOVE IT',
       r1:'"Finally an app that solves the real problem. No more 50-message WhatsApp threads just to confirm 11 people."',
@@ -343,11 +343,12 @@ window.addEventListener('scroll', () => {
   if (!counters.length) return;
   var data = counters.map(function(el) {
     var raw = el.textContent.trim();
+    if (!/[0-9]/.test(raw)) return null; // skip non-numeric elements
     var num = parseFloat(raw.replace(/[^0-9.]/g, '')) || 0;
     var prefix = (raw.match(/^[^0-9]*/) || [''])[0];
     var suffix = (raw.match(/[^0-9.]+$/) || [''])[0];
     return { el: el, num: num, prefix: prefix, suffix: suffix };
-  });
+  }).filter(Boolean);
   var animated = false;
   function runCounters() {
     if (animated) return; animated = true;
