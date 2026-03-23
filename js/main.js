@@ -43,7 +43,7 @@ const T = {
       p1:'Cash prizes', p2v:'City-to-City', p2l:'Nationwide competition across Morocco', p3v:'Every Player', p3l:'Medals & certificates for all participants',
       cta:'Register My Team →',
     },
-    proof: { p1v:'Fill games fast', p1l:'Find missing players instantly', p2v:'Find games solo', p2l:'Join games anytime', p3v:'Play for prizes', p3l:'Tournaments across Morocco', p4v:'100% free', p4l:'No fees, no subscriptions' },
+    proof: { p1v:'Fill games fast', p1l:'Find missing players instantly', p2v:'Find games fast', p2l:'Join games anytime', p3v:'Play for prizes', p3l:'Tournaments across Morocco', p4v:'100% free', p4l:'No fees, no subscriptions' },
     reviews: {
       label:'What players say', title:'PLAYERS ALREADY<br>LOVE IT',
       r1:'"Finally an app that solves the real problem. No more 50-message WhatsApp threads just to confirm 11 people."',

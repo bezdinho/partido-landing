@@ -31,12 +31,11 @@
 }
 .proof-num {
   font-family: 'Satoshi', sans-serif;
-  font-size: clamp(13px, 1.3vw, 17px);
+  font-size: clamp(12px, 1.1vw, 15px);
   font-weight: 900;
-  letter-spacing: -0.2px;
+  letter-spacing: -0.1px;
   color: var(--g);
-  line-height: 1.2;
-  white-space: nowrap;
+  line-height: 1.25;
 }
 html[lang="ar"] .proof-num { font-family:'Cairo',sans-serif; letter-spacing:0; }
 .proof-lbl {
