@@ -37,8 +37,9 @@ function applyLang(lang) {
     if (val !== undefined) el.placeholder = val;
   });
 
-  // Marquee
-  document.getElementById('marquee-track').innerHTML = buildMarquee(lang);
+  // Marquee (null-safe: element only exists on index.html)
+  const marqueeTrack = document.getElementById('marquee-track');
+  if (marqueeTrack) marqueeTrack.innerHTML = buildMarquee(lang);
 
   // Update active lang button
   document.querySelectorAll('.lang-btn').forEach(btn => {
