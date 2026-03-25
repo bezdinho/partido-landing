@@ -1,10 +1,14 @@
 /* === components.css === */
 
-/* Anchor scroll offset for fixed nav (nav ~76px + 24px breathing room) */
-#for-players,
-#for-organizers,
-#tournaments {
+/* Anchor scroll offset for fixed nav
+   org-section has 96px padding-top → 100px offset → heading at 196px from top (working)
+   how-section / tourn-section have 112px padding-top → 84px offset → heading also at 196px */
+#for-organizers {
   scroll-margin-top: 100px;
+}
+#for-players,
+#tournaments {
+  scroll-margin-top: 84px;
 }
 
 /* ══════════════════════════════════════
