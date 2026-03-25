@@ -191,7 +191,7 @@ html[lang="ar"] .ed-card__desc {
   margin-top: 4px;
   transition: color .2s, gap .2s;
   text-decoration: none;
-  cursor: default;
+  cursor: pointer;
 }
 .ed-card:hover .ed-card__cta {
   color: var(--g);
