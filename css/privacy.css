@@ -142,6 +142,10 @@ body.pp-body { overflow-x: clip; }
 .pp-intro p:last-child { margin-bottom: 0; }
 
 /* ── Sections ── */
+.pp-section[id] {
+  scroll-margin-top: 108px;
+}
+
 .pp-section {
   padding: 44px 0;
   border-bottom: 1px solid var(--bdr);
