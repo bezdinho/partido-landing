@@ -91,7 +91,7 @@ html[lang="ar"] .editorial-subtitle {
   display: flex;
   flex-direction: column;
   transition: border-color .28s ease, transform .28s ease, box-shadow .28s ease;
-  cursor: default;
+  cursor: pointer;
   position: relative;
 }
 .ed-card::before {

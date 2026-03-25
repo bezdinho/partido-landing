@@ -1,0 +1,147 @@
+/* === article.css === */
+
+/* ══════════════════════════════════════
+   ARTICLE PAGE
+══════════════════════════════════════ */
+
+.art-page {
+  background: var(--black);
+  padding-top: 80px;
+  min-height: 100vh;
+}
+
+/* ── Hero ── */
+.art-hero {
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 0%, rgba(153,202,60,.07) 0%, transparent 65%),
+    var(--dark);
+  border-bottom: 1px solid var(--bdr);
+  padding: 80px 48px 72px;
+}
+
+.art-hero__inner {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.art-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color .2s;
+  margin-bottom: 36px;
+}
+.art-back:hover { color: var(--text); }
+.art-back svg { flex-shrink: 0; }
+
+.art-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--g);
+  opacity: .8;
+  display: block;
+  margin-bottom: 18px;
+}
+
+.art-title {
+  font-family: 'Satoshi', sans-serif;
+  font-size: clamp(28px, 3.8vw, 48px);
+  font-weight: 900;
+  letter-spacing: -1.4px;
+  line-height: 1.06;
+  text-transform: uppercase;
+  color: var(--text);
+  margin-bottom: 24px;
+}
+
+.art-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.art-meta__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--g);
+  background: rgba(153,202,60,.1);
+  border: 1px solid rgba(153,202,60,.2);
+  border-radius: 100px;
+  padding: 4px 12px;
+}
+
+.art-meta__divider {
+  width: 1px;
+  height: 12px;
+  background: var(--bdr);
+}
+
+.art-meta__label {
+  font-size: 12px;
+  color: var(--dim);
+}
+
+/* ── Body ── */
+.art-body {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 64px 48px 120px;
+}
+
+.art-body p {
+  font-family: 'Satoshi', sans-serif;
+  font-size: 16.5px;
+  color: var(--muted);
+  line-height: 1.82;
+  margin-bottom: 24px;
+}
+.art-body p:last-child { margin-bottom: 0; }
+
+/* First paragraph lead */
+.art-body p:first-child {
+  font-size: 17.5px;
+  color: rgba(240,242,234,.75);
+  line-height: 1.78;
+}
+
+/* Inline emphasis */
+.art-body strong {
+  color: var(--text);
+  font-weight: 700;
+}
+
+/* Pull quote — standalone bold statement */
+.art-body .art-pull {
+  font-size: 19px;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -.3px;
+  line-height: 1.45;
+  border-left: 3px solid var(--g);
+  padding-left: 22px;
+  margin: 36px 0;
+}
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════ */
+@media (max-width: 700px) {
+  .art-hero { padding: 60px 24px 56px; }
+  .art-body  { padding: 48px 24px 80px; }
+  .art-title { letter-spacing: -.8px; }
+}
