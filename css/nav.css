@@ -3,7 +3,7 @@
 /* ══════════════════════════════════════
    NAV
 ══════════════════════════════════════ */
-nav {
+body > nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 200;
   display: flex; align-items: center; justify-content: space-between;
   padding: 14px 48px;
@@ -36,5 +36,5 @@ nav {
 }
 
 /* RTL nav flip */
-html[dir="rtl"] .nav-center a { letter-spacing: 0; }
+html[dir="rtl"] body > nav .nav-center a { letter-spacing: 0; }
 

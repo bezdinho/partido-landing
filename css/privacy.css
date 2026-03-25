@@ -1,20 +1,5 @@
 /* === privacy.css === */
 
-/* ══ DEBUG — REMOVE AFTER CONFIRMING LAYOUT ══ */
-.pp-inner {
-  display: grid !important;
-  grid-template-columns: 1fr 300px !important;
-  gap: 40px !important;
-  background: red !important;
-}
-.pp-content {
-  background: blue !important;
-}
-.pp-sidebar {
-  background: green !important;
-}
-/* ══ END DEBUG ══ */
-
 /* ══════════════════════════════════════
    PRIVACY POLICY PAGE
 ══════════════════════════════════════ */
