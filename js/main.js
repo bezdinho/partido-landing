@@ -221,19 +221,21 @@ const _BADGE_BG_GOOGLE = '<rect width="135" height="40" rx="5" fill="#000"/><rec
 const STORE_SVGS = {
   apple: {
     en: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40">${_BADGE_BG_APPLE}${_APPLE_ICON}<g fill="#fff"><text font-family="SF Pro Text,Helvetica,Arial,sans-serif" font-size="8" x="36" y="15" letter-spacing=".03em">Download on the</text><text font-family="SF Pro Display,Helvetica,Arial,sans-serif" font-size="13" font-weight="600" x="35.5" y="29" letter-spacing="-.02em">App Store</text></g></svg>`,
+    fr: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40">${_BADGE_BG_APPLE}${_APPLE_ICON}<g fill="#fff"><text font-family="SF Pro Text,Helvetica,Arial,sans-serif" font-size="6.8" x="76" y="14.5" text-anchor="middle" letter-spacing=".01em">Télécharger dans l'</text><text font-family="SF Pro Display,Helvetica,Arial,sans-serif" font-size="13" font-weight="600" x="76" y="29" text-anchor="middle" letter-spacing="-.02em">App Store</text></g></svg>`,
     ar: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40">${_BADGE_BG_APPLE}${_APPLE_ICON}<g fill="#fff"><text font-family="Cairo,Arial,sans-serif" font-size="8" x="76" y="15" text-anchor="middle">متاح على</text><text font-family="SF Pro Display,Helvetica,Arial,sans-serif" font-size="13" font-weight="600" x="76" y="29" text-anchor="middle" letter-spacing="-.02em">App Store</text></g></svg>`,
   },
   google: {
     en: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 135 40">${_BADGE_BG_GOOGLE}${_GPLAY_ICON}<g fill="#fff"><text font-family="SF Pro Text,Helvetica,Arial,sans-serif" font-size="7.5" x="40" y="13.5" letter-spacing=".06em">GET IT ON</text><text font-family="SF Pro Display,Helvetica,Arial,sans-serif" font-size="13.2" font-weight="600" x="39.5" y="28" letter-spacing="-.01em">Google Play</text></g></svg>`,
+    fr: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 135 40">${_BADGE_BG_GOOGLE}${_GPLAY_ICON}<g fill="#fff"><text font-family="SF Pro Text,Helvetica,Arial,sans-serif" font-size="7.5" x="87" y="13.5" text-anchor="middle" letter-spacing=".05em">DISPONIBLE SUR</text><text font-family="SF Pro Display,Helvetica,Arial,sans-serif" font-size="13.2" font-weight="600" x="87" y="28" text-anchor="middle" letter-spacing="-.01em">Google Play</text></g></svg>`,
     ar: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 135 40">${_BADGE_BG_GOOGLE}${_GPLAY_ICON}<g fill="#fff"><text font-family="Cairo,Arial,sans-serif" font-size="6.8" x="87" y="13" text-anchor="middle">احصل عليه على</text><text font-family="SF Pro Display,Helvetica,Arial,sans-serif" font-size="13.2" font-weight="600" x="87" y="28" text-anchor="middle" letter-spacing="-.01em">Google Play</text></g></svg>`,
   }
 };
 
 function updateStoreBadges(lang) {
-  const key = lang === 'ar' ? 'ar' : 'en';
+  const key = STORE_SVGS.apple[lang] ? lang : 'en';
   document.querySelectorAll('.store-badge').forEach(badge => {
     const label = (badge.getAttribute('aria-label') || '').toLowerCase();
-    if (label.includes('app store'))    badge.innerHTML = STORE_SVGS.apple[key];
+    if (label.includes('app store'))        badge.innerHTML = STORE_SVGS.apple[key];
     else if (label.includes('google play')) badge.innerHTML = STORE_SVGS.google[key];
   });
 }
