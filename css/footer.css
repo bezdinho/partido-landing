@@ -183,6 +183,15 @@ html[lang="ar"] .footer-copy {
 }
 
 /* ══════════════════════════════════════
+   RTL OVERRIDES
+══════════════════════════════════════ */
+/* In RTL the footer-right block appears on the visual LEFT.
+   align-items: flex-start would push content to the RTL-start (right),
+   leaving a gap on the left. Use flex-end so badges sit flush to the left. */
+html[dir="rtl"] .footer-right { align-items: flex-end; }
+html[dir="rtl"] .footer-store-btns { align-items: flex-end; }
+
+/* ══════════════════════════════════════
    RESPONSIVE
 ══════════════════════════════════════ */
 @media (max-width: 720px) {
