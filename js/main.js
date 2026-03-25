@@ -7,7 +7,7 @@
 // ── TRANSLATIONS (all 3 languages, inlined for reliability) ─────
 const T = {
   en: {
-    nav: { discover:'Discover', organize:'Organize', profile:'Profile', contact:'Contact', cta:'Download Free' },
+    nav: { discover:'For Players', organize:'For Organizers', profile:'Tournaments', contact:'Contact', cta:'Download Free' },
     hero: {
       h1:  'Play Soccer<br><em>Anywhere, Anytime</em>',
       sub: 'Find nearby matches, fill your squad, and hit the field — all from one app.',
@@ -74,7 +74,7 @@ const T = {
   },
 
   fr: {
-    nav: { discover:'Découvrir', organize:'Organiser', profile:'Profil', contact:'Contact', cta:'Télécharger' },
+    nav: { discover:'Pour les Joueurs', organize:'Pour les Organisateurs', profile:'Tournois', contact:'Contact', cta:'Télécharger' },
     hero: {
       h1:  'Jouez au Foot<br><em>Partout, À Tout Moment</em>',
       sub: 'Trouvez des matchs à proximité, complétez votre équipe et foncez sur le terrain — le tout depuis une seule appli.',
@@ -141,7 +141,7 @@ const T = {
   },
 
   ar: {
-    nav: { discover:'اكتشف', organize:'نظّم', profile:'ملفي', contact:'تواصل', cta:'حمّل مجاناً' },
+    nav: { discover:'للاعبين', organize:'للمنظمين', profile:'بطولات', contact:'تواصل', cta:'حمّل مجاناً' },
     hero: {
       h1:  'العب كرة القدم<br><em>في أي مكان، في أي وقت</em>',
       sub: 'اعثر على مباريات قريبة، اكمل فريقك، وانزل الملعب — كل شيء من تطبيق واحد.',

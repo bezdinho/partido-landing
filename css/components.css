@@ -1,5 +1,12 @@
 /* === components.css === */
 
+/* Anchor scroll offset for fixed nav (nav ~76px + 24px breathing room) */
+#for-players,
+#for-organizers,
+#tournaments {
+  scroll-margin-top: 100px;
+}
+
 /* ══════════════════════════════════════
    FLOW BRIDGE  — subtle separator between
    player flow and organizer flow
