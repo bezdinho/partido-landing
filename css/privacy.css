@@ -6,12 +6,21 @@
 
 html { scroll-behavior: smooth; }
 
+/* Override overflow-x:hidden on body so position:sticky works */
+body.pp-body { overflow-x: clip; }
+
 .pp-page {
   background: var(--black);
   padding-top: 80px;
   min-height: 100vh;
 }
 
+/*
+  2-column layout:
+    col 1 (left)  = article.pp-content  — policy text
+    col 2 (right) = aside.pp-sidebar    — sticky TOC
+  DOM order matches visual order, so no explicit grid-column needed.
+*/
 .pp-inner {
   max-width: 1200px;
   margin: 0 auto;
@@ -26,8 +35,6 @@ html { scroll-behavior: smooth; }
    SIDEBAR / TABLE OF CONTENTS
 ══════════════════════════════════════ */
 .pp-sidebar {
-  grid-column: 2;
-  grid-row: 1;
   position: sticky;
   top: 112px;
   max-height: calc(100vh - 140px);
@@ -88,8 +95,6 @@ html { scroll-behavior: smooth; }
    MAIN CONTENT
 ══════════════════════════════════════ */
 .pp-content {
-  grid-column: 1;
-  grid-row: 1;
   min-width: 0;
 }
 
@@ -273,17 +278,15 @@ html { scroll-behavior: smooth; }
     padding: 48px 32px 80px;
     gap: 0;
   }
+  .pp-content {
+    order: 2;
+  }
   .pp-sidebar {
-    grid-column: 1;
-    grid-row: 1;
+    order: 1;
     position: static;
     max-height: none;
     overflow: visible;
     margin-bottom: 48px;
-  }
-  .pp-content {
-    grid-column: 1;
-    grid-row: 2;
   }
   .pp-toc { padding: 18px 16px; }
 
