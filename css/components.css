@@ -267,7 +267,7 @@ html[lang="ar"] .proof-lbl { font-family: 'Cairo', sans-serif; letter-spacing: 0
   background:
     radial-gradient(ellipse 85% 55% at 50% 0%, rgba(153,202,60,.05) 0%, transparent 60%),
     var(--dark);
-  padding: 112px 0;
+  padding: 112px 0 68px;
 }
 .rev-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 48px; }
 .rv {
