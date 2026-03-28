@@ -72,14 +72,85 @@ html[lang="ar"] .editorial-subtitle {
   line-height: 1.9;
 }
 
-/* ── Cards grid ── */
-.editorial-grid {
+/* ── Carousel controls (arrows in header) ── */
+.ed-carousel__controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.ed-arrow {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--card);
+  border: 1px solid var(--bdr);
+  color: var(--text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color .25s ease, background .25s ease, opacity .25s ease;
+  flex-shrink: 0;
+}
+.ed-arrow:hover:not(:disabled) {
+  border-color: rgba(153,202,60,.35);
+  background: var(--gd);
+  color: var(--g);
+}
+.ed-arrow:disabled {
+  opacity: 0.28;
+  cursor: default;
+  pointer-events: none;
+}
+
+/* ── Carousel viewport & track ── */
+.editorial-carousel {
   max-width: 1160px;
   margin: 0 auto;
   padding: 0 48px;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  overflow: hidden;
+}
+
+.editorial-track {
+  display: flex;
   gap: 20px;
+  transition: transform 0.42s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+/* CSS fallback card width (4 visible) — JS overrides with inline style */
+.editorial-track .ed-card {
+  flex: 0 0 calc(25% - 15px);
+}
+
+/* ── Dot indicators ── */
+.ed-dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  margin-top: 36px;
+  padding: 0 48px;
+}
+.ed-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 99px;
+  background: var(--bdr);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background .25s ease, width .25s ease;
+  flex-shrink: 0;
+}
+.ed-dot.active {
+  background: var(--g);
+  width: 20px;
+}
+.ed-dot:hover:not(.active) {
+  background: var(--muted);
 }
 
 /* ── Single card ── */
@@ -207,14 +278,16 @@ html[lang="ar"] .ed-card__cta {
    RESPONSIVE
 ══════════════════════════════════════ */
 @media (max-width: 960px) {
-  .editorial-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 18px;
-  }
   .editorial-header {
     flex-direction: column;
     align-items: flex-start;
     margin-bottom: 44px;
+  }
+  .editorial-carousel {
+    padding: 0 32px;
+  }
+  .ed-dots {
+    padding: 0 32px;
   }
 }
 
@@ -226,9 +299,18 @@ html[lang="ar"] .ed-card__cta {
     padding: 0 20px;
     margin-bottom: 32px;
   }
-  .editorial-grid {
-    grid-template-columns: 1fr;
+  .editorial-carousel {
     padding: 0 20px;
-    gap: 16px;
+  }
+  .ed-dots {
+    padding: 0 20px;
+    margin-top: 24px;
+  }
+  .ed-carousel__controls {
+    gap: 6px;
+  }
+  .ed-arrow {
+    width: 38px;
+    height: 38px;
   }
 }

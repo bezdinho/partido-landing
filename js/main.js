@@ -689,3 +689,143 @@ window.addEventListener('scroll', () => {
     });
   });
 })();
+
+// -- EDITORIAL CAROUSEL --
+(function() {
+  var carousel  = document.querySelector('.editorial-carousel');
+  var track     = document.querySelector('.editorial-track');
+  if (!track || !carousel) return;
+  var cards     = Array.from(track.querySelectorAll('.ed-card'));
+  if (cards.length < 2) return;
+
+  var dotsWrap  = document.querySelector('.ed-dots');
+  var prevBtn   = document.querySelector('.ed-arrow--prev');
+  var nextBtn   = document.querySelector('.ed-arrow--next');
+  var GAP       = 20;
+  var index     = 0;
+  var resizeTid;
+
+  // ── Responsive: how many cards are visible at current viewport width
+  function visibleCount() {
+    var w = window.innerWidth;
+    if (w <= 580)  return 1;
+    if (w <= 768)  return 2;
+    if (w <= 1100) return 3;
+    return 4;
+  }
+
+  // ── Total scrollable positions (0 … maxIndex)
+  function maxIndex() {
+    return Math.max(0, cards.length - visibleCount());
+  }
+
+  // ── Set every card's pixel width so N fit exactly in the viewport
+  function sizeCards() {
+    var n   = visibleCount();
+    var w   = carousel.offsetWidth;
+    var cw  = Math.floor((w - GAP * (n - 1)) / n);
+    cards.forEach(function(c) { c.style.width = cw + 'px'; });
+  }
+
+  // ── Move the track (suppress animation when called with animate=false)
+  function moveTo(i, animate) {
+    if (animate === false) track.style.transition = 'none';
+    var cw = cards[0].offsetWidth;
+    track.style.transform = 'translateX(-' + (i * (cw + GAP)) + 'px)';
+    if (animate === false) {
+      track.offsetWidth; // force reflow
+      track.style.transition = '';
+    }
+  }
+
+  // ── Rebuild dot buttons whenever card count or visible count changes
+  function buildDots() {
+    if (!dotsWrap) return;
+    var total = maxIndex() + 1;
+    if (total <= 1) { dotsWrap.innerHTML = ''; dotsWrap.style.display = 'none'; return; }
+    dotsWrap.style.display = 'flex';
+    dotsWrap.innerHTML = '';
+    for (var i = 0; i <= maxIndex(); i++) {
+      var btn = document.createElement('button');
+      btn.className  = 'ed-dot' + (i === index ? ' active' : '');
+      btn.setAttribute('aria-label', 'Go to article ' + (i + 1));
+      btn.dataset.i  = i;
+      btn.addEventListener('click', function() {
+        index = +this.dataset.i;
+        refresh();
+      });
+      dotsWrap.appendChild(btn);
+    }
+  }
+
+  // ── Sync dots highlight
+  function syncDots() {
+    if (!dotsWrap) return;
+    dotsWrap.querySelectorAll('.ed-dot').forEach(function(d, i) {
+      d.classList.toggle('active', i === index);
+    });
+  }
+
+  // ── Sync arrow disabled states
+  function syncArrows() {
+    if (prevBtn) prevBtn.disabled = index === 0;
+    if (nextBtn) nextBtn.disabled = index >= maxIndex();
+  }
+
+  // ── Full refresh after any state change
+  function refresh(animate) {
+    moveTo(index, animate);
+    syncDots();
+    syncArrows();
+  }
+
+  // ── Arrow clicks
+  if (prevBtn) prevBtn.addEventListener('click', function() {
+    if (index > 0) { index--; refresh(); }
+  });
+  if (nextBtn) nextBtn.addEventListener('click', function() {
+    if (index < maxIndex()) { index++; refresh(); }
+  });
+
+  // ── Touch / swipe support
+  var txStart = 0, tyStart = 0, swiping = false;
+  track.addEventListener('touchstart', function(e) {
+    txStart  = e.touches[0].clientX;
+    tyStart  = e.touches[0].clientY;
+    swiping  = false;
+  }, { passive: true });
+  track.addEventListener('touchmove', function(e) {
+    if (Math.abs(e.touches[0].clientX - txStart) > Math.abs(e.touches[0].clientY - tyStart)) {
+      swiping = true;
+    }
+  }, { passive: true });
+  track.addEventListener('touchend', function(e) {
+    if (!swiping) return;
+    var dx = txStart - e.changedTouches[0].clientX;
+    if (Math.abs(dx) < 40) return;
+    if (dx > 0 && index < maxIndex()) { index++; refresh(); }
+    if (dx < 0 && index > 0)          { index--; refresh(); }
+  }, { passive: true });
+
+  // ── Resize: re-size cards, clamp index, rebuild dots
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTid);
+    resizeTid = setTimeout(function() {
+      sizeCards();
+      if (index > maxIndex()) index = maxIndex();
+      buildDots();
+      refresh(false);
+    }, 100);
+  });
+
+  // ── Language switch: direction stays LTR for both locales (only text changes)
+  //    Re-run refresh so arrow states stay correct
+  document.querySelectorAll('.lang-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() { refresh(false); });
+  });
+
+  // ── Init
+  sizeCards();
+  buildDots();
+  refresh(false);
+})();
