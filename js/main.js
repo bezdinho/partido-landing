@@ -719,12 +719,17 @@ window.addEventListener('scroll', () => {
     return Math.max(0, cards.length - visibleCount());
   }
 
-  // ── Set every card's pixel width so N fit exactly in the viewport
+  // ── Set every card's pixel width so N fit exactly in the content area.
+  //    Must use flex shorthand (not width) — flex-basis always wins in flexbox.
+  //    Must subtract carousel padding — offsetWidth includes it.
   function sizeCards() {
     var n   = visibleCount();
-    var w   = carousel.offsetWidth;
+    var cs  = window.getComputedStyle(carousel);
+    var w   = carousel.offsetWidth
+              - parseFloat(cs.paddingLeft  || 0)
+              - parseFloat(cs.paddingRight || 0);
     var cw  = Math.floor((w - GAP * (n - 1)) / n);
-    cards.forEach(function(c) { c.style.width = cw + 'px'; });
+    cards.forEach(function(c) { c.style.flex = '0 0 ' + cw + 'px'; });
   }
 
   // ── Move the track (suppress animation when called with animate=false)

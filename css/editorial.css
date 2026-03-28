@@ -120,9 +120,11 @@ html[lang="ar"] .editorial-subtitle {
   will-change: transform;
 }
 
-/* CSS fallback card width (4 visible) — JS overrides with inline style */
+/* JS controls card width via inline flex; fallback prevents auto-shrink */
 .editorial-track .ed-card {
-  flex: 0 0 calc(25% - 15px);
+  flex-shrink: 0;
+  flex-grow: 0;
+  min-width: 0;
 }
 
 /* ── Dot indicators ── */
