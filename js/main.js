@@ -71,7 +71,7 @@ const T = {
       btn:'Send message', direct:'Or reach us directly at:',
     },
     footer: { privacy:'Privacy', terms:'Terms', contact:'Contact', getapp:'Get the app', tagline:'Connecting players through the beautiful game.', copy:'Copyright © 2026 Partido. All rights reserved.' },
-    bridge: { text: 'Or create your own game', join: 'Find & join a game', or: 'OR', create: 'Create your own' },
+    bridge: { text: 'Or create your own game' },
     org: {
       label:'For Organizers', title:'Run your game, your way',
       sub:'Everything you need to set up, manage, and enjoy your match — from first tap to final whistle.',
@@ -221,7 +221,7 @@ const T = {
       btn:'Envoyer le message', direct:'Ou contactez-nous directement à :',
     },
     footer: { privacy:'Confidentialité', terms:'CGU', contact:'Contact', getapp:"Télécharger l'app", tagline:'Connecter les joueurs à travers le beau jeu.', copy:'Copyright © 2026 Partido. Tous droits réservés.' },
-    bridge: { text: 'Ou crée ton propre match', join: 'Trouver &amp; rejoindre', or: 'OU', create: 'Créer le mien' },
+    bridge: { text: 'Ou crée ton propre match' },
     org: {
       label:'Pour les Organisateurs', title:'Jouez à votre façon',
       sub:'Tout ce dont vous avez besoin pour créer, gérer et profiter de votre match — du premier tap au coup de sifflet final.',
@@ -371,7 +371,7 @@ const T = {
       btn:'إرسال الرسالة', direct:'أو تواصل معنا مباشرةً على:',
     },
     footer: { privacy:'الخصوصية', terms:'الشروط', contact:'تواصل معنا', getapp:'حمّل التطبيق', tagline:'نربط اللاعبين من خلال الجميلة.', copy:'حقوق النشر © 2026 Partido. جميع الحقوق محفوظة.' },
-    bridge: { text: 'أو أنشئ مبارتك الخاصة', join: 'ابحث وانضم', or: 'أو', create: 'أنشئ مبارتك' },
+    bridge: { text: 'أو أنشئ مبارتك الخاصة' },
     org: {
       label:'للمنظمين', title:'نظّم مباراتك بطريقتك',
       sub:'كل ما تحتاجه لإعداد مبارياتك وإدارتها والاستمتاع بها — من أول نقرة حتى نهاية المباراة.',
