@@ -195,43 +195,85 @@ html[dir="rtl"] .footer-store-btns { align-items: flex-end; }
    RESPONSIVE
 ══════════════════════════════════════ */
 @media (max-width: 720px) {
+  /* ── Top block: single column, fully centered ── */
   .footer-top {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 48px 28px 40px;
-    gap: 36px;
+    padding: 52px 32px 44px;
+    gap: 0;                   /* controlled individually below */
   }
+
+  /* Logo */
   .footer-left {
     align-items: center;
+    gap: 0;
+    width: 100%;
   }
+  .footer-logo-link {
+    margin-bottom: 16px;
+  }
+
+  /* Tagline */
   .footer-tagline {
-    max-width: 320px;
+    max-width: 280px;
+    margin-bottom: 28px;
   }
+
+  /* Legal links */
   .footer-links {
     justify-content: center;
+    gap: 24px;
+    margin-bottom: 44px;
   }
+  .footer-links a {
+    font-size: 13px;
+  }
+
+  /* Get the app block */
   .footer-right {
     align-items: center;
     width: 100%;
+    gap: 16px;
   }
+  .footer-app-label {
+    font-size: 9.5px;
+  }
+
+  /* Store buttons: side by side, centered */
   .footer-store-btns {
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
     align-items: center;
+    gap: 12px;
   }
+  .footer-store-btns .store-badge svg {
+    height: 38px;
+  }
+
+  /* ── Divider ── */
   .footer-divider {
-    margin: 0 28px;
+    margin: 40px 32px 0;
   }
+
+  /* ── Bottom: copyright then social, natural top-to-bottom order ── */
   .footer-bottom {
-    flex-direction: column-reverse;
+    flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 18px 28px 32px;
-    gap: 16px;
+    padding: 24px 32px 40px;
+    gap: 20px;
   }
   .footer-copy {
     white-space: normal;
+    font-size: 11px;
+    color: rgba(240,242,234,.22);
+  }
+  .footer-social {
+    gap: 24px;
+  }
+  .footer-social a {
+    opacity: 0.5;
   }
 }
