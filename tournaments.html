@@ -1,30 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>More than football: building real connections — Partido</title>
+  <title>Tournaments — Partido Sports</title>
+  <meta name="description" content="Football tournaments across Morocco. City-to-city competition, real prizes, open to every player. Launching 2026.">
   <link rel="icon" href="/favicon.ico">
   <link rel="icon" type="image/png" href="/partido-logo-icon.png">
-  <meta name="description" content="Partido is not just designed to help you play. It's designed to help you connect.">
 
   <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap">
+  <link rel="preconnect" href="https://api.fontshare.com">
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@900,700,500,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet">
 
   <!-- Styles -->
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/nav.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/footer.css">
-  <link rel="stylesheet" href="css/article.css">
+  <link rel="stylesheet" href="css/tournaments-page.css">
 
-  <!-- Scripts -->
+  <!-- Script -->
   <script src="js/main.js" defer></script>
 </head>
-<body data-page="culture">
+<body>
 
 <!-- ══ NAV ══ -->
 <nav>
@@ -62,7 +61,7 @@
   <div class="nav-center">
     <a href="index.html#for-players"    data-i18n="nav.discover">For Players</a>
     <a href="index.html#for-organizers" data-i18n="nav.organize">For Organizers</a>
-    <a href="tournaments.html"    data-i18n="nav.profile">Tournaments</a>
+    <a href="tournaments.html"          data-i18n="nav.profile" style="color:var(--g);">Tournaments</a>
     <a href="contact.html"              data-i18n="nav.contact">Contact</a>
   </div>
   <div class="nav-right">
@@ -75,71 +74,161 @@
   </div>
 </nav>
 
-<!-- ══ ARTICLE ══ -->
-<div class="art-page">
-
-  <!-- Hero / header -->
-  <header class="art-hero">
-    <div class="art-hero__inner">
-
-      <a href="index.html" class="art-back">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-        <span data-i18n="art.back">Back to home</span>
-      </a>
-
-      <span class="art-tag" data-i18n="art.culture.tag">Culture</span>
-
-      <h1 class="art-title" data-i18n="art.culture.title">More than football:<br>building real connections</h1>
-
-      <div class="art-meta">
-        <span class="art-meta__tag" data-i18n="art.inside">Inside Partido</span>
-        <span class="art-meta__divider"></span>
-        <span class="art-meta__label" data-i18n="art.culture.meta">Culture · 3 min read</span>
-      </div>
-
+<!-- ══ HERO ══ -->
+<section class="tp-hero">
+  <div class="tp-hero__bg"></div>
+  <div class="tp-hero__overlay"></div>
+  <div class="tp-hero__content">
+    <div class="tp-hero__badge reveal">
+      <span class="tp-hero__badge-dot"></span>
+      Coming in 2026
     </div>
-  </header>
+    <h1 class="tp-hero__title reveal">
+      Football<br>Tournaments<br><em>Across Morocco</em>
+    </h1>
+    <p class="tp-hero__sub reveal">
+      City-to-city competition. Real prizes. Open to every player, every level, every city.
+    </p>
+    <div class="tp-hero__actions reveal">
+      <a href="contact.html" class="btn-p">
+        Register My Team
+        <svg viewBox="0 0 12 12" fill="none" width="12" height="12"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="#tp-highlights" class="btn-g">Learn More ↓</a>
+    </div>
+    <div class="tp-hero__scroll">
+      <span class="tp-hero__scroll-line"></span>
+      Scroll to explore
+    </div>
+  </div>
+</section>
 
-  <!-- Article body -->
-  <div class="art-body">
+<!-- ══ STATS STRIP ══ -->
+<div class="tp-stats">
+  <div class="tp-stats__inner">
+    <div class="tp-stat reveal">
+      <span class="tp-stat__val">100K DHS</span>
+      <span class="tp-stat__label">Prize pool per season</span>
+    </div>
+    <div class="tp-stat reveal">
+      <span class="tp-stat__val">6+ Cities</span>
+      <span class="tp-stat__label">Nationwide competition</span>
+    </div>
+    <div class="tp-stat reveal">
+      <span class="tp-stat__val">All Levels</span>
+      <span class="tp-stat__label">Open to every player</span>
+    </div>
+  </div>
+</div>
 
-    <p data-i18n="art.culture.p1">Football has always been more than just a game.</p>
+<!-- ══ HIGHLIGHTS ══ -->
+<section class="tp-highlights" id="tp-highlights">
+  <div class="tp-highlights__header">
+    <div class="sec-label reveal">What's at stake</div>
+    <h2 class="sec-title reveal">Compete.<br>Win. Repeat.</h2>
+    <p class="sec-sub reveal">Everything that makes a tournament worth playing — prizes, competition, and a community that lasts beyond the final whistle.</p>
+  </div>
+  <div class="tp-cards">
 
-    <p data-i18n="art.culture.p2">It's about the people you meet, the moments you share, and the stories that stay long after the final whistle. Some of the strongest friendships start on a pitch — between players who didn't know each other just an hour before kickoff.</p>
+    <div class="tp-card reveal">
+      <div class="tp-card__icon">🏆</div>
+      <div>
+        <div class="tp-card__val">Up to <span>100,000 DHS</span></div>
+        <div class="tp-card__label">Cash Prizes</div>
+      </div>
+      <p class="tp-card__desc">Real money. Real competition. Top teams earn cash prizes, medals, and recognition across the Partido community.</p>
+    </div>
 
-    <p data-i18n="art.culture.p3">But in today's world, those connections don't happen as naturally as they used to.</p>
+    <div class="tp-card reveal">
+      <div class="tp-card__icon">🗺️</div>
+      <div>
+        <div class="tp-card__val"><span>City-to-City</span></div>
+        <div class="tp-card__label">National Tour</div>
+      </div>
+      <p class="tp-card__desc">From Casablanca to Marrakech, Rabat to Tanger — compete in your city then travel for the national finals.</p>
+    </div>
 
-    <p data-i18n="art.culture.p4">People move cities. Schedules get busy. Groups become closed. And for many players, finding a game is no longer just about football — it's about finding people.</p>
-
-    <p class="art-pull" data-i18n="art.culture.pull1">That's where Partido changes everything.</p>
-
-    <p data-i18n="art.culture.p5">Partido is not just designed to help you play. It's designed to help you connect.</p>
-
-    <p data-i18n="art.culture.p6">Every match is an opportunity to meet new players, discover different styles, and be part of a wider football community. Whether you join alone or with friends, you're stepping into an environment where everyone shares the same goal: to play.</p>
-
-    <p class="art-pull" data-i18n="art.culture.pull2">Over time, these small interactions turn into something bigger.</p>
-
-    <p data-i18n="art.culture.p7">Familiar faces. Trusted teammates. New friendships. A network that grows naturally, game after game.</p>
-
-    <p class="art-pull" data-i18n="art.culture.pull3">Because at its core, football is social.</p>
-
-    <p data-i18n="art.culture.p8">And Partido brings that back — not by forcing it, but by creating the right conditions for it to happen.</p>
-
-    <p data-i18n="art.culture.p9">More games. More people. More connections.</p>
-
-    <p data-i18n="art.culture.p10">That's what makes it more than football.</p>
+    <div class="tp-card reveal">
+      <div class="tp-card__icon">⚽</div>
+      <div>
+        <div class="tp-card__val"><span>Open</span> to All</div>
+        <div class="tp-card__label">Every Player</div>
+      </div>
+      <p class="tp-card__desc">Whether you're a seasoned player or just getting started — individual sign-ups, teams, and squads all welcome.</p>
+    </div>
 
   </div>
+</section>
 
-</div>
+<!-- ══ HOW IT WORKS ══ -->
+<section class="tp-how">
+  <div class="tp-how__header">
+    <div class="sec-label reveal">Simple by design</div>
+    <h2 class="sec-title reveal">Register.<br>Play. Win.</h2>
+    <p class="sec-sub reveal">Three steps from your first tap to lifting the trophy.</p>
+  </div>
+  <div class="tp-steps">
+
+    <div class="tp-step reveal">
+      <div class="tp-step__num">01</div>
+      <div class="tp-step__badge">Step 1 · Register</div>
+      <div class="tp-step__title">Register Your Team</div>
+      <p class="tp-step__desc">Create your team profile on Partido. Choose your format — 5v5, 6v6, or 7v7 — and enter the upcoming tournament round in your city.</p>
+    </div>
+
+    <div class="tp-step reveal">
+      <div class="tp-step__num">02</div>
+      <div class="tp-step__badge">Step 2 · Play</div>
+      <div class="tp-step__title">Play Your Matches</div>
+      <p class="tp-step__desc">Get matched against teams in your city. Full schedule managed through the app. Climb the standings round by round, track every result in real time.</p>
+    </div>
+
+    <div class="tp-step reveal">
+      <div class="tp-step__num">03</div>
+      <div class="tp-step__badge">Step 3 · Win</div>
+      <div class="tp-step__title">Win Rewards</div>
+      <p class="tp-step__desc">Top teams advance to city finals — then the national stage. Win cash prizes, medals, and certificates. Every participant gets recognized.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ COMING SOON CTA ══ -->
+<section class="tp-cta">
+  <div class="tp-cta__inner">
+    <div class="tp-cta__badge reveal">
+      <span class="tp-hero__badge-dot"></span>
+      Launching 2026
+    </div>
+    <h2 class="tp-cta__title reveal">
+      Be the<br>First to<br><em>Compete</em>
+    </h2>
+    <p class="tp-cta__sub reveal">
+      Tournaments are launching across Morocco in 2026. Get your team ready — registration opens soon.
+    </p>
+    <div class="tp-cta__actions reveal">
+      <a href="contact.html" class="btn-p">
+        Register Interest
+        <svg viewBox="0 0 12 12" fill="none" width="12" height="12"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="index.html" class="btn-g">Download the App</a>
+    </div>
+
+    <div class="tp-cities reveal">
+      <span class="tp-city tp-city--active">📍 Casablanca</span>
+      <span class="tp-city tp-city--active">📍 Rabat</span>
+      <span class="tp-city tp-city--active">📍 Marrakech</span>
+      <span class="tp-city tp-city--active">📍 Tanger</span>
+      <span class="tp-city">📍 Fès</span>
+      <span class="tp-city">📍 + More</span>
+    </div>
+  </div>
+</section>
 
 <!-- ══ FOOTER ══ -->
 <footer class="site-footer">
 
-  <!-- TOP: left + right -->
   <div class="footer-top">
-
-    <!-- LEFT -->
     <div class="footer-left">
       <a href="index.html" class="footer-logo-link" aria-label="Partido">
         <svg style="height:48px;width:auto;display:block;" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 595.28 218.44">
@@ -174,33 +263,28 @@
       </a>
       <p class="footer-tagline" data-i18n="footer.tagline">Connecting players through the beautiful game.</p>
       <div class="footer-links">
-        <a href="contact.html" data-i18n="footer.contact">Contact</a>
-        <a href="terms.html" data-i18n="footer.terms">Terms</a>
-        <a href="privacy.html" data-i18n="footer.privacy">Privacy</a>
+        <a href="contact.html"    data-i18n="footer.contact">Contact</a>
+        <a href="terms.html"      data-i18n="footer.terms">Terms</a>
+        <a href="privacy.html"    data-i18n="footer.privacy">Privacy</a>
       </div>
     </div>
-
-    <!-- RIGHT -->
     <div class="footer-right">
       <span class="footer-app-label" data-i18n="footer.getapp">Get the app</span>
       <div class="footer-store-btns">
-        <a href="index.html#download" class="store-badge" aria-label="Download on the App Store">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40"><rect width="120" height="40" rx="5" fill="#000"/><rect x=".5" y=".5" width="119" height="39" rx="4.5" fill="none" stroke="#a6a6a6" stroke-width="1"/><g fill="#fff"><path d="M24.77 20.3a4.95 4.95 0 0 1 2.36-4.15 5.07 5.07 0 0 0-3.99-2.16c-1.68-.18-3.31 1.01-4.17 1.01-.87 0-2.19-.99-3.62-.96a5.31 5.31 0 0 0-4.47 2.73c-1.93 3.34-.49 8.27 1.36 10.97.93 1.33 2.01 2.82 3.44 2.76 1.39-.06 1.92-.89 3.6-.89 1.68 0 2.16.89 3.62.86 1.5-.03 2.44-1.33 3.33-2.67a11.04 11.04 0 0 0 1.53-3.1 4.78 4.78 0 0 1-2.99-4.4z"/><path d="M22.04 12.21a4.87 4.87 0 0 0 1.12-3.49 4.95 4.95 0 0 0-3.2 1.66 4.64 4.64 0 0 0-1.14 3.37 4.09 4.09 0 0 0 3.22-1.54z"/></g><g fill="#fff"><text font-family="SF Pro Text,Helvetica,Arial,sans-serif" font-size="8" x="36" y="15" letter-spacing=".03em">Download on the</text><text font-family="SF Pro Display,Helvetica,Arial,sans-serif" font-size="13" font-weight="600" x="35.5" y="29" letter-spacing="-.02em">App Store</text></g></svg>
+        <a href="#" class="store-badge" aria-label="Download on the App Store">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40"><rect width="120" height="40" rx="5" fill="#000"/><rect x=".5" y=".5" width="119" height="39" rx="4.5" fill="none" stroke="#a6a6a6" stroke-width="1"/><g fill="#fff"><path d="M24.77 20.3a4.95 4.95 0 0 1 2.36-4.15 5.07 5.07 0 0 0-3.99-2.16c-1.68-.18-3.31 1.01-4.17 1.01-.87 0-2.19-.99-3.62-.96a5.31 5.31 0 0 0-4.47 2.73c-1.93 3.34-.49 8.27 1.36 10.97.93 1.33 2.01 2.82 3.44 2.76 1.39-.06 1.92-.89 3.6-.89 1.68 0 2.16.89 3.62.86 1.5-.03 2.44-1.33 3.33-2.67a11.04 11.04 0 0 0 1.53-3.1 4.78 4.78 0 0 1-2.99-4.4z"/><path d="M22.04 12.21a4.87 4.87 0 0 0 1.12-3.49 4.95 4.95 0 0 0-3.2 1.66 4.64 4.64 0 0 0-1.14 3.37 4.09 4.09 0 0 0 3.22-1.54z"/></g><g fill="#fff"><text font-family="SF Pro Text,Helvetica,Arial,sans-serif" font-size="8" x="36" y="15" letter-spacing=".03em">Download on the</text><text font-family="SF Pro Display,Helvetica,Arial,sans-serif" font-size="13" font-weight="600" x="35.5" y="29" letter-spacing="-.02em">App Store</text></g></svg>
         </a>
-        <a href="index.html#download" class="store-badge" aria-label="Get it on Google Play">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 135 40"><rect width="135" height="40" rx="5" fill="#000"/><rect x=".5" y=".5" width="134" height="39" rx="4.5" fill="none" stroke="#a6a6a6" stroke-width="1"/><g transform="translate(10,8) scale(.55)"><path fill="#00d9ff" d="M0 1.13v40.98c0 .72.4 1.12.89.65l22.61-21.14L.89.48C.4.01 0 .41 0 1.13z"/><path fill="#00f076" d="M30.24 17.77L23.5 21.62.89 43.76c.38.39.97.44 1.65.06l30.7-17.69-3-8.36z"/><path fill="#ff3a44" d="M30.24 25.47l3-8.36L.89.48C.51.09-.1.14.01.53L23.5 21.62l6.74 3.85z"/><path fill="#ffbc00" d="M.89.48C.4.01 0 .41 0 1.13l23.5 20.49 6.74-3.85L2.54.08C1.86-.3 1.27-.25.89.48z"/><path fill="#00d9ff" d="M23.5 21.62L.89 43.76c.48.47 1.07.43 1.65.06L33.24 26.2l-3-4.58-6.74 0z" opacity=".2"/><path fill="none" d="M.89.48l32.35 17.7 0 0L.89.48z"/></g><g fill="#fff"><text font-family="SF Pro Text,Helvetica,Arial,sans-serif" font-size="7.5" x="40" y="13.5" letter-spacing=".06em">GET IT ON</text><text font-family="SF Pro Display,Helvetica,Arial,sans-serif" font-size="13.2" font-weight="600" x="39.5" y="28" letter-spacing="-.01em">Google Play</text></g></svg>
+        <a href="#" class="store-badge" aria-label="Get it on Google Play">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 135 40"><rect width="135" height="40" rx="5" fill="#000"/><rect x=".5" y=".5" width="134" height="39" rx="4.5" fill="none" stroke="#a6a6a6" stroke-width="1"/><g transform="translate(10,8) scale(.55)"><path fill="#00d9ff" d="M0 1.13v40.98c0 .72.4 1.12.89.65l22.61-21.14L.89.48C.4.01 0 .41 0 1.13z"/><path fill="#00f076" d="M30.24 17.77L23.5 21.62.89 43.76c.38.39.97.44 1.65.06l30.7-17.69-3-8.36z"/><path fill="#ff3a44" d="M30.24 25.47l3-8.36L.89.48C.51.09-.1.14.01.53L23.5 21.62l6.74 3.85z"/><path fill="#ffbc00" d="M.89.48C.4.01 0 .41 0 1.13l23.5 20.49 6.74-3.85L2.54.08C1.86-.3 1.27-.25.89.48z"/></g><g fill="#fff"><text font-family="SF Pro Text,Helvetica,Arial,sans-serif" font-size="7.5" x="40" y="13.5" letter-spacing=".06em">GET IT ON</text><text font-family="SF Pro Display,Helvetica,Arial,sans-serif" font-size="13.2" font-weight="600" x="39.5" y="28" letter-spacing="-.01em">Google Play</text></g></svg>
         </a>
       </div>
     </div>
-
   </div>
 
-  <!-- DIVIDER -->
   <div class="footer-divider"></div>
 
-  <!-- BOTTOM: copyright + social -->
   <div class="footer-bottom">
-    <span class="footer-copy" data-i18n="footer.copy">Copyright &copy; 2026 Partido. All rights reserved.</span>
+    <span class="footer-copy" data-i18n="footer.copy">Copyright © 2026 Partido. All rights reserved.</span>
     <div class="footer-social">
       <a href="#" aria-label="TikTok">
         <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg>
