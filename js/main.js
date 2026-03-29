@@ -936,3 +936,63 @@ window.addEventListener('scroll', () => {
   buildDots();
   refresh(false);
 })();
+
+// -- MOBILE BURGER MENU --
+(function() {
+  var burger = document.querySelector('.nav-burger');
+  var menu   = document.getElementById('mobile-menu');
+  if (!burger || !menu) return;
+
+  function openMenu() {
+    menu.classList.add('is-open');
+    burger.setAttribute('aria-expanded', 'true');
+    menu.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMenu() {
+    menu.classList.remove('is-open');
+    burger.setAttribute('aria-expanded', 'false');
+    menu.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  burger.addEventListener('click', function() {
+    var isOpen = burger.getAttribute('aria-expanded') === 'true';
+    if (isOpen) closeMenu(); else openMenu();
+  });
+
+  // Scroll-target links: close menu first, then scroll after animation completes
+  menu.querySelectorAll('a[data-mobile-scroll]').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      var href = link.getAttribute('href');
+      if (!href || href.charAt(0) !== '#') return;
+      e.preventDefault();
+      closeMenu();
+      // Wait for slide-up animation (380ms) before scrolling
+      setTimeout(function() {
+        var target = document.querySelector(href);
+        if (target) {
+          var navH = (document.querySelector('nav') || {}).offsetHeight || 70;
+          var top  = target.getBoundingClientRect().top + window.pageYOffset - navH - 12;
+          window.scrollTo({ top: top, behavior: 'smooth' });
+        }
+      }, 400);
+    });
+  });
+
+  // Page-navigation links (no data-mobile-scroll): just close the menu overlay
+  menu.querySelectorAll('a:not([data-mobile-scroll])').forEach(function(link) {
+    link.addEventListener('click', closeMenu);
+  });
+
+  // Close on overlay click (outside the nav items)
+  menu.addEventListener('click', function(e) {
+    if (e.target === menu) closeMenu();
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeMenu();
+  });
+})();

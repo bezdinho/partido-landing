@@ -77,8 +77,21 @@
       <button class="lang-btn"        data-lang="ar" aria-label="العربية">ع</button>
     </div>
     <a href="#download" class="nav-cta" data-i18n="nav.cta">Download Free</a>
+    <button class="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
+
+<!-- ══ MOBILE MENU ══ -->
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <nav class="mobile-menu__nav">
+    <a href="#for-players"    class="mobile-menu__link" data-mobile-scroll data-i18n="nav.discover">For Players</a>
+    <a href="#for-organizers" class="mobile-menu__link" data-mobile-scroll data-i18n="nav.organize">For Organizers</a>
+    <a href="tournaments.html" class="mobile-menu__link" data-i18n="nav.profile">Tournaments</a>
+    <a href="contact.html"     class="mobile-menu__link" data-i18n="nav.contact">Contact</a>
+  </nav>
+</div>
 
 <!-- ══ HERO ══ -->
 <section class="hero">
