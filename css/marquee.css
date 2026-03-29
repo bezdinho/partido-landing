@@ -21,7 +21,9 @@ html[dir="rtl"] .marquee-track {
   font-family: 'Satoshi', sans-serif;
   font-size: 12px; font-weight: 700;
   letter-spacing: 1.5px; text-transform: uppercase;
-  color: var(--dim); padding: 0 20px;
+  color: var(--muted);
+  text-shadow: 0 0 18px rgba(153,202,60,.12);
+  padding: 0 20px;
   display: flex; align-items: center; gap: 14px;
 }
 html[lang="ar"] .mi {
