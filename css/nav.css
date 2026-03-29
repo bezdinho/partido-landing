@@ -147,9 +147,9 @@ html[lang="ar"] .mobile-menu__link {
   .mobile-menu {
     display: flex;
   }
-  /* Hide desktop CTA on mobile — burger takes its place */
-  .nav-cta {
-    display: none;
+  /* Burger is now in nav-left — give it a small gap from the logo */
+  .nav-left {
+    gap: 8px;
   }
 }
 
@@ -160,28 +160,38 @@ html[lang="ar"] .mobile-menu__link {
 ══════════════════════════════════════ */
 @media (max-width: 480px) {
   body > nav {
-    padding: 10px 12px;
-    gap: 6px;
-    /* prevent any child from pushing the nav wider than the viewport */
+    padding: 10px 10px;
+    gap: 4px;
     max-width: 100vw;
     overflow: hidden;
   }
 
-  /* Shrink logo from 48 px → 34 px (overrides inline style) */
+  /* nav-left: burger + logo, tighter gap */
+  .nav-left {
+    gap: 6px;
+  }
+
+  /* nav-right: tighter internal spacing */
+  .nav-right {
+    gap: 8px;
+  }
+
+  /* Shrink logo from 48 px → 32 px (overrides inline style) */
   body > nav .nav-left a svg {
-    height: 34px !important;
+    height: 32px !important;
   }
 
   /* Shrink CTA button */
   .nav-cta {
-    font-size: 11px;
-    padding: 7px 12px;
+    font-size: 10.5px;
+    padding: 7px 10px;
+    letter-spacing: -.1px;
   }
 
   /* Shrink language switcher buttons */
   .lang-btn {
-    font-size: 10.5px;
-    padding: 4px 7px;
+    font-size: 10px;
+    padding: 4px 6px;
   }
 }
 
