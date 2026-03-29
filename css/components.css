@@ -385,6 +385,6 @@ html[lang="ar"] .cta-section p { font-family: 'Cairo', sans-serif; line-height: 
   .gallery-strip { padding: 0 20px; }
   .rev-grid { grid-template-columns: 1fr; }
   .proof-stat { padding: 12px 28px; } .proof-div { display: none; }
-  footer { padding: 28px 20px; flex-direction: column; align-items: flex-start; }
+  /* footer layout is handled fully in footer.css mobile block */
   .cta-section { padding: 96px 0; }
 }

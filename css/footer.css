@@ -195,75 +195,90 @@ html[dir="rtl"] .footer-store-btns { align-items: flex-end; }
    RESPONSIVE
 ══════════════════════════════════════ */
 @media (max-width: 720px) {
-  /* ── Top block: single column, fully centered ── */
-  .footer-top {
-    flex-direction: column;
+  /* ════════════════════════════════════════
+     MOBILE FOOTER — single centered column
+     Order: logo → tagline → links →
+            "get the app" → store btns →
+            [divider] → social → copyright
+  ════════════════════════════════════════ */
+
+  /* Override the components.css bare `footer {}` rule that sets
+     align-items: flex-start at 640px */
+  .site-footer {
     align-items: center;
-    text-align: center;
-    padding: 52px 32px 44px;
-    gap: 0;                   /* controlled individually below */
   }
 
-  /* Logo */
+  /* ── Top block: single column, fully centered ── */
+  .footer-top {
+    flex-direction: column !important;
+    align-items: center !important;
+    text-align: center;
+    padding: 56px 28px 48px;
+    gap: 0;
+  }
+
+  /* ── LEFT block: logo → tagline → links ── */
   .footer-left {
-    align-items: center;
+    align-items: center !important;
     gap: 0;
     width: 100%;
   }
   .footer-logo-link {
-    margin-bottom: 16px;
+    margin-bottom: 18px;
   }
-
-  /* Tagline */
   .footer-tagline {
-    max-width: 280px;
-    margin-bottom: 28px;
+    max-width: 260px;
+    margin: 0 auto 20px;
   }
-
-  /* Legal links */
   .footer-links {
     justify-content: center;
-    gap: 24px;
-    margin-bottom: 44px;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
   }
   .footer-links a {
-    font-size: 13px;
+    font-size: 12.5px;
   }
 
-  /* Get the app block */
+  /* ── RIGHT block: "get the app" → store buttons ── */
+  /* Separator line above "Get the app" so the group is visually distinct */
   .footer-right {
-    align-items: center;
+    align-items: center !important;
     width: 100%;
-    gap: 16px;
+    gap: 0;
+    padding-top: 0;
   }
   .footer-app-label {
-    font-size: 9.5px;
+    font-size: 9px;
+    margin-bottom: 14px;
   }
-
-  /* Store buttons: side by side, centered */
+  /* Store buttons: side-by-side, centered */
   .footer-store-btns {
-    flex-direction: row;
+    flex-direction: row !important;
     flex-wrap: nowrap;
     justify-content: center;
-    align-items: center;
-    gap: 12px;
+    align-items: center !important;
+    gap: 10px;
   }
   .footer-store-btns .store-badge svg {
-    height: 38px;
+    height: 40px;
   }
 
   /* ── Divider ── */
   .footer-divider {
-    margin: 40px 32px 0;
+    width: calc(100% - 56px);
+    margin: 40px 0 0;
   }
 
-  /* ── Bottom: copyright then social, natural top-to-bottom order ── */
+  /* ── Bottom: social FIRST, then copyright ──
+     HTML order: footer-copy → footer-social
+     column-reverse flips it to: social on top, copyright below */
   .footer-bottom {
-    flex-direction: column;
+    flex-direction: column-reverse !important;
     align-items: center;
     text-align: center;
-    padding: 24px 32px 40px;
-    gap: 20px;
+    padding: 28px 28px 48px;
+    gap: 22px;
   }
   .footer-copy {
     white-space: normal;
@@ -271,9 +286,9 @@ html[dir="rtl"] .footer-store-btns { align-items: flex-end; }
     color: rgba(240,242,234,.22);
   }
   .footer-social {
-    gap: 24px;
+    gap: 28px;
   }
   .footer-social a {
-    opacity: 0.5;
+    opacity: 0.55;
   }
 }
