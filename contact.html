@@ -23,6 +23,7 @@
 
   <!-- Scripts -->
   <script src="js/main.js" defer></script>
+  <script src="js/contact.js" defer></script>
 </head>
 <body>
 
@@ -135,7 +136,7 @@
           <p data-i18n="contact.formsub">We usually reply within 24 hours.</p>
         </div>
 
-        <form class="cp-form" action="https://formspree.io/f/placeholder" method="POST" novalidate>
+        <form class="cp-form" id="contact-form" novalidate>
 
           <div class="cp-form__row">
             <div class="cp-form__field">
@@ -191,6 +192,8 @@
             </svg>
             <span data-i18n="contact.btn">Send message</span>
           </button>
+
+          <p id="cp-form-status" class="cp-form-status" aria-live="polite"></p>
 
         </form>
 

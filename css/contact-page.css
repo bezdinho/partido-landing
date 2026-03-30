@@ -355,6 +355,17 @@ html[dir="rtl"] .cp-select-arrow {
   }
 }
 
+/* ── Form submission status message ── */
+.cp-form-status {
+  margin-top: 14px;
+  font-size: 13px;
+  font-weight: 500;
+  min-height: 18px;
+  text-align: center;
+}
+.cp-form-status--ok  { color: #99ca3c; }
+.cp-form-status--err { color: rgba(240,80,80,.85); }
+
 @media (max-width: 580px) {
   .cp-inner {
     padding: 40px 20px 64px;
