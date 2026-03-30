@@ -127,3 +127,92 @@ html[dir="rtl"] .hero-phones { flex-direction: row-reverse; }
 @keyframes fadePhoneIn { from { opacity: 0; } to { opacity: 1; } }
 @keyframes fadeUp { from { opacity:0;transform:translateY(20px) } to { opacity:1;transform:translateY(0) } }
 
+/* ══════════════════════════════════════
+   MOBILE HERO PHONES
+   Hidden on desktop — shown only on mobile
+   inside the hero grid as a full-width row
+   below the text block.
+══════════════════════════════════════ */
+.hero-phones-mobile {
+  display: none; /* hidden by default; shown inside mobile breakpoint */
+}
+
+@media (max-width: 1024px) {
+  /* Make hero a single column so the mobile phones row can sit below text.
+     padding-bottom: 0 !important overrides the components.css value (60px)
+     since the phones block provides its own bottom padding. */
+  .hero {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    min-height: unset;
+    padding-bottom: 0 !important;
+    overflow: visible;
+  }
+
+  /* Text block: normal flow, top padding covers the fixed nav */
+  .hero-left {
+    padding: 120px 0 48px;
+    grid-row: 1;
+  }
+
+  /* Mobile phones row: full-width, centered, below text */
+  .hero-phones-mobile {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 20px;
+    position: relative;
+    z-index: 1;
+    grid-row: 2;
+    padding: 0 20px 56px;
+    /* bottom glow */
+  }
+  .hero-phones-mobile::after {
+    content: '';
+    position: absolute;
+    bottom: 20px; left: 50%;
+    transform: translateX(-50%);
+    width: 280px; height: 80px;
+    background: radial-gradient(ellipse at 50% 100%, rgba(153,202,60,0.20) 0%, transparent 65%);
+    filter: blur(22px);
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  /* Phone sizes on mobile */
+  .hero-phones-mobile .hp-back {
+    width: 140px;
+    flex-shrink: 0;
+    filter:
+      drop-shadow(0 20px 40px rgba(0,0,0,0.80))
+      drop-shadow(0 0 18px rgba(153,202,60,0.12));
+    animation: fadePhoneIn .8s ease .5s both;
+    transform: rotate(2deg) translateY(8px);
+  }
+  .hero-phones-mobile .hp-main {
+    width: 158px;
+    flex-shrink: 0;
+    filter:
+      drop-shadow(0 28px 56px rgba(0,0,0,0.85))
+      drop-shadow(0 0 28px rgba(153,202,60,0.18));
+    animation: fadePhoneIn .8s ease .3s both;
+    transform: rotate(-2deg);
+  }
+  /* RTL: flip the pair */
+  html[dir="rtl"] .hero-phones-mobile { flex-direction: row-reverse; }
+}
+
+@media (max-width: 640px) {
+  /* Override components.css `padding: 100px 20px 60px` */
+  .hero { padding-bottom: 0 !important; }
+  .hero-left { padding: 100px 0 40px; }
+
+  .hero-phones-mobile {
+    gap: 14px;
+    padding: 0 16px 48px;
+  }
+  .hero-phones-mobile .hp-back { width: 126px; }
+  .hero-phones-mobile .hp-main { width: 142px; }
+}
+
