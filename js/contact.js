@@ -2,7 +2,7 @@
 /* Handles the contact form submission via Google Apps Script */
 
 (function () {
-  var ENDPOINT = 'YOUR_GOOGLE_APPS_SCRIPT_URL'; // ← replace after deployment
+  var ENDPOINT = 'https://script.google.com/macros/s/AKfycbxfGz5S_NpbnrKV-xX9qKu8C7mrAKPL6Yek3j-GKo04pWJuMTlphF6-jXuD3QkY_XZ6/exec'; // ← replace after deployment
 
   var form    = document.getElementById('contact-form');
   var status  = document.getElementById('cp-form-status');
