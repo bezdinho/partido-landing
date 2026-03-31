@@ -34,3 +34,50 @@ html[lang="ar"] .rv-text { font-family:'Cairo',sans-serif; line-height:1.9; font
 html[lang="ar"] .rv-name,
 html[lang="ar"] .rv-city { font-family:'Cairo',sans-serif; }
 
+/* ══════════════════════════════════════
+   MOBILE REVIEWS CAROUSEL  ≤ 640 px
+   Converts the grid into a horizontal
+   swipe-snap carousel. Desktop untouched.
+══════════════════════════════════════ */
+@media (max-width: 640px) {
+  /* Extend the grid container edge-to-edge so cards bleed to the
+     viewport edge while the peek gap shows the next card.
+     The parent .container has padding (20px each side), so we
+     cancel it with negative margins then restore left padding only. */
+  .rev-grid {
+    display: flex !important;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 12px;
+    /* horizontal scroll + snap */
+    overflow-x: auto;
+    overflow-y: visible;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    /* stretch to viewport edges beyond the .container padding */
+    margin-left: -20px;
+    margin-right: -20px;
+    /* left padding creates the leading breathing space;
+       right padding lets the peek of the next card show before the edge */
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 36px;
+    /* kill grid column override from components.css */
+    grid-template-columns: unset !important;
+    /* hide scrollbar — Chrome/Safari/Edge */
+    scrollbar-width: none;       /* Firefox */
+    -ms-overflow-style: none;    /* IE / old Edge */
+  }
+  .rev-grid::-webkit-scrollbar { display: none; } /* Chrome / Safari */
+
+  /* Each card: 87% viewport width so the next one peeks ~8% */
+  .rv {
+    flex: 0 0 87vw;
+    max-width: 87vw;
+    scroll-snap-align: start;
+    /* disable hover lift on touch devices */
+    transform: none !important;
+  }
+  .rv:hover { transform: none !important; }
+}
+
