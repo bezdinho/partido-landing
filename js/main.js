@@ -70,7 +70,7 @@ const T = {
       t3:'Partnership or business', t4:'Press or media', t5:'Other',
       btn:'Send message', direct:'Or reach us directly at:',
     },
-    footer: { privacy:'Privacy', terms:'Terms', contact:'Contact', getapp:'Get the app', tagline:'Connecting players through the beautiful game.', copy:'Copyright © 2026 Partido. All rights reserved.' },
+    footer: { privacy:'Privacy', terms:'Terms', contact:'Contact', getapp:'Get the app', tagline:'Connecting players through the beautiful game.', copy:'© 2026 Partido, a brand of BBF Ventures. All rights reserved.' },
     bridge: { text: 'Or create your own game' },
     tp: {
       heroBadge: 'Coming in 2026',
@@ -253,7 +253,7 @@ const T = {
       t3:'Partenariat ou business', t4:'Presse ou médias', t5:'Autre',
       btn:'Envoyer le message', direct:'Ou contactez-nous directement à :',
     },
-    footer: { privacy:'Confidentialité', terms:'CGU', contact:'Contact', getapp:"Télécharger l'app", tagline:'Connecter les joueurs à travers le beau jeu.', copy:'Copyright © 2026 Partido. Tous droits réservés.' },
+    footer: { privacy:'Confidentialité', terms:'CGU', contact:'Contact', getapp:"Télécharger l'app", tagline:'Connecter les joueurs à travers le beau jeu.', copy:'© 2026 Partido, une marque de BBF Ventures. Tous droits réservés.' },
     bridge: { text: 'Ou crée ton propre match' },
     tp: {
       heroBadge: 'Arrive en 2026',
@@ -436,7 +436,7 @@ const T = {
       t3:'شراكة أو أعمال', t4:'صحافة أو إعلام', t5:'أخرى',
       btn:'إرسال الرسالة', direct:'أو تواصل معنا مباشرةً على:',
     },
-    footer: { privacy:'الخصوصية', terms:'الشروط', contact:'تواصل معنا', getapp:'حمّل التطبيق', tagline:'نربط اللاعبين من خلال الجميلة.', copy:'حقوق النشر © 2026 Partido. جميع الحقوق محفوظة.' },
+    footer: { privacy:'الخصوصية', terms:'الشروط', contact:'تواصل معنا', getapp:'حمّل التطبيق', tagline:'نربط اللاعبين من خلال الجميلة.', copy:'© 2026 Partido، علامة تجارية لـ BBF Ventures. جميع الحقوق محفوظة.' },
     bridge: { text: 'أو أنشئ مبارتك الخاصة' },
     tp: {
       heroBadge: 'قادم في 2026',
