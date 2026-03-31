@@ -1,14 +1,47 @@
 /* === reviews.css === */
 
 /* ══════════════════════════════════════
-   REVIEWS
+   REVIEWS — card styles (shared desktop + mobile)
 ══════════════════════════════════════ */
-.rev-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-top: 44px; }
+
+/* ── Header row: title left, arrow controls right ── */
+.reviews-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  margin-bottom: 44px;
+}
+.reviews-header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+/* Controls are hidden on desktop (all 3 cards visible, no nav needed) */
+.rv-controls { display: none; }
+
+/* ── Carousel viewport ── */
+.rev-carousel {
+  overflow: hidden;
+}
+
+/* ── Track: flex row of cards ── */
+.rev-track {
+  display: flex;
+  gap: 14px;
+  transition: transform 0.42s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+/* ── Individual card ── */
 .rv {
   background: var(--card); border: 1px solid var(--bdr);
   border-radius: 16px; padding: 28px;
   position: relative; overflow: hidden;
   transition: border-color .3s, transform .25s;
+  /* Desktop: all 3 cards visible via flex; JS controls width on mobile */
+  flex: 1 1 0;
+  min-width: 0;
 }
 .rv:hover { border-color: rgba(153,202,60,.22); transform: translateY(-2px); }
 .rv::before {
@@ -19,6 +52,7 @@
   pointer-events: none; user-select: none;
 }
 html[dir="rtl"] .rv::before { right: auto; left: 20px; }
+
 .rv-stars { color: var(--g); font-size: 11px; letter-spacing: 3px; margin-bottom: 14px; }
 .rv-text  { font-size: 15px; font-weight: 400; line-height: 1.72; margin-bottom: 0; color: var(--text); font-style: italic; }
 html[lang="ar"] .rv-text { font-family:'Cairo',sans-serif; line-height:1.9; font-style:normal; }
@@ -34,50 +68,47 @@ html[lang="ar"] .rv-text { font-family:'Cairo',sans-serif; line-height:1.9; font
 html[lang="ar"] .rv-name,
 html[lang="ar"] .rv-city { font-family:'Cairo',sans-serif; }
 
+/* ── Dots: hidden on desktop ── */
+.rv-dots { display: none; }
+
 /* ══════════════════════════════════════
-   MOBILE REVIEWS CAROUSEL  ≤ 640 px
-   Converts the grid into a horizontal
-   swipe-snap carousel. Desktop untouched.
+   MOBILE  ≤ 640 px
+   Switch to JS-driven carousel identical
+   to the articles carousel system.
 ══════════════════════════════════════ */
 @media (max-width: 640px) {
-  /* Extend the grid container edge-to-edge so cards bleed to the
-     viewport edge while the peek gap shows the next card.
-     The parent .container has padding (20px each side), so we
-     cancel it with negative margins then restore left padding only. */
-  .rev-grid {
-    display: flex !important;
+  /* Header: same flex layout as editorial-header */
+  .reviews-header {
     flex-direction: row;
-    flex-wrap: nowrap;
-    gap: 12px;
-    /* horizontal scroll + snap */
-    overflow-x: auto;
-    overflow-y: visible;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    /* stretch to viewport edges beyond the .container padding */
-    margin-left: -20px;
-    margin-right: -20px;
-    /* left padding creates the leading breathing space;
-       right padding lets the peek of the next card show before the edge */
-    padding-left: 20px;
-    padding-right: 20px;
-    margin-top: 36px;
-    /* kill grid column override from components.css */
-    grid-template-columns: unset !important;
-    /* hide scrollbar — Chrome/Safari/Edge */
-    scrollbar-width: none;       /* Firefox */
-    -ms-overflow-style: none;    /* IE / old Edge */
+    align-items: flex-end;
+    margin-bottom: 32px;
   }
-  .rev-grid::-webkit-scrollbar { display: none; } /* Chrome / Safari */
 
-  /* Each card: 87% viewport width so the next one peeks ~8% */
+  /* Show arrow controls on mobile */
+  .rv-controls { display: flex; }
+
+  /* Cards: JS sets inline flex width — no shrink/grow */
   .rv {
-    flex: 0 0 87vw;
-    max-width: 87vw;
-    scroll-snap-align: start;
-    /* disable hover lift on touch devices */
+    flex-shrink: 0;
+    flex-grow: 0;
+    min-width: 0;
+    /* disable hover lift on touch */
     transform: none !important;
   }
   .rv:hover { transform: none !important; }
-}
 
+  /* Dots row: same as editorial .ed-dots */
+  .rv-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+    margin-top: 24px;
+  }
+
+  /* Arrow sizes match 580px editorial override */
+  .rv-controls .ed-arrow {
+    width: 38px;
+    height: 38px;
+  }
+}

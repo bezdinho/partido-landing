@@ -937,6 +937,149 @@ window.addEventListener('scroll', () => {
   refresh(false);
 })();
 
+// -- REVIEWS CAROUSEL --
+// Identical system to the editorial carousel.
+// Active only on mobile (≤640px); on desktop all 3 cards
+// fill the row via flex:1 so no navigation is needed.
+(function() {
+  var carousel = document.querySelector('.rev-carousel');
+  var track    = document.querySelector('.rev-track');
+  if (!track || !carousel) return;
+  var cards    = Array.from(track.querySelectorAll('.rv'));
+  if (cards.length < 2) return;
+
+  var dotsWrap = document.querySelector('.rv-dots');
+  var prevBtn  = document.querySelector('.ed-arrow--rv-prev');
+  var nextBtn  = document.querySelector('.ed-arrow--rv-next');
+  var GAP      = 14;  // matches reviews.css rev-track gap
+  var index    = 0;
+  var resizeTid;
+
+  // On desktop all cards are visible — carousel inactive
+  function isMobile() { return window.innerWidth <= 640; }
+
+  function visibleCount() { return 1; }  // reviews shows 1 card at a time on mobile
+
+  function maxIndex() {
+    return Math.max(0, cards.length - visibleCount());
+  }
+
+  // Set every card's pixel width to fill the carousel viewport
+  function sizeCards() {
+    if (!isMobile()) {
+      // Reset to natural flex:1 for desktop
+      cards.forEach(function(c) { c.style.flex = ''; });
+      return;
+    }
+    var cs  = window.getComputedStyle(carousel);
+    var w   = carousel.offsetWidth
+              - parseFloat(cs.paddingLeft  || 0)
+              - parseFloat(cs.paddingRight || 0);
+    var cw  = Math.floor((w - GAP * (visibleCount() - 1)) / visibleCount());
+    cards.forEach(function(c) { c.style.flex = '0 0 ' + cw + 'px'; });
+  }
+
+  function moveTo(i, animate) {
+    if (!isMobile()) { track.style.transform = ''; return; }
+    if (animate === false) track.style.transition = 'none';
+    var cw = cards[0].offsetWidth;
+    track.style.transform = 'translateX(-' + (i * (cw + GAP)) + 'px)';
+    if (animate === false) {
+      track.offsetWidth; // force reflow
+      track.style.transition = '';
+    }
+  }
+
+  function buildDots() {
+    if (!dotsWrap) return;
+    if (!isMobile()) { dotsWrap.innerHTML = ''; dotsWrap.style.display = 'none'; return; }
+    var total = maxIndex() + 1;
+    if (total <= 1) { dotsWrap.innerHTML = ''; dotsWrap.style.display = 'none'; return; }
+    dotsWrap.style.display = 'flex';
+    dotsWrap.innerHTML = '';
+    for (var i = 0; i <= maxIndex(); i++) {
+      var btn = document.createElement('button');
+      btn.className = 'ed-dot' + (i === index ? ' active' : '');
+      btn.setAttribute('aria-label', 'Go to review ' + (i + 1));
+      btn.dataset.i = i;
+      btn.addEventListener('click', function() {
+        index = +this.dataset.i;
+        refresh();
+      });
+      dotsWrap.appendChild(btn);
+    }
+  }
+
+  function syncDots() {
+    if (!dotsWrap) return;
+    dotsWrap.querySelectorAll('.ed-dot').forEach(function(d, i) {
+      d.classList.toggle('active', i === index);
+    });
+  }
+
+  function syncArrows() {
+    if (!isMobile()) {
+      if (prevBtn) prevBtn.disabled = false;
+      if (nextBtn) nextBtn.disabled = false;
+      return;
+    }
+    if (prevBtn) prevBtn.disabled = index === 0;
+    if (nextBtn) nextBtn.disabled = index >= maxIndex();
+  }
+
+  function refresh(animate) {
+    moveTo(index, animate);
+    syncDots();
+    syncArrows();
+  }
+
+  if (prevBtn) prevBtn.addEventListener('click', function() {
+    if (isMobile() && index > 0) { index--; refresh(); }
+  });
+  if (nextBtn) nextBtn.addEventListener('click', function() {
+    if (isMobile() && index < maxIndex()) { index++; refresh(); }
+  });
+
+  // Touch / swipe — same as editorial carousel
+  var txStart = 0, tyStart = 0, swiping = false;
+  track.addEventListener('touchstart', function(e) {
+    txStart = e.touches[0].clientX;
+    tyStart = e.touches[0].clientY;
+    swiping = false;
+  }, { passive: true });
+  track.addEventListener('touchmove', function(e) {
+    if (Math.abs(e.touches[0].clientX - txStart) > Math.abs(e.touches[0].clientY - tyStart)) {
+      swiping = true;
+    }
+  }, { passive: true });
+  track.addEventListener('touchend', function(e) {
+    if (!swiping) return;
+    var dx = txStart - e.changedTouches[0].clientX;
+    if (Math.abs(dx) < 40) return;
+    if (dx > 0 && index < maxIndex()) { index++; refresh(); }
+    if (dx < 0 && index > 0)          { index--; refresh(); }
+  }, { passive: true });
+
+  window.addEventListener('resize', function() {
+    clearTimeout(resizeTid);
+    resizeTid = setTimeout(function() {
+      index = 0; // reset position on resize
+      sizeCards();
+      buildDots();
+      refresh(false);
+    }, 100);
+  });
+
+  document.querySelectorAll('.lang-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() { refresh(false); });
+  });
+
+  // Init
+  sizeCards();
+  buildDots();
+  refresh(false);
+})();
+
 // -- MOBILE BURGER MENU --
 (function() {
   var burger = document.querySelector('.nav-burger');
