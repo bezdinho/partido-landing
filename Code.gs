@@ -43,6 +43,25 @@ function doPost(e) {
       name:    first_name + ' ' + last_name
     });
 
+    // ── Auto-reply to the user ──────────────────────────────
+    var replySubject = 'We received your message \u2013 Partido';
+    var replyBody = [
+      'Hi ' + first_name + ',',
+      '',
+      'Thank you for reaching out to Partido.',
+      '',
+      'We have received your message and will get back to you as soon as possible.',
+      '',
+      'Best regards,',
+      'The Partido Team',
+      'admin@partido.ma'
+    ].join('\n');
+
+    GmailApp.sendEmail(email, replySubject, replyBody, {
+      name: 'Partido'
+    });
+    // ── End auto-reply ──────────────────────────────────────
+
     return jsonResponse({ success: true });
 
   } catch (err) {
