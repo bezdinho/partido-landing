@@ -336,6 +336,12 @@ html[dir="rtl"] .cp-select-arrow {
   font-size: 14.5px;
   padding: 16px 32px;
 }
+.cp-submit:disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
 
 /* ══════════════════════════════════════
    RESPONSIVE

@@ -11,6 +11,39 @@
 
   if (!form) return;
 
+  // ── Live validation: enable button only when all required fields are valid ──
+  var fFname = form.querySelector('#cp-fname');
+  var fLname = form.querySelector('#cp-lname');
+  var fEmail = form.querySelector('#cp-email');
+  var fTopic = form.querySelector('#cp-topic');
+  var fMsg   = form.querySelector('#cp-msg');
+
+  function isEmailValid(val) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+  }
+
+  function isFormValid() {
+    return (fFname.value.trim() !== '') &&
+           (fLname.value.trim() !== '') &&
+           isEmailValid(fEmail.value.trim()) &&
+           (fTopic.value !== '') &&
+           (fMsg.value.trim() !== '');
+  }
+
+  function updateButton() {
+    btn.disabled = !isFormValid();
+  }
+
+  // Disable on init
+  btn.disabled = true;
+
+  // Watch all required fields
+  [fFname, fLname, fEmail, fTopic, fMsg].forEach(function (el) {
+    el.addEventListener('input', updateButton);
+    el.addEventListener('change', updateButton);
+  });
+  // ── End live validation ──
+
   form.addEventListener('submit', function (e) {
     e.preventDefault();
 
@@ -48,6 +81,7 @@
         status.textContent = 'Message sent successfully.';
         status.classList.add('cp-form-status--ok');
         form.reset();
+        updateButton(); // re-disable after reset
       } else {
         throw new Error(data.error || 'Server error');
       }
@@ -57,8 +91,8 @@
       status.classList.add('cp-form-status--err');
     })
     .finally(function () {
-      btn.disabled        = false;
       btnSpan.textContent = 'Send message';
+      updateButton(); // restore correct enabled/disabled state after response
     });
   });
 })();
