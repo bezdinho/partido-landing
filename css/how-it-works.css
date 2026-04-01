@@ -117,10 +117,8 @@ html[lang="ar"] .how-step__content h3 { font-family:'Cairo',sans-serif; letter-s
 }
 html[lang="ar"] .how-step__content p { font-family:'Cairo',sans-serif; line-height:1.8; }
 
-/* ── Offset Step 2 downward for visual rhythm ── */
-/* Use padding-top instead of margin-top so the card border stretches
-   to the same height as its siblings (margin-top was shrinking it). */
-.how-step--join { padding-top: 72px; } /* 28px base + 44px offset = 72px */
+/* Step 2 uses the same base padding as Step 1 — no vertical offset */
+.how-step--join { padding-top: 28px; }
 
 /* ══════════════════════════════════════
    STEP 3 — PLAY  (dominant, emotional)
