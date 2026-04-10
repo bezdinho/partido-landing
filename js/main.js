@@ -190,7 +190,7 @@ const T = {
     terms: {
       label: 'Legal',
       title: 'Terms of Use',
-      date: '<strong>Last updated:</strong> March 2025',
+      date: '<strong>Last updated:</strong> April 10, 2026',
       intro: '<p>These Terms of Use govern your access to and use of the Partido mobile application, website, and related services, operated by BBF VENTURES.</p><p>By creating an account, accessing, or using the Service, you agree to be bound by these Terms. Please read them carefully before using Partido.</p>',
       toc: {
         heading: 'Contents', toggle: 'Contents',
@@ -448,7 +448,7 @@ const T = {
     terms: {
       label: 'Mentions légales',
       title: 'Conditions d\'Utilisation',
-      date: '<strong>Dernière mise à jour :</strong> Mars 2025',
+      date: '<strong>Dernière mise à jour :</strong> 10.04.2026',
       intro: '<p>Ces Conditions d\'Utilisation régissent votre accès et votre utilisation de l\'application mobile Partido, du site web et des services associés, exploités par BBF VENTURES.</p><p>En créant un compte, en accédant ou en utilisant le Service, vous acceptez d\'être lié par ces Conditions. Veuillez les lire attentivement avant d\'utiliser Partido.</p>',
       toc: {
         heading: 'Sommaire', toggle: 'Sommaire',
@@ -706,7 +706,7 @@ const T = {
     terms: {
       label: 'قانوني',
       title: 'شروط الاستخدام',
-      date: '<strong>آخر تحديث:</strong> مارس 2025',
+      date: '<strong>آخر تحديث:</strong> 10 أبريل 2026',
       intro: '<p>تحكم شروط الاستخدام هذه وصولك إلى تطبيق Partido للهاتف المحمول والموقع الإلكتروني والخدمات ذات الصلة، التي تشغّلها BBF VENTURES، واستخدامك لها.</p><p>بإنشاء حساب أو الوصول إلى الخدمة أو استخدامها، فإنك توافق على الالتزام بهذه الشروط. يُرجى قراءتها بعناية قبل استخدام Partido.</p>',
       toc: {
         heading: 'المحتويات', toggle: 'المحتويات',
@@ -870,8 +870,25 @@ function applyLang(lang) {
 }
 
 // ── LANGUAGE SWITCHER EVENTS ─────────────────────────────────────
+// Pages that have separate per-language HTML files redirect on lang switch.
+// All other pages translate in-place via applyLang().
+const LANG_PAGE_MAP = {
+  'privacy.html':    { en: 'privacy.html',    fr: 'privacy-fr.html', ar: 'privacy-ar.html' },
+  'privacy-fr.html': { en: 'privacy.html',    fr: 'privacy-fr.html', ar: 'privacy-ar.html' },
+  'privacy-ar.html': { en: 'privacy.html',    fr: 'privacy-fr.html', ar: 'privacy-ar.html' },
+};
 document.querySelectorAll('.lang-btn').forEach(btn => {
-  btn.addEventListener('click', () => applyLang(btn.dataset.lang));
+  btn.addEventListener('click', () => {
+    const lang = btn.dataset.lang;
+    const file = window.location.pathname.split('/').pop() || 'index.html';
+    const map  = LANG_PAGE_MAP[file];
+    if (map && map[lang] !== file) {
+      try { localStorage.setItem('partido_lang', lang); } catch(e) {}
+      window.location.href = map[lang];
+      return;
+    }
+    applyLang(lang);
+  });
 });
 
 // ── SCROLL REVEAL (progressive enhancement) ──────────────────────
