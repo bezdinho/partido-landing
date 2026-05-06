@@ -20,7 +20,7 @@ html[dir="rtl"] .hero { padding: 0 48px; }
   position: absolute; inset: 0; z-index: 0;
   background:
     linear-gradient(to right, rgba(0,0,0,.85), rgba(0,0,0,.60), rgba(0,0,0,.30)),
-    url('../assets/backgrounds/hero-football.jpg') center / cover no-repeat;
+    url('../assets/backgrounds/Hero%20background.png') center / cover no-repeat;
   background-color: var(--black);
 }
 .hero-grid {
@@ -80,11 +80,11 @@ html[dir="rtl"] .hero-right { padding: 80px 0 80px 5%; }
    px/clamp offsets — no per-phone vh offsets. */
 .hero-phones {
   position: absolute;
-  top: 75%;
+  top: 80%;
   right: 0;
   transform: translateY(-50%);
-  width: clamp(400px, 42vw, 580px);
-  height: clamp(460px, 62vh, 620px);
+  width: clamp(436px, 46vw, 632px);
+  height: clamp(501px, 68vh, 676px);
 }
 /* Ambient glow - centered under the group */
 .hero-phones::after {
@@ -102,7 +102,7 @@ html[dir="rtl"] .hero-right { padding: 80px 0 80px 5%; }
   position: absolute;
   top: 0;
   left: 0;
-  width: clamp(220px, 20vw, 290px);
+  width: clamp(240px, 22vw, 316px);
   filter:
     drop-shadow(0 28px 56px rgba(0,0,0,0.80))
     drop-shadow(0 0 24px rgba(153,202,60,0.15));
@@ -113,7 +113,7 @@ html[dir="rtl"] .hero-right { padding: 80px 0 80px 5%; }
   position: absolute;
   bottom: 0;
   right: 0;
-  width: clamp(254px, 23vw, 330px);
+  width: clamp(277px, 25vw, 360px);
   z-index: 2;
   filter:
     drop-shadow(0 36px 72px rgba(0,0,0,0.85))

@@ -99,6 +99,23 @@ html[lang="ar"] .how-step__badge { font-family:'Cairo',sans-serif; letter-spacin
 .how-step--discover .how-step__mockup { transform: rotate(-2deg); }
 .how-step--join    .how-step__mockup { transform: rotate( 2deg); }
 
+/* Step 01 uses a transparent PNG that already includes the iPhone frame —
+   neutralize the wrapper's chrome (background, border, notch, hard-rect
+   shadow) so we don't get a double frame, and use a drop-shadow that
+   respects the PNG alpha. */
+.how-step--discover .how-step__mockup {
+  width: 160px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: visible;
+}
+.how-step--discover .how-step__mockup::before { display: none; }
+.how-step--discover .how-step__mockup img {
+  filter: drop-shadow(0 24px 40px rgba(0,0,0,.75));
+}
+
 /* ── Text ── */
 .how-step__content h3 {
   font-size: 13px;
