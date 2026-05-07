@@ -104,7 +104,8 @@ html[lang="ar"] .how-step__badge { font-family:'Cairo',sans-serif; letter-spacin
    shadow) so we don't get a double frame, and use a drop-shadow that
    respects the PNG alpha. */
 .how-step--discover .how-step__mockup {
-  width: 184px;
+  width: 299px;
+  max-width: 100%;
   background: transparent;
   border: none;
   border-radius: 0;
@@ -113,6 +114,20 @@ html[lang="ar"] .how-step__badge { font-family:'Cairo',sans-serif; letter-spacin
 }
 .how-step--discover .how-step__mockup::before { display: none; }
 .how-step--discover .how-step__mockup img {
+  filter: drop-shadow(0 24px 40px rgba(0,0,0,.75));
+}
+
+/* Step 02 also uses a transparent PNG that already includes the iPhone frame. */
+.how-step--join .how-step__mockup {
+  width: 184px;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: visible;
+}
+.how-step--join .how-step__mockup::before { display: none; }
+.how-step--join .how-step__mockup img {
   filter: drop-shadow(0 24px 40px rgba(0,0,0,.75));
 }
 
@@ -136,6 +151,7 @@ html[lang="ar"] .how-step__content p { font-family:'Cairo',sans-serif; line-heig
 
 /* Step 2 uses the same base padding as Step 1 — no vertical offset */
 .how-step--join { padding-top: 28px; }
+.how-step--discover { padding-top: 28px; }
 
 /* ══════════════════════════════════════
    STEP 3 — PLAY  (dominant, emotional)

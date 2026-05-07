@@ -39,14 +39,14 @@
   margin: 0 auto;
   padding: 0 48px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 18px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
   align-items: stretch;
 }
 
 /* ── Base card ── */
 .org-card {
-  border-radius: 22px;
+  border-radius: 24px;
   border: 1px solid var(--bdr);
   background: var(--card);
   overflow: hidden;
@@ -113,9 +113,45 @@ html[lang="ar"] .org-card__badge {
   flex-shrink: 0;
 }
 
-/* Subtle counter-tilt for visual rhythm */
-.org-card--setup  .org-card__visual .phone { transform: rotate(-1.5deg); }
-.org-card--manage .org-card__visual .phone { transform: rotate( 1.5deg); }
+/* Counter-tilt — matches how-it-works step 01/02 (±2deg) */
+.org-card--setup  .org-card__visual .phone { transform: rotate(-2deg); }
+.org-card--manage .org-card__visual .phone { transform: rotate( 2deg); }
+
+/* Card 01 uses a transparent PNG that already includes the iPhone frame —
+   neutralize the .phone wrapper's chrome (background, border, notch, hard
+   rounded clip, inner shadows) to avoid a double frame, and let the PNG
+   alpha cast its own drop-shadow.
+   Width tuned so the rendered phone height matches how-it-works (≈ 399px). */
+.org-card--setup .org-card__visual .phone {
+  width: 224px;
+  max-width: 100%;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: visible;
+}
+.org-card--setup .org-card__visual .phone::before { display: none; }
+.org-card--setup .org-card__visual .phone img {
+  border-radius: 0;
+  filter: drop-shadow(0 24px 40px rgba(0,0,0,.75));
+}
+
+/* Card 02 also uses a transparent PNG that already includes the iPhone frame. */
+.org-card--manage .org-card__visual .phone {
+  width: 224px;
+  max-width: 100%;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: visible;
+}
+.org-card--manage .org-card__visual .phone::before { display: none; }
+.org-card--manage .org-card__visual .phone img {
+  border-radius: 0;
+  filter: drop-shadow(0 24px 40px rgba(0,0,0,.75));
+}
 
 /* Card 3: play photo — landscape + full bleed feel */
 .org-card--play .org-card__image {
@@ -123,7 +159,7 @@ html[lang="ar"] .org-card__badge {
   border-radius: 0;
   border: none;
   flex: 1;
-  min-height: 220px;
+  min-height: 490px;
 }
 .org-card--play .org-card__image img {
   width: 100%;
@@ -202,10 +238,10 @@ html[lang="ar"] .org-card__desc {
   }
   .org-card--play {
     grid-column: span 2;
-    min-height: 280px;
+    min-height: 380px;
   }
   .org-card--play .org-card__image {
-    min-height: 280px;
+    min-height: 380px;
   }
 }
 
@@ -216,7 +252,10 @@ html[lang="ar"] .org-card__desc {
   }
   .org-card--play {
     grid-column: span 1;
-    min-height: 260px;
+    min-height: 320px;
+  }
+  .org-card--play .org-card__image {
+    min-height: 320px;
   }
   .org-section {
     padding: 72px 0 80px;
