@@ -4,22 +4,38 @@
    DESIGN TOKENS
 ══════════════════════════════════════ */
 :root {
-  --g:     #99ca3c;
-  --gd:    rgba(153,202,60,0.11);
-  --black: #0d0e0c;
-  --dark:  #111310;
-  --card:  #181a15;
-  --bdr:   #252820;
-  --text:  #f0f2ea;
-  --muted: #7a8070;
-  --dim:   #3a3f32;
+  --g:      #99ca3c;
+  --g-hi:   #b6dc55;
+  --gd:     rgba(153,202,60,0.11);
+  --black:  #0d0e0c;
+  --dark:   #111310;
+  --card:   #181a15;
+  --bdr:    #252820;
+  --text:   #f0f2ea;
+  --text-2: #b8bcae;   /* between text and muted — for sub-copy that needs more presence */
+  --muted:  #7a8070;
+  --dim:    #3a3f32;
+
+  /* Radius scale */
+  --r-sm: 12px;
+  --r-md: 18px;
+  --r-lg: 22px;
+  --r-xl: 28px;
+
+  /* Durations */
+  --dur-1: .2s;
+  --dur-2: .35s;
+  --dur-3: .6s;
 }
 
 /* ══════════════════════════════════════
    RESET & BASE
 ══════════════════════════════════════ */
 * { margin:0; padding:0; box-sizing:border-box; }
-html { scroll-behavior:smooth; }
+html {
+  scroll-behavior:smooth;
+  color-scheme: dark;
+}
 body {
   font-family: 'Satoshi', sans-serif;
   font-weight: 400;
@@ -27,7 +43,33 @@ body {
   color: var(--text);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "ss01", "cv11", "kern";
   transition: none;
+}
+
+/* Selection */
+::selection { background: var(--g); color: var(--black); }
+::-moz-selection { background: var(--g); color: var(--black); }
+
+/* Scrollbar — dark, on-brand */
+* { scrollbar-color: #2a2d24 var(--black); scrollbar-width: thin; }
+*::-webkit-scrollbar { width: 10px; height: 10px; }
+*::-webkit-scrollbar-track { background: var(--black); }
+*::-webkit-scrollbar-thumb {
+  background: #2a2d24;
+  border: 2px solid var(--black);
+  border-radius: 99px;
+}
+*::-webkit-scrollbar-thumb:hover { background: #3a3f32; }
+
+/* Keyboard focus ring — applies wherever an element is focused via keyboard.
+   Outlines automatically follow the element's own border-radius in modern
+   browsers, so we don't override the shape here. */
+:focus-visible {
+  outline: 2px solid var(--g);
+  outline-offset: 3px;
 }
 
 /* Arabic font override */
@@ -78,6 +120,10 @@ html[lang="ar"] .fc h3 {
   color: var(--text);
   background: rgba(255,255,255,0.07);
 }
+.lang-btn:focus-visible {
+  outline: 2px solid var(--g);
+  outline-offset: 2px;
+}
 
 /* ══════════════════════════════════════
    PHONE FRAME
@@ -113,22 +159,61 @@ html[lang="ar"] .fc h3 {
 ══════════════════════════════════════ */
 .btn-p {
   display: inline-flex; align-items: center; gap: 8px;
-  background: var(--g); color: var(--black);
+  background: linear-gradient(180deg, var(--g-hi) 0%, var(--g) 100%);
+  color: var(--black);
   padding: 15px 32px; border-radius: 100px;
   font-size: 15px; font-weight: 600; letter-spacing: -0.1px;
   text-decoration: none; border: none; cursor: pointer;
-  transition: transform .2s, box-shadow .2s;
+  box-shadow:
+    0 4px 14px rgba(153,202,60,0.22),
+    inset 0 1px 0 rgba(255,255,255,0.18);
+  transition:
+    transform var(--dur-1) cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow var(--dur-1) cubic-bezier(0.22, 1, 0.36, 1),
+    filter var(--dur-1) ease;
 }
-.btn-p:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(153,202,60,0.4); }
+.btn-p:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 14px 36px rgba(153,202,60,0.42),
+    0 0 0 1px rgba(153,202,60,0.18),
+    inset 0 1px 0 rgba(255,255,255,0.22);
+}
+.btn-p:active {
+  transform: translateY(0);
+  filter: brightness(0.96);
+  box-shadow:
+    0 4px 12px rgba(153,202,60,0.28),
+    inset 0 1px 0 rgba(255,255,255,0.12);
+}
+.btn-p:focus-visible {
+  outline: 2px solid var(--g);
+  outline-offset: 4px;
+}
+
 .btn-g {
   display: inline-flex; align-items: center; gap: 8px;
   border: 1px solid var(--bdr); color: var(--text);
   background: transparent; padding: 14px 28px; border-radius: 100px;
   font-size: 15px; font-weight: 500;
   text-decoration: none; cursor: pointer;
-  transition: border-color .2s, background .2s;
+  transition:
+    border-color var(--dur-1) cubic-bezier(0.22, 1, 0.36, 1),
+    background var(--dur-1) cubic-bezier(0.22, 1, 0.36, 1),
+    color var(--dur-1) ease,
+    transform var(--dur-1) cubic-bezier(0.22, 1, 0.36, 1);
 }
-.btn-g:hover { border-color: var(--g); background: var(--gd); }
+.btn-g:hover {
+  border-color: var(--g);
+  background: var(--gd);
+  color: var(--g-hi);
+  transform: translateY(-1px);
+}
+.btn-g:active { transform: translateY(0); }
+.btn-g:focus-visible {
+  outline: 2px solid var(--g);
+  outline-offset: 4px;
+}
 
 /* ══════════════════════════════════════
    SECTION LAYOUT
@@ -157,7 +242,7 @@ html[lang="ar"] .sec-title {
   line-height: 1.2;
 }
 .sec-sub {
-  font-size: 16px; font-weight: 400; color: var(--muted);
+  font-size: 16px; font-weight: 400; color: var(--text-2);
   max-width: 500px; line-height: 1.68; letter-spacing: -0.1px;
   margin-top: 12px;
 }

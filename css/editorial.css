@@ -61,8 +61,8 @@ html[lang="ar"] .editorial-title {
 }
 
 .editorial-subtitle {
-  font-size: 14.5px;
-  color: var(--muted);
+  font-size: 15px;
+  color: var(--text-2);
   line-height: 1.7;
   max-width: 480px;
   margin-top: 6px;
@@ -221,7 +221,7 @@ html[lang="ar"] .editorial-subtitle {
   letter-spacing: 2.4px;
   text-transform: uppercase;
   color: var(--g);
-  opacity: .7;
+  opacity: .85;
 }
 html[lang="ar"] .ed-card__tag {
   font-family: 'Cairo', sans-serif;
@@ -259,7 +259,7 @@ html[lang="ar"] .ed-card__desc {
   font-size: 11.5px;
   font-weight: 700;
   letter-spacing: .4px;
-  color: rgba(153,202,60,.65);
+  color: rgba(153,202,60,.85);
   text-transform: uppercase;
   margin-top: 4px;
   transition: color .2s, gap .2s;

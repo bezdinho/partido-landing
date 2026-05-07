@@ -157,8 +157,8 @@ html[dir="rtl"] .phone-badge.badge-br { right: auto; left: -16px; }
 }
 .step:hover {
   border-color: rgba(153,202,60,.28) !important; background: rgba(153,202,60,.025);
-  transform: translateY(-5px);
-  box-shadow: 0 24px 64px rgba(0,0,0,.5), 0 0 0 1px rgba(153,202,60,.1);
+  transform: translateY(-4px);
+  box-shadow: 0 22px 56px rgba(0,0,0,.5), 0 0 0 1px rgba(153,202,60,.10);
 }
 .step-dot { display: none !important; }
 .step-n {
@@ -282,11 +282,11 @@ html[lang="ar"] .proof-lbl { font-family: 'Cairo', sans-serif; letter-spacing: 0
   border-radius: 20px; padding: 32px; position: relative; overflow: hidden;
   transition: border-color .3s var(--ease-smooth), transform .3s var(--ease-premium), box-shadow .3s;
 }
-.rv:hover { border-color: rgba(153,202,60,.25); transform: translateY(-5px); box-shadow: 0 24px 64px rgba(0,0,0,.5); }
+.rv:hover { border-color: rgba(153,202,60,.25); transform: translateY(-4px); box-shadow: 0 22px 56px rgba(0,0,0,.5), 0 0 0 1px rgba(153,202,60,.08); }
 .rv::before {
-  content: '�C'; position: absolute; top: 16px; right: 22px;
-  font-family: 'Satoshi', sans-serif; font-size: 96px; font-weight: 900;
-  color: rgba(153,202,60,.06); line-height: 1; pointer-events: none; user-select: none;
+  content: '\201C'; position: absolute; top: 12px; right: 22px;
+  font-family: 'Satoshi', sans-serif; font-size: 110px; font-weight: 900;
+  color: rgba(153,202,60,.08); line-height: 1; pointer-events: none; user-select: none;
 }
 html[dir="rtl"] .rv::before { right: auto; left: 22px; }
 .rv-stars { color: var(--g); font-size: 12px; letter-spacing: 3px; margin-bottom: 16px; }
@@ -350,6 +350,19 @@ html[lang="ar"] .cta-section p { font-family: 'Cairo', sans-serif; line-height: 
 .js-animations .reveal-left.visible,
 .js-animations .reveal-right.visible,
 .js-animations .reveal-scale.visible { opacity: 1; transform: none; }
+
+/* -- REDUCED MOTION GUARD -- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .gallery-strip.js-scroll { animation: none !important; }
+  .pb-dot { animation: none !important; }
+  .reveal, .reveal-left, .reveal-right, .reveal-scale { opacity: 1 !important; transform: none !important; }
+}
 
 /* -- KEYFRAMES -- */
 @keyframes float  { 0%,100% { transform: translateY(0); }  50% { transform: translateY(-10px); } }
