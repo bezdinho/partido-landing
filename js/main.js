@@ -14,7 +14,6 @@ const T = {
     },
     marquee: ['Find a Game Near You','Create a Match in 60 Seconds','5v5 · 6v6 · 7v7','Chill or Competitive','Fill Your Squad Instantly',"Morocco's Football Community",'Tournaments Across Morocco','Track Your Football Identity'],
     how: {
-      label:'Simple by design',
       title:'FROM IDEA TO<br>KICKOFF IN MINUTES',
       sub:  'No back-and-forth. No chasing people. Three steps and you\'re on the pitch.',
       s1badge:'Discover', s1t:'Discover a Match',  s1p:'Browse nearby games filtered by level, format and time. Find exactly the game you\'re looking for.',
@@ -266,7 +265,6 @@ const T = {
     },
     marquee: ['Trouve un Match Près de Toi','Crée un Match en 60 Secondes','5v5 · 6v6 · 7v7','Ambiance Détente ou Compétition','Complète ton Équipe Instantanément','La Communauté Football du Maroc','Tournois à Travers le Maroc','Construis ton Identité Football'],
     how: {
-      label:'Simple par conception',
       title:'DE L\'IDÉE AU<br>COUP D\'ENVOI EN MINUTES',
       sub:  'Pas d\'allers-retours. Pas de relances. Trois étapes et tu es sur le terrain.',
       s1badge:'Découvrir', s1t:'Découvrir un Match',  s1p:'Définis le format, niveau, date, heure et ambiance. Ton match est en ligne en 30 secondes.',
@@ -518,7 +516,6 @@ const T = {
     },
     marquee: ['ابحث عن مباراة قريبة منك','أنشئ مباراة في 60 ثانية','5 ضد 5 · 6 ضد 6 · 7 ضد 7','جو ترفيهي أو تنافسي','اكمل فريقك فوراً','مجتمع كرة القدم بالمغرب','بطولات في أرجاء المغرب','ابنِ هويتك الكروية'],
     how: {
-      label:'بسيط بطبعه',
       title:'من الفكرة<br>إلى انطلاق المباراة<br>في دقائق',
       sub:  'لا ذهاب وإياب. لا ملاحقة. ثلاث خطوات وأنت على أرض الملعب.',
       s1badge:'اكتشف', s1t:'اكتشف مباراة',   s1p:'تصفح المباريات القريبة مفلترة حسب المستوى والتنسيق والوقت. ابحث عن المباراة المناسبة لك.',
