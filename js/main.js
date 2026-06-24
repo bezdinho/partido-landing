@@ -44,12 +44,6 @@ const T = {
       cta:'Register My Team →',
     },
     proof: { p1v:'Fill games faster', p1l:'Find missing players instantly', p2v:'Find games instantly', p2l:'Join games anytime', p3v:'Play & win prizes', p3l:'Tournaments across Morocco', p4v:'100% free', p4l:'No fees, no subscriptions' },
-    reviews: {
-      label:'What players say', title:'PLAYERS ALREADY<br>LOVE IT',
-      r1:'"Finally an app that solves the real problem. No more 50-message WhatsApp threads just to confirm 11 people."',
-      r2:'"I moved to a new city and had zero people to play with. Two days after downloading Partido I was in a regular squad."',
-      r3:'"The behavior tracking is underrated. I know exactly who I\'m inviting and whether they actually show up."',
-    },
     cta: {
       label:'Ready to play?',
       title:'YOUR NEXT<br>MATCH IS<br><span style="color:var(--g);">WAITING</span>',
@@ -302,12 +296,6 @@ const T = {
       cta:'Inscrire mon Équipe →',
     },
     proof: { p1v:'Complétez votre match en minutes', p1l:'Trouvez les joueurs manquants instantanément', p2v:'Trouvez des matchs instantanément', p2l:'Même si vous jouez seul', p3v:'Jouez pour des prix', p3l:'Participez aux tournois au Maroc', p4v:'100% gratuit', p4l:'Sans frais, sans abonnement' },
-    reviews: {
-      label:'Ce que disent les joueurs', title:'LES JOUEURS<br>L\'ADORENT DÉJÀ',
-      r1:'"Enfin une app qui résout le vrai problème. Fini les 50 messages WhatsApp juste pour confirmer 11 personnes."',
-      r2:'"J\'ai déménagé dans une nouvelle ville sans personne à qui jouer. Deux jours après Partido j\'étais dans une équipe régulière."',
-      r3:'"Le suivi de comportement est sous-estimé. Je sais exactement qui j\'invite et s\'ils vont vraiment se pointer."',
-    },
     cta: {
       label:'Prêt à jouer ?',
       title:'TON PROCHAIN<br>MATCH<br><span style="color:var(--g);">T\'ATTEND</span>',
@@ -560,12 +548,6 @@ const T = {
       cta:'سجّل فريقي ←',
     },
     proof: { p1v:'أكمل مباراتك في دقائق', p1l:'ابحث عن اللاعبين الناقصين فوراً', p2v:'ابحث عن مباريات فوراً', p2l:'حتى لو كنت تلعب بمفردك', p3v:'العب للفوز بجوائز', p3l:'نافس في بطولات عبر المغرب', p4v:'مجاني 100%', p4l:'بدون رسوم أو اشتراكات' },
-    reviews: {
-      label:'ما يقوله اللاعبون', title:'اللاعبون<br>أحبوه بالفعل',
-      r1:'"أخيراً تطبيق يحل المشكلة الحقيقية. انتهت رسائل واتساب الخمسين لتأكيد 11 شخصاً."',
-      r2:'"انتقلت لمدينة جديدة ولم أعرف أحداً. بعد يومين من التنزيل كنت في فريق منتظم."',
-      r3:'"تتبع السلوك مُقلَّل القيمة. أعرف تماماً من أدعو وإذا كان سيحضر فعلاً."',
-    },
     cta: {
       label:'مستعد للعب؟',
       title:'مباراتك القادمة<br>في<br><span style="color:var(--g);">انتظارك</span>',
@@ -1179,148 +1161,6 @@ window.addEventListener('scroll', () => {
   refresh(false);
 })();
 
-// -- REVIEWS CAROUSEL --
-// Identical system to the editorial carousel.
-// Active only on mobile (≤640px); on desktop all 3 cards
-// fill the row via flex:1 so no navigation is needed.
-(function() {
-  var carousel = document.querySelector('.rev-carousel');
-  var track    = document.querySelector('.rev-track');
-  if (!track || !carousel) return;
-  var cards    = Array.from(track.querySelectorAll('.rv'));
-  if (cards.length < 2) return;
-
-  var dotsWrap = document.querySelector('.rv-dots');
-  var prevBtn  = document.querySelector('.ed-arrow--rv-prev');
-  var nextBtn  = document.querySelector('.ed-arrow--rv-next');
-  var GAP      = 14;  // matches reviews.css rev-track gap
-  var index    = 0;
-  var resizeTid;
-
-  // On desktop all cards are visible — carousel inactive
-  function isMobile() { return window.innerWidth <= 640; }
-
-  function visibleCount() { return 1; }  // reviews shows 1 card at a time on mobile
-
-  function maxIndex() {
-    return Math.max(0, cards.length - visibleCount());
-  }
-
-  // Set every card's pixel width to fill the carousel viewport
-  function sizeCards() {
-    if (!isMobile()) {
-      // Reset to natural flex:1 for desktop
-      cards.forEach(function(c) { c.style.flex = ''; });
-      return;
-    }
-    var cs  = window.getComputedStyle(carousel);
-    var w   = carousel.offsetWidth
-              - parseFloat(cs.paddingLeft  || 0)
-              - parseFloat(cs.paddingRight || 0);
-    var cw  = Math.floor((w - GAP * (visibleCount() - 1)) / visibleCount());
-    cards.forEach(function(c) { c.style.flex = '0 0 ' + cw + 'px'; });
-  }
-
-  function moveTo(i, animate) {
-    if (!isMobile()) { track.style.transform = ''; return; }
-    if (animate === false) track.style.transition = 'none';
-    var cw = cards[0].offsetWidth;
-    track.style.transform = 'translateX(-' + (i * (cw + GAP)) + 'px)';
-    if (animate === false) {
-      track.offsetWidth; // force reflow
-      track.style.transition = '';
-    }
-  }
-
-  function buildDots() {
-    if (!dotsWrap) return;
-    if (!isMobile()) { dotsWrap.innerHTML = ''; dotsWrap.style.display = 'none'; return; }
-    var total = maxIndex() + 1;
-    if (total <= 1) { dotsWrap.innerHTML = ''; dotsWrap.style.display = 'none'; return; }
-    dotsWrap.style.display = 'flex';
-    dotsWrap.innerHTML = '';
-    for (var i = 0; i <= maxIndex(); i++) {
-      var btn = document.createElement('button');
-      btn.className = 'ed-dot' + (i === index ? ' active' : '');
-      btn.setAttribute('aria-label', 'Go to review ' + (i + 1));
-      btn.dataset.i = i;
-      btn.addEventListener('click', function() {
-        index = +this.dataset.i;
-        refresh();
-      });
-      dotsWrap.appendChild(btn);
-    }
-  }
-
-  function syncDots() {
-    if (!dotsWrap) return;
-    dotsWrap.querySelectorAll('.ed-dot').forEach(function(d, i) {
-      d.classList.toggle('active', i === index);
-    });
-  }
-
-  function syncArrows() {
-    if (!isMobile()) {
-      if (prevBtn) prevBtn.disabled = false;
-      if (nextBtn) nextBtn.disabled = false;
-      return;
-    }
-    if (prevBtn) prevBtn.disabled = index === 0;
-    if (nextBtn) nextBtn.disabled = index >= maxIndex();
-  }
-
-  function refresh(animate) {
-    moveTo(index, animate);
-    syncDots();
-    syncArrows();
-  }
-
-  if (prevBtn) prevBtn.addEventListener('click', function() {
-    if (isMobile() && index > 0) { index--; refresh(); }
-  });
-  if (nextBtn) nextBtn.addEventListener('click', function() {
-    if (isMobile() && index < maxIndex()) { index++; refresh(); }
-  });
-
-  // Touch / swipe — same as editorial carousel
-  var txStart = 0, tyStart = 0, swiping = false;
-  track.addEventListener('touchstart', function(e) {
-    txStart = e.touches[0].clientX;
-    tyStart = e.touches[0].clientY;
-    swiping = false;
-  }, { passive: true });
-  track.addEventListener('touchmove', function(e) {
-    if (Math.abs(e.touches[0].clientX - txStart) > Math.abs(e.touches[0].clientY - tyStart)) {
-      swiping = true;
-    }
-  }, { passive: true });
-  track.addEventListener('touchend', function(e) {
-    if (!swiping) return;
-    var dx = txStart - e.changedTouches[0].clientX;
-    if (Math.abs(dx) < 40) return;
-    if (dx > 0 && index < maxIndex()) { index++; refresh(); }
-    if (dx < 0 && index > 0)          { index--; refresh(); }
-  }, { passive: true });
-
-  window.addEventListener('resize', function() {
-    clearTimeout(resizeTid);
-    resizeTid = setTimeout(function() {
-      index = 0; // reset position on resize
-      sizeCards();
-      buildDots();
-      refresh(false);
-    }, 100);
-  });
-
-  document.querySelectorAll('.lang-btn').forEach(function(btn) {
-    btn.addEventListener('click', function() { refresh(false); });
-  });
-
-  // Init
-  sizeCards();
-  buildDots();
-  refresh(false);
-})();
 
 // -- MOBILE BURGER MENU --
 (function() {

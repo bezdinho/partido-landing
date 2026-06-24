@@ -269,39 +269,6 @@ html[lang="ar"] .proof-num { font-family: 'Cairo', sans-serif; letter-spacing: 0
 html[lang="ar"] .proof-lbl { font-family: 'Cairo', sans-serif; letter-spacing: 0; text-transform: none; }
 .proof-div { width: 1px; height: 44px; background: var(--bdr); flex-shrink: 0; }
 
-/* -- REVIEWS -- */
-.reviews-section {
-  background:
-    radial-gradient(ellipse 85% 55% at 50% 0%, rgba(153,202,60,.05) 0%, transparent 60%),
-    var(--dark);
-  padding: 80px 0;
-}
-.rev-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 48px; }
-.rv {
-  background: var(--card); border: 1px solid var(--bdr);
-  border-radius: 20px; padding: 32px; position: relative; overflow: hidden;
-  transition: border-color .3s var(--ease-smooth), transform .3s var(--ease-premium), box-shadow .3s;
-}
-.rv:hover { border-color: rgba(153,202,60,.25); transform: translateY(-4px); box-shadow: 0 22px 56px rgba(0,0,0,.5), 0 0 0 1px rgba(153,202,60,.08); }
-.rv::before {
-  content: '\201C'; position: absolute; top: 12px; right: 22px;
-  font-family: 'Satoshi', sans-serif; font-size: 110px; font-weight: 900;
-  color: rgba(153,202,60,.08); line-height: 1; pointer-events: none; user-select: none;
-}
-html[dir="rtl"] .rv::before { right: auto; left: 22px; }
-.rv-stars { color: var(--g); font-size: 12px; letter-spacing: 3px; margin-bottom: 16px; }
-.rv-text  { font-size: 15px; line-height: 1.75; color: var(--text); font-style: italic; }
-html[lang="ar"] .rv-text { font-family: 'Cairo', sans-serif; line-height: 1.9; font-style: normal; }
-.rv-author { display: flex; align-items: center; gap: 10px; margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--bdr); }
-.rv-av {
-  width: 38px; height: 38px; border-radius: 50%;
-  background: linear-gradient(135deg, var(--g), #1a5c10);
-  display: flex; align-items: center; justify-content: center;
-  font-weight: 700; font-size: 13px; color: var(--black); flex-shrink: 0;
-}
-.rv-name { font-size: 13px; font-weight: 700; }
-.rv-city { font-size: 11px; color: var(--muted); margin-top: 1px; }
-html[lang="ar"] .rv-name, html[lang="ar"] .rv-city { font-family: 'Cairo', sans-serif; }
 
 /* -- CTA SECTION -- */
 .cta-section {
