@@ -264,7 +264,7 @@ const T = {
       h1:  'Jouez au Foot<br><em>Partout, À Tout Moment</em>',
       sub: 'Trouvez des matchs à proximité, complétez votre équipe et foncez sur le terrain — le tout depuis une seule appli.',
     },
-    marquee: ['Trouve un Match Près de Toi','Crée un Match en 60 Secondes','5c5 · 6c6 · 7c7','Ambiance Détente ou Compétition','Complète ton Équipe Instantanément','La Communauté Football du Maroc','Tournois à Travers le Maroc','Construis ton Identité Football'],
+    marquee: ['Trouve un Match Près de Toi','Crée un Match en 60 Secondes','5v5 · 6v6 · 7v7','Ambiance Détente ou Compétition','Complète ton Équipe Instantanément','La Communauté Football du Maroc','Tournois à Travers le Maroc','Construis ton Identité Football'],
     how: {
       label:'Simple par conception',
       title:'DE L\'IDÉE AU<br>COUP D\'ENVOI EN MINUTES',
@@ -341,7 +341,7 @@ const T = {
       howTitle: 'Inscris-toi.<br>Joue. Gagne.',
       howSub: "Trois étapes de ta première touche à la levée du trophée.",
       s1badge: 'Étape 1 · Inscription', s1title: 'Inscris ton équipe',
-      s1desc: "Crée le profil de ton équipe sur Partido. Choisis ton format — 5c5, 6c6 ou 7c7 — et inscris-toi au prochain tour du tournoi dans ta ville.",
+      s1desc: "Crée le profil de ton équipe sur Partido. Choisis ton format — 5v5, 6v6 ou 7v7 — et inscris-toi au prochain tour du tournoi dans ta ville.",
       s2badge: 'Étape 2 · Joue', s2title: 'Joue tes matchs',
       s2desc: "Sois mis en relation avec des équipes de ta ville. Calendrier complet géré via l'appli. Grimpe au classement tour après tour, suis chaque résultat en temps réel.",
       s3badge: 'Étape 3 · Victoire', s3title: 'Remporte tes récompenses',
