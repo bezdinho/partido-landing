@@ -132,11 +132,6 @@ html[lang="ar"] .pitch-cta__text p {
   object-fit: cover;
   object-position: center 30%;
   display: block;
-  transition: transform 6s ease;
-}
-
-.pitch-cta__inner:hover .pitch-cta__image img {
-  transform: scale(1.03);
 }
 
 /* Left-edge gradient — blends image into text pane */
@@ -147,12 +142,10 @@ html[lang="ar"] .pitch-cta__text p {
   background: linear-gradient(
     to right,
     #0d0f0c 0%,
-    #0d0f0c 12%,
-    rgba(13,15,12,.88) 28%,
-    rgba(13,15,12,.58) 46%,
-    rgba(13,15,12,.22) 65%,
-    rgba(13,15,12,.04) 82%,
-    transparent 100%
+    rgba(13,15,12,.7) 8%,
+    rgba(13,15,12,.25) 22%,
+    rgba(13,15,12,.04) 38%,
+    transparent 52%
   );
   z-index: 1;
   pointer-events: none;
