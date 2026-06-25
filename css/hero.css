@@ -42,8 +42,8 @@ html[dir="rtl"] .hero { padding: 0 48px; }
 }
 html[lang="ar"] .hero h1 {
   font-family: 'Cairo', sans-serif;
-  letter-spacing: 0; line-height: 1.15; text-transform: none;
-  font-size: clamp(36px, 4.8vw, 68px);
+  letter-spacing: 0; line-height: 1.45; text-transform: none;
+  font-size: clamp(32px, 4.2vw, 58px);
 }
 
 .hero h1 em {
