@@ -268,7 +268,7 @@ const T = {
       title:'DE L\'IDÉE AU<br>COUP D\'ENVOI EN MINUTES',
       sub:  'Pas d\'allers-retours. Pas de relances. Trois étapes et tu es sur le terrain.',
       s1badge:'Découvrir', s1t:'Découvrir un Match',  s1p:'Définis le format, niveau, date, heure et ambiance. Ton match est en ligne en 30 secondes.',
-      s2badge:'Rejoindre', s2t:'Réserver ta Place',   s2p:'Les joueurs de ton niveau voient ton match et demandent à rejoindre. Tu vérifies et approuves.',
+      s2badge:'Rejoindre', s2t:'Réserver ta Place',   s2p:'Les joueurs disponibles voient ton match, rejoignent les places restantes et l\'équipe se complète automatiquement.',
       s3badge:'Jouer',     s3t:'Sur le Terrain',      s3p:'Équipe confirmée, terrain réservé. Tout le monde est notifié. Tu n\'as plus qu\'à venir jouer.',
       cta:'Télécharger l\'App',
     },
