@@ -219,6 +219,12 @@ html[lang="ar"] .org-card__desc {
 .org-card--play {
   position: relative;
 }
+.org-card--play .org-card__meta {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  z-index: 3;
+  padding: 22px 22px 0;
+}
 .org-card--play .org-card__text {
   position: absolute;
   bottom: 0; left: 0; right: 0;
