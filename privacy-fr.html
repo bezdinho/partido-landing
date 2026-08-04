@@ -86,7 +86,7 @@
       <header class="pp-header">
         <div class="pp-label">Juridique</div>
         <h1 class="pp-title">Politique de confidentialité</h1>
-        <p class="pp-date"><strong>Dernière mise à jour :</strong> 10/04/2026</p>
+        <p class="pp-date"><strong>Dernière mise à jour :</strong> 04/08/2026</p>
         <div class="pp-intro">
           <p>Partido s'engage à protéger vos données personnelles et à assurer une utilisation transparente de celles-ci.</p>
           <p>La présente Politique de confidentialité explique comment vos données personnelles sont collectées, utilisées, conservées et protégées lorsque vous utilisez l'application mobile Partido, le site internet et les services associés.</p>
@@ -296,7 +296,7 @@
       <!-- 7. Transferts internationaux -->
       <section id="s7" class="pp-section">
         <h2>7. Transferts internationaux</h2>
-        <p>Vos données peuvent être traitées en dehors du Maroc par des prestataires tiers.</p>
+        <p>Certains de nos prestataires (notamment Google, Apple, Facebook, Twilio, Pusher, AppsFlyer et MongoDB Atlas) sont établis en dehors du Maroc, principalement aux États-Unis et dans l'Union européenne. Vos données peuvent donc être traitées ou stockées dans ces pays.</p>
         <p>Dans ce cas, BBF VENTURES veille à ce que des garanties appropriées soient mises en place, pouvant inclure des clauses contractuelles types, le consentement de l'utilisateur ou une autorisation de l'autorité compétente, conformément à la Loi n° 09-08.</p>
       </section>
 
@@ -357,7 +357,7 @@
       <!-- 13. Condition d'âge -->
       <section id="s13" class="pp-section">
         <h2>13. Condition d'âge</h2>
-        <p>Partido est destiné aux utilisateurs âgés de <strong>14 ans et plus</strong>.</p>
+        <p>Partido est destiné aux utilisateurs âgés de <strong>13 ans et plus</strong>.</p>
         <p>Si nous constatons qu'un compte ne respecte pas cette condition, nous nous réservons le droit de prendre les mesures appropriées.</p>
       </section>
 
@@ -375,10 +375,15 @@
         <p>Partido s'appuie sur des services tiers pour faire fonctionner certaines fonctionnalités de l'application.</p>
         <p>Cela inclut :</p>
         <ul>
-          <li>les services d'authentification (Google, Apple, Facebook)</li>
-          <li>les prestataires de messagerie et de communication en temps réel</li>
-          <li>les services d'infrastructure et de base de données</li>
-          <li>les prestataires techniques participant au fonctionnement de l'application</li>
+          <li><strong>Authentification :</strong> Google, Apple, Facebook</li>
+          <li><strong>Envoi des SMS de vérification :</strong> Twilio</li>
+          <li><strong>Notifications push :</strong> Firebase Cloud Messaging (Google)</li>
+          <li><strong>Messagerie en temps réel :</strong> Pusher</li>
+          <li><strong>Cartographie et localisation des terrains :</strong> Google Maps (Google)</li>
+          <li><strong>Hébergement et infrastructure :</strong> Google Cloud Platform</li>
+          <li><strong>Base de données :</strong> MongoDB Atlas</li>
+          <li><strong>Envoi d'e-mails transactionnels :</strong> prestataire d'acheminement SMTP</li>
+          <li><strong>Analyse, mesure et attribution :</strong> voir section 21</li>
         </ul>
         <p>Ces prestataires tiers peuvent traiter des données personnelles pour notre compte ou en tant que responsables de traitement indépendants, conformément à leurs propres politiques de confidentialité.</p>
       </section>
@@ -397,7 +402,7 @@
         </ul>
         <p>Lorsque la loi applicable l'exige, Partido demandera votre consentement avant d'utiliser des cookies non essentiels ou des technologies similaires.</p>
         <p>Vous pouvez gérer ou désactiver les cookies via les paramètres de votre navigateur ou de votre appareil. Veuillez noter que la désactivation de certains cookies peut affecter le fonctionnement de certaines parties du site internet ou des services.</p>
-        <p>Si Partido introduit à l'avenir des technologies supplémentaires d'analyse, de publicité ou de suivi, la présente Politique de confidentialité pourra être mise à jour en conséquence.</p>
+        <p>Les outils d'analyse et de mesure utilisés dans l'application mobile sont décrits à la section 21.</p>
       </section>
 
       <!-- 17. Conformité réglementaire -->
@@ -428,11 +433,18 @@
         <p>La dernière version sera toujours disponible sur le site internet de Partido.</p>
       </section>
 
-      <!-- 21. Utilisation future d'outils d'analyse et d'outils techniques -->
+      <!-- 21. Outils d'analyse, de mesure et d'attribution -->
       <section id="s21" class="pp-section">
-        <h2>21. Utilisation future d'outils d'analyse et d'outils techniques</h2>
-        <p>Partido pourra introduire à l'avenir des outils techniques supplémentaires afin d'améliorer l'application, tels que des outils d'analyse ou de suivi des performances.</p>
-        <p>Si ces outils sont mis en place et impliquent un traitement de données personnelles, la présente Politique de confidentialité sera mise à jour en conséquence et, lorsque cela est requis, les utilisateurs en seront informés ou leur consentement sera demandé.</p>
+        <h2>21. Outils d'analyse, de mesure et d'attribution</h2>
+        <p>Partido utilise les outils tiers suivants pour mesurer l'audience de l'application, diagnostiquer les incidents techniques et évaluer l'efficacité de ses campagnes d'acquisition :</p>
+        <ul>
+          <li><strong>Firebase Analytics</strong> (Google) — statistiques d'utilisation agrégées et mesure d'audience</li>
+          <li><strong>Firebase Crashlytics</strong> (Google) — détection et diagnostic des plantages de l'application</li>
+          <li><strong>AppsFlyer</strong> — mesure de l'origine des installations et de la performance de nos campagnes marketing</li>
+        </ul>
+        <p>Ces outils peuvent traiter des identifiants d'appareil, des identifiants publicitaires, l'adresse IP, le modèle d'appareil, la version du système d'exploitation ainsi que des événements d'utilisation de l'application. Ces données ne servent pas à vous identifier nominativement et ne sont jamais vendues.</p>
+        <p>Sur iOS, l'accès à l'identifiant publicitaire (IDFA) n'a lieu qu'après votre autorisation explicite, demandée via la fenêtre <em>App Tracking Transparency</em> d'Apple. Si vous refusez, cet identifiant n'est pas utilisé. Vous pouvez modifier ce choix à tout moment dans Réglages &gt; Confidentialité et sécurité &gt; Suivi.</p>
+        <p>Sur Android, vous pouvez réinitialiser ou supprimer votre identifiant publicitaire depuis les paramètres Google de votre appareil.</p>
       </section>
 
       <!-- 22. Contact -->
@@ -480,7 +492,7 @@
           <a href="#s18" class="pp-toc__link">18. Transferts d'entreprise</a>
           <a href="#s19" class="pp-toc__link">19. Événements, photos &amp; vidéos</a>
           <a href="#s20" class="pp-toc__link">20. Modifications de la Politique</a>
-          <a href="#s21" class="pp-toc__link">21. Utilisation future d'outils d'analyse</a>
+          <a href="#s21" class="pp-toc__link">21. Outils d'analyse, de mesure et d'attribution</a>
           <a href="#s22" class="pp-toc__link">22. Contact</a>
         </nav>
       </div>
