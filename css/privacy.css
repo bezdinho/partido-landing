@@ -335,3 +335,14 @@ body.pp-body { overflow-x: clip; }
   .pp-section h2 { font-size: 18px; }
   .pp-title { letter-spacing: -0.8px; }
 }
+
+/* ══════════════════════════════════════
+   SINGLE-COLUMN VARIANT
+   For legal pages without a table of contents
+   (delete-account*.html). Additive: does not
+   affect .pp-inner used by privacy/terms.
+══════════════════════════════════════ */
+.pp-inner--single {
+  grid-template-columns: 1fr;
+  max-width: 860px;
+}
