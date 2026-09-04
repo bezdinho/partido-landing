@@ -9,7 +9,7 @@ const T = {
   en: {
     nav: { discover:'For Players', organize:'For Organizers', profile:'Tournaments', contact:'Contact', cta:'Download Free' },
     hero: {
-      h1:  'Play Soccer<br><em>Anywhere, Anytime</em>',
+      h1:  'Join Morocco\'s<br><em>Best Football Community</em>',
       sub: 'Find nearby matches, fill your squad, and hit the field — all from one app.',
     },
     marquee: ['Find a Game Near You','Create a Match in 60 Seconds','5v5 · 6v6 · 7v7','Chill or Competitive','Fill Your Squad Instantly',"Morocco's Football Community",'Tournaments Across Morocco','Track Your Football Identity'],
@@ -260,7 +260,7 @@ const T = {
   fr: {
     nav: { discover:'Pour les Joueurs', organize:'Pour les Organisateurs', profile:'Tournois', contact:'Contact', cta:'Télécharger' },
     hero: {
-      h1:  'Jouez au Foot<br><em>Partout, À Tout Moment</em>',
+      h1:  'Rejoignez la<br><em>Communauté Foot du Maroc</em>',
       sub: 'Trouvez des matchs à proximité, complétez votre équipe et foncez sur le terrain — le tout depuis une seule appli.',
     },
     marquee: ['Trouve un Match Près de Toi','Crée un Match en 60 Secondes','5v5 · 6v6 · 7v7','Ambiance Détente ou Compétition','Complète ton Équipe Instantanément','La Communauté Football du Maroc','Tournois à Travers le Maroc','Construis ton Identité Football'],
@@ -511,7 +511,7 @@ const T = {
   ar: {
     nav: { discover:'للاعبين', organize:'للمنظمين', profile:'بطولات', contact:'تواصل', cta:'حمّل مجاناً' },
     hero: {
-      h1:  'العب كرة القدم<br><em>في أي مكان، في أي وقت</em>',
+      h1:  'انضم إلى<br><em>أحسن تجمع لعشاق الكورة في المغرب</em>',
       sub: 'اعثر على مباريات قريبة، اكمل فريقك، وانزل الملعب — كل شيء من تطبيق واحد.',
     },
     marquee: ['ابحث عن مباراة قريبة منك','أنشئ مباراة في 60 ثانية','5 ضد 5 · 6 ضد 6 · 7 ضد 7','جو ترفيهي أو تنافسي','اكمل فريقك فوراً','مجتمع كرة القدم بالمغرب','بطولات في أرجاء المغرب','ابنِ هويتك الكروية'],
@@ -792,6 +792,26 @@ function updateStoreBadges(lang) {
   });
 }
 
+// Hero phone mockups: one image set per language (fallback: fr)
+const HERO_PHONES = {
+  fr: { back: 'assets/app-mockups/hero-home-fr.webp', main: 'assets/app-mockups/hero-matchlist-fr.webp',
+        backAlt: 'Écran d\'accueil Partido',   mainAlt: 'Écran liste des matchs Partido' },
+  en: { back: 'assets/app-mockups/hero-home-en.webp', main: 'assets/app-mockups/hero-matchlist-en.webp',
+        backAlt: 'Partido home screen',         mainAlt: 'Partido match list screen' },
+  ar: { back: 'assets/app-mockups/hero-home-ar.webp', main: 'assets/app-mockups/hero-matchlist-ar.webp',
+        backAlt: 'شاشة بارتيدو الرئيسية',       mainAlt: 'شاشة قائمة المباريات في بارتيدو' },
+};
+
+function updateHeroPhones(lang) {
+  const set = HERO_PHONES[lang] || HERO_PHONES.fr;
+  document.querySelectorAll('.hero-phones .hp-back img, .hero-phones-mobile .hp-back img').forEach(img => {
+    img.src = set.back; img.alt = set.backAlt;
+  });
+  document.querySelectorAll('.hero-phones .hp-main img, .hero-phones-mobile .hp-main img').forEach(img => {
+    img.src = set.main; img.alt = set.mainAlt;
+  });
+}
+
 function buildMarquee(lang) {
   const items = T[lang].marquee;
   const doubled = [...items, ...items];
@@ -843,6 +863,9 @@ function applyLang(lang) {
 
   // Store badges (SVG text is not translatable via data-i18n — swap whole SVG)
   updateStoreBadges(lang);
+
+  // Hero phone mockups (per-language screenshots)
+  updateHeroPhones(lang);
 
   // Persist preference
   try { localStorage.setItem('partido_lang', lang); } catch(e) {}

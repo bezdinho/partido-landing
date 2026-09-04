@@ -23,6 +23,12 @@ html[dir="rtl"] .hero { padding: 0 48px; }
     url('../assets/backgrounds/Hero%20background.png') center / cover no-repeat;
   background-color: var(--black);
 }
+/* RTL: text sits on the right, so the dark side of the gradient must too */
+html[dir="rtl"] .hero-bg {
+  background:
+    linear-gradient(to left, rgba(0,0,0,.78), rgba(0,0,0,.50), rgba(0,0,0,.20)),
+    url('../assets/backgrounds/Hero%20background.png') center / cover no-repeat;
+}
 .hero-grid {
   position: absolute; inset: 0; z-index: 0;
   background-image:
@@ -35,7 +41,7 @@ html[dir="rtl"] .hero { padding: 0 48px; }
 
 .hero h1 {
   font-family: 'Satoshi', sans-serif;
-  font-size: clamp(42px, 5.5vw, 80px);
+  font-size: clamp(42px, 4.4vw, 64px);
   font-weight: 900; line-height: 1.1;
   letter-spacing: -2.5px; text-transform: uppercase;
   animation: fadeUp .6s ease .08s both;
@@ -43,7 +49,7 @@ html[dir="rtl"] .hero { padding: 0 48px; }
 html[lang="ar"] .hero h1 {
   font-family: 'Cairo', sans-serif;
   letter-spacing: 0; line-height: 1.4; text-transform: none;
-  font-size: clamp(36px, 4.8vw, 68px);
+  font-size: clamp(36px, 3.84vw, 54px);
 }
 
 .hero h1 em {
@@ -129,6 +135,9 @@ html[dir="rtl"] .hero-right { padding: 80px 0 80px 5%; }
 /* RTL: mirror the upper-left / lower-right placement */
 html[dir="rtl"] .hero-phones .hp-back { left: auto; right: 0; }
 html[dir="rtl"] .hero-phones .hp-main { right: auto; left: 0; }
+/* RTL: mirror the tilts too (durations/delays inherited from the LTR rules) */
+html[dir="rtl"] .hero-phones .hp-back { animation-name: floatRotB-rtl, fadePhoneIn; }
+html[dir="rtl"] .hero-phones .hp-main { animation-name: floatRot-rtl, fadePhoneIn; }
 
 /* Left phone: tilted to the right (clockwise lean) */
 @keyframes floatRotB {
@@ -139,6 +148,19 @@ html[dir="rtl"] .hero-phones .hp-main { right: auto; left: 0; }
 @keyframes floatRot {
   0%,100% { transform: perspective(900px) rotateY(10deg) rotate(-3deg) translateY(0);     }
   50%      { transform: perspective(900px) rotateY(10deg) rotate(-3deg) translateY(-18px); }
+}
+/* RTL mirrors. NOTE: components.css (loaded after this file) redefines
+   floatRot / floatRotB with translateY(-50%)-based vertical centering and
+   rotate(-5deg) / rotate(3deg); those are the keyframes that actually render
+   in LTR. The -rtl variants below mirror the *effective* LTR animation
+   (rotate sign inverted, same translateY) so the phones stay centered. */
+@keyframes floatRotB-rtl {
+  0%,100% { transform: translateY(-45%) rotate(5deg); }
+  50%     { transform: translateY(-50%) rotate(5deg); }
+}
+@keyframes floatRot-rtl {
+  0%,100% { transform: translateY(-50%) rotate(-3deg); }
+  50%     { transform: translateY(-55%) rotate(-3deg); }
 }
 /* Opacity-only fade */
 @keyframes fadePhoneIn { from { opacity: 0; } to { opacity: 1; } }
