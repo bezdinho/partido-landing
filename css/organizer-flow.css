@@ -102,7 +102,9 @@ html[lang="ar"] .org-card__badge {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px 22px 10px;
+  /* 26px sides = same inner width as .how-step, so the phones below and
+     above render at exactly the same size */
+  padding: 20px 26px 10px;
 }
 
 /* Size the .phone component — inherits all frame
@@ -117,13 +119,13 @@ html[lang="ar"] .org-card__badge {
 .org-card--setup  .org-card__visual .phone { transform: rotate(-2deg); }
 .org-card--manage .org-card__visual .phone { transform: rotate( 2deg); }
 
-/* Card 01 uses a transparent PNG that already includes the iPhone frame —
+/* Cards 01 and 02 use the same transparent mockups as the "For Players"
+   steps (tools/make-phone-mockup.py): the iPhone frame is in the image, so
    neutralize the .phone wrapper's chrome (background, border, notch, hard
-   rounded clip, inner shadows) to avoid a double frame, and let the PNG
-   alpha cast its own drop-shadow.
-   Width tuned so the rendered phone height matches how-it-works (≈ 399px). */
+   rounded clip, inner shadows) to avoid a double frame, and let the alpha
+   cast its own drop-shadow. Same canvas → same 299px width as .how-step__mockup. */
 .org-card--setup .org-card__visual .phone {
-  width: 224px;
+  width: 299px;
   max-width: 100%;
   background: transparent;
   border: none;
@@ -137,9 +139,8 @@ html[lang="ar"] .org-card__badge {
   filter: drop-shadow(0 24px 40px rgba(0,0,0,.75));
 }
 
-/* Card 02 also uses a transparent PNG that already includes the iPhone frame. */
 .org-card--manage .org-card__visual .phone {
-  width: 224px;
+  width: 299px;
   max-width: 100%;
   background: transparent;
   border: none;

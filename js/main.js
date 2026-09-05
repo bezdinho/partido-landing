@@ -798,24 +798,31 @@ function updateStoreBadges(lang) {
 // Phone mockups: one image per language and per slot (fallback: fr).
 // `stepList` is the hero's match-list screen, perspective-corrected to stand
 // upright; `stepDetail` is the match sheet — steps 01 and 02 of "For Players".
+// `orgSetup` / `orgManage` are cards 01 and 02 of "For Organizers".
 const PHONE_MOCKUPS = {
   fr: {
     heroHome:   ['assets/app-mockups/hero-home-fr.webp',        'Écran d\'accueil Partido'],
     heroList:   ['assets/app-mockups/hero-matchlist-fr.webp',   'Écran liste des matchs Partido'],
     stepList:   ['assets/app-mockups/step-matchlist-fr.webp',   'Écran liste des matchs Partido'],
     stepDetail: ['assets/app-mockups/step-matchdetail-fr.webp', 'Fiche d\'un match Partido'],
+    orgSetup:   ['assets/app-mockups/org-setup-fr.webp',        'Récapitulatif d\'un match avant publication'],
+    orgManage:  ['assets/app-mockups/org-manage-fr.webp',       'Fiche d\'un match vue par l\'organisateur'],
   },
   en: {
     heroHome:   ['assets/app-mockups/hero-home-en.webp',        'Partido home screen'],
     heroList:   ['assets/app-mockups/hero-matchlist-en.webp',   'Partido match list screen'],
     stepList:   ['assets/app-mockups/step-matchlist-en.webp',   'Partido match list screen'],
     stepDetail: ['assets/app-mockups/step-matchdetail-en.webp', 'Partido match details screen'],
+    orgSetup:   ['assets/app-mockups/org-setup-en.webp',        'Match summary before publishing'],
+    orgManage:  ['assets/app-mockups/org-manage-en.webp',       'Match details as seen by the organizer'],
   },
   ar: {
     heroHome:   ['assets/app-mockups/hero-home-ar.webp',        'شاشة بارتيدو الرئيسية'],
     heroList:   ['assets/app-mockups/hero-matchlist-ar.webp',   'شاشة قائمة المباريات في بارتيدو'],
     stepList:   ['assets/app-mockups/step-matchlist-ar.webp',   'شاشة قائمة المباريات في بارتيدو'],
     stepDetail: ['assets/app-mockups/step-matchdetail-ar.webp', 'شاشة تفاصيل المباراة في بارتيدو'],
+    orgSetup:   ['assets/app-mockups/org-setup-ar.webp',        'ملخص المباراة قبل النشر'],
+    orgManage:  ['assets/app-mockups/org-manage-ar.webp',       'تفاصيل المباراة كما يراها المنظّم'],
   },
 };
 
@@ -825,6 +832,8 @@ const PHONE_SLOTS = {
   heroList:   '.hero-phones .hp-main img, .hero-phones-mobile .hp-main img',
   stepList:   '.how-step--discover .how-step__mockup img',
   stepDetail: '.how-step--join .how-step__mockup img',
+  orgSetup:   '.org-card--setup .org-card__visual .phone img',
+  orgManage:  '.org-card--manage .org-card__visual .phone img',
 };
 
 function updateHeroPhones(lang) {
