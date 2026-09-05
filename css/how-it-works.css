@@ -95,8 +95,9 @@ html[lang="ar"] .how-step__badge { font-family:'Cairo',sans-serif; letter-spacin
   display: block;
   width: 100%;
 }
-/* Counter-tilt between the two mockup cards */
-.how-step--discover .how-step__mockup { transform: rotate(-2deg); }
+/* Counter-tilt between the two mockup cards.
+   Step 01's image already carries a ~3deg tilt, so no CSS rotation there. */
+.how-step--discover .how-step__mockup { transform: none; }
 .how-step--join    .how-step__mockup { transform: rotate( 2deg); }
 
 /* Step 01 uses a transparent PNG that already includes the iPhone frame —

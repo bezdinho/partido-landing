@@ -810,7 +810,7 @@ function updateHeroPhones(lang) {
   document.querySelectorAll('.hero-phones .hp-back img, .hero-phones-mobile .hp-back img').forEach(img => {
     img.src = set.back; img.alt = set.backAlt;
   });
-  document.querySelectorAll('.hero-phones .hp-main img, .hero-phones-mobile .hp-main img').forEach(img => {
+  document.querySelectorAll('.hero-phones .hp-main img, .hero-phones-mobile .hp-main img, .how-step--discover .how-step__mockup img').forEach(img => {
     img.src = set.main; img.alt = set.mainAlt;
   });
 }
