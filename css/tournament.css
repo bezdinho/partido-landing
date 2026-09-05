@@ -43,12 +43,13 @@ html[lang="ar"] .tp-label { font-family:'Cairo',sans-serif; }
    Same transparent iPhone mockup as the players / organizer cards
    (tools/make-phone-mockup.py): the frame is in the image, so this element
    deliberately does not use the .phone component and its CSS chrome.
-   Alone in its column, so a little larger than the 299px card phones. */
+   Alone in its column beside a large title, so well above the 299px card
+   phones; max-width still shrinks it on narrow screens. */
 /* Let the grid column shrink below the mockup's natural width on narrow
    screens; otherwise a 1fr track grows to fit it and max-width has no effect. */
 .tourn-inner > div { min-width: 0; }
 .tourn-mockup {
-  width: 340px;
+  width: 480px;
   max-width: 100%;
   margin: 0 auto;
   transform: rotate(-2deg);
