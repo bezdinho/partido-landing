@@ -39,3 +39,24 @@ html[lang="ar"] .tourn-badge { font-family:'Cairo',sans-serif; letter-spacing:0;
 html[lang="ar"] .tp-val   { font-family:'Cairo',sans-serif; letter-spacing:0; }
 html[lang="ar"] .tp-label { font-family:'Cairo',sans-serif; }
 
+/* ── Phone mockup ──
+   Same transparent iPhone mockup as the players / organizer cards
+   (tools/make-phone-mockup.py): the frame is in the image, so this element
+   deliberately does not use the .phone component and its CSS chrome.
+   Alone in its column, so a little larger than the 299px card phones. */
+/* Let the grid column shrink below the mockup's natural width on narrow
+   screens; otherwise a 1fr track grows to fit it and max-width has no effect. */
+.tourn-inner > div { min-width: 0; }
+.tourn-mockup {
+  width: 340px;
+  max-width: 100%;
+  margin: 0 auto;
+  transform: rotate(-2deg);
+}
+/* The column swaps sides in RTL — keep the phone leaning toward the text. */
+html[dir="rtl"] .tourn-mockup { transform: rotate(2deg); }
+.tourn-mockup img {
+  display: block;
+  width: 100%;
+  filter: drop-shadow(0 24px 40px rgba(0,0,0,.75));
+}

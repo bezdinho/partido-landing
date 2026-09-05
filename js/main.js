@@ -798,7 +798,8 @@ function updateStoreBadges(lang) {
 // Phone mockups: one image per language and per slot (fallback: fr).
 // `stepList` is the hero's match-list screen, perspective-corrected to stand
 // upright; `stepDetail` is the match sheet — steps 01 and 02 of "For Players".
-// `orgSetup` / `orgManage` are cards 01 and 02 of "For Organizers".
+// `orgSetup` / `orgManage` are cards 01 and 02 of "For Organizers";
+// `tournaments` is the single phone of the "Tournaments" section.
 const PHONE_MOCKUPS = {
   fr: {
     heroHome:   ['assets/app-mockups/hero-home-fr.webp',        'Écran d\'accueil Partido'],
@@ -807,6 +808,7 @@ const PHONE_MOCKUPS = {
     stepDetail: ['assets/app-mockups/step-matchdetail-fr.webp', 'Fiche d\'un match Partido'],
     orgSetup:   ['assets/app-mockups/org-setup-fr.webp',        'Récapitulatif d\'un match avant publication'],
     orgManage:  ['assets/app-mockups/org-manage-fr.webp',       'Fiche d\'un match vue par l\'organisateur'],
+    tournaments: ['assets/app-mockups/tourn-fr.webp',           'Écran Tournois de Partido'],
   },
   en: {
     heroHome:   ['assets/app-mockups/hero-home-en.webp',        'Partido home screen'],
@@ -815,6 +817,7 @@ const PHONE_MOCKUPS = {
     stepDetail: ['assets/app-mockups/step-matchdetail-en.webp', 'Partido match details screen'],
     orgSetup:   ['assets/app-mockups/org-setup-en.webp',        'Match summary before publishing'],
     orgManage:  ['assets/app-mockups/org-manage-en.webp',       'Match details as seen by the organizer'],
+    tournaments: ['assets/app-mockups/tourn-en.webp',           'Partido tournaments screen'],
   },
   ar: {
     heroHome:   ['assets/app-mockups/hero-home-ar.webp',        'شاشة بارتيدو الرئيسية'],
@@ -823,6 +826,7 @@ const PHONE_MOCKUPS = {
     stepDetail: ['assets/app-mockups/step-matchdetail-ar.webp', 'شاشة تفاصيل المباراة في بارتيدو'],
     orgSetup:   ['assets/app-mockups/org-setup-ar.webp',        'ملخص المباراة قبل النشر'],
     orgManage:  ['assets/app-mockups/org-manage-ar.webp',       'تفاصيل المباراة كما يراها المنظّم'],
+    tournaments: ['assets/app-mockups/tourn-ar.webp',           'شاشة البطولات في بارتيدو'],
   },
 };
 
@@ -834,6 +838,7 @@ const PHONE_SLOTS = {
   stepDetail: '.how-step--join .how-step__mockup img',
   orgSetup:   '.org-card--setup .org-card__visual .phone img',
   orgManage:  '.org-card--manage .org-card__visual .phone img',
+  tournaments: '.tourn-mockup img',
 };
 
 function updateHeroPhones(lang) {

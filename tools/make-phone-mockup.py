@@ -10,8 +10,11 @@ untouched, which is what keeps all the phones on the page identical.
 
 It also rewrites the iOS status bar to a neutral state: 21:00, full battery,
 no charging bolt. Signal and Wi-Fi are left alone (the captures already show
-them full). Nothing below the status bar is ever modified, so the screen
-content stays pixel-for-pixel what the app rendered.
+them full). Light and dark status bars are both handled: the glyph colour and
+the background behind the clock and battery are read from the capture itself,
+so a full-bleed screen only needs a flat area under those two glyphs (iOS
+dims that strip anyway). Nothing below the status bar is ever modified, so
+the screen content stays pixel-for-pixel what the app rendered.
 
 Usage
     python3 tools/make-phone-mockup.py SOURCE.png OUT.webp [options]
@@ -46,9 +49,10 @@ TIME_DY = 5.129                               # draw origin inside TIME_BOX
 TIME_FONT = dict(size=53.15, weight=565, optical=20)
 BATTERY_BOX = (1100, 66, 1192, 128)           # erased; the nub at x>=1192 survives
 SHELL = (1104.5, 74.5, 1189.5, 118.5)         # outer rounded rect of the shell
-SHELL_R, SHELL_W, SHELL_RGB = 11.0, 3.5, (149, 149, 150)
+SHELL_R, SHELL_W = 11.0, 3.5                  # shell colour is sampled from the capture
+SHELL_SAMPLE = ((1105, 96), (1106, 96), (1107, 96))
 FILL = (1111.5, 81.5, 1183.0, 111.0)          # inner fill at 100% charge
-FILL_R, FILL_RGB = 11.0, (0, 0, 0)
+FILL_R = 11.0                                 # fill colour = glyph colour (black / white)
 CAPTURE_SIZE = (1320, 2868)
 
 
@@ -71,13 +75,35 @@ def _blend(region, cover, rgb):
     return region * (1 - cover[..., None]) + np.array(rgb, float) * cover[..., None]
 
 
+def _status_colours(im):
+    """Glyph colour and the flat background behind each glyph box.
+
+    Light captures have black glyphs on a near-white bar, dark ones white
+    glyphs on a near-black bar. Backgrounds are the median of the box's own
+    background-side pixels, so a dimmed photo under the bar is matched too."""
+    a = np.array(im).astype(int)
+    tb = a[TIME_BOX[1]:TIME_BOX[3], TIME_BOX[0]:TIME_BOX[2]].reshape(-1, 3)
+    dark = np.median(tb, 0).sum() < 3 * 128
+    glyph = (255, 255, 255) if dark else (0, 0, 0)
+
+    def background(box):
+        px = a[box[1]:box[3], box[0]:box[2]].reshape(-1, 3)
+        side = px[px.max(1) < 64] if dark else px[px.min(1) > 192]
+        if len(side) < 50:
+            raise SystemExit(f'cannot find a flat background in {box}')
+        return tuple(int(v) for v in np.median(side, 0))
+
+    shell = tuple(int(v) for v in np.median([a[y, x] for x, y in SHELL_SAMPLE], 0))
+    return glyph, background(TIME_BOX), background(BATTERY_BOX), shell
+
+
 def patch_status_bar(im):
     """Rewrite the clock to 21:00 and the battery to full, in place."""
-    bg = im.getpixel((40, 95))                       # status-bar background
+    glyph, time_bg, bat_bg, shell_rgb = _status_colours(im)
     d = ImageDraw.Draw(im)
 
     x0, y0, x1, y1 = TIME_BOX
-    d.rectangle([x0, y0, x1, y1], fill=bg)
+    d.rectangle([x0, y0, x1, y1], fill=time_bg)
     w, h = x1 - x0, y1 - y0
     f = ImageFont.truetype(FONT, TIME_FONT['size'] * 4)
     f.set_variation_by_axes([100, TIME_FONT['optical'], 400, TIME_FONT['weight']])
@@ -91,14 +117,14 @@ def patch_status_bar(im):
     cols = np.where(m.max(0) > 0.02)[0]
     m = ink((TIME_CX - x0) - (cols[0] + cols[-1] + 1) / 2.0)
     reg = np.array(im.crop(TIME_BOX)).astype(float)
-    im.paste(Image.fromarray(_blend(reg, m, (0, 0, 0)).round().astype('uint8')), (x0, y0))
+    im.paste(Image.fromarray(_blend(reg, m, glyph).round().astype('uint8')), (x0, y0))
 
-    d.rectangle(list(BATTERY_BOX), fill=bg)
+    d.rectangle(list(BATTERY_BOX), fill=bat_bg)
     size = (BATTERY_BOX[2] - BATTERY_BOX[0], BATTERY_BOX[3] - BATTERY_BOX[1])
     org = BATTERY_BOX[:2]
     reg = np.array(im.crop(BATTERY_BOX)).astype(float)
-    reg = _blend(reg, _rounded(SHELL, SHELL_R, size, org, width=SHELL_W), SHELL_RGB)
-    reg = _blend(reg, _rounded(FILL, FILL_R, size, org), FILL_RGB)
+    reg = _blend(reg, _rounded(SHELL, SHELL_R, size, org, width=SHELL_W), shell_rgb)
+    reg = _blend(reg, _rounded(FILL, FILL_R, size, org), glyph)
     im.paste(Image.fromarray(reg.round().astype('uint8')), org)
     return im
 
