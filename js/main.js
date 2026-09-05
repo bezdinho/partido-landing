@@ -795,13 +795,15 @@ function updateStoreBadges(lang) {
   });
 }
 
-// Hero phone mockups: one image set per language (fallback: fr)
+// Hero phone mockups: one image set per language (fallback: fr).
+// `step` is the same match-list screen, perspective-corrected to stand
+// upright — used by step 01 of the "For Players" section.
 const HERO_PHONES = {
-  fr: { back: 'assets/app-mockups/hero-home-fr.webp', main: 'assets/app-mockups/hero-matchlist-fr.webp',
+  fr: { back: 'assets/app-mockups/hero-home-fr.webp', main: 'assets/app-mockups/hero-matchlist-fr.webp', step: 'assets/app-mockups/step-matchlist-fr.webp',
         backAlt: 'Écran d\'accueil Partido',   mainAlt: 'Écran liste des matchs Partido' },
-  en: { back: 'assets/app-mockups/hero-home-en.webp', main: 'assets/app-mockups/hero-matchlist-en.webp',
+  en: { back: 'assets/app-mockups/hero-home-en.webp', main: 'assets/app-mockups/hero-matchlist-en.webp', step: 'assets/app-mockups/step-matchlist-en.webp',
         backAlt: 'Partido home screen',         mainAlt: 'Partido match list screen' },
-  ar: { back: 'assets/app-mockups/hero-home-ar.webp', main: 'assets/app-mockups/hero-matchlist-ar.webp',
+  ar: { back: 'assets/app-mockups/hero-home-ar.webp', main: 'assets/app-mockups/hero-matchlist-ar.webp', step: 'assets/app-mockups/step-matchlist-ar.webp',
         backAlt: 'شاشة بارتيدو الرئيسية',       mainAlt: 'شاشة قائمة المباريات في بارتيدو' },
 };
 
@@ -810,8 +812,11 @@ function updateHeroPhones(lang) {
   document.querySelectorAll('.hero-phones .hp-back img, .hero-phones-mobile .hp-back img').forEach(img => {
     img.src = set.back; img.alt = set.backAlt;
   });
-  document.querySelectorAll('.hero-phones .hp-main img, .hero-phones-mobile .hp-main img, .how-step--discover .how-step__mockup img').forEach(img => {
+  document.querySelectorAll('.hero-phones .hp-main img, .hero-phones-mobile .hp-main img').forEach(img => {
     img.src = set.main; img.alt = set.mainAlt;
+  });
+  document.querySelectorAll('.how-step--discover .how-step__mockup img').forEach(img => {
+    img.src = set.step; img.alt = set.mainAlt;
   });
 }
 
