@@ -118,9 +118,11 @@ html[lang="ar"] .how-step__badge { font-family:'Cairo',sans-serif; letter-spacin
   filter: drop-shadow(0 24px 40px rgba(0,0,0,.75));
 }
 
-/* Step 02 also uses a transparent PNG that already includes the iPhone frame. */
+/* Step 02 uses the same kind of transparent mockup as step 01 — same canvas,
+   same phone size — so both cards show phones at identical scale. */
 .how-step--join .how-step__mockup {
-  width: 184px;
+  width: 299px;
+  max-width: 100%;
   background: transparent;
   border: none;
   border-radius: 0;

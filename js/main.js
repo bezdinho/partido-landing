@@ -795,28 +795,45 @@ function updateStoreBadges(lang) {
   });
 }
 
-// Hero phone mockups: one image set per language (fallback: fr).
-// `step` is the same match-list screen, perspective-corrected to stand
-// upright — used by step 01 of the "For Players" section.
-const HERO_PHONES = {
-  fr: { back: 'assets/app-mockups/hero-home-fr.webp', main: 'assets/app-mockups/hero-matchlist-fr.webp', step: 'assets/app-mockups/step-matchlist-fr.webp',
-        backAlt: 'Écran d\'accueil Partido',   mainAlt: 'Écran liste des matchs Partido' },
-  en: { back: 'assets/app-mockups/hero-home-en.webp', main: 'assets/app-mockups/hero-matchlist-en.webp', step: 'assets/app-mockups/step-matchlist-en.webp',
-        backAlt: 'Partido home screen',         mainAlt: 'Partido match list screen' },
-  ar: { back: 'assets/app-mockups/hero-home-ar.webp', main: 'assets/app-mockups/hero-matchlist-ar.webp', step: 'assets/app-mockups/step-matchlist-ar.webp',
-        backAlt: 'شاشة بارتيدو الرئيسية',       mainAlt: 'شاشة قائمة المباريات في بارتيدو' },
+// Phone mockups: one image per language and per slot (fallback: fr).
+// `stepList` is the hero's match-list screen, perspective-corrected to stand
+// upright; `stepDetail` is the match sheet — steps 01 and 02 of "For Players".
+const PHONE_MOCKUPS = {
+  fr: {
+    heroHome:   ['assets/app-mockups/hero-home-fr.webp',        'Écran d\'accueil Partido'],
+    heroList:   ['assets/app-mockups/hero-matchlist-fr.webp',   'Écran liste des matchs Partido'],
+    stepList:   ['assets/app-mockups/step-matchlist-fr.webp',   'Écran liste des matchs Partido'],
+    stepDetail: ['assets/app-mockups/step-matchdetail-fr.webp', 'Fiche d\'un match Partido'],
+  },
+  en: {
+    heroHome:   ['assets/app-mockups/hero-home-en.webp',        'Partido home screen'],
+    heroList:   ['assets/app-mockups/hero-matchlist-en.webp',   'Partido match list screen'],
+    stepList:   ['assets/app-mockups/step-matchlist-en.webp',   'Partido match list screen'],
+    stepDetail: ['assets/app-mockups/step-matchdetail-en.webp', 'Partido match details screen'],
+  },
+  ar: {
+    heroHome:   ['assets/app-mockups/hero-home-ar.webp',        'شاشة بارتيدو الرئيسية'],
+    heroList:   ['assets/app-mockups/hero-matchlist-ar.webp',   'شاشة قائمة المباريات في بارتيدو'],
+    stepList:   ['assets/app-mockups/step-matchlist-ar.webp',   'شاشة قائمة المباريات في بارتيدو'],
+    stepDetail: ['assets/app-mockups/step-matchdetail-ar.webp', 'شاشة تفاصيل المباراة في بارتيدو'],
+  },
+};
+
+// Where each mockup slot is rendered.
+const PHONE_SLOTS = {
+  heroHome:   '.hero-phones .hp-back img, .hero-phones-mobile .hp-back img',
+  heroList:   '.hero-phones .hp-main img, .hero-phones-mobile .hp-main img',
+  stepList:   '.how-step--discover .how-step__mockup img',
+  stepDetail: '.how-step--join .how-step__mockup img',
 };
 
 function updateHeroPhones(lang) {
-  const set = HERO_PHONES[lang] || HERO_PHONES.fr;
-  document.querySelectorAll('.hero-phones .hp-back img, .hero-phones-mobile .hp-back img').forEach(img => {
-    img.src = set.back; img.alt = set.backAlt;
-  });
-  document.querySelectorAll('.hero-phones .hp-main img, .hero-phones-mobile .hp-main img').forEach(img => {
-    img.src = set.main; img.alt = set.mainAlt;
-  });
-  document.querySelectorAll('.how-step--discover .how-step__mockup img').forEach(img => {
-    img.src = set.step; img.alt = set.mainAlt;
+  const set = PHONE_MOCKUPS[lang] || PHONE_MOCKUPS.fr;
+  Object.keys(PHONE_SLOTS).forEach(slot => {
+    const [src, alt] = set[slot];
+    document.querySelectorAll(PHONE_SLOTS[slot]).forEach(img => {
+      img.src = src; img.alt = alt;
+    });
   });
 }
 

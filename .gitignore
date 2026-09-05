@@ -15,3 +15,6 @@ Thumbs.db
 # Duplicates
 assets/app-discovery.jpg.jpeg
 assets/app-onboarding.jpg.jpeg
+
+# Captures brutes servant a fabriquer les mockups — jamais servies au visiteur
+assets/app-mockups/sources/
