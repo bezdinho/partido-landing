@@ -95,9 +95,11 @@ html[lang="ar"] .how-step__badge { font-family:'Cairo',sans-serif; letter-spacin
   display: block;
   width: 100%;
 }
-/* Counter-tilt between the two mockup cards.
-   Step 01's image already carries a ~3deg tilt, so no CSS rotation there. */
-.how-step--discover .how-step__mockup { transform: none; }
+/* Counter-tilt between the two mockup cards (both images are upright),
+   the same ±2deg as the organizer cards: 01 leans left, 02 leans right.
+   Kept at every width — the canvas has enough transparent margin for the
+   rotated phone to stay inside the card. */
+.how-step--discover .how-step__mockup { transform: rotate(-2deg); }
 .how-step--join    .how-step__mockup { transform: rotate( 2deg); }
 
 /* Step 01 uses a transparent PNG that already includes the iPhone frame —
@@ -288,7 +290,5 @@ html[lang="ar"] .how-step__cta { font-family:'Cairo',sans-serif; letter-spacing:
     margin-top: 48px;
   }
   .how-step--play { min-height: 320px; }
-  .how-step--discover .how-step__mockup,
-  .how-step--join    .how-step__mockup { transform: none; }
   .how-step--play .how-step__content h3 { letter-spacing: -1.5px; }
 }
