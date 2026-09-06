@@ -121,6 +121,12 @@ html[lang="ar"] .footer-app-label {
   width: auto;
   display: block;
 }
+.footer-store-btns .store-badge--soon {
+  height: 40px;
+  padding: 0 14px;
+}
+.footer-store-btns .store-badge--soon svg { width: 16px; height: 16px; }
+.footer-store-btns .store-badge--soon:hover { transform: none; filter: none; }
 
 /* ══════════════════════════════════════
    DIVIDER

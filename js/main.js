@@ -8,6 +8,7 @@
 const T = {
   en: {
     nav: { discover:'For Players', organize:'For Organizers', profile:'Tournaments', contact:'Contact', cta:'Download Free' },
+    store: { comingSoon:'Coming soon on iOS' },
     hero: {
       h1:  'Join Morocco\'s<br><em>Best Football Community</em>',
       sub: 'Find nearby matches, fill your squad, and hit the field — all from one app.',
@@ -260,6 +261,7 @@ const T = {
 
   fr: {
     nav: { discover:'Pour les Joueurs', organize:'Pour les Organisateurs', profile:'Tournois', contact:'Contact', cta:'Télécharger' },
+    store: { comingSoon:'Bientôt sur iOS' },
     hero: {
       h1:  'Rejoignez la<br><em>Communauté Foot du Maroc</em>',
       sub: 'Trouvez des matchs à proximité, complétez votre équipe et foncez sur le terrain — le tout depuis une seule appli.',
@@ -512,6 +514,7 @@ const T = {
 
   ar: {
     nav: { discover:'للاعبين', organize:'للمنظمين', profile:'بطولات', contact:'تواصل', cta:'حمّل مجاناً' },
+    store: { comingSoon:'قريباً على iOS' },
     hero: {
       h1:  'انضم إلى<br><em>أحسن تجمع لعشاق الكورة في المغرب</em>',
       sub: 'اعثر على مباريات قريبة، اكمل فريقك، وانزل الملعب — كل شيء من تطبيق واحد.',
@@ -786,7 +789,32 @@ const STORE_SVGS = {
   }
 };
 
+// The app isn't Apple-approved yet, so every App Store badge on the site is
+// a static, non-functional placeholder (see the `.store-badge--soon` markup
+// in each HTML page) — no href, not focusable, aria-disabled, and its label
+// comes from store.comingSoon like any other translated text.
+//
+// The day Apple approves the app: set this to the real App Store URL. That
+// single edit is enough — on the next page load, every placeholder on every
+// page turns into a real, working badge (same treatment Google Play already
+// gets below), with no HTML changes required anywhere else.
+const APP_STORE_URL = null;
+
+function activateAppStoreBadges() {
+  if (!APP_STORE_URL) return;
+  document.querySelectorAll('.store-badge--soon').forEach(placeholder => {
+    const a = document.createElement('a');
+    a.href = APP_STORE_URL;
+    a.target = '_blank';
+    a.rel = 'noopener noreferrer';
+    a.className = 'store-badge';
+    a.setAttribute('aria-label', 'Download on the App Store');
+    placeholder.replaceWith(a);
+  });
+}
+
 function updateStoreBadges(lang) {
+  activateAppStoreBadges();
   const key = STORE_SVGS.apple[lang] ? lang : 'en';
   document.querySelectorAll('.store-badge').forEach(badge => {
     const label = (badge.getAttribute('aria-label') || '').toLowerCase();
