@@ -94,6 +94,9 @@ html[lang="ar"] .how-step__badge { font-family:'Cairo',sans-serif; letter-spacin
 .how-step__mockup img {
   display: block;
   width: 100%;
+  /* Reserves the mockup's height before JS sets its per-language src,
+     so nothing collapses in the instant before that swap happens. */
+  aspect-ratio: 1086 / 1448;
 }
 /* Counter-tilt between the two mockup cards (both images are upright),
    the same ±2deg as the organizer cards: 01 leans left, 02 leans right.

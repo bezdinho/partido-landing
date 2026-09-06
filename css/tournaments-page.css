@@ -19,7 +19,7 @@
 .tp-hero__bg {
   position: absolute;
   inset: 0;
-  background-image: url('assets/backgrounds/hero-football.jpg');
+  background-image: url('../assets/backgrounds/hero-football.jpg');
   background-size: cover;
   background-position: center 30%;
   filter: brightness(.32) saturate(.7);

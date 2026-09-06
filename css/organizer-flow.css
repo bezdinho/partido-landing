@@ -137,6 +137,9 @@ html[lang="ar"] .org-card__badge {
 .org-card--setup .org-card__visual .phone img {
   border-radius: 0;
   filter: drop-shadow(0 24px 40px rgba(0,0,0,.75));
+  /* Reserves the mockup's height before JS sets its per-language src,
+     so nothing collapses in the instant before that swap happens. */
+  aspect-ratio: 1086 / 1448;
 }
 
 .org-card--manage .org-card__visual .phone {
@@ -152,6 +155,9 @@ html[lang="ar"] .org-card__badge {
 .org-card--manage .org-card__visual .phone img {
   border-radius: 0;
   filter: drop-shadow(0 24px 40px rgba(0,0,0,.75));
+  /* Reserves the mockup's height before JS sets its per-language src,
+     so nothing collapses in the instant before that swap happens. */
+  aspect-ratio: 1086 / 1448;
 }
 
 /* Card 3: play photo — landscape + full bleed feel */

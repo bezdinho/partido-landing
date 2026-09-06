@@ -60,4 +60,7 @@ html[dir="rtl"] .tourn-mockup { transform: rotate(2deg); }
   display: block;
   width: 100%;
   filter: drop-shadow(0 24px 40px rgba(0,0,0,.75));
+  /* Reserves the mockup's height before JS sets its per-language src,
+     so nothing collapses in the instant before that swap happens. */
+  aspect-ratio: 1086 / 1448;
 }
