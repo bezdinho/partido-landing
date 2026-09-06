@@ -11,6 +11,9 @@
   background: var(--dark);
   padding: 0 0 112px;
   position: relative;
+  /* Decorative glows must never widen the page: clip horizontally only
+     (clip, unlike hidden, leaves the card's vertical shadow untouched). */
+  overflow-x: clip;
 }
 
 /* Top fade: blends the how-section border away */
@@ -24,12 +27,15 @@
   z-index: 0;
 }
 
-/* Ambient green glow anchored bottom-right of the card */
+/* Ambient green glow anchored bottom-right of the card.
+   Width is capped at 90% so that, with right: 10%, its left edge never
+   crosses the wrap's edge — otherwise RTL turns the overhang into
+   horizontal scroll on narrow screens. */
 .pitch-cta-wrap::after {
   content: '';
   position: absolute;
   bottom: 80px; right: 10%;
-  width: 480px; height: 340px;
+  width: min(480px, 90%); height: 340px;
   background: radial-gradient(ellipse at 70% 80%, rgba(153,202,60,.07) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
