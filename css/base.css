@@ -13,7 +13,7 @@
   --bdr:    #252820;
   --text:   #f0f2ea;
   --text-2: #b8bcae;   /* between text and muted — for sub-copy that needs more presence */
-  --muted:  #7a8070;
+  --muted:  #a1a795;
   --dim:    #3a3f32;
 
   /* Radius scale */
@@ -106,6 +106,8 @@ html[lang="ar"] .fc h3 {
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 0.3px;
+  min-width: 44px;
+  min-height: 44px;
   padding: 5px 11px;
   border-radius: 100px;
   cursor: pointer;

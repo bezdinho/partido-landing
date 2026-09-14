@@ -40,7 +40,7 @@
 }
 .how-step__num {
   font-family: 'Space Mono', monospace;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 2.5px;
   color: var(--g);
@@ -48,7 +48,7 @@
 }
 html[lang="ar"] .how-step__num { font-family:'Cairo',sans-serif; letter-spacing:0; }
 .how-step__badge {
-  font-size: 9px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 1.8px;
   text-transform: uppercase;
@@ -141,7 +141,7 @@ html[lang="ar"] .how-step__badge { font-family:'Cairo',sans-serif; letter-spacin
 
 /* ── Text ── */
 .how-step__content h3 {
-  font-size: 13px;
+  font-size: 18px;
   font-weight: 800;
   letter-spacing: -.2px;
   text-transform: uppercase;
@@ -151,7 +151,7 @@ html[lang="ar"] .how-step__badge { font-family:'Cairo',sans-serif; letter-spacin
 }
 html[lang="ar"] .how-step__content h3 { font-family:'Cairo',sans-serif; letter-spacing:0; text-transform:none; }
 .how-step__content p {
-  font-size: 12.5px;
+  font-size: 16px;
   color: var(--muted);
   line-height: 1.65;
 }
@@ -240,8 +240,8 @@ html[lang="ar"] .how-step--play .how-step__content h3 {
   font-family:'Cairo',sans-serif; letter-spacing:0; line-height:1.2;
 }
 .how-step--play .how-step__content p {
-  font-size: 14px;
-  color: rgba(240,242,234,.52);
+  font-size: 16px;
+  color: var(--text-2);
   margin-bottom: 28px;
   line-height: 1.6;
 }
@@ -260,6 +260,7 @@ html[lang="ar"] .how-step--play .how-step__content p {
   font-weight: 800;
   letter-spacing: 1.2px;
   text-transform: uppercase;
+  min-height: 44px;
   padding: 12px 22px;
   border-radius: 100px;
   text-decoration: none;

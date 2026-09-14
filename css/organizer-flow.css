@@ -70,7 +70,7 @@
 }
 .org-card__num {
   font-family: 'Space Mono', monospace;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 2.5px;
   color: var(--g);
@@ -80,7 +80,7 @@ html[lang="ar"] .org-card__num {
   letter-spacing: 0;
 }
 .org-card__badge {
-  font-size: 9px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 1.8px;
   text-transform: uppercase;
@@ -199,7 +199,7 @@ html[lang="ar"] .org-card__badge {
 }
 .org-card__title {
   font-family: 'Satoshi', sans-serif;
-  font-size: 13.5px;
+  font-size: 18px;
   font-weight: 800;
   letter-spacing: 1.6px;
   text-transform: uppercase;
@@ -213,7 +213,7 @@ html[lang="ar"] .org-card__title {
   line-height: 1.4;
 }
 .org-card__desc {
-  font-size: 13px;
+  font-size: 16px;
   color: var(--muted);
   line-height: 1.65;
 }
@@ -238,8 +238,8 @@ html[lang="ar"] .org-card__desc {
   z-index: 2;
   padding: 22px 24px 28px;
 }
-.org-card--play .org-card__title { color: #fff; font-size: 14px; }
-.org-card--play .org-card__desc  { color: rgba(255,255,255,.65); }
+.org-card--play .org-card__title { color: #fff; font-size: 18px; }
+.org-card--play .org-card__desc  { color: var(--text-2); }
 
 /* ══════════════════════════════════════
    RESPONSIVE

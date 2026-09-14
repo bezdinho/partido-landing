@@ -137,23 +137,29 @@ html[lang="ar"] .editorial-subtitle {
   padding: 0 48px;
 }
 .ed-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 99px;
-  background: var(--bdr);
+  width: 44px;
+  height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   border: none;
+  background: transparent;
+  border-radius: 99px;
   cursor: pointer;
   padding: 0;
-  transition: background .25s ease, width .25s ease;
   flex-shrink: 0;
 }
-.ed-dot.active {
-  background: var(--g);
-  width: 20px;
-}
-.ed-dot:hover:not(.active) {
+.ed-dot::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 99px;
   background: var(--muted);
+  transition: background .25s ease, width .25s ease;
 }
+.ed-dot.active::before { width: 20px; background: var(--g); }
+.ed-dot:hover::before { background: var(--g); }
+html[dir="rtl"] .ed-arrow svg { transform: rotate(180deg); }
 
 /* ── Single card ── */
 .ed-card {
@@ -216,7 +222,7 @@ html[lang="ar"] .editorial-subtitle {
 
 .ed-card__tag {
   font-family: 'Space Mono', monospace;
-  font-size: 8.5px;
+  font-size: 12px;
   font-weight: 700;
   letter-spacing: 2.4px;
   text-transform: uppercase;
@@ -229,7 +235,7 @@ html[lang="ar"] .ed-card__tag {
 }
 
 .ed-card__title {
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 800;
   color: var(--text);
   line-height: 1.35;
@@ -242,7 +248,7 @@ html[lang="ar"] .ed-card__title {
 }
 
 .ed-card__desc {
-  font-size: 12.5px;
+  font-size: 16px;
   color: var(--muted);
   line-height: 1.65;
   flex: 1;
@@ -256,7 +262,7 @@ html[lang="ar"] .ed-card__desc {
   display: inline-flex;
   align-items: center;
   gap: 5px;
-  font-size: 11.5px;
+  font-size: 14px;
   font-weight: 700;
   letter-spacing: .4px;
   color: rgba(153,202,60,.85);
@@ -312,7 +318,7 @@ html[lang="ar"] .ed-card__cta {
     gap: 6px;
   }
   .ed-arrow {
-    width: 38px;
-    height: 38px;
+    width: 44px;
+    height: 44px;
   }
 }

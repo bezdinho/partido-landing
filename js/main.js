@@ -11,16 +11,16 @@ const T = {
     store: { comingSoon:'Coming soon on iOS' },
     hero: {
       h1:  'Join Morocco\'s<br><em>Best Football Community</em>',
-      sub: 'Find nearby matches, fill your squad, and hit the field — all from one app.',
+      sub: "Join a match near you or find the players your squad is missing. Come alone or bring your friends.",
     },
-    marquee: ['Find a Game Near You','Create a Match in 60 Seconds','5v5 · 6v6 · 7v7','Chill or Competitive','Fill Your Squad Instantly',"Morocco's Football Community",'Tournaments Across Morocco','Track Your Football Identity'],
+    marquee: ["Find a Match", "Organize a Match in 60 Seconds", "Bring Your Friends", "Match Chat", "Find Missing Players", "Football in Morocco", "Tournaments Across Morocco", "Track Your Football Identity"],
     how: {
       label:'For Players',
       title:'FROM IDEA TO<br>KICKOFF IN MINUTES',
-      sub:  'No back-and-forth. No chasing people. Three steps and you\'re on the pitch.',
+      sub: "Choose a match, reserve your place, and coordinate with the players.",
       s1badge:'Discover', s1t:'Discover a Match',  s1p:'Browse nearby games filtered by level, format and time. Find exactly the game you\'re looking for.',
       s2badge:'Join',     s2t:'Claim Your Spot',   s2p:'View match details, check who\'s playing, and confirm your place in one tap.',
-      s3badge:'Play',     s3t:'Show Up & Play',    s3p:'Squad confirmed. Field booked. Everyone notified. You just show up and play.',
+      s3badge:'Play',     s3t:'Show Up & Play',    s3p: "Use the match chat to confirm the details with your organizer before heading to the pitch.",
       cta:'Get the App',
     },
     pitchcta: {
@@ -33,7 +33,7 @@ const T = {
       title:   'Building connections through the beautiful game',
       p1:      'Partido was born from a deep love of football and a desire to make the game more accessible to everyone.',
       p2:      'In Morocco, football is more than just a sport — it\'s part of everyday life, culture, and identity. From local pitches to neighborhoods, the game brings people together.',
-      mission: 'Our mission is simple: to connect players, create opportunities to play, and build a stronger, more united football community.',
+      mission: "Our starting point is simple: help players find each other. Organizers continue to book their own pitches.",
       cta:     'Join the community',
     },
     tourn: {
@@ -47,7 +47,7 @@ const T = {
     proof: { p1v:'Fill games faster', p1l:'Find missing players instantly', p2v:'Find games instantly', p2l:'Join games anytime', p3v:'Play & win prizes', p3l:'Tournaments across Morocco', p4v:'100% free', p4l:'No fees, no subscriptions' },
     cta: {
       label:'Ready to play?',
-      title:'YOUR NEXT<br>MATCH IS<br><span style="color:var(--g);">WAITING</span>',
+      title: "Get ready for<br><span style=\"color:var(--g);\">your next match.</span>",
       sub:  'Download Partido free. Create a match in 60 seconds or find one nearby. Your squad is already out there.',
     },
     contact: {
@@ -102,16 +102,16 @@ const T = {
     },
     org: {
       label:'For Organizers', title:'Run your game, your way',
-      sub:'Everything you need to set up, manage, and enjoy your match — from first tap to final whistle.',
-      c1badge:'Set Up', c1t:'Set Up Your Game', c1p:'Choose the time, format, level, and all the details before publishing.',
-      c2badge:'Manage', c2t:'Manage Your Match', c2p:'Once your game is live, track players, edit details, and manage everything as the organizer.',
+      sub: "Already have a group? Publish your match and find the players you need.",
+      c1badge:'Set Up', c1t:'Set Up Your Game', c1p: "Book the pitch yourself, then add the time, price, format, and available places.",
+      c2badge:'Manage', c2t:'Manage Your Match', c2p: "Track who has joined, update the details, and coordinate in the match chat.",
       c3badge:'Play', c3t:'Play Your Game', c3p:'Your squad is ready. Just show up and enjoy the game.',
     },
     editorial: {
       label:'Inside Partido', title:'Growing the beautiful game',
       sub:'Stay up to date with Partido\'s latest news, player stories, product updates, and tips for getting the most out of the app.',
-      c1tag:'Community', c1t:'Partido is changing how football is played in your city', c1p:'No more endless group chats or last-minute cancellations. Discover how Partido makes it simple to find, organize, and play games — anytime.',
-      c2tag:'Tips', c2t:'How to fill your games faster (and better)', c2p:'From choosing the right level to setting the right vibe, learn the small details that make your games fill instantly with the right players.',
+      c1tag:'Community', c1t:'Partido is changing how football is played in your city', c1p: "A look at the app: discover matches, reserve a place, and coordinate with the other players.",
+      c2tag:'Tips', c2t:'How to fill your games faster (and better)', c2p: "Choose a clear time, level, and format so players can find a match that suits them.",
       c3tag:'Culture', c3t:'More than football: building real connections', c3p:'Partido is not just about matches — it\'s about people. Meet players, build your network, and become part of a growing football community.',
       c4tag:'Vision', c4t:'Football, reimagined for Morocco\'s next generation', c4p:'From neighborhood pitches to city-wide games, Partido is building a new way to play — more organized, more social, and more accessible.',
       cta:'Keep reading ↗',
@@ -263,8 +263,8 @@ const T = {
     nav: { discover:'Pour les Joueurs', organize:'Pour les Organisateurs', profile:'Tournois', contact:'Contact', cta:'Télécharger' },
     store: { comingSoon:'Bientôt sur iOS' },
     hero: {
-      h1:  'Rejoignez la<br><em>Communauté Foot du Maroc</em>',
-      sub: 'Trouvez des matchs à proximité, complétez votre équipe et foncez sur le terrain — le tout depuis une seule appli.',
+      h1: "Rejoignez la meilleure<br><em>communauté foot du Maroc</em>",
+      sub: 'Rejoignez un match près de chez vous ou trouvez les joueurs qui manquent à votre équipe. Venez seul ou avec vos amis.',
     },
     marquee: ['Trouve un Match Près de Toi','Crée un Match en 60 Secondes','5v5 · 6v6 · 7v7','Ambiance Détente ou Compétition','Complète ton Équipe Instantanément','La Communauté Football du Maroc','Tournois à Travers le Maroc','Construis ton Identité Football'],
     how: {
@@ -517,7 +517,7 @@ const T = {
     store: { comingSoon:'قريباً على iOS' },
     hero: {
       h1:  'انضم إلى<br><em>أحسن تجمع لعشاق الكورة في المغرب</em>',
-      sub: 'اعثر على مباريات قريبة، اكمل فريقك، وانزل الملعب — كل شيء من تطبيق واحد.',
+      sub: 'انضم إلى مباراة قريبة منك أو ابحث عن اللاعبين الذين يحتاجهم فريقك. تعال وحدك أو مع أصدقائك.',
     },
     marquee: ['ابحث عن مباراة قريبة منك','أنشئ مباراة في 60 ثانية','5 ضد 5 · 6 ضد 6 · 7 ضد 7','جو ترفيهي أو تنافسي','اكمل فريقك فوراً','مجتمع كرة القدم بالمغرب','بطولات في أرجاء المغرب','ابنِ هويتك الكروية'],
     how: {
@@ -789,20 +789,13 @@ const STORE_SVGS = {
   }
 };
 
-// The app isn't Apple-approved yet, so every App Store badge on the site is
-// a static, non-functional placeholder (see the `.store-badge--soon` markup
-// in each HTML page) — no href, not focusable, aria-disabled, and its label
-// comes from store.comingSoon like any other translated text.
-//
-// The day Apple approves the app: set this to the real App Store URL. That
-// single edit is enough — on the next page load, every placeholder on every
-// page turns into a real, working badge (same treatment Google Play already
-// gets below), with no HTML changes required anywhere else.
+// Launch-day presentation: show the full App Store badge now.
+// Add the real URL here when available; until then badges have no destination.
 const APP_STORE_URL = null;
 
 function activateAppStoreBadges() {
   if (!APP_STORE_URL) return;
-  document.querySelectorAll('.store-badge--soon').forEach(placeholder => {
+  document.querySelectorAll('[data-app-store]').forEach(placeholder => {
     const a = document.createElement('a');
     a.href = APP_STORE_URL;
     a.target = '_blank';
@@ -917,6 +910,7 @@ function applyLang(lang) {
   // Update active lang button
   document.querySelectorAll('.lang-btn').forEach(btn => {
     btn.classList.toggle('active', btn.dataset.lang === lang);
+    btn.setAttribute('aria-pressed', btn.dataset.lang === lang ? 'true' : 'false');
   });
 
   // Page title
@@ -1149,7 +1143,8 @@ window.addEventListener('scroll', () => {
   function moveTo(i, animate) {
     if (animate === false) track.style.transition = 'none';
     var cw = cards[0].offsetWidth;
-    track.style.transform = 'translateX(-' + (i * (cw + GAP)) + 'px)';
+    var direction = document.documentElement.dir === 'rtl' ? 1 : -1;
+    track.style.transform = 'translateX(' + (direction * i * (cw + GAP)) + 'px)';
     if (animate === false) {
       track.offsetWidth; // force reflow
       track.style.transition = '';
@@ -1181,6 +1176,7 @@ window.addEventListener('scroll', () => {
     if (!dotsWrap) return;
     dotsWrap.querySelectorAll('.ed-dot').forEach(function(d, i) {
       d.classList.toggle('active', i === index);
+      d.setAttribute('aria-current', i === index ? 'true' : 'false');
     });
   }
 
@@ -1220,6 +1216,7 @@ window.addEventListener('scroll', () => {
   track.addEventListener('touchend', function(e) {
     if (!swiping) return;
     var dx = txStart - e.changedTouches[0].clientX;
+    if (document.documentElement.dir === 'rtl') dx = -dx;
     if (Math.abs(dx) < 40) return;
     if (dx > 0 && index < maxIndex()) { index++; refresh(); }
     if (dx < 0 && index > 0)          { index--; refresh(); }
@@ -1236,8 +1233,7 @@ window.addEventListener('scroll', () => {
     }, 100);
   });
 
-  // ── Language switch: direction stays LTR for both locales (only text changes)
-  //    Re-run refresh so arrow states stay correct
+  // Recalculate translation when the reading direction changes.
   document.querySelectorAll('.lang-btn').forEach(function(btn) {
     btn.addEventListener('click', function() { refresh(false); });
   });
@@ -1255,19 +1251,45 @@ window.addEventListener('scroll', () => {
   var menu   = document.getElementById('mobile-menu');
   if (!burger || !menu) return;
 
+  var blockedElements = [];
+  var previousOverflow = '';
+  var header = burger.closest('nav');
+  menu.inert = true;
+
   function openMenu() {
+    previousOverflow = document.body.style.overflow;
+    var background = Array.from(document.body.children).filter(function(el) {
+      return el !== menu && el !== header && el.tagName !== 'SCRIPT';
+    });
+    background = background.concat(Array.from(header.querySelectorAll('.nav-left > a, .nav-center, .nav-right')));
+    blockedElements = background.map(function(el) {
+      var state = { element: el, inert: el.inert };
+      el.inert = true;
+      return state;
+    });
+    menu.inert = false;
     menu.classList.add('is-open');
     burger.setAttribute('aria-expanded', 'true');
     menu.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
+    menu.querySelector('a').focus({ preventScroll: true });
   }
 
   function closeMenu() {
+    if (burger.getAttribute('aria-expanded') !== 'true') return;
+    blockedElements.forEach(function(state) { state.element.inert = state.inert; });
+    blockedElements = [];
+    burger.focus({ preventScroll: true });
     menu.classList.remove('is-open');
     burger.setAttribute('aria-expanded', 'false');
     menu.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
+    menu.inert = true;
+    document.body.style.overflow = previousOverflow;
   }
+
+  window.matchMedia('(max-width: 768px)').addEventListener('change', function(e) {
+    if (!e.matches) closeMenu();
+  });
 
   burger.addEventListener('click', function() {
     var isOpen = burger.getAttribute('aria-expanded') === 'true';
@@ -1305,6 +1327,16 @@ window.addEventListener('scroll', () => {
 
   // Close on Escape key
   document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeMenu();
+    if (burger.getAttribute('aria-expanded') !== 'true') return;
+    if (e.key === 'Escape') { e.preventDefault(); closeMenu(); return; }
+    if (e.key === 'Tab') {
+      var targets = [burger].concat(Array.from(menu.querySelectorAll('a[href]')));
+      var first = targets[0], last = targets[targets.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault(); last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault(); first.focus();
+      }
+    }
   });
 })();

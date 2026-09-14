@@ -12,7 +12,7 @@
   <!-- Styles -->
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/nav.css">
-  <link rel="stylesheet" href="css/hero.css">
+  <link rel="stylesheet" href="css/hero.css?v=blue-hour-match-a3">
   <link rel="stylesheet" href="css/marquee.css">
   <link rel="stylesheet" href="css/showcase.css">
   <link rel="stylesheet" href="css/how-it-works.css">
@@ -83,7 +83,7 @@
 </nav>
 
 <!-- ══ MOBILE MENU ══ -->
-<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true" inert>
   <nav class="mobile-menu__nav">
     <a href="#for-players"    class="mobile-menu__link" data-mobile-scroll data-i18n="nav.discover">For Players</a>
     <a href="#for-organizers" class="mobile-menu__link" data-mobile-scroll data-i18n="nav.organize">For Organizers</a>
@@ -98,11 +98,10 @@
   <div class="hero-grid"></div>
   <div class="hero-left">
     <h1 data-i18n="hero.h1">Join Morocco's<br><em>Best Football Community</em></h1>
-    <p class="hero-sub" data-i18n="hero.sub">Find nearby matches, fill your squad, and hit the field — all from one app.</p>
+    <p class="hero-sub" data-i18n="hero.sub">Join a match near you or find the players your squad is missing. Come alone or bring your friends.</p>
     <div class="hero-badges">
-      <span class="store-badge store-badge--soon" role="link" aria-disabled="true">
-        <svg viewBox="0 0 40 40" aria-hidden="true" fill="currentColor"><path d="M24.77 20.3a4.95 4.95 0 0 1 2.36-4.15 5.07 5.07 0 0 0-3.99-2.16c-1.68-.18-3.31 1.01-4.17 1.01-.87 0-2.19-.99-3.62-.96a5.31 5.31 0 0 0-4.47 2.73c-1.93 3.34-.49 8.27 1.36 10.97.93 1.33 2.01 2.82 3.44 2.76 1.39-.06 1.92-.89 3.6-.89 1.68 0 2.16.89 3.62.86 1.5-.03 2.44-1.33 3.33-2.67a11.04 11.04 0 0 0 1.53-3.1 4.78 4.78 0 0 1-2.99-4.4z"/><path d="M22.04 12.21a4.87 4.87 0 0 0 1.12-3.49 4.95 4.95 0 0 0-3.2 1.66 4.64 4.64 0 0 0-1.14 3.37 4.09 4.09 0 0 0 3.22-1.54z"/></svg>
-        <span data-i18n="store.comingSoon">Coming soon on iOS</span>
+      <span class="store-badge" data-app-store role="link" aria-disabled="true" aria-label="Download on the App Store">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40"><rect width="120" height="40" rx="5" fill="#000"/><rect x=".5" y=".5" width="119" height="39" rx="4.5" fill="none" stroke="#a6a6a6" stroke-width="1"/><g fill="#fff"><path d="M24.77 20.3a4.95 4.95 0 0 1 2.36-4.15 5.07 5.07 0 0 0-3.99-2.16c-1.68-.18-3.31 1.01-4.17 1.01-.87 0-2.19-.99-3.62-.96a5.31 5.31 0 0 0-4.47 2.73c-1.93 3.34-.49 8.27 1.36 10.97.93 1.33 2.01 2.82 3.44 2.76 1.39-.06 1.92-.89 3.6-.89 1.68 0 2.16.89 3.62.86 1.5-.03 2.44-1.33 3.33-2.67a11.04 11.04 0 0 0 1.53-3.1 4.78 4.78 0 0 1-2.99-4.4z"/><path d="M22.04 12.21a4.87 4.87 0 0 0 1.12-3.49 4.95 4.95 0 0 0-3.2 1.66 4.64 4.64 0 0 0-1.14 3.37 4.09 4.09 0 0 0 3.22-1.54z"/></g><g fill="#fff"><text font-family="SF Pro Text,Helvetica,Arial,sans-serif" font-size="8" x="36" y="15" letter-spacing=".03em">Download on the</text><text font-family="SF Pro Display,Helvetica,Arial,sans-serif" font-size="13" font-weight="600" x="35.5" y="29" letter-spacing="-.02em">App Store</text></g></svg>
       </span>
       <a href="https://play.google.com/store/apps/details?id=com.partido.master" class="store-badge" target="_blank" rel="noopener noreferrer" aria-label="Get it on Google Play">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 135 40"><rect width="135" height="40" rx="5" fill="#000"/><rect x=".5" y=".5" width="134" height="39" rx="4.5" fill="none" stroke="#a6a6a6" stroke-width="1"/><g transform="translate(10,8) scale(.55)"><path fill="#00d9ff" d="M0 1.13v40.98c0 .72.4 1.12.89.65l22.61-21.14L.89.48C.4.01 0 .41 0 1.13z"/><path fill="#00f076" d="M30.24 17.77L23.5 21.62.89 43.76c.38.39.97.44 1.65.06l30.7-17.69-3-8.36z"/><path fill="#ff3a44" d="M30.24 25.47l3-8.36L.89.48C.51.09-.1.14.01.53L23.5 21.62l6.74 3.85z"/><path fill="#ffbc00" d="M.89.48C.4.01 0 .41 0 1.13l23.5 20.49 6.74-3.85L2.54.08C1.86-.3 1.27-.25.89.48z"/><path fill="#00d9ff" d="M23.5 21.62L.89 43.76c.48.47 1.07.43 1.65.06L33.24 26.2l-3-4.58-6.74 0z" opacity=".2"/><path fill="none" d="M.89.48l32.35 17.7 0 0L.89.48z"/></g><g fill="#fff"><text font-family="SF Pro Text,Helvetica,Arial,sans-serif" font-size="7.5" x="40" y="13.5" letter-spacing=".06em">GET IT ON</text><text font-family="SF Pro Display,Helvetica,Arial,sans-serif" font-size="13.2" font-weight="600" x="39.5" y="28" letter-spacing="-.01em">Google Play</text></g></svg>
@@ -125,7 +124,7 @@
 </section><!-- ══ MARQUEE ══ -->
 <div class="marquee-wrap" id="marquee-wrap">
   <div class="marquee-track" id="marquee-track">
-    <span class="mi"><span class="mi-dot"></span>Find a Game Near You</span><span class="mi"><span class="mi-dot"></span>Create a Match in 60 Seconds</span><span class="mi"><span class="mi-dot"></span>5v5 · 6v6 · 7v7</span><span class="mi"><span class="mi-dot"></span>Chill or Competitive</span><span class="mi"><span class="mi-dot"></span>Fill Your Squad Instantly</span><span class="mi"><span class="mi-dot"></span>Morocco's Football Community</span><span class="mi"><span class="mi-dot"></span>Tournaments Across Morocco</span><span class="mi"><span class="mi-dot"></span>Track Your Football Identity</span><span class="mi"><span class="mi-dot"></span>Find a Game Near You</span><span class="mi"><span class="mi-dot"></span>Create a Match in 60 Seconds</span><span class="mi"><span class="mi-dot"></span>5v5 · 6v6 · 7v7</span><span class="mi"><span class="mi-dot"></span>Chill or Competitive</span><span class="mi"><span class="mi-dot"></span>Fill Your Squad Instantly</span><span class="mi"><span class="mi-dot"></span>Morocco's Football Community</span><span class="mi"><span class="mi-dot"></span>Tournaments Across Morocco</span><span class="mi"><span class="mi-dot"></span>Track Your Football Identity</span>
+    <span class="mi"><span class="mi-dot"></span>Find a Match</span><span class="mi"><span class="mi-dot"></span>Organize a Match in 60 Seconds</span><span class="mi"><span class="mi-dot"></span>Bring Your Friends</span><span class="mi"><span class="mi-dot"></span>Match Chat</span><span class="mi"><span class="mi-dot"></span>Find Missing Players</span><span class="mi"><span class="mi-dot"></span>Football in Morocco</span><span class="mi"><span class="mi-dot"></span>Tournaments Across Morocco</span><span class="mi"><span class="mi-dot"></span>Track Your Football Identity</span><span class="mi"><span class="mi-dot"></span>Find a Match</span><span class="mi"><span class="mi-dot"></span>Organize a Match in 60 Seconds</span><span class="mi"><span class="mi-dot"></span>Bring Your Friends</span><span class="mi"><span class="mi-dot"></span>Match Chat</span><span class="mi"><span class="mi-dot"></span>Find Missing Players</span><span class="mi"><span class="mi-dot"></span>Football in Morocco</span><span class="mi"><span class="mi-dot"></span>Tournaments Across Morocco</span><span class="mi"><span class="mi-dot"></span>Track Your Football Identity</span>
   </div>
 </div>
 
@@ -135,7 +134,7 @@
   <div class="container">
     <div class="sec-label reveal" data-i18n="how.label">For Players</div>
     <h2 class="sec-title reveal" data-i18n="how.title">FROM IDEA TO<br>KICKOFF IN MINUTES</h2>
-    <p class="sec-sub reveal" data-i18n="how.sub">No back-and-forth. No chasing people. Three steps and you're on the pitch.</p>
+    <p class="sec-sub reveal" data-i18n="how.sub">Choose a match, reserve your place, and coordinate with the players.</p>
 
     <div class="how-steps">
 
@@ -184,7 +183,7 @@
         </div>
         <div class="how-step__content">
           <h3 data-i18n="how.s3t">Show Up<br>&amp; Play</h3>
-          <p data-i18n="how.s3p">Squad confirmed. Field booked. Everyone notified. You just show up and play.</p>
+          <p data-i18n="how.s3p">Use the match chat to confirm the details with your organizer before heading to the pitch.</p>
           <a href="#download" class="how-step__cta" data-i18n="how.cta">
             Get the App
             <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 6h8M7 3l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -212,7 +211,7 @@
   <div class="container org-header reveal">
     <span class="sec-label" data-i18n="org.label">For Organizers</span>
     <h2 class="sec-title" data-i18n="org.title">Run your game, your way</h2>
-    <p class="sec-sub" data-i18n="org.sub">Everything you need to set up, manage, and enjoy your match — from first tap to final whistle.</p>
+    <p class="sec-sub" data-i18n="org.sub">Already have a group? Publish your match and find the players you need.</p>
   </div>
 
   <div class="org-grid">
@@ -230,7 +229,7 @@
       </div>
       <div class="org-card__text">
         <h3 class="org-card__title" data-i18n="org.c1t">Set Up Your Game</h3>
-        <p class="org-card__desc" data-i18n="org.c1p">Choose the time, format, level, and all the details before publishing.</p>
+        <p class="org-card__desc" data-i18n="org.c1p">Book the pitch yourself, then add the time, price, format, and available places.</p>
       </div>
     </article>
 
@@ -247,7 +246,7 @@
       </div>
       <div class="org-card__text">
         <h3 class="org-card__title" data-i18n="org.c2t">Manage Your Match</h3>
-        <p class="org-card__desc" data-i18n="org.c2p">Once your game is live, track players, edit details, and manage everything as the organizer.</p>
+        <p class="org-card__desc" data-i18n="org.c2p">Track who has joined, update the details, and coordinate in the match chat.</p>
       </div>
     </article>
 
@@ -325,7 +324,7 @@
       <div class="sc-text">
         <div class="sec-label" data-i18n="org.label">Manage your games</div>
         <h2 class="sec-title" data-i18n="org.title">YOUR UPCOMING<br>GAMES. YOUR<br>FOLLOWED GAMES.</h2>
-        <p class="sec-sub" data-i18n="org.sub">Everything you're involved in — at a glance. Upcoming matches, games you're following, and your full match history, all in one place.</p>
+        <p class="sec-sub" data-i18n="org.sub">Already have a group? Publish your match and find the players you need.</p>
         <div class="callouts">
           <div class="callout reveal"><div class="co-ic">📌</div><div><strong data-i18n="org.c1t">Upcoming games dashboard</strong><span data-i18n="org.c1s">See how many spots are still open. Manage your lineup in real time.</span></div></div>
           <div class="callout reveal"><div class="co-ic">👁️</div><div><strong data-i18n="org.c2t">Follow without joining</strong><span data-i18n="org.c2s">Game full? Follow it and get notified the moment a spot opens.</span></div></div>
@@ -416,10 +415,9 @@
         <h2 data-i18n="pitchcta.title">Ready to get on the pitch?</h2>
         <p data-i18n="pitchcta.sub">Find games, join players, and play whenever you want — all in one app.</p>
         <div class="pitch-cta__btns store-btns">
-          <span class="store-badge store-badge--soon" role="link" aria-disabled="true">
-            <svg viewBox="0 0 40 40" aria-hidden="true" fill="currentColor"><path d="M24.77 20.3a4.95 4.95 0 0 1 2.36-4.15 5.07 5.07 0 0 0-3.99-2.16c-1.68-.18-3.31 1.01-4.17 1.01-.87 0-2.19-.99-3.62-.96a5.31 5.31 0 0 0-4.47 2.73c-1.93 3.34-.49 8.27 1.36 10.97.93 1.33 2.01 2.82 3.44 2.76 1.39-.06 1.92-.89 3.6-.89 1.68 0 2.16.89 3.62.86 1.5-.03 2.44-1.33 3.33-2.67a11.04 11.04 0 0 0 1.53-3.1 4.78 4.78 0 0 1-2.99-4.4z"/><path d="M22.04 12.21a4.87 4.87 0 0 0 1.12-3.49 4.95 4.95 0 0 0-3.2 1.66 4.64 4.64 0 0 0-1.14 3.37 4.09 4.09 0 0 0 3.22-1.54z"/></svg>
-            <span data-i18n="store.comingSoon">Coming soon on iOS</span>
-          </span>
+          <span class="store-badge" data-app-store role="link" aria-disabled="true" aria-label="Download on the App Store">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40"><rect width="120" height="40" rx="5" fill="#000"/><rect x=".5" y=".5" width="119" height="39" rx="4.5" fill="none" stroke="#a6a6a6" stroke-width="1"/><g fill="#fff"><path d="M24.77 20.3a4.95 4.95 0 0 1 2.36-4.15 5.07 5.07 0 0 0-3.99-2.16c-1.68-.18-3.31 1.01-4.17 1.01-.87 0-2.19-.99-3.62-.96a5.31 5.31 0 0 0-4.47 2.73c-1.93 3.34-.49 8.27 1.36 10.97.93 1.33 2.01 2.82 3.44 2.76 1.39-.06 1.92-.89 3.6-.89 1.68 0 2.16.89 3.62.86 1.5-.03 2.44-1.33 3.33-2.67a11.04 11.04 0 0 0 1.53-3.1 4.78 4.78 0 0 1-2.99-4.4z"/><path d="M22.04 12.21a4.87 4.87 0 0 0 1.12-3.49 4.95 4.95 0 0 0-3.2 1.66 4.64 4.64 0 0 0-1.14 3.37 4.09 4.09 0 0 0 3.22-1.54z"/></g><g fill="#fff"><text font-family="SF Pro Text,Helvetica,Arial,sans-serif" font-size="8" x="36" y="15" letter-spacing=".03em">Download on the</text><text font-family="SF Pro Display,Helvetica,Arial,sans-serif" font-size="13" font-weight="600" x="35.5" y="29" letter-spacing="-.02em">App Store</text></g></svg>
+      </span>
           <a href="https://play.google.com/store/apps/details?id=com.partido.master" class="store-badge" target="_blank" rel="noopener noreferrer" aria-label="Get it on Google Play">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 135 40"><rect width="135" height="40" rx="5" fill="#000"/><rect x=".5" y=".5" width="134" height="39" rx="4.5" fill="none" stroke="#a6a6a6" stroke-width="1"/><g transform="translate(10,8) scale(.55)"><path fill="#00d9ff" d="M0 1.13v40.98c0 .72.4 1.12.89.65l22.61-21.14L.89.48C.4.01 0 .41 0 1.13z"/><path fill="#00f076" d="M30.24 17.77L23.5 21.62.89 43.76c.38.39.97.44 1.65.06l30.7-17.69-3-8.36z"/><path fill="#ff3a44" d="M30.24 25.47l3-8.36L.89.48C.51.09-.1.14.01.53L23.5 21.62l6.74 3.85z"/><path fill="#ffbc00" d="M.89.48C.4.01 0 .41 0 1.13l23.5 20.49 6.74-3.85L2.54.08C1.86-.3 1.27-.25.89.48z"/><path fill="#00d9ff" d="M23.5 21.62L.89 43.76c.48.47 1.07.43 1.65.06L33.24 26.2l-3-4.58-6.74 0z" opacity=".2"/><path fill="none" d="M.89.48l32.35 17.7 0 0L.89.48z"/></g><g fill="#fff"><text font-family="SF Pro Text,Helvetica,Arial,sans-serif" font-size="7.5" x="40" y="13.5" letter-spacing=".06em">GET IT ON</text><text font-family="SF Pro Display,Helvetica,Arial,sans-serif" font-size="13.2" font-weight="600" x="39.5" y="28" letter-spacing="-.01em">Google Play</text></g></svg>
           </a>
@@ -448,7 +446,7 @@
         <p data-i18n="story.p1">Partido was born from a deep love of football and a desire to make the game more accessible to everyone.</p>
         <p data-i18n="story.p2">In Morocco, football is more than just a sport — it’s part of everyday life, culture, and identity. From local pitches to neighborhoods, the game brings people together.</p>
       </div>
-      <p class="story-mission" data-i18n="story.mission">Our mission is simple: to connect players, create opportunities to play, and build a stronger, more united football community.</p>
+      <p class="story-mission" data-i18n="story.mission">Our starting point is simple: help players find each other. Organizers continue to book their own pitches.</p>
       <a href="#download" class="story-link" data-i18n="story.cta">
         Join the community
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -502,12 +500,11 @@
 <section class="cta-section" id="download">
   <div class="cta-inner">
     <div class="sec-label" style="text-align:center;" data-i18n="cta.label">Ready to play?</div>
-    <h2 data-i18n="cta.title">YOUR NEXT<br>MATCH IS<br><span style="color:var(--g);">WAITING</span></h2>
+    <h2 data-i18n="cta.title">Get ready for<br><span style="color:var(--g);">your next match.</span></h2>
     <p data-i18n="cta.sub">Download Partido free. Create a match in 60 seconds or find one nearby. Your squad is already out there.</p>
     <div class="store-btns">
-      <span class="store-badge store-badge--soon" role="link" aria-disabled="true">
-        <svg viewBox="0 0 40 40" aria-hidden="true" fill="currentColor"><path d="M24.77 20.3a4.95 4.95 0 0 1 2.36-4.15 5.07 5.07 0 0 0-3.99-2.16c-1.68-.18-3.31 1.01-4.17 1.01-.87 0-2.19-.99-3.62-.96a5.31 5.31 0 0 0-4.47 2.73c-1.93 3.34-.49 8.27 1.36 10.97.93 1.33 2.01 2.82 3.44 2.76 1.39-.06 1.92-.89 3.6-.89 1.68 0 2.16.89 3.62.86 1.5-.03 2.44-1.33 3.33-2.67a11.04 11.04 0 0 0 1.53-3.1 4.78 4.78 0 0 1-2.99-4.4z"/><path d="M22.04 12.21a4.87 4.87 0 0 0 1.12-3.49 4.95 4.95 0 0 0-3.2 1.66 4.64 4.64 0 0 0-1.14 3.37 4.09 4.09 0 0 0 3.22-1.54z"/></svg>
-        <span data-i18n="store.comingSoon">Coming soon on iOS</span>
+      <span class="store-badge" data-app-store role="link" aria-disabled="true" aria-label="Download on the App Store">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40"><rect width="120" height="40" rx="5" fill="#000"/><rect x=".5" y=".5" width="119" height="39" rx="4.5" fill="none" stroke="#a6a6a6" stroke-width="1"/><g fill="#fff"><path d="M24.77 20.3a4.95 4.95 0 0 1 2.36-4.15 5.07 5.07 0 0 0-3.99-2.16c-1.68-.18-3.31 1.01-4.17 1.01-.87 0-2.19-.99-3.62-.96a5.31 5.31 0 0 0-4.47 2.73c-1.93 3.34-.49 8.27 1.36 10.97.93 1.33 2.01 2.82 3.44 2.76 1.39-.06 1.92-.89 3.6-.89 1.68 0 2.16.89 3.62.86 1.5-.03 2.44-1.33 3.33-2.67a11.04 11.04 0 0 0 1.53-3.1 4.78 4.78 0 0 1-2.99-4.4z"/><path d="M22.04 12.21a4.87 4.87 0 0 0 1.12-3.49 4.95 4.95 0 0 0-3.2 1.66 4.64 4.64 0 0 0-1.14 3.37 4.09 4.09 0 0 0 3.22-1.54z"/></g><g fill="#fff"><text font-family="SF Pro Text,Helvetica,Arial,sans-serif" font-size="8" x="36" y="15" letter-spacing=".03em">Download on the</text><text font-family="SF Pro Display,Helvetica,Arial,sans-serif" font-size="13" font-weight="600" x="35.5" y="29" letter-spacing="-.02em">App Store</text></g></svg>
       </span>
       <a href="https://play.google.com/store/apps/details?id=com.partido.master" class="store-badge" target="_blank" rel="noopener noreferrer" aria-label="Get it on Google Play">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 135 40"><rect width="135" height="40" rx="5" fill="#000"/><rect x=".5" y=".5" width="134" height="39" rx="4.5" fill="none" stroke="#a6a6a6" stroke-width="1"/><g transform="translate(10,8) scale(.55)"><path fill="#00d9ff" d="M0 1.13v40.98c0 .72.4 1.12.89.65l22.61-21.14L.89.48C.4.01 0 .41 0 1.13z"/><path fill="#00f076" d="M30.24 17.77L23.5 21.62.89 43.76c.38.39.97.44 1.65.06l30.7-17.69-3-8.36z"/><path fill="#ff3a44" d="M30.24 25.47l3-8.36L.89.48C.51.09-.1.14.01.53L23.5 21.62l6.74 3.85z"/><path fill="#ffbc00" d="M.89.48C.4.01 0 .41 0 1.13l23.5 20.49 6.74-3.85L2.54.08C1.86-.3 1.27-.25.89.48z"/><path fill="#00d9ff" d="M23.5 21.62L.89 43.76c.48.47 1.07.43 1.65.06L33.24 26.2l-3-4.58-6.74 0z" opacity=".2"/><path fill="none" d="M.89.48l32.35 17.7 0 0L.89.48z"/></g><g fill="#fff"><text font-family="SF Pro Text,Helvetica,Arial,sans-serif" font-size="7.5" x="40" y="13.5" letter-spacing=".06em">GET IT ON</text><text font-family="SF Pro Display,Helvetica,Arial,sans-serif" font-size="13.2" font-weight="600" x="39.5" y="28" letter-spacing="-.01em">Google Play</text></g></svg>
@@ -590,7 +587,7 @@
         <div class="ed-card__body">
           <span class="ed-card__tag" data-i18n="editorial.c1tag">Community</span>
           <h3 class="ed-card__title" data-i18n="editorial.c1t">Partido is changing how football is played in your city</h3>
-          <p class="ed-card__desc" data-i18n="editorial.c1p">No more endless group chats or last-minute cancellations. Discover how Partido makes it simple to find, organize, and play games — anytime.</p>
+          <p class="ed-card__desc" data-i18n="editorial.c1p">A look at the app: discover matches, reserve a place, and coordinate with the other players.</p>
           <span class="ed-card__cta" data-i18n="editorial.cta">Keep reading ↗</span>
         </div>
       </a>
@@ -603,7 +600,7 @@
         <div class="ed-card__body">
           <span class="ed-card__tag" data-i18n="editorial.c2tag">Tips</span>
           <h3 class="ed-card__title" data-i18n="editorial.c2t">How to fill your games faster (and better)</h3>
-          <p class="ed-card__desc" data-i18n="editorial.c2p">From choosing the right level to setting the right vibe, learn the small details that make your games fill instantly with the right players.</p>
+          <p class="ed-card__desc" data-i18n="editorial.c2p">Choose a clear time, level, and format so players can find a match that suits them.</p>
           <span class="ed-card__cta" data-i18n="editorial.cta">Keep reading ↗</span>
         </div>
       </a>
@@ -637,7 +634,7 @@
     </div>
   </div>
 
-  <div class="ed-dots" role="tablist" aria-label="Article navigation"></div>
+  <div class="ed-dots" role="group" aria-label="Article navigation"></div>
 </section>
 
 <!-- ══ FOOTER ══ -->
@@ -691,10 +688,9 @@
     <div class="footer-right">
       <span class="footer-app-label" data-i18n="footer.getapp">Get the app</span>
       <div class="footer-store-btns">
-        <span class="store-badge store-badge--soon" role="link" aria-disabled="true">
-          <svg viewBox="0 0 40 40" aria-hidden="true" fill="currentColor"><path d="M24.77 20.3a4.95 4.95 0 0 1 2.36-4.15 5.07 5.07 0 0 0-3.99-2.16c-1.68-.18-3.31 1.01-4.17 1.01-.87 0-2.19-.99-3.62-.96a5.31 5.31 0 0 0-4.47 2.73c-1.93 3.34-.49 8.27 1.36 10.97.93 1.33 2.01 2.82 3.44 2.76 1.39-.06 1.92-.89 3.6-.89 1.68 0 2.16.89 3.62.86 1.5-.03 2.44-1.33 3.33-2.67a11.04 11.04 0 0 0 1.53-3.1 4.78 4.78 0 0 1-2.99-4.4z"/><path d="M22.04 12.21a4.87 4.87 0 0 0 1.12-3.49 4.95 4.95 0 0 0-3.2 1.66 4.64 4.64 0 0 0-1.14 3.37 4.09 4.09 0 0 0 3.22-1.54z"/></svg>
-          <span data-i18n="store.comingSoon">Coming soon on iOS</span>
-        </span>
+        <span class="store-badge" data-app-store role="link" aria-disabled="true" aria-label="Download on the App Store">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40"><rect width="120" height="40" rx="5" fill="#000"/><rect x=".5" y=".5" width="119" height="39" rx="4.5" fill="none" stroke="#a6a6a6" stroke-width="1"/><g fill="#fff"><path d="M24.77 20.3a4.95 4.95 0 0 1 2.36-4.15 5.07 5.07 0 0 0-3.99-2.16c-1.68-.18-3.31 1.01-4.17 1.01-.87 0-2.19-.99-3.62-.96a5.31 5.31 0 0 0-4.47 2.73c-1.93 3.34-.49 8.27 1.36 10.97.93 1.33 2.01 2.82 3.44 2.76 1.39-.06 1.92-.89 3.6-.89 1.68 0 2.16.89 3.62.86 1.5-.03 2.44-1.33 3.33-2.67a11.04 11.04 0 0 0 1.53-3.1 4.78 4.78 0 0 1-2.99-4.4z"/><path d="M22.04 12.21a4.87 4.87 0 0 0 1.12-3.49 4.95 4.95 0 0 0-3.2 1.66 4.64 4.64 0 0 0-1.14 3.37 4.09 4.09 0 0 0 3.22-1.54z"/></g><g fill="#fff"><text font-family="SF Pro Text,Helvetica,Arial,sans-serif" font-size="8" x="36" y="15" letter-spacing=".03em">Download on the</text><text font-family="SF Pro Display,Helvetica,Arial,sans-serif" font-size="13" font-weight="600" x="35.5" y="29" letter-spacing="-.02em">App Store</text></g></svg>
+      </span>
         <a href="https://play.google.com/store/apps/details?id=com.partido.master" class="store-badge" target="_blank" rel="noopener noreferrer" aria-label="Get it on Google Play">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 135 40"><rect width="135" height="40" rx="5" fill="#000"/><rect x=".5" y=".5" width="134" height="39" rx="4.5" fill="none" stroke="#a6a6a6" stroke-width="1"/><g transform="translate(10,8) scale(.55)"><path fill="#00d9ff" d="M0 1.13v40.98c0 .72.4 1.12.89.65l22.61-21.14L.89.48C.4.01 0 .41 0 1.13z"/><path fill="#00f076" d="M30.24 17.77L23.5 21.62.89 43.76c.38.39.97.44 1.65.06l30.7-17.69-3-8.36z"/><path fill="#ff3a44" d="M30.24 25.47l3-8.36L.89.48C.51.09-.1.14.01.53L23.5 21.62l6.74 3.85z"/><path fill="#ffbc00" d="M.89.48C.4.01 0 .41 0 1.13l23.5 20.49 6.74-3.85L2.54.08C1.86-.3 1.27-.25.89.48z"/><path fill="#00d9ff" d="M23.5 21.62L.89 43.76c.48.47 1.07.43 1.65.06L33.24 26.2l-3-4.58-6.74 0z" opacity=".2"/><path fill="none" d="M.89.48l32.35 17.7 0 0L.89.48z"/></g><g fill="#fff"><text font-family="SF Pro Text,Helvetica,Arial,sans-serif" font-size="7.5" x="40" y="13.5" letter-spacing=".06em">GET IT ON</text><text font-family="SF Pro Display,Helvetica,Arial,sans-serif" font-size="13.2" font-weight="600" x="39.5" y="28" letter-spacing="-.01em">Google Play</text></g></svg>
       </a>

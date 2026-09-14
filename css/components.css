@@ -388,10 +388,20 @@ html[lang="ar"] .store-badge--soon { font-family: 'Cairo', sans-serif; letter-sp
 @media(max-width:640px) {
   nav { padding: 14px 20px; } .container { padding: 0 20px; }
   section { padding: 72px 0; }
-  .hero { padding: 100px 20px 60px; } html[dir="rtl"] .hero { padding: 100px 20px 60px; }
+  .hero { padding: 160px 20px 60px; gap: 24px; } html[dir="rtl"] .hero { padding: 160px 20px 60px; }
   .gallery-strip { padding: 0 20px; }
   .rev-grid { grid-template-columns: 1fr; }
   .proof-stat { padding: 12px 28px; } .proof-div { display: none; }
   /* footer layout is handled fully in footer.css mobile block */
   .cta-section { padding: 96px 0; }
+}
+
+@media (max-width: 640px) {
+  .flow-bridge__inner { padding: 0 20px; gap: 8px; }
+  .flow-bridge__text { white-space: normal; text-align: center; font-size: 12px; letter-spacing: 1px; flex-shrink: 1; }
+}
+
+#download { scroll-margin-top: 100px; }
+@media (max-width: 640px) {
+  #download { scroll-margin-top: 140px; }
 }
