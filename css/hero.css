@@ -29,6 +29,31 @@ html[dir="rtl"] .hero-bg {
     linear-gradient(to left, rgba(0,0,0,.78), rgba(0,0,0,.50), rgba(0,0,0,.20)),
     url('../assets/backgrounds/hero-blue-hour-match.png') center / cover no-repeat;
 }
+/* Keep the blue-hour match underneath so fades never expose an empty frame. */
+.hero-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to right, rgba(0,0,0,.78), rgba(0,0,0,.50), rgba(0,0,0,.20)),
+    url('../assets/backgrounds/hero-partido-celebration.png') center / cover no-repeat;
+  opacity: 0;
+  animation: heroBackgroundFade 8s linear infinite;
+}
+html[dir="rtl"] .hero-bg::after {
+  background-image:
+    linear-gradient(to left, rgba(0,0,0,.78), rgba(0,0,0,.50), rgba(0,0,0,.20)),
+    url('../assets/backgrounds/hero-partido-celebration.png');
+}
+@keyframes heroBackgroundFade {
+  0%, 40% { opacity: 0; }
+  50%, 90% { opacity: 1; }
+  100% { opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg::after { animation: none; opacity: 0; }
+}
+
 .hero-grid {
   position: absolute; inset: 0; z-index: 0;
   background-image:
