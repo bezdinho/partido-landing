@@ -11,9 +11,9 @@ const T = {
     store: { comingSoon:'Coming soon on iOS' },
     hero: {
       h1:  'Join Morocco\'s<br><em>Best Football Community</em>',
-      sub: "Join a match near you or find the players your squad is missing. Come alone or bring your friends.",
+      sub: "Join a match near you or find the players missing from your match. Come alone or bring your friends.",
     },
-    marquee: ["Find a match near you", "Organize a match in 60 seconds", "Come alone or bring your friends", "Find the players your team is missing"],
+    marquee: ["Find a match near you", "Organize a match in 60 seconds", "Come alone or bring your friends", "Find the players missing from your match"],
     how: {
       "label": "Join a match",
       "title": "Your next match in 3 steps",
@@ -41,6 +41,7 @@ const T = {
       "mission": "Less time looking for players. More time playing together."
 },
     tourn: {
+      previewNote: 'Illustrative app preview. Rewards and conditions will be announced for each tournament.',
       "badge": "Coming soon",
       "title": "Football tournaments. Prizes to win.",
       "sub": "Bring your team and take on the challenge. Partido tournaments will arrive city by city, with venues, dates and rewards announced before each event.",
@@ -279,9 +280,9 @@ const T = {
     store: { comingSoon:'Bientôt sur iOS' },
     hero: {
       h1: "Rejoignez la meilleure<br><em>communauté foot du Maroc</em>",
-      sub: 'Rejoignez un match près de chez vous ou trouvez les joueurs qui manquent à votre équipe. Venez seul ou avec vos amis.',
+      sub: 'Rejoignez un match près de chez vous ou trouvez les joueurs qui manquent à votre match. Venez seul ou avec vos amis.',
     },
-    marquee: ["Trouvez un match près de chez vous", "Organisez un match en 60 secondes", "Venez seul ou avec vos amis", "Trouvez les joueurs qui manquent à votre équipe"],
+    marquee: ["Trouvez un match près de chez vous", "Organisez un match en 60 secondes", "Venez seul ou avec vos amis", "Trouvez les joueurs qui manquent à votre match"],
     how: {
       "label": "Rejoindre un match",
       "title": "Votre prochain match en 3 étapes",
@@ -309,6 +310,7 @@ const T = {
       "mission": "Moins de temps à chercher des joueurs. Plus de temps à jouer ensemble."
 },
     tourn: {
+      previewNote: 'Aperçu illustratif. Les récompenses et conditions seront annoncées pour chaque tournoi.',
       "badge": "Bientôt disponible",
       "title": "Des tournois de foot. Des prix à gagner.",
       "sub": "Réunissez votre équipe et venez relever le défi. Les tournois Partido arriveront ville par ville, avec les lieux, les dates et les récompenses annoncés avant chaque événement.",
@@ -547,9 +549,9 @@ const T = {
     store: { comingSoon:'قريباً على iOS' },
     hero: {
       h1:  'انضم إلى<br><em>أحسن تجمع لعشاق الكورة في المغرب</em>',
-      sub: 'انضم إلى مباراة قريبة منك أو ابحث عن اللاعبين الذين يحتاجهم فريقك. تعال وحدك أو مع أصدقائك.',
+      sub: 'انضم إلى مباراة قريبة منك أو ابحث عن اللاعبين الذين ينقصون مباراتك. تعال وحدك أو مع أصدقائك.',
     },
-    marquee: ["اعثر على مباراة قريبة منك", "نظّم مباراة في 60 ثانية", "تعال وحدك أو مع أصدقائك", "اعثر على اللاعبين الذين ينقصون فريقك"],
+    marquee: ["اعثر على مباراة قريبة منك", "نظّم مباراة في 60 ثانية", "تعال وحدك أو مع أصدقائك", "اعثر على اللاعبين الذين ينقصون مباراتك"],
     how: {
       "label": "انضم إلى مباراة",
       "title": "مباراتك القادمة في 3 خطوات",
@@ -577,6 +579,7 @@ const T = {
       "mission": "وقت أقل في البحث عن لاعبين. ووقت أكثر للعب معاً."
 },
     tourn: {
+      previewNote: 'صورة توضيحية للتطبيق. سيتم الإعلان عن الجوائز والشروط الخاصة بكل بطولة.',
       "badge": "قريباً",
       "title": "بطولات كرة قدم. وجوائز للفوز بها.",
       "sub": "اجمعوا فريقكم واستعدّوا للتحدي. ستصل بطولات بارتيدو إلى المدن تباعاً، مع الإعلان عن الأماكن والمواعيد والجوائز قبل كل بطولة.",
@@ -855,8 +858,13 @@ function updateStoreBadges(lang) {
   const key = STORE_SVGS.apple[lang] ? lang : 'en';
   document.querySelectorAll('.store-badge').forEach(badge => {
     const label = (badge.getAttribute('aria-label') || '').toLowerCase();
-    if (label.includes('app store'))        badge.innerHTML = STORE_SVGS.apple[key];
-    else if (label.includes('google play')) badge.innerHTML = STORE_SVGS.google[key];
+    if (label.includes('app store')) {
+      badge.innerHTML = STORE_SVGS.apple[key];
+      badge.setAttribute('aria-label', {fr:'Télécharger sur l’App Store',en:'Download on the App Store',ar:'حمّل التطبيق من App Store'}[key]);
+    } else if (label.includes('google play')) {
+      badge.innerHTML = STORE_SVGS.google[key];
+      badge.setAttribute('aria-label', {fr:'Télécharger sur Google Play',en:'Get it on Google Play',ar:'حمّل التطبيق من Google Play'}[key]);
+    }
   });
 }
 
