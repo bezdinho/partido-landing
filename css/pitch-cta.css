@@ -1,208 +1,31 @@
-/* === pitch-cta.css === */
-
-/* ══════════════════════════════════════
-   PITCH CTA — mid-page call-to-action
-   sits directly below How It Works
-══════════════════════════════════════ */
-
-/* Smooth visual bridge from how-section (--dark: #111310)
-   down into pitch-cta and then to the next section */
-.pitch-cta-wrap {
-  background: var(--dark);
-  padding: 0 0 112px;
-  position: relative;
-  /* Decorative glows must never widen the page: clip horizontally only
-     (clip, unlike hidden, leaves the card's vertical shadow untouched). */
-  overflow-x: clip;
+/* Download invitation after both player journeys. */
+#for-organizers { padding-bottom: 48px; }
+.pitch-cta-wrap { background: var(--dark); padding: 0 0 48px; scroll-margin-top: 110px; }
+.pitch-cta { max-width: 1160px; margin: 0 auto; padding: 0 48px; }
+.pitch-cta__inner { display: grid; grid-template-columns: 1fr 1fr; border-radius: 24px; border: 1px solid var(--bdr); background: #0d0f0c; overflow: hidden; }
+.pitch-cta__text { padding: 44px 36px; display: flex; flex-direction: column; justify-content: center; }
+.pitch-cta__text h2 { font-family: 'Satoshi',sans-serif; font-size: clamp(28px,3.2vw,42px); font-weight: 900; line-height: 1.12; letter-spacing: -1px; color: var(--text); margin: 0 0 16px; text-wrap: balance; }
+.pitch-cta__text p { font-size: 16px; color: #c3c9b9; line-height: 1.65; margin: 0 0 24px; max-width: 440px; }
+html[lang="ar"] .pitch-cta__text { font-family: 'Cairo',sans-serif; }
+html[lang="ar"] .pitch-cta__text h2 { font-family: 'Cairo',sans-serif; letter-spacing: 0; line-height: 1.35; }
+.pitch-cta__btns.store-btns { display: flex; justify-content: flex-start; gap: 12px; flex-wrap: nowrap; width: 100%; max-width: 344px; }
+.pitch-cta__btns .store-badge { flex: 120 1 0; min-width: 0; }
+.pitch-cta__btns .store-badge:last-child { flex-grow: 135; }
+.pitch-cta__btns .store-badge svg { display: block; width: 100%; height: auto; max-height: 52px; }
+.pitch-cta__image { position: relative; min-height: 340px; }
+.pitch-cta__image img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 30%; display: block; }
+.pitch-cta__image::before { content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none; background: linear-gradient(to right,#0d0f0c,rgba(13,15,12,.2) 12%,transparent 25%); }
+html[dir="rtl"] .pitch-cta__image::before { background: linear-gradient(to left,#0d0f0c,rgba(13,15,12,.2) 12%,transparent 25%); }
+@media(max-width:860px) {
+ .pitch-cta__inner { grid-template-columns: 1fr; }
+ .pitch-cta__text { padding: 32px; }
+ .pitch-cta__image { min-height: 0; aspect-ratio: 16 / 9; }
+ .pitch-cta__image::before,html[dir="rtl"] .pitch-cta__image::before { background: linear-gradient(to bottom,#0d0f0c,transparent 18%); }
 }
-
-/* Top fade: blends the how-section border away */
-.pitch-cta-wrap::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 80px;
-  background: linear-gradient(to bottom, var(--dark), transparent);
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* Ambient green glow anchored bottom-right of the card.
-   Width is capped at 90% so that, with right: 10%, its left edge never
-   crosses the wrap's edge — otherwise RTL turns the overhang into
-   horizontal scroll on narrow screens. */
-.pitch-cta-wrap::after {
-  content: '';
-  position: absolute;
-  bottom: 80px; right: 10%;
-  width: min(480px, 90%); height: 340px;
-  background: radial-gradient(ellipse at 70% 80%, rgba(153,202,60,.07) 0%, transparent 70%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-/* ── Card ── */
-.pitch-cta {
-  position: relative;
-  z-index: 1;
-  max-width: 1160px;
-  margin: 0 auto;
-  padding: 0 48px;
-}
-
-.pitch-cta__inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: stretch;
-  gap: 0;
-  border-radius: 28px;
-  border: 1px solid var(--bdr);
-  background: #0d0f0c;
-  overflow: hidden;
-  box-shadow:
-    0 0 0 1px rgba(153,202,60,.04),
-    0 32px 80px rgba(0,0,0,.55),
-    0 2px 0 rgba(255,255,255,.03) inset;
-  min-height: 360px;
-}
-
-/* ── Left text pane ── */
-.pitch-cta__text {
-  padding: 64px 56px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 0;
-}
-
-.pitch-cta__eyebrow {
-  font-family: 'Space Mono', monospace;
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--g);
-  margin-bottom: 18px;
-}
-html[lang="ar"] .pitch-cta__eyebrow {
-  font-family: 'Cairo', sans-serif;
-  letter-spacing: 1px;
-}
-
-.pitch-cta__text h2 {
-  font-family: 'Satoshi', sans-serif;
-  font-size: clamp(28px, 3.2vw, 46px);
-  font-weight: 900;
-  line-height: 1.0;
-  letter-spacing: -1.8px;
-  text-transform: uppercase;
-  color: var(--text);
-  margin-bottom: 16px;
-}
-html[lang="ar"] .pitch-cta__text h2 {
-  font-family: 'Cairo', sans-serif;
-  letter-spacing: 0;
-  text-transform: none;
-  line-height: 1.2;
-}
-
-.pitch-cta__text p {
-  font-size: 14.5px;
-  color: var(--muted);
-  line-height: 1.7;
-  max-width: 380px;
-  margin-bottom: 36px;
-}
-html[lang="ar"] .pitch-cta__text p {
-  font-family: 'Cairo', sans-serif;
-  line-height: 1.9;
-}
-
-.pitch-cta__btns {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-/* ── Right image pane ── */
-.pitch-cta__image {
-  position: relative;
-  min-height: 360px;
-}
-
-.pitch-cta__image img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 30%;
-  display: block;
-}
-
-/* Left-edge gradient — blends image into text pane */
-.pitch-cta__image::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to right,
-    #0d0f0c 0%,
-    rgba(13,15,12,.7) 8%,
-    rgba(13,15,12,.25) 22%,
-    rgba(13,15,12,.04) 38%,
-    transparent 52%
-  );
-  z-index: 1;
-  pointer-events: none;
-}
-
-/* Subtle top/bottom edge fades */
-.pitch-cta__image::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(to bottom, rgba(13,15,12,.15) 0%, transparent 18%),
-    linear-gradient(to top,    rgba(13,15,12,.2)  0%, transparent 22%);
-  z-index: 1;
-  pointer-events: none;
-}
-
-/* ══════════════════════════════════════
-   RESPONSIVE
-══════════════════════════════════════ */
-@media (max-width: 860px) {
-  .pitch-cta__inner {
-    grid-template-columns: 1fr;
-  }
-  .pitch-cta__image {
-    min-height: 260px;
-    order: -1; /* image on top on mobile */
-  }
-  .pitch-cta__image::before {
-    background: linear-gradient(
-      to bottom,
-      transparent 35%,
-      rgba(13,15,12,.75) 100%
-    );
-  }
-  .pitch-cta__text {
-    padding: 44px 36px 52px;
-  }
-  .pitch-cta__text h2 {
-    letter-spacing: -1.2px;
-  }
-}
-
-@media (max-width: 580px) {
-  .pitch-cta {
-    padding: 0 20px;
-  }
-  .pitch-cta__text {
-    padding: 36px 28px 44px;
-  }
-  .pitch-cta-wrap {
-    padding-bottom: 80px;
-  }
+@media(max-width:580px) {
+ .pitch-cta { padding: 0 20px; }
+ .pitch-cta__text { padding: 28px 22px; }
+ .pitch-cta__inner { border-radius: 20px; }
+ .pitch-cta-wrap { padding-bottom: 32px; }
+ .pitch-cta__image { aspect-ratio: 4 / 3; }
 }

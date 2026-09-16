@@ -15,44 +15,16 @@
    FLOW BRIDGE  — subtle separator between
    player flow and organizer flow
 ══════════════════════════════════════ */
-.flow-bridge {
-  background: var(--dark);
-  padding: 12px 0;
-}
-.flow-bridge__inner {
-  max-width: 1160px;
-  margin: 0 auto;
-  padding: 0 48px;
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-.flow-bridge__line {
-  flex: 1;
-  height: 1px;
-  background: linear-gradient(to right, transparent, rgba(153,202,60,.28), transparent);
-}
-.flow-bridge__text {
-  font-family: 'Space Mono', monospace;
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 2.6px;
-  text-transform: uppercase;
-  color: var(--g);
-  opacity: .72;
-  white-space: nowrap;
-  flex-shrink: 0;
-  padding: 7px 20px;
-  border: 1px solid rgba(153,202,60,.2);
-  border-radius: 99px;
-  background: rgba(153,202,60,.04);
-  text-shadow: 0 0 16px rgba(153,202,60,.18);
-}
-html[lang="ar"] .flow-bridge__text {
-  font-family: 'Cairo', sans-serif;
-  letter-spacing: 0;
-  font-size: 13px;
-}
+.how-section { padding-bottom: 48px; }
+.flow-bridge { background: var(--dark); padding: 24px 0 36px; scroll-margin-top: 110px; }
+.flow-bridge__inner { max-width: 1160px; margin: 0 auto; padding: 0 48px; display: flex; align-items: center; gap: 32px; }
+.flow-bridge__line { flex: 1; height: 1px; background: rgba(153,202,60,.3); }
+.flow-bridge__copy { max-width: 520px; text-align: center; }
+.flow-bridge__text { margin: 0; color: var(--text); font-size: clamp(22px, 2.2vw, 28px); font-weight: 750; line-height: 1.3; letter-spacing: -.4px; text-wrap: balance; }
+.flow-bridge__sub { margin: 10px 0 0; color: #c3c9b9; font-size: 16px; line-height: 1.6; }
+html[lang="ar"] .flow-bridge__copy { font-family: 'Cairo', sans-serif; }
+html[lang="ar"] .flow-bridge__text { letter-spacing: 0; }
+.flow-bridge + .org-section { padding-top: 56px; }
 
 /* ═════════════════════════════════════════════
    PARTIDO — SPORTS INTELLIGENCE v4
@@ -84,7 +56,7 @@ html[lang="ar"] .sec-title { line-height: 1.2; letter-spacing: 0; }
 /* -- MARQUEE: gradient fade edges -- */
 .marquee-wrap { position: relative; overflow: hidden; }
 .marquee-wrap::before, .marquee-wrap::after {
-  content: ''; position: absolute; top: 0; bottom: 0; width: 160px;
+  content: ''; position: absolute; top: 0; bottom: 0; width: 64px;
   z-index: 2; pointer-events: none;
 }
 .marquee-wrap::before { left: 0;  background: linear-gradient(to right, var(--card), transparent); }
@@ -397,11 +369,31 @@ html[lang="ar"] .store-badge--soon { font-family: 'Cairo', sans-serif; letter-sp
 }
 
 @media (max-width: 640px) {
-  .flow-bridge__inner { padding: 0 20px; gap: 8px; }
-  .flow-bridge__text { white-space: normal; text-align: center; font-size: 12px; letter-spacing: 1px; flex-shrink: 1; }
+  .how-section { padding-bottom: 36px; }
+  .flow-bridge { padding: 20px 0 28px; }
+  .flow-bridge__inner { padding: 0 20px; gap: 14px; }
+  .flow-bridge__line { flex: 0 0 20px; }
+  .flow-bridge__copy { flex: 1; min-width: 0; }
+  .flow-bridge__text { font-size: 22px; }
+  .flow-bridge__sub { font-size: 15px; margin-top: 8px; }
+  .flow-bridge + .org-section { padding-top: 40px; }
 }
 
 #download { scroll-margin-top: 100px; }
 @media (max-width: 640px) {
   #download { scroll-margin-top: 140px; }
+}
+
+@media (max-width: 640px) {
+  .marquee-wrap::before, .marquee-wrap::after { width: 24px; }
+}
+
+/* The two ways to play: readable action labels with distinct pictograms. */
+.journey-label { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; color: var(--g); font-family: 'Satoshi', sans-serif; font-size: 18px; font-weight: 700; line-height: 1.4; letter-spacing: 0; }
+.journey-label svg { width: 28px; height: 28px; flex: 0 0 28px; }
+.org-header .journey-label { justify-content: center; }
+html[lang="ar"] .journey-label { font-family: 'Cairo', sans-serif; }
+@media (max-width: 640px) {
+  .journey-label { font-size: 16px; gap: 10px; margin-bottom: 16px; }
+  .journey-label svg { width: 24px; height: 24px; flex-basis: 24px; }
 }

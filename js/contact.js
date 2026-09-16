@@ -1,98 +1,70 @@
-/* === contact.js === */
-/* Handles the contact form submission via Google Apps Script */
-
+/* Contact endpoint contract retained; one full-name field replaces the two name inputs. */
 (function () {
-  var ENDPOINT = 'https://script.google.com/macros/s/AKfycbxfGz5S_NpbnrKV-xX9qKu8C7mrAKPL6Yek3j-GKo04pWJuMTlphF6-jXuD3QkY_XZ6/exec';
-
-  var form    = document.getElementById('contact-form');
-  var status  = document.getElementById('cp-form-status');
-  var btn     = form && form.querySelector('.cp-submit');
-  var btnSpan = btn  && btn.querySelector('span');
-
+  const ENDPOINT = 'https://script.google.com/macros/s/AKfycbxfGz5S_NpbnrKV-xX9qKu8C7mrAKPL6Yek3j-GKo04pWJuMTlphF6-jXuD3QkY_XZ6/exec';
+  const form = document.getElementById('contact-form');
   if (!form) return;
-
-  // ── Live validation: enable button only when all required fields are valid ──
-  var fFname = form.querySelector('#cp-fname');
-  var fLname = form.querySelector('#cp-lname');
-  var fEmail = form.querySelector('#cp-email');
-  var fTopic = form.querySelector('#cp-topic');
-  var fMsg   = form.querySelector('#cp-msg');
-
-  function isEmailValid(val) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+  const status = document.getElementById('cp-form-status');
+  const button = form.querySelector('.cp-submit');
+  const label = button.querySelector('span');
+  const fields = ['cp-name', 'cp-email', 'cp-topic', 'cp-msg'].map(id => document.getElementById(id));
+  let busy = false, statusKey = '', touched = new Set();
+  const copy = () => T[document.documentElement.lang || 'fr'].contact;
+  function errorKey(field) {
+    if (!field.value.trim()) return {'cp-name':'nameError','cp-email':'emailError','cp-topic':'topicError','cp-msg':'messageError'}[field.id];
+    if (field.id === 'cp-email' && !field.validity.valid) return 'emailError';
+    return '';
   }
-
-  function isFormValid() {
-    return (fFname.value.trim() !== '') &&
-           (fLname.value.trim() !== '') &&
-           isEmailValid(fEmail.value.trim()) &&
-           (fTopic.value !== '') &&
-           (fMsg.value.trim() !== '');
+  function validate(field) {
+    const key = errorKey(field);
+    const error = document.getElementById(field.id + '-error');
+    field.setAttribute('aria-invalid', key ? 'true' : 'false');
+    error.textContent = key ? copy()[key] : '';
+    error.hidden = !key;
+    return !key;
   }
-
-  function updateButton() {
-    btn.disabled = !isFormValid();
+  function render() {
+    label.textContent = busy ? copy().sending : copy().btn;
+    status.textContent = statusKey ? copy()[statusKey] : '';
+    touched.forEach(validate);
   }
-
-  // Disable on init
-  btn.disabled = true;
-
-  // Watch all required fields
-  [fFname, fLname, fEmail, fTopic, fMsg].forEach(function (el) {
-    el.addEventListener('input', updateButton);
-    el.addEventListener('change', updateButton);
+  fields.forEach(field => field.addEventListener('input', () => {
+    if (touched.has(field)) validate(field);
+    if (!busy && statusKey) { statusKey = ''; status.textContent = ''; }
+  }));
+  document.addEventListener('partido:language', render);
+  form.addEventListener('submit', async event => {
+    event.preventDefault();
+    if (busy) return;
+    touched = new Set(fields);
+    const results = fields.map(validate);
+    if (results.includes(false)) {
+      statusKey = 'invalid'; status.className = 'cp-form-status cp-form-status--err'; render();
+      fields[results.indexOf(false)].focus(); return;
+    }
+    const topic = fields[2];
+    // Legacy deployed Apps Script requires both name fields. Keep a single visible input.
+    const nameParts = fields[0].value.trim().split(/\s+/);
+    const payload = { lang: document.documentElement.lang || 'fr', first_name: nameParts.shift(), last_name: nameParts.join(' ') || '—', email: fields[1].value.trim(), phone: '', subject: topic.selectedOptions[0].textContent, message: fields[3].value.trim() };
+    busy = true; button.disabled = true; form.setAttribute('aria-busy','true');
+    fields.forEach(field => field.disabled = true);
+    statusKey = ''; status.className = 'cp-form-status'; render();
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 20000);
+    try {
+      const response = await fetch(ENDPOINT, { method:'POST', headers:{'Content-Type':'text/plain'}, body:JSON.stringify(payload), signal:controller.signal });
+      if (!response.ok) throw new Error('HTTP failure');
+      const data = await response.json();
+      if (data.success !== true) throw new Error('Unconfirmed delivery');
+      form.reset(); touched.clear();
+      fields.forEach(field => field.removeAttribute('aria-invalid'));
+      statusKey = 'success'; status.className = 'cp-form-status cp-form-status--ok';
+    } catch (_) {
+      statusKey = 'error'; status.className = 'cp-form-status cp-form-status--err';
+    } finally {
+      clearTimeout(timeout); busy = false; button.disabled = false;
+      fields.forEach(field => field.disabled = false);
+      form.removeAttribute('aria-busy'); render();
+    }
   });
-  // ── End live validation ──
-
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    // ── Gather fields ──
-    var select       = form.querySelector('#cp-topic');
-    var subjectLabel = select.options[select.selectedIndex]
-                        ? select.options[select.selectedIndex].text
-                        : select.value;
-
-    var payload = {
-      first_name: (form.querySelector('#cp-fname').value  || '').trim(),
-      last_name:  (form.querySelector('#cp-lname').value  || '').trim(),
-      email:      (form.querySelector('#cp-email').value  || '').trim(),
-      phone:      (form.querySelector('#cp-phone').value  || '').trim(),
-      subject:    subjectLabel,
-      message:    (form.querySelector('#cp-msg').value    || '').trim()
-    };
-
-    // ── Loading state ──
-    btn.disabled    = true;
-    btnSpan.textContent = 'Sending\u2026';
-    status.textContent  = '';
-    status.className    = 'cp-form-status';
-
-    fetch(ENDPOINT, {
-      method:  'POST',
-      headers: { 'Content-Type': 'text/plain' },
-      body:    JSON.stringify(payload)
-    })
-    .then(function (res) {
-      return res.json();
-    })
-    .then(function (data) {
-      if (data.success) {
-        status.textContent = 'Message sent successfully.';
-        status.classList.add('cp-form-status--ok');
-        form.reset();
-        updateButton(); // re-disable after reset
-      } else {
-        throw new Error(data.error || 'Server error');
-      }
-    })
-    .catch(function () {
-      status.textContent = 'Something went wrong. Please try again.';
-      status.classList.add('cp-form-status--err');
-    })
-    .finally(function () {
-      btnSpan.textContent = 'Send message';
-      updateButton(); // restore correct enabled/disabled state after response
-    });
-  });
+  render();
 })();

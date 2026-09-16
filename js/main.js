@@ -7,49 +7,57 @@
 // ── TRANSLATIONS (all 3 languages, inlined for reliability) ─────
 const T = {
   en: {
-    nav: { discover:'For Players', organize:'For Organizers', profile:'Tournaments', contact:'Contact', cta:'Download Free' },
+    nav: { discover:'Join a match', organize:'Find players', profile:'Tournaments', contact:'Contact', cta:'Download Free' },
     store: { comingSoon:'Coming soon on iOS' },
     hero: {
       h1:  'Join Morocco\'s<br><em>Best Football Community</em>',
       sub: "Join a match near you or find the players your squad is missing. Come alone or bring your friends.",
     },
-    marquee: ["Find a Match", "Organize a Match in 60 Seconds", "Bring Your Friends", "Match Chat", "Find Missing Players", "Football in Morocco", "Tournaments Across Morocco", "Track Your Football Identity"],
+    marquee: ["Find a match near you", "Organize a match in 60 seconds", "Come alone or bring your friends", "Find the players your team is missing"],
     how: {
-      label:'For Players',
-      title:'FROM IDEA TO<br>KICKOFF IN MINUTES',
-      sub: "Choose a match, reserve your place, and coordinate with the players.",
-      s1badge:'Discover', s1t:'Discover a Match',  s1p:'Browse nearby games filtered by level, format and time. Find exactly the game you\'re looking for.',
-      s2badge:'Join',     s2t:'Claim Your Spot',   s2p:'View match details, check who\'s playing, and confirm your place in one tap.',
-      s3badge:'Play',     s3t:'Show Up & Play',    s3p: "Use the match chat to confirm the details with your organizer before heading to the pitch.",
-      cta:'Get the App',
-    },
+      "label": "Join a match",
+      "title": "Your next match in 3 steps",
+      "sub": "Find a match that suits you, reserve your spot and meet the other players on the pitch.",
+      "s1badge": "Discover",
+      "s1t": "Find your match",
+      "s1p": "Browse matches near you and choose by time, skill level and game format.",
+      "s2badge": "Join",
+      "s2t": "Reserve your spot",
+      "s2p": "Check the location, price and available spots, then join the match. You can also reserve spots for your friends.",
+      "s3badge": "Play",
+      "s3t": "Meet the other players on the pitch",
+      "s3p": "Meet the other participants and enjoy the match, whether you come alone or with friends.",
+      "cta": "Your turn to play."
+},
     pitchcta: {
-      eyebrow: 'Join thousands of players',
-      title:   'Ready to get on the pitch?',
-      sub:     'Find games, join players, and play whenever you want — all in one app.',
-    },
+      "title": "Your next match starts here.",
+      "sub": "Join a match or find the players you need. Download Partido for free."
+},
     story: {
-      label:   'Our Story',
-      title:   'Building connections through the beautiful game',
-      p1:      'Partido was born from a deep love of football and a desire to make the game more accessible to everyone.',
-      p2:      'In Morocco, football is more than just a sport — it\'s part of everyday life, culture, and identity. From local pitches to neighborhoods, the game brings people together.',
-      mission: "Our starting point is simple: help players find each other. Organizers continue to book their own pitches.",
-      cta:     'Join the community',
-    },
+      "label": "Our story",
+      "title": "Football brings us together.",
+      "p1": "In Morocco, the desire to play is everywhere. But finding a match or gathering enough players is not always easy.",
+      "p2": "Partido was created to make these connections easier: join a match, find the missing players and share a good time on the pitch.",
+      "mission": "Less time looking for players. More time playing together."
+},
     tourn: {
-      watermark:'TOURNAMENTS',
-      badge:'Coming Soon',
-      title:'FOOTBALL<br>TOURNAMENTS<br><span style="color:var(--g);">ACROSS MOROCCO</span>',
-      sub:  'The biggest youth football competition touring city to city. From Casablanca to Marrakech to Tanger — compete on a national stage.',
-      p1:'Cash prizes', p2v:'City-to-City', p2l:'Nationwide competition across Morocco', p3v:'Every Player', p3l:'Medals & certificates for all participants',
-      cta:'Register My Team →',
-    },
+      "badge": "Coming soon",
+      "title": "Football tournaments. Prizes to win.",
+      "sub": "Bring your team and take on the challenge. Partido tournaments will arrive city by city, with venues, dates and rewards announced before each event.",
+      "prizeTitle": "Play for victory and rewards",
+      "prizeBody": "Prizes to compete for, with the prize pool announced for each tournament.",
+      "cityTitle": "One city. A new challenge.",
+      "cityBody": "Every tournament will have its host city. Follow the announcements to discover the next destinations.",
+      "formatTitle": "Intensity on the pitch. Organization around it.",
+      "formatBody": "A clear format, an announced schedule and an experience connected to Partido.",
+      "league": "Leagues are also being explored to keep the competition going.",
+      "follow": "Next cities, next prizes: follow the announcements."
+},
     proof: { p1v:'Fill games faster', p1l:'Find missing players instantly', p2v:'Find games instantly', p2l:'Join games anytime', p3v:'Play & win prizes', p3l:'Tournaments across Morocco', p4v:'100% free', p4l:'No fees, no subscriptions' },
     cta: {
-      label:'Ready to play?',
-      title: "Get ready for<br><span style=\"color:var(--g);\">your next match.</span>",
-      sub:  'Download Partido free. Create a match in 60 seconds or find one nearby. Your squad is already out there.',
-    },
+      "title": "Ready to play?<br>Make your move.",
+      "sub": "Download Partido for free. Join a match or find the players you need."
+},
     contact: {
       label:'Contact', title:'Get in touch', heading:'Get in Touch',
       intro:'Have a question, feedback, a partnership idea, or just want to say hello? We\'d love to hear from you.',
@@ -66,7 +74,7 @@ const T = {
       btn:'Send message', direct:'Or reach us directly at:',
     },
     footer: { privacy:'Privacy', terms:'Terms', contact:'Contact', getapp:'Get the app', tagline:'Connecting players through the beautiful game.', copy:'© 2026 Partido, a brand of BBF Ventures. All rights reserved.' },
-    bridge: { text: 'Or create your own game' },
+    bridge: { text: 'Missing a few players?', sub: 'Publish your match and find the players you need.' },
     tp: {
       heroBadge: 'Coming in 2026',
       heroTitle: 'Football<br>Tournaments<br><em>Across Morocco</em>',
@@ -101,12 +109,19 @@ const T = {
       ctaBtn1: 'Register Interest', ctaBtn2: 'Download the App',
     },
     org: {
-      label:'For Organizers', title:'Run your game, your way',
-      sub: "Already have a group? Publish your match and find the players you need.",
-      c1badge:'Set Up', c1t:'Set Up Your Game', c1p: "Book the pitch yourself, then add the time, price, format, and available places.",
-      c2badge:'Manage', c2t:'Manage Your Match', c2p: "Track who has joined, update the details, and coordinate in the match chat.",
-      c3badge:'Play', c3t:'Play Your Game', c3p:'Your squad is ready. Just show up and enjoy the game.',
-    },
+      "label": "Find players",
+      "title": "Find the players your match is missing.",
+      "sub": "Already have a group? Publish your match, list the available spots and let other players join you.",
+      "c1badge": "Publish",
+      "c1t": "Publish your match",
+      "c1p": "Add the pitch, time, skill level and number of available spots.",
+      "c2badge": "Gather",
+      "c2t": "Bring the players together",
+      "c2p": "Invite your friends, share your match and keep track of who joins.",
+      "c3badge": "Play",
+      "c3t": "Time to play",
+      "c3p": "Sort out the final details in the match chat, then meet the participants on the pitch."
+},
     editorial: {
       label:'Inside Partido', title:'Growing the beautiful game',
       sub:'Stay up to date with Partido\'s latest news, player stories, product updates, and tips for getting the most out of the app.',
@@ -260,49 +275,57 @@ const T = {
   },
 
   fr: {
-    nav: { discover:'Pour les Joueurs', organize:'Pour les Organisateurs', profile:'Tournois', contact:'Contact', cta:'Télécharger' },
+    nav: { discover:'Rejoindre un match', organize:'Trouver des joueurs', profile:'Tournois', contact:'Contact', cta:'Télécharger' },
     store: { comingSoon:'Bientôt sur iOS' },
     hero: {
       h1: "Rejoignez la meilleure<br><em>communauté foot du Maroc</em>",
       sub: 'Rejoignez un match près de chez vous ou trouvez les joueurs qui manquent à votre équipe. Venez seul ou avec vos amis.',
     },
-    marquee: ['Trouve un Match Près de Toi','Crée un Match en 60 Secondes','5v5 · 6v6 · 7v7','Ambiance Détente ou Compétition','Complète ton Équipe Instantanément','La Communauté Football du Maroc','Tournois à Travers le Maroc','Construis ton Identité Football'],
+    marquee: ["Trouvez un match près de chez vous", "Organisez un match en 60 secondes", "Venez seul ou avec vos amis", "Trouvez les joueurs qui manquent à votre équipe"],
     how: {
-      label:'Pour les Joueurs',
-      title:'DE L\'IDÉE AU<br>COUP D\'ENVOI EN MINUTES',
-      sub:  'Pas d\'allers-retours. Pas de relances. Trois étapes et vous êtes sur le terrain.',
-      s1badge:'Découvrir', s1t:'Découvrir un Match',  s1p:'Parcourez les matchs près de chez vous, filtrés par niveau, format et horaire. Trouvez exactement la partie qu\'il vous faut.',
-      s2badge:'Rejoindre', s2t:'Réserver votre Place', s2p:'Consultez les détails du match, voyez qui joue, et confirmez votre place en un geste.',
-      s3badge:'Jouer',     s3t:'Venez Jouer',          s3p:'Équipe confirmée, terrain réservé. Tout le monde est notifié. Vous n\'avez plus qu\'à venir jouer.',
-      cta:'Télécharger l\'App',
-    },
+      "label": "Rejoindre un match",
+      "title": "Votre prochain match en 3 étapes",
+      "sub": "Trouvez un match qui vous convient, réservez votre place et retrouvez les autres joueurs sur le terrain.",
+      "s1badge": "Découvrir",
+      "s1t": "Trouvez votre match",
+      "s1p": "Parcourez les matchs près de chez vous et choisissez selon l’horaire, le niveau et le format de jeu.",
+      "s2badge": "Rejoindre",
+      "s2t": "Réservez votre place",
+      "s2p": "Consultez le lieu, le prix et les places disponibles, puis rejoignez le match. Vous pouvez aussi réserver pour vos amis.",
+      "s3badge": "Jouer",
+      "s3t": "Faites connaissance sur le terrain",
+      "s3p": "Retrouvez les autres participants et profitez du match, seul ou avec vos amis.",
+      "cta": "À vous de jouer."
+},
     pitchcta: {
-      eyebrow: 'Rejoins des milliers de joueurs',
-      title:   'Prêt à entrer sur le terrain ?',
-      sub:     'Trouve des matchs, rejoins des joueurs et joue quand tu veux — tout dans une seule app.',
-    },
+      "title": "Votre prochain match commence ici.",
+      "sub": "Rejoignez un match ou trouvez les joueurs qu’il vous manque. Téléchargez Partido gratuitement."
+},
     story: {
-      label:   'Notre Histoire',
-      title:   'Créer des liens à travers le beau jeu',
-      p1:      'Partido est né d\'un amour profond du football et d\'une volonté de rendre le jeu plus accessible à tous.',
-      p2:      'Au Maroc, le football est bien plus qu\'un sport — c\'est une partie de la vie quotidienne, de la culture et de l\'identité. Des terrains locaux aux quartiers, le jeu rassemble les gens.',
-      mission: 'Notre mission est simple : connecter les joueurs, créer des opportunités de jouer et bâtir une communauté football plus forte et plus unie.',
-      cta:     'Rejoindre la communauté',
-    },
+      "label": "Notre histoire",
+      "title": "Le football nous rassemble.",
+      "p1": "Au Maroc, l’envie de jouer est partout. Mais trouver un match ou réunir assez de joueurs n’est pas toujours simple.",
+      "p2": "Partido est né pour faciliter ces rencontres : rejoindre un match, trouver les participants manquants et partager un bon moment sur le terrain.",
+      "mission": "Moins de temps à chercher des joueurs. Plus de temps à jouer ensemble."
+},
     tourn: {
-      watermark:'TOURNOIS',
-      badge:'Bientôt disponible',
-      title:'TOURNOIS DE<br>FOOTBALL<br><span style="color:var(--g);">À TRAVERS LE MAROC</span>',
-      sub:  'La plus grande compétition de football jeune itinérante. De Casablanca à Marrakech à Tanger — sur une scène nationale.',
-      p1:'Prix en espèces', p2v:'Ville par Ville', p2l:'Compétition nationale à travers le Maroc', p3v:'Chaque Joueur', p3l:'Médailles et certificats pour tous les participants',
-      cta:'Inscrire mon Équipe →',
-    },
+      "badge": "Bientôt disponible",
+      "title": "Des tournois de foot. Des prix à gagner.",
+      "sub": "Réunissez votre équipe et venez relever le défi. Les tournois Partido arriveront ville par ville, avec les lieux, les dates et les récompenses annoncés avant chaque événement.",
+      "prizeTitle": "Jouez pour la victoire et les récompenses",
+      "prizeBody": "Des prix à décrocher, avec une dotation annoncée pour chaque tournoi.",
+      "cityTitle": "Une ville, un nouveau défi",
+      "cityBody": "Chaque tournoi aura sa ville d’accueil. Suivez les annonces pour découvrir les prochaines destinations.",
+      "formatTitle": "L’intensité sur le terrain. L’organisation autour.",
+      "formatBody": "Un format clair, un programme annoncé et une expérience connectée à Partido.",
+      "league": "Des ligues sont aussi à l’étude pour prolonger la compétition.",
+      "follow": "Prochaines villes, prochains prix : suivez les annonces."
+},
     proof: { p1v:'Complétez votre match en minutes', p1l:'Trouvez les joueurs manquants instantanément', p2v:'Trouvez des matchs instantanément', p2l:'Même si vous jouez seul', p3v:'Jouez pour des prix', p3l:'Participez aux tournois au Maroc', p4v:'100% gratuit', p4l:'Sans frais, sans abonnement' },
     cta: {
-      label:'Prêt à jouer ?',
-      title:'TON PROCHAIN<br>MATCH<br><span style="color:var(--g);">T\'ATTEND</span>',
-      sub:  'Télécharge Partido gratuitement. Crée un match en 60 secondes ou trouve-en un. Ton équipe t\'attend.',
-    },
+      "title": "Envie de jouer ?<br>Passez à l’action.",
+      "sub": "Téléchargez Partido gratuitement. Rejoignez un match ou trouvez les joueurs qu’il vous manque."
+},
     contact: {
       label:'Contact', title:'Contactez-nous', heading:'Contactez-nous',
       intro:'Une question, un retour, ou envie de collaborer ? Nous serions ravis de vous entendre.',
@@ -319,7 +342,7 @@ const T = {
       btn:'Envoyer le message', direct:'Ou contactez-nous directement à :',
     },
     footer: { privacy:'Confidentialité', terms:'CGU', contact:'Contact', getapp:"Télécharger l'app", tagline:'Connecter les joueurs à travers le beau jeu.', copy:'© 2026 Partido, une marque de BBF Ventures. Tous droits réservés.' },
-    bridge: { text: 'Ou crée ton propre match' },
+    bridge: { text: 'Il vous manque des joueurs ?', sub: 'Publiez votre match et trouvez les participants qu’il vous manque.' },
     tp: {
       heroBadge: 'Arrive en 2026',
       heroTitle: 'Tournois de<br>Football<br><em>Partout au Maroc</em>',
@@ -354,12 +377,19 @@ const T = {
       ctaBtn1: "Exprimer mon intérêt", ctaBtn2: "Télécharger l'appli",
     },
     org: {
-      label:'Pour les Organisateurs', title:'Jouez à votre façon',
-      sub:'Tout ce dont vous avez besoin pour créer, gérer et profiter de votre match — du premier tap au coup de sifflet final.',
-      c1badge:'Créer', c1t:'Créez votre match', c1p:'Choisissez l\'heure, le format, le niveau et tous les détails avant de publier.',
-      c2badge:'Gérer', c2t:'Gérez votre match', c2p:'Une fois votre match en ligne, suivez les joueurs, modifiez les détails et gérez tout en tant qu\'organisateur.',
-      c3badge:'Jouer', c3t:'Jouez votre match', c3p:'Votre équipe est prête. Il ne vous reste plus qu\'à venir et profiter du jeu.',
-    },
+      "label": "Trouver des joueurs",
+      "title": "Trouvez les joueurs qui manquent à votre match.",
+      "sub": "Vous avez déjà un groupe ? Publiez votre match, indiquez les places disponibles et permettez à d’autres joueurs de vous rejoindre.",
+      "c1badge": "Publier",
+      "c1t": "Publiez votre match",
+      "c1p": "Renseignez le terrain, l’horaire, le niveau et le nombre de places disponibles.",
+      "c2badge": "Réunir",
+      "c2t": "Réunissez les joueurs",
+      "c2p": "Invitez vos amis, partagez votre match et suivez les joueurs qui vous rejoignent.",
+      "c3badge": "Jouer",
+      "c3t": "Place au match",
+      "c3p": "Échangez les derniers détails dans le chat, puis retrouvez les participants sur le terrain."
+},
     editorial: {
       label:'Dans Partido', title:'Faire grandir le beau jeu',
       sub:'Restez informé des dernières actualités de Partido, des histoires de joueurs, des mises à jour produit et des conseils pour tirer le meilleur de l\'app.',
@@ -513,49 +543,57 @@ const T = {
   },
 
   ar: {
-    nav: { discover:'للاعبين', organize:'للمنظمين', profile:'بطولات', contact:'تواصل', cta:'حمّل مجاناً' },
+    nav: { discover:'انضم إلى مباراة', organize:'اعثر على لاعبين', profile:'بطولات', contact:'تواصل', cta:'حمّل مجاناً' },
     store: { comingSoon:'قريباً على iOS' },
     hero: {
       h1:  'انضم إلى<br><em>أحسن تجمع لعشاق الكورة في المغرب</em>',
       sub: 'انضم إلى مباراة قريبة منك أو ابحث عن اللاعبين الذين يحتاجهم فريقك. تعال وحدك أو مع أصدقائك.',
     },
-    marquee: ['ابحث عن مباراة قريبة منك','أنشئ مباراة في 60 ثانية','5 ضد 5 · 6 ضد 6 · 7 ضد 7','جو ترفيهي أو تنافسي','اكمل فريقك فوراً','مجتمع كرة القدم بالمغرب','بطولات في أرجاء المغرب','ابنِ هويتك الكروية'],
+    marquee: ["اعثر على مباراة قريبة منك", "نظّم مباراة في 60 ثانية", "تعال وحدك أو مع أصدقائك", "اعثر على اللاعبين الذين ينقصون فريقك"],
     how: {
-      label:'للاعبين',
-      title:'من الفكرة<br>إلى انطلاق المباراة<br>في دقائق',
-      sub:  'لا ذهاب وإياب. لا ملاحقة. ثلاث خطوات وأنت على أرض الملعب.',
-      s1badge:'اكتشف', s1t:'اكتشف مباراة',   s1p:'تصفح المباريات القريبة مفلترة حسب المستوى والتنسيق والوقت. ابحث عن المباراة المناسبة لك.',
-      s2badge:'انضم',  s2t:'احجز مكانك',      s2p:'شاهد تفاصيل المباراة، تحقق من اللاعبين، وأكد انضمامك بنقرة واحدة.',
-      s3badge:'العب',  s3t:'احضر والعب',      s3p:'الفريق مكتمل، الملعب محجوز، الجميع مُبلَّغ. ما عليك سوى الحضور واللعب.',
-      cta:'حمّل التطبيق',
-    },
+      "label": "انضم إلى مباراة",
+      "title": "مباراتك القادمة في 3 خطوات",
+      "sub": "اعثر على مباراة تناسبك، احجز مكانك والتقِ بباقي اللاعبين على أرض الملعب.",
+      "s1badge": "اكتشف",
+      "s1t": "اعثر على المباراة المناسبة لك",
+      "s1p": "تصفّح المباريات القريبة منك واختر حسب الموعد والمستوى وصيغة اللعب.",
+      "s2badge": "انضم",
+      "s2t": "احجز مكانك",
+      "s2p": "اطّلع على المكان والسعر والأماكن المتاحة، ثم انضم إلى المباراة. يمكنك أيضاً حجز أماكن لأصدقائك.",
+      "s3badge": "العب",
+      "s3t": "تعرّفوا على اللاعبين في الملعب",
+      "s3p": "التقوا بالمشاركين الآخرين واستمتعوا بالمباراة، سواء جئتم بمفردكم أو مع أصدقائكم.",
+      "cta": "حان دوركم للعب."
+},
     pitchcta: {
-      eyebrow: 'انضم لآلاف اللاعبين',
-      title:   'مستعد لدخول الملعب؟',
-      sub:     'ابحث عن المباريات، انضم للاعبين، والعب متى تشاء — كل ذلك في تطبيق واحد.',
-    },
+      "title": "مباراتكم القادمة تبدأ هنا.",
+      "sub": "انضمّوا إلى مباراة أو اعثروا على اللاعبين الذين ينقصونكم. حمّلوا بارتيدو مجاناً."
+},
     story: {
-      label:   'قصتنا',
-      title:   'نبني روابط من خلال الجميلة',
-      p1:      'وُلد بارتيدو من حب عميق لكرة القدم ورغبة في جعل اللعبة في متناول الجميع.',
-      p2:      'في المغرب، كرة القدم أكثر من مجرد رياضة — إنها جزء من الحياة اليومية والثقافة والهوية. من الملاعب المحلية إلى الأحياء، تجمع اللعبة الناس.',
-      mission: 'مهمتنا بسيطة: ربط اللاعبين، وخلق فرص للعب، وبناء مجتمع كرة قدم أقوى وأكثر وحدة.',
-      cta:     'انضم إلى المجتمع',
-    },
+      "label": "قصتنا",
+      "title": "كرة القدم تجمعنا.",
+      "p1": "في المغرب، الرغبة في اللعب موجودة في كل مكان. لكن العثور على مباراة أو جمع عدد كافٍ من اللاعبين ليس سهلاً دائماً.",
+      "p2": "وُلد بارتيدو لتسهيل هذه اللقاءات: الانضمام إلى مباراة، والعثور على اللاعبين الناقصين، وقضاء وقت ممتع معاً على أرض الملعب.",
+      "mission": "وقت أقل في البحث عن لاعبين. ووقت أكثر للعب معاً."
+},
     tourn: {
-      watermark:'بطولات',
-      badge:'قريباً',
-      title:'بطولات كرة القدم<br>في <span style="color:var(--g);">أرجاء المغرب</span>',
-      sub:  'أكبر منافسة شبابية لكرة القدم تجوب المدن. من الدار البيضاء إلى مراكش إلى طنجة — نافس على المستوى الوطني.',
-      p1:'جوائز نقدية', p2v:'مدينة إلى مدينة', p2l:'منافسة وطنية في أرجاء المغرب', p3v:'كل لاعب', p3l:'ميداليات وشهادات لجميع المشاركين',
-      cta:'سجّل فريقي ←',
-    },
+      "badge": "قريباً",
+      "title": "بطولات كرة قدم. وجوائز للفوز بها.",
+      "sub": "اجمعوا فريقكم واستعدّوا للتحدي. ستصل بطولات بارتيدو إلى المدن تباعاً، مع الإعلان عن الأماكن والمواعيد والجوائز قبل كل بطولة.",
+      "prizeTitle": "نافسوا على الفوز والجوائز",
+      "prizeBody": "جوائز تنتظركم، مع الإعلان عن قيمتها الإجمالية لكل بطولة.",
+      "cityTitle": "مدينة جديدة، تحدٍّ جديد",
+      "cityBody": "لكل بطولة مدينتها المضيفة. تابعوا الإعلانات لمعرفة الوجهات القادمة.",
+      "formatTitle": "حماس في الملعب. وتنظيم يدعم المنافسة.",
+      "formatBody": "نظام واضح، وجدول مُعلن، وتجربة متصلة ببارتيدو.",
+      "league": "ندرس أيضاً إطلاق دوريات لتستمر المنافسة.",
+      "follow": "المدن القادمة والجوائز الجديدة: تابعوا الإعلانات."
+},
     proof: { p1v:'أكمل مباراتك في دقائق', p1l:'ابحث عن اللاعبين الناقصين فوراً', p2v:'ابحث عن مباريات فوراً', p2l:'حتى لو كنت تلعب بمفردك', p3v:'العب للفوز بجوائز', p3l:'نافس في بطولات عبر المغرب', p4v:'مجاني 100%', p4l:'بدون رسوم أو اشتراكات' },
     cta: {
-      label:'مستعد للعب؟',
-      title:'مباراتك القادمة<br>في<br><span style="color:var(--g);">انتظارك</span>',
-      sub:  'حمّل بارتيدو مجاناً. أنشئ مباراة في 60 ثانية أو ابحث عن واحدة بالقرب منك. فريقك موجود هناك.',
-    },
+      "title": "هل ترغبون في اللعب؟<br>ابدؤوا الآن.",
+      "sub": "حمّلوا بارتيدو مجاناً. انضمّوا إلى مباراة أو اعثروا على اللاعبين الذين ينقصونكم."
+},
     contact: {
       label:'تواصل معنا', title:'ابقَ على تواصل', heading:'تواصل معنا',
       intro:'هل لديك سؤال، ملاحظة، أو تريد التعاون معنا؟ يسعدنا سماعك.',
@@ -572,7 +610,7 @@ const T = {
       btn:'إرسال الرسالة', direct:'أو تواصل معنا مباشرةً على:',
     },
     footer: { privacy:'الخصوصية', terms:'الشروط', contact:'تواصل معنا', getapp:'حمّل التطبيق', tagline:'نربط اللاعبين من خلال الجميلة.', copy:'© 2026 Partido، علامة تجارية لـ BBF Ventures. جميع الحقوق محفوظة.' },
-    bridge: { text: 'أو أنشئ مبارتك الخاصة' },
+    bridge: { text: 'ينقصكم لاعبون؟', sub: 'انشروا مباراتكم واعثروا على اللاعبين الذين ينقصونكم.' },
     tp: {
       heroBadge: 'قادم في 2026',
       heroTitle: 'بطولات كرة<br>القدم<br><em>في أرجاء المغرب</em>',
@@ -607,12 +645,19 @@ const T = {
       ctaBtn1: 'سجّل اهتمامك', ctaBtn2: 'حمّل التطبيق',
     },
     org: {
-      label:'للمنظمين', title:'نظّم مباراتك بطريقتك',
-      sub:'كل ما تحتاجه لإعداد مبارياتك وإدارتها والاستمتاع بها — من أول نقرة حتى نهاية المباراة.',
-      c1badge:'أعدّ', c1t:'أعدّ مباراتك', c1p:'اختر الوقت والتنسيق والمستوى وجميع التفاصيل قبل النشر.',
-      c2badge:'أدِر', c2t:'أدِر مباراتك', c2p:'بمجرد أن تكون مباراتك مباشرة، تتبع اللاعبين وعدّل التفاصيل وأدِر كل شيء كمنظم.',
-      c3badge:'العب', c3t:'العب مباراتك', c3p:'فريقك جاهز. ما عليك سوى الحضور والاستمتاع باللعبة.',
-    },
+      "label": "اعثر على لاعبين",
+      "title": "اعثروا على اللاعبين الذين ينقصون مباراتكم.",
+      "sub": "لديكم مجموعة بالفعل؟ انشروا مباراتكم، حدّدوا الأماكن المتاحة ودعوا لاعبين آخرين ينضمون إليكم.",
+      "c1badge": "انشروا",
+      "c1t": "انشروا مباراتكم",
+      "c1p": "حدّدوا الملعب والموعد والمستوى وعدد الأماكن المتاحة.",
+      "c2badge": "اجمعوا",
+      "c2t": "اجمعوا اللاعبين",
+      "c2p": "ادعوا أصدقاءكم، شاركوا مباراتكم وتابعوا من ينضم إليكم.",
+      "c3badge": "العبوا",
+      "c3t": "حان وقت المباراة",
+      "c3p": "نسّقوا التفاصيل الأخيرة في دردشة المباراة، ثم التقوا بالمشاركين على أرض الملعب."
+},
     editorial: {
       label:'داخل بارتيدو', title:'نُنمّي الجميلة',
       sub:'ابقَ على اطلاع بأحدث أخبار بارتيدو وقصص اللاعبين وتحديثات المنتج والنصائح للاستفادة القصوى من التطبيق.',
@@ -818,8 +863,8 @@ function updateStoreBadges(lang) {
 
 // Phone mockups: one image per language and per slot (fallback: fr).
 // `stepList` is the hero's match-list screen, perspective-corrected to stand
-// upright; `stepDetail` is the match sheet — steps 01 and 02 of "For Players".
-// `orgSetup` / `orgManage` are cards 01 and 02 of "For Organizers";
+// upright; `stepDetail` is the match sheet — steps 01 and 02 of "Join a match".
+// `orgSetup` / `orgManage` are cards 01 and 02 of "Find players";
 // `tournaments` is the single phone of the "Tournaments" section.
 const PHONE_MOCKUPS = {
   fr: {
@@ -872,11 +917,27 @@ function updateHeroPhones(lang) {
   });
 }
 
+
+// Practical guides: shared landing copy.
+T.fr.editorial = {"title": "Bien préparer votre prochain match", "sub": "Des conseils concrets pour rejoindre un match, réunir des joueurs et organiser votre prochaine partie.", "cta": "Lire le guide", "c1t": "Comment trouver un match de football près de chez vous ?", "c1p": "Choisissez un match adapté à votre niveau et préparez votre première rencontre.", "c2t": "Comment trouver les joueurs qui manquent à votre match ?", "c2p": "Annoncez les places disponibles et donnez aux joueurs les informations pour vous rejoindre.", "c3t": "Comment organiser un match de foot entre amis ?", "c3p": "Du terrain au rendez-vous, les points à régler pour profiter du match ensemble."};
+T.en.editorial = {"title": "Get ready for your next match", "sub": "Practical advice for joining a match, finding players and organising your next game.", "cta": "Read the guide", "c1t": "How to find a football match near you", "c1p": "Choose a match that suits your level and get ready to meet the other players.", "c2t": "How to find the players missing from your match", "c2p": "Publish the available spots and give players the details they need to join.", "c3t": "How to organise a football match with friends", "c3p": "From booking the pitch to meeting up, get the essentials in place before you play."};
+T.ar.editorial = {"title": "استعدّوا لمباراتكم القادمة", "sub": "نصائح عملية للانضمام إلى مباراة، والعثور على لاعبين، وتنظيم مباراة مع الأصدقاء.", "cta": "اقرؤوا الدليل", "c1t": "كيف تجدون مباراة كرة قدم بالقرب منكم؟", "c1p": "اختاروا مباراة تناسب مستواكم واستعدّوا للقاء اللاعبين الآخرين.", "c2t": "كيف تجدون اللاعبين الذين ينقصون مباراتكم؟", "c2p": "أعلنوا عن الأماكن المتاحة ووضّحوا المعلومات التي يحتاجها اللاعبون للانضمام.", "c3t": "كيف تنظّمون مباراة كرة قدم بين الأصدقاء؟", "c3p": "من حجز الملعب إلى اللقاء، رتّبوا الأساسيات لتستمتعوا بالمباراة معاً."};
+
+T.fr.event = {"badge": "Bientôt sur le terrain", "title": "Des tournois de foot. Des prix à gagner.", "intro": "Réunissez votre équipe et venez relever le défi. Les tournois Partido arriveront ville par ville, avec les lieux, les dates et les récompenses annoncés avant chaque événement.", "follow": "Suivre les annonces", "questions": "Vos questions", "spirit": "La victoire se joue ensemble.", "spiritBody": "Des adversaires à affronter, un collectif à faire grandir et des récompenses à aller chercher. Notre ambition : vous faire vivre une compétition préparée avec le soin d’un tournoi pro.", "prize": "Des récompenses à la hauteur du défi", "prizeBody": "Chaque tournoi aura sa propre dotation. Le montant total, la nature des prix et leurs conditions d’attribution seront annoncés avant les inscriptions. Les récompenses varieront selon l’envergure de l’événement.", "city": "Une ville, un nouveau terrain de jeu", "cityBody": "Les tournois se développeront ville par ville, au rythme de la communauté Partido. Aucune destination n’est annoncée pour le moment : chaque événement dévoilera sa ville et son lieu.", "format": "L’intensité du foot. Le soin de l’organisation.", "formatBody": "Un format expliqué, un programme annoncé et des règles claires : nous préparons une expérience compétitive et connectée à Partido. Les modalités de suivi digital seront précisées pour chaque tournoi.", "app": "L’expérience tournoi, dans l’univers Partido", "appBody": "Retrouvez l’esprit des tournois dans l’application et suivez nos réseaux pour les prochaines annonces.", "caption": "Aperçu illustratif de l’application. Les montants et mentions visibles ne constituent pas l’offre d’un tournoi ; seule son annonce précisera les récompenses et les conditions.", "league": "Et demain, des ligues ?", "leagueBody": "Des ligues sont aussi à l’étude pour prolonger la compétition dans le temps. Aucun calendrier n’est annoncé à ce stade.", "faq": "Avant d’entrer sur le terrain", "faqIntro": "Les informations à connaître dès maintenant. Les modalités propres à chaque tournoi seront publiées avec son annonce.", "social": "Ne manquez pas le prochain défi.", "socialBody": "Villes, dates, ouverture des inscriptions et récompenses : retrouvez les annonces sur nos réseaux.", "discover": "Découvrir les tournois Partido", "q0": "Quand et où auront lieu les premiers tournois ?", "a0": "Les dates, les villes et les lieux seront annoncés avant chaque tournoi. Aucune ville ni date n’est confirmée publiquement pour le moment.", "q1": "Comment s’inscrire ?", "a1": "Les modalités et l’ouverture des inscriptions seront annoncées pour chaque événement. Suivez nos réseaux pour savoir quand et comment participer.", "q2": "Peut-on s’inscrire seul ou faut-il une équipe ?", "a2": "Ce point sera précisé dans les conditions de participation de chaque tournoi. Ne considérez pas encore l’inscription individuelle comme disponible.", "q3": "Quels seront les formats et les niveaux ?", "a3": "Le format de jeu, les catégories, les critères de participation et le règlement seront précisés avant les inscriptions.", "q4": "Quels prix pourra-t-on gagner ?", "a4": "La dotation dépendra du tournoi. Sa valeur, la nature des récompenses et leur répartition seront détaillées dans l’annonce de l’événement. Aucun montant unique ne s’applique à tous les tournois.", "q5": "La participation sera-t-elle payante ?", "a5": "Les éventuels frais et les conditions de paiement ou d’annulation seront communiqués avant les inscriptions. La gratuité de l’application ne signifie pas que tous les tournois seront gratuits."};
+T.en.event = {"badge": "Coming to the pitch soon", "title": "Football tournaments. Prizes to win.", "intro": "Bring your team and take on the challenge. Partido tournaments will arrive city by city, with venues, dates and rewards announced before each event.", "follow": "Follow the announcements", "questions": "Your questions", "spirit": "Victory is a team effort.", "spiritBody": "Opponents to face, a team to grow and rewards to compete for. Our ambition is to deliver a competition prepared with the care of a professional tournament.", "prize": "Rewards worth competing for", "prizeBody": "Each tournament will have its own prize pool. The total value, types of prizes and award conditions will be announced before registration. Rewards will vary with the scale of the event.", "city": "A new city, a new playing field", "cityBody": "Tournaments will grow city by city alongside the Partido community. No destination is announced yet: each event will reveal its host city and venue.", "format": "The intensity of football. The care of organisation.", "formatBody": "A clear format, an announced programme and clear rules: we are preparing a competitive experience connected to Partido. Digital follow-up arrangements will be explained for each tournament.", "app": "Tournaments in the Partido experience", "appBody": "Discover the spirit of the tournaments in the app and follow our social channels for upcoming announcements.", "caption": "Illustrative app preview. Visible amounts and statements are not a tournament offer; its announcement will specify the rewards and conditions.", "league": "Could leagues come next?", "leagueBody": "Leagues are also being explored to keep the competition going over time. No schedule has been announced yet.", "faq": "Before you step onto the pitch", "faqIntro": "What you can know today. Details specific to each tournament will be published with its announcement.", "social": "Don’t miss the next challenge.", "socialBody": "Cities, dates, registration opening and rewards: follow the announcements on our social channels.", "discover": "Discover Partido tournaments", "q0": "When and where will the first tournaments take place?", "a0": "Dates, cities and venues will be announced before each tournament. No city or date has been publicly confirmed yet.", "q1": "How can I register?", "a1": "Registration arrangements and opening dates will be announced for each event. Follow our social channels to find out when and how to take part.", "q2": "Can I enter alone or do I need a team?", "a2": "Each tournament’s participation terms will explain this. Individual registration should not yet be considered available.", "q3": "What formats and levels will be offered?", "a3": "The playing format, categories, eligibility criteria and rules will be explained before registration.", "q4": "What prizes can players win?", "a4": "The prize pool will depend on the tournament. Its value, types of rewards and allocation will be detailed in the event announcement. No single amount applies to every tournament.", "q5": "Will participation cost anything?", "a5": "Any fees and payment or cancellation terms will be communicated before registration. A free app does not mean that every tournament will be free."};
+T.ar.event = {"badge": "قريباً على أرض الملعب", "title": "بطولات كرة قدم. وجوائز للفوز بها.", "intro": "اجمعوا فريقكم واستعدّوا للتحدي. ستصل بطولات بارتيدو إلى المدن تباعاً، مع الإعلان عن الأماكن والمواعيد والجوائز قبل كل بطولة.", "follow": "تابعوا الإعلانات", "questions": "أسئلتكم", "spirit": "الفوز يبدأ بروح الفريق.", "spiritBody": "منافسون تواجهونهم، وفريق تبنونه، وجوائز تتنافسون عليها. طموحنا أن نقدّم لكم منافسة تُحضّر بعناية تضاهي تنظيم بطولة احترافية.", "prize": "جوائز تستحق المنافسة", "prizeBody": "لكل بطولة جوائزها الخاصة. سنعلن عن قيمتها الإجمالية وطبيعتها وشروط توزيعها قبل فتح التسجيل. وستختلف الجوائز بحسب حجم الحدث.", "city": "مدينة جديدة وتحدٍّ جديد", "cityBody": "ستتوسّع البطولات مدينةً بعد مدينة مع نمو مجتمع بارتيدو. لم نعلن عن أي وجهة بعد؛ سيكشف كل حدث عن مدينته وملعبه.", "format": "حماس كرة القدم. وعناية بالتنظيم.", "formatBody": "صيغة واضحة، وبرنامج معلن، وقواعد مفهومة: نُحضّر تجربة تنافسية مرتبطة ببارتيدو. وسنوضّح تفاصيل المتابعة الرقمية الخاصة بكل بطولة.", "app": "تجربة البطولات في عالم بارتيدو", "appBody": "اكتشفوا أجواء البطولات في التطبيق وتابعوا حساباتنا لمعرفة الإعلانات القادمة.", "caption": "معاينة توضيحية للتطبيق. المبالغ والعبارات الظاهرة ليست عرضاً لبطولة؛ إعلان كل بطولة هو الذي سيحدّد الجوائز والشروط.", "league": "وماذا عن الدوريات؟", "leagueBody": "ندرس أيضاً إطلاق دوريات لاستمرار المنافسة على المدى الطويل. لم نعلن عن جدول زمني بعد.", "faq": "قبل دخول الملعب", "faqIntro": "ما يمكنكم معرفته الآن. سننشر تفاصيل كل بطولة مع إعلانها.", "social": "لا تفوّتوا التحدّي القادم.", "socialBody": "المدن والمواعيد وفتح التسجيل والجوائز: تابعوا الإعلانات على حساباتنا.", "discover": "اكتشفوا بطولات بارتيدو", "q0": "متى وأين ستقام البطولات الأولى؟", "a0": "سنعلن عن التواريخ والمدن والملاعب قبل كل بطولة. لم نؤكّد علناً أي مدينة أو موعد حتى الآن.", "q1": "كيف يمكن التسجيل؟", "a1": "سنعلن عن طريقة التسجيل وموعد فتحه لكل حدث. تابعوا حساباتنا لمعرفة متى وكيف يمكن المشاركة.", "q2": "هل يمكن التسجيل بشكل فردي أم يجب تكوين فريق؟", "a2": "ستوضّح شروط المشاركة الخاصة بكل بطولة هذه النقطة. لا تعتبروا التسجيل الفردي متاحاً حالياً.", "q3": "ما صيغ اللعب والمستويات المتاحة؟", "a3": "سنوضّح صيغة اللعب والفئات وشروط الأهلية والقواعد قبل فتح التسجيل.", "q4": "ما الجوائز التي يمكن الفوز بها؟", "a4": "تختلف الجوائز حسب البطولة. سيحدّد إعلان الحدث قيمتها وطبيعتها وطريقة توزيعها. لا يوجد مبلغ واحد ينطبق على جميع البطولات.", "q5": "هل ستكون المشاركة مدفوعة؟", "a5": "سنعلن عن أي رسوم وشروط الدفع أو الإلغاء قبل فتح التسجيل. مجانية التطبيق لا تعني أن جميع البطولات ستكون مجانية."};
+
+
+Object.assign(T.fr.contact, {"heading": "Parlons foot. Parlons Partido.", "intro": "Une question sur l’application, un tournoi ou une idée de partenariat ? Écrivez-nous.", "formtitle": "Envoyez-nous un message", "formsub": "Nous vous répondrons à l’adresse e-mail indiquée. Tous les champs sont obligatoires.", "name": "Votre nom", "email": "Adresse e-mail", "topic": "Sujet", "message": "Votre message", "t1": "Aide avec l’application", "t2": "Suggestion", "t3": "Partenariat", "t4": "Tournois", "t5": "Autre", "topicph": "Choisissez un sujet", "faq": "Une question sur les tournois ? Consultez la FAQ.", "direct": "Vous préférez nous écrire directement ?", "btn": "Envoyer le message", "messageph": "Expliquez-nous votre demande…", "emailph": "vous@exemple.com", "nameError": "Indiquez votre nom.", "emailError": "Saisissez une adresse e-mail valide.", "topicError": "Choisissez le sujet de votre demande.", "messageError": "Écrivez votre message.", "sending": "Envoi en cours…", "success": "Votre message a bien été envoyé. Nous vous répondrons par e-mail.", "error": "L’envoi n’a pas pu être confirmé. Votre message est conservé ci-dessus. Réessayez ou écrivez à admin@partido.ma.", "invalid": "Vérifiez les champs indiqués avant d’envoyer."});
+Object.assign(T.en.contact, {"heading": "Let’s talk football. Let’s talk Partido.", "intro": "A question about the app, a tournament or a partnership idea? Write to us.", "formtitle": "Send us a message", "formsub": "We’ll reply to the email address you provide. All fields are required.", "name": "Your name", "email": "Email address", "topic": "Subject", "message": "Your message", "t1": "App support", "t2": "Suggestion", "t3": "Partnership", "t4": "Tournaments", "t5": "Other", "topicph": "Choose a subject", "faq": "A tournament question? Read the FAQ.", "direct": "Prefer to email us directly?", "btn": "Send message", "messageph": "Tell us how we can help…", "emailph": "you@example.com", "nameError": "Please enter your name.", "emailError": "Enter a valid email address.", "topicError": "Choose a subject for your enquiry.", "messageError": "Please write your message.", "sending": "Sending…", "success": "Your message has been sent. We’ll reply by email.", "error": "We could not confirm delivery. Your message is saved above. Try again or email admin@partido.ma.", "invalid": "Check the highlighted fields before sending."});
+Object.assign(T.ar.contact, {"heading": "لنتحدّث عن كرة القدم وبارتيدو.", "intro": "هل لديكم سؤال عن التطبيق أو بطولة، أو فكرة شراكة؟ راسلونا.", "formtitle": "أرسلوا لنا رسالة", "formsub": "سنردّ على عنوان البريد الإلكتروني الذي تقدّمونه. جميع الحقول مطلوبة.", "name": "الاسم", "email": "البريد الإلكتروني", "topic": "الموضوع", "message": "رسالتكم", "t1": "المساعدة في التطبيق", "t2": "اقتراح", "t3": "شراكة", "t4": "البطولات", "t5": "موضوع آخر", "topicph": "اختاروا موضوعاً", "faq": "سؤال عن البطولات؟ اطّلعوا على الأسئلة الشائعة.", "direct": "تفضّلون مراسلتنا مباشرة؟", "btn": "إرسال الرسالة", "messageph": "وضّحوا لنا طلبكم…", "emailph": "you@example.com", "nameError": "يرجى إدخال الاسم.", "emailError": "أدخلوا عنوان بريد إلكتروني صالحاً.", "topicError": "اختاروا موضوع الرسالة.", "messageError": "يرجى كتابة الرسالة.", "sending": "جارٍ الإرسال…", "success": "تم إرسال رسالتكم. سنردّ عليكم عبر البريد الإلكتروني.", "error": "تعذّر تأكيد الإرسال. رسالتكم محفوظة أعلاه. أعيدوا المحاولة أو راسلوا admin@partido.ma.", "invalid": "راجعوا الحقول المشار إليها قبل الإرسال."});
+
 function buildMarquee(lang) {
   const items = T[lang].marquee;
-  const doubled = [...items, ...items];
-  return doubled.map(t =>
-    `<span class="mi"><span class="mi-dot"></span>${t}</span>`
+  // Repeat enough sets to keep wide screens filled throughout the loop.
+  const doubled = Array.from({ length: 8 }, () => items).flat();
+  return doubled.map((t, i) =>
+    `<span class="mi"${i >= items.length ? ' aria-hidden="true"' : ''}><span class="mi-dot" aria-hidden="true"></span>${t}</span>`
   ).join('');
 }
 
@@ -896,6 +957,11 @@ function applyLang(lang) {
     if (val !== undefined) el.innerHTML = val;
   });
 
+  const menuButton = document.querySelector('.nav-burger');
+  if (menuButton) menuButton.setAttribute('aria-label', {fr:'Menu de navigation',en:'Navigation menu',ar:'قائمة التنقل'}[lang]);
+  if (document.body.classList.contains('tournament-page')) {
+    document.querySelector('meta[name="description"]').content = t.event.intro;
+  }
   // Update placeholder translations
   document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
     const key = el.getAttribute('data-i18n-placeholder');
@@ -913,9 +979,20 @@ function applyLang(lang) {
     btn.setAttribute('aria-pressed', btn.dataset.lang === lang ? 'true' : 'false');
   });
 
+  document.querySelectorAll("[data-guide-link]").forEach(link => {
+    const base = link.dataset.guideLink;
+    link.href = base + (lang === "fr" ? "" : "-" + lang) + ".html";
+  });
+
   // Page title
   const pageId = document.body && document.body.getAttribute('data-page');
-  if (pageId && t.art && t.art[pageId]) {
+  if (document.querySelector('.contact-page')) {
+    document.title = {fr:'Contact — Partido',en:'Contact — Partido',ar:'تواصل معنا — بارتيدو'}[lang];
+  } else if (document.body.classList.contains('tournament-page')) {
+    document.title = t.event.title + ' — Partido';
+  } else if (document.body.dataset.guideTitle) {
+    document.title = document.body.dataset.guideTitle;
+  } else if (pageId && t.art && t.art[pageId]) {
     document.title = t.art[pageId].pagetitle;
   } else {
     const titles = { en:'Partido Sports — Find Your Game', fr:'Partido Sports — Trouve Ton Match', ar:'بارتيدو — العب كرتك' };
@@ -928,14 +1005,62 @@ function applyLang(lang) {
   // Hero phone mockups (per-language screenshots)
   updateHeroPhones(lang);
 
+  document.dispatchEvent(new CustomEvent("partido:language", { detail: lang }));
+
   // Persist preference
   try { localStorage.setItem('partido_lang', lang); } catch(e) {}
 }
+
+// Shared responsive navigation: keep one language control and move it into the menu.
+(function () {
+  const header = document.querySelector('body > nav');
+  if (!header) return;
+  let burger = header.querySelector('.nav-burger');
+  if (!burger) {
+    burger = document.createElement('button');
+    burger.className = 'nav-burger';
+    burger.innerHTML = '<span></span><span></span><span></span>';
+    burger.setAttribute('aria-expanded', 'false');
+    burger.setAttribute('aria-controls', 'mobile-menu');
+  }
+  header.append(burger);
+  let menu = document.getElementById('mobile-menu');
+  if (!menu) {
+    menu = document.createElement('div');
+    menu.className = 'mobile-menu'; menu.id = 'mobile-menu';
+    menu.setAttribute('aria-hidden','true'); menu.inert = true;
+    const links = document.createElement('nav'); links.className = 'mobile-menu__nav';
+    header.querySelectorAll('.nav-center a').forEach(a => {
+      const link = a.cloneNode(true); link.className = 'mobile-menu__link';
+      link.removeAttribute('style');
+      if (link.getAttribute('href').startsWith('#')) link.setAttribute('data-mobile-scroll','');
+      links.append(link);
+    });
+    menu.append(links); header.after(menu);
+  }
+  const languages = header.querySelector('.lang-switcher');
+  const right = header.querySelector('.nav-right');
+  const slot = document.createElement('div'); slot.className = 'mobile-menu__languages';
+  menu.append(slot);
+  const mq = matchMedia('(max-width: 980px)');
+  function placeLanguages() { if (languages) (mq.matches ? slot : right).prepend(languages); }
+  mq.addEventListener('change', placeLanguages); placeLanguages();
+  document.querySelectorAll('.lang-btn[data-lang="ar"]').forEach(el => el.textContent = 'عربي');
+})();
 
 // ── LANGUAGE SWITCHER EVENTS ─────────────────────────────────────
 // Pages that have separate per-language HTML files redirect on lang switch.
 // All other pages translate in-place via applyLang().
 const LANG_PAGE_MAP = {
+  "article-culture-ar.html": {"fr": "article-culture.html", "en": "article-culture-en.html", "ar": "article-culture-ar.html"},
+  "article-culture-en.html": {"fr": "article-culture.html", "en": "article-culture-en.html", "ar": "article-culture-ar.html"},
+  "article-culture.html": {"fr": "article-culture.html", "en": "article-culture-en.html", "ar": "article-culture-ar.html"},
+  "article-tips-ar.html": {"fr": "article-tips.html", "en": "article-tips-en.html", "ar": "article-tips-ar.html"},
+  "article-tips-en.html": {"fr": "article-tips.html", "en": "article-tips-en.html", "ar": "article-tips-ar.html"},
+  "article-tips.html": {"fr": "article-tips.html", "en": "article-tips-en.html", "ar": "article-tips-ar.html"},
+  "article-community-ar.html": {"fr": "article-community.html", "en": "article-community-en.html", "ar": "article-community-ar.html"},
+  "article-community-en.html": {"fr": "article-community.html", "en": "article-community-en.html", "ar": "article-community-ar.html"},
+  "article-community.html": {"fr": "article-community.html", "en": "article-community-en.html", "ar": "article-community-ar.html"},
   'privacy.html':    { en: 'privacy.html',    fr: 'privacy-fr.html', ar: 'privacy-ar.html' },
   'privacy-fr.html': { en: 'privacy.html',    fr: 'privacy-fr.html', ar: 'privacy-ar.html' },
   'privacy-ar.html': { en: 'privacy.html',    fr: 'privacy-fr.html', ar: 'privacy-ar.html' },
@@ -981,8 +1106,8 @@ window.addEventListener('scroll', () => {
   let saved;
   try { saved = localStorage.getItem('partido_lang'); } catch(e) {}
   const browserLang = (navigator.language || '').slice(0,2).toLowerCase();
-  const lang = (saved && T[saved]) ? saved
-    : (T[browserLang] ? browserLang : 'en');
+  const lang = document.body.dataset.guideLang || ((saved && T[saved]) ? saved
+    : (T[browserLang] ? browserLang : 'en'));
   applyLang(lang);
 })();
 
@@ -1287,7 +1412,7 @@ window.addEventListener('scroll', () => {
     document.body.style.overflow = previousOverflow;
   }
 
-  window.matchMedia('(max-width: 768px)').addEventListener('change', function(e) {
+  window.matchMedia('(max-width: 980px)').addEventListener('change', function(e) {
     if (!e.matches) closeMenu();
   });
 
@@ -1330,7 +1455,7 @@ window.addEventListener('scroll', () => {
     if (burger.getAttribute('aria-expanded') !== 'true') return;
     if (e.key === 'Escape') { e.preventDefault(); closeMenu(); return; }
     if (e.key === 'Tab') {
-      var targets = [burger].concat(Array.from(menu.querySelectorAll('a[href]')));
+      var targets = [burger].concat(Array.from(menu.querySelectorAll('a[href], button:not([disabled])')));
       var first = targets[0], last = targets[targets.length - 1];
       if (e.shiftKey && document.activeElement === first) {
         e.preventDefault(); last.focus();
@@ -1339,4 +1464,34 @@ window.addEventListener('scroll', () => {
       }
     }
   });
+})();
+
+// Keep the ticker at 28 pixels per second across languages and font changes.
+(function () {
+  const track = document.getElementById('marquee-track');
+  if (!track) return;
+  function updateSpeed() {
+    track.style.setProperty('--marquee-duration', (track.scrollWidth / 2 / 28) + 's');
+  }
+  new ResizeObserver(updateSpeed).observe(track);
+  document.fonts.ready.then(updateSpeed);
+  updateSpeed();
+})();
+
+// Mark the current page or the player journey currently being read.
+(function () {
+  const links = Array.from(document.querySelectorAll('body > nav .nav-center a, .mobile-menu__link'));
+  const page = location.pathname.split('/').pop() || 'index.html';
+  links.forEach(link => {
+    const url = new URL(link.href);
+    if (!url.hash && url.pathname.split('/').pop() === page) link.setAttribute('aria-current','page');
+  });
+  if (page !== 'index.html' || !('IntersectionObserver' in window)) return;
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      const matching = links.filter(a => new URL(a.href).hash === '#' + entry.target.id);
+      matching.forEach(a => entry.isIntersecting ? a.setAttribute('aria-current','location') : a.removeAttribute('aria-current'));
+    });
+  }, {rootMargin:'-20% 0px -50% 0px'});
+  ['for-players','for-organizers'].forEach(id => { const section = document.getElementById(id); if(section) observer.observe(section); });
 })();

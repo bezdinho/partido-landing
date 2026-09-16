@@ -1,280 +1,41 @@
-/* === organizer-flow.css === */
-
-/* ══════════════════════════════════════
-   ORGANIZER FLOW
-   3-card grid: Set Up → Manage → Play
-   Mirrors the premium card language of
-   the How It Works section.
-══════════════════════════════════════ */
-
-.org-section {
-  background: var(--black);
-  padding: 96px 0 108px;
-  position: relative;
-  overflow: hidden;
+/* Publish a match, gather its players, then play. */
+.org-section { background: var(--black); padding: 80px 0; }
+.org-header { text-align: center; margin-bottom: 36px; }
+.org-header .sec-title { max-width: 880px; margin: 0 auto 16px; text-transform: none; line-height: 1.12; text-wrap: balance; }
+.org-header .sec-sub { max-width: 720px; margin: 0 auto; }
+.org-grid { max-width: 1160px; margin: 0 auto; padding: 0 48px; display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 20px; }
+.org-card { display: grid; grid-template-rows: auto 300px 1fr; gap: 20px; padding: 24px; border: 1px solid var(--bdr); border-radius: 20px; background: var(--card); min-width: 0; }
+.org-card__meta { display: flex; gap: 12px; align-items: center; }
+.org-card__num { font-size: 16px; font-weight: 800; color: var(--g); }
+.org-card__badge { font-size: 14px; font-weight: 600; color: #c3c9b9; }
+.org-card__visual { display: flex; align-items: center; justify-content: center; min-width: 0; }
+.org-card__visual .phone { width: 225px; max-width: 100%; background: transparent; border: 0; border-radius: 0; box-shadow: none; overflow: visible; }
+.org-card__visual .phone::before { display: none; }
+.org-card__visual .phone img { width: 100%; display: block; border-radius: 0; aspect-ratio: 1086 / 1448; object-fit: contain; filter: drop-shadow(0 12px 18px rgba(0,0,0,.45)); }
+.org-card__image { overflow: hidden; border-radius: 12px; }
+.org-card__image img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+.org-card__title { font-size: 21px; font-weight: 800; line-height: 1.3; letter-spacing: -.2px; min-height: 2.6em; margin: 0 0 12px; color: var(--text); }
+.org-card__desc { font-size: 16px; line-height: 1.65; color: #c3c9b9; margin: 0; }
+html[lang="ar"] .org-card { font-family: 'Cairo', sans-serif; }
+html[lang="ar"] .org-card__title { letter-spacing: 0; line-height: 1.5; min-height: 3em; }
+html[lang="ar"] .org-card__desc { line-height: 1.85; }
+@media(max-width:960px) {
+ .org-grid { grid-template-columns: 1fr; padding: 0 28px; gap: 16px; }
+ .org-card { grid-template-columns: minmax(110px,30%) minmax(0,1fr); grid-template-rows: auto 1fr; gap: 12px 24px; }
+ .org-card__meta { grid-column: 2; grid-row: 1; }
+ .org-card__visual,.org-card__image { grid-column: 1; grid-row: 1 / 3; }
+ .org-card__visual .phone { width: 195px; }
+ .org-card__image { min-height: 210px; }
+ .org-card__text { grid-column: 2; grid-row: 2; align-self: center; }
+ .org-card__title,html[lang="ar"] .org-card__title { min-height: 0; }
 }
-
-/* Ambient green — center-bottom */
-.org-section::before {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 50%; transform: translateX(-50%);
-  width: 700px; height: 360px;
-  background: radial-gradient(ellipse at 50% 100%, rgba(153,202,60,.06) 0%, transparent 65%);
-  pointer-events: none;
+@media(max-width:580px) {
+ .org-section { padding-bottom: 56px; }
+ .org-header { margin-bottom: 28px; }
+ .org-grid { padding: 0 20px; }
+ .org-card { grid-template-columns: 100px minmax(0,1fr); padding: 16px; gap: 10px 14px; }
+ .org-card__title { font-size: 18px; margin-bottom: 8px; }
+ .org-card__desc { font-size: 15px; }
+ .org-card__image { min-height: 180px; }
 }
-
-/* ── Section header ── */
-.org-header {
-  text-align: center;
-  margin-bottom: 64px;
-}
-.org-header .sec-label { margin-bottom: 12px; }
-.org-header .sec-title { margin-bottom: 14px; }
-.org-header .sec-sub   { margin: 0 auto; }
-
-/* ── Card grid ── */
-.org-grid {
-  max-width: 1160px;
-  margin: 0 auto;
-  padding: 0 48px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  align-items: stretch;
-}
-
-/* ── Base card ── */
-.org-card {
-  border-radius: 24px;
-  border: 1px solid var(--bdr);
-  background: var(--card);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  transition: border-color .3s ease, box-shadow .3s ease, transform .3s ease;
-  position: relative;
-}
-.org-card:hover {
-  border-color: rgba(153,202,60,.26);
-  transform: translateY(-4px);
-  box-shadow: 0 24px 60px rgba(0,0,0,.5), 0 0 0 1px rgba(153,202,60,.09);
-}
-
-/* ── Step badge row ── */
-.org-card__meta {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 22px 22px 0;
-}
-.org-card__num {
-  font-family: 'Space Mono', monospace;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 2.5px;
-  color: var(--g);
-}
-html[lang="ar"] .org-card__num {
-  font-family: 'Cairo', sans-serif;
-  letter-spacing: 0;
-}
-.org-card__badge {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 1.8px;
-  text-transform: uppercase;
-  color: var(--muted);
-  background: rgba(255,255,255,.04);
-  border: 1px solid var(--bdr);
-  padding: 3px 9px;
-  border-radius: 100px;
-}
-html[lang="ar"] .org-card__badge {
-  font-family: 'Cairo', sans-serif;
-  letter-spacing: 0;
-  text-transform: none;
-}
-
-/* ── Phone mockup visual (cards 1 & 2) ── */
-.org-card__visual {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* 26px sides = same inner width as .how-step, so the phones below and
-     above render at exactly the same size */
-  padding: 20px 26px 10px;
-}
-
-/* Size the .phone component — inherits all frame
-   styles (border, shadow, notch) from base.css */
-.org-card--setup  .org-card__visual .phone,
-.org-card--manage .org-card__visual .phone {
-  width: 148px;
-  flex-shrink: 0;
-}
-
-/* Counter-tilt — matches how-it-works step 01/02 (±2deg) */
-.org-card--setup  .org-card__visual .phone { transform: rotate(-2deg); }
-.org-card--manage .org-card__visual .phone { transform: rotate( 2deg); }
-
-/* Cards 01 and 02 use the same transparent mockups as the "For Players"
-   steps (tools/make-phone-mockup.py): the iPhone frame is in the image, so
-   neutralize the .phone wrapper's chrome (background, border, notch, hard
-   rounded clip, inner shadows) to avoid a double frame, and let the alpha
-   cast its own drop-shadow. Same canvas → same 299px width as .how-step__mockup. */
-.org-card--setup .org-card__visual .phone {
-  width: 299px;
-  max-width: 100%;
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
-  overflow: visible;
-}
-.org-card--setup .org-card__visual .phone::before { display: none; }
-.org-card--setup .org-card__visual .phone img {
-  border-radius: 0;
-  filter: drop-shadow(0 24px 40px rgba(0,0,0,.75));
-  /* Reserves the mockup's height before JS sets its per-language src,
-     so nothing collapses in the instant before that swap happens. */
-  aspect-ratio: 1086 / 1448;
-}
-
-.org-card--manage .org-card__visual .phone {
-  width: 299px;
-  max-width: 100%;
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
-  overflow: visible;
-}
-.org-card--manage .org-card__visual .phone::before { display: none; }
-.org-card--manage .org-card__visual .phone img {
-  border-radius: 0;
-  filter: drop-shadow(0 24px 40px rgba(0,0,0,.75));
-  /* Reserves the mockup's height before JS sets its per-language src,
-     so nothing collapses in the instant before that swap happens. */
-  aspect-ratio: 1086 / 1448;
-}
-
-/* Card 3: play photo — landscape + full bleed feel */
-.org-card--play .org-card__image {
-  margin: 0;
-  border-radius: 0;
-  border: none;
-  flex: 1;
-  min-height: 490px;
-}
-.org-card--play .org-card__image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 30%;
-  display: block;
-  filter: brightness(.78) saturate(.82);
-  transition: transform 6s ease;
-}
-.org-card--play:hover .org-card__image img {
-  transform: scale(1.04);
-}
-
-/* Gradient overlay on card 3 image */
-.org-card--play .org-card__image::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to top, rgba(24,26,21,.85) 0%, transparent 50%);
-  pointer-events: none;
-}
-
-/* ── Text block ── */
-.org-card__text {
-  padding: 18px 22px 26px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-.org-card__title {
-  font-family: 'Satoshi', sans-serif;
-  font-size: 18px;
-  font-weight: 800;
-  letter-spacing: 1.6px;
-  text-transform: uppercase;
-  color: var(--text);
-  line-height: 1.25;
-}
-html[lang="ar"] .org-card__title {
-  font-family: 'Cairo', sans-serif;
-  letter-spacing: 0;
-  text-transform: none;
-  line-height: 1.4;
-}
-.org-card__desc {
-  font-size: 16px;
-  color: var(--muted);
-  line-height: 1.65;
-}
-html[lang="ar"] .org-card__desc {
-  font-family: 'Cairo', sans-serif;
-  line-height: 1.85;
-}
-
-/* Card 3 text sits on top of image (absolute) */
-.org-card--play {
-  position: relative;
-}
-.org-card--play .org-card__meta {
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  z-index: 3;
-  padding: 22px 22px 0;
-}
-.org-card--play .org-card__text {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  z-index: 2;
-  padding: 22px 24px 28px;
-}
-.org-card--play .org-card__title { color: #fff; font-size: 18px; }
-.org-card--play .org-card__desc  { color: var(--text-2); }
-
-/* ══════════════════════════════════════
-   RESPONSIVE
-══════════════════════════════════════ */
-@media (max-width: 860px) {
-  .org-grid {
-    grid-template-columns: 1fr 1fr;
-    padding: 0 28px;
-  }
-  .org-card--play {
-    grid-column: span 2;
-    min-height: 380px;
-  }
-  .org-card--play .org-card__image {
-    min-height: 380px;
-  }
-}
-
-@media (max-width: 560px) {
-  .org-grid {
-    grid-template-columns: 1fr;
-    padding: 0 20px;
-  }
-  .org-card--play {
-    grid-column: span 1;
-    min-height: 320px;
-  }
-  .org-card--play .org-card__image {
-    min-height: 320px;
-  }
-  .org-section {
-    padding: 72px 0 80px;
-  }
-  .org-header {
-    padding: 0 20px;
-    margin-bottom: 44px;
-  }
-}
+@media(max-width:360px) { .org-card { grid-template-columns: 80px minmax(0,1fr); padding: 12px; gap: 10px; } }

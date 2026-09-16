@@ -145,3 +145,19 @@
   .art-body  { padding: 48px 24px 80px; }
   .art-title { letter-spacing: -.8px; }
 }
+
+/* Readable practical guide pages. */
+.guide-page .art-title { text-transform: none; line-height: 1.16; }
+.guide-page .art-hero { padding-block: 56px 44px; }
+.guide-page .art-back { font-size: 16px; text-transform: none; color: var(--g); min-height: 44px; margin-bottom: 20px; }
+.guide-lead { font-size: 19px; line-height: 1.7; color: #c3c9b9; }
+.guide-page .art-body { padding-top: 40px; }
+.guide-page .art-body h2 { font-size: 25px; line-height: 1.35; margin: 36px 0 14px; color: var(--text); }
+.guide-page .art-body h2:first-child { margin-top: 0; }
+.guide-page .art-body p { font-size: 18px; color: #c3c9b9; line-height: 1.8; }
+.guide-next { margin-top: 44px; padding-top: 28px; border-top: 1px solid var(--bdr); }
+.guide-next a { display: block; padding-block: 12px; color: var(--g); font-size: 17px; text-underline-offset: 4px; }
+.guide-next .guide-download { display: inline-flex; background: var(--g); color: #10150b; padding: 14px 24px; border-radius: 28px; font-weight: 700; text-decoration: none; }
+.guide-page a:focus-visible { outline: 3px solid var(--g); outline-offset: 4px; }
+html[lang="ar"] .guide-page .art-body p, html[lang="ar"] .guide-page .art-title { font-family: 'Cairo', sans-serif; letter-spacing: 0; }
+@media(max-width: 700px) { .guide-page .art-body p { font-size: 17px; } .guide-page .art-body h2 { font-size: 22px; } }

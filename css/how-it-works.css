@@ -1,298 +1,83 @@
-/* === how-it-works.css === */
-
-/* ══════════════════════════════════════
-   HOW IT WORKS
-══════════════════════════════════════ */
-
+/* Player journey: equally weighted steps with aligned visuals and text. */
 .how-section { background: var(--dark); }
-
-/* ── Grid container ── */
+.how-section .sec-sub { max-width: 700px; }
 .how-steps {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-  margin-top: 72px;
-  align-items: stretch;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  margin-top: 40px;
 }
-
-/* ── Base card ── */
 .how-step {
-  position: relative;
-  border-radius: 24px;
+  display: grid;
+  grid-template-rows: auto 300px 1fr;
+  gap: 20px;
+  padding: 24px;
   border: 1px solid var(--bdr);
+  border-radius: 20px;
   background: var(--card);
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  padding: 28px 26px;
-  transition: border-color .35s ease, box-shadow .35s ease;
+  min-width: 0;
 }
-.how-step:hover {
-  border-color: rgba(153,202,60,.28);
-}
-
-/* ── Step meta: number + badge ── */
-.how-step__meta {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 22px;
-}
-.how-step__num {
-  font-family: 'Space Mono', monospace;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 2.5px;
-  color: var(--g);
-  opacity: .9;
-}
-html[lang="ar"] .how-step__num { font-family:'Cairo',sans-serif; letter-spacing:0; }
-.how-step__badge {
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 1.8px;
-  text-transform: uppercase;
-  color: var(--muted);
-  background: rgba(255,255,255,.04);
-  border: 1px solid var(--bdr);
-  padding: 3px 9px;
-  border-radius: 100px;
-}
-html[lang="ar"] .how-step__badge { font-family:'Cairo',sans-serif; letter-spacing:0; }
-
-/* ── App mockup visual ── */
-.how-step__visual {
-  flex: 1;
+.how-step__meta { display: flex; align-items: center; gap: 12px; grid-row: 1; }
+.how-step__num { color: var(--g); font-size: 16px; font-weight: 800; }
+.how-step__badge { color: #c3c9b9; font-size: 14px; font-weight: 600; }
+.how-step__visual, .how-step__photo {
+  grid-row: 2;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 4px 0 24px;
-  min-height: 210px;
+  min-width: 0;
+  margin: 0;
 }
-.how-step__mockup {
-  width: 140px;
-  border-radius: 28px;
-  overflow: hidden;
-  border: 1.5px solid rgba(255,255,255,.09);
-  box-shadow:
-    0 24px 56px rgba(0,0,0,.75),
-    0 0 0 1px rgba(153,202,60,.05);
-  background: #040506;
-  position: relative;
-}
-/* Dynamic Island notch */
-.how-step__mockup::before {
-  content: '';
-  position: absolute;
-  top: 7px; left: 50%;
-  transform: translateX(-50%);
-  width: 56px; height: 14px;
-  background: #040506;
-  border-radius: 9px;
-  z-index: 2;
-}
+.how-step__mockup { width: 225px; max-width: 100%; }
 .how-step__mockup img {
   display: block;
   width: 100%;
-  /* Reserves the mockup's height before JS sets its per-language src,
-     so nothing collapses in the instant before that swap happens. */
   aspect-ratio: 1086 / 1448;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 18px rgba(0,0,0,.45));
 }
-/* Counter-tilt between the two mockup cards (both images are upright),
-   the same ±2deg as the organizer cards: 01 leans left, 02 leans right.
-   Kept at every width — the canvas has enough transparent margin for the
-   rotated phone to stay inside the card. */
-.how-step--discover .how-step__mockup { transform: rotate(-2deg); }
-.how-step--join    .how-step__mockup { transform: rotate( 2deg); }
-
-/* Step 01 uses a transparent PNG that already includes the iPhone frame —
-   neutralize the wrapper's chrome (background, border, notch, hard-rect
-   shadow) so we don't get a double frame, and use a drop-shadow that
-   respects the PNG alpha. */
-.how-step--discover .how-step__mockup {
-  width: 299px;
-  max-width: 100%;
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
-  overflow: visible;
-}
-.how-step--discover .how-step__mockup::before { display: none; }
-.how-step--discover .how-step__mockup img {
-  filter: drop-shadow(0 24px 40px rgba(0,0,0,.75));
-}
-
-/* Step 02 uses the same kind of transparent mockup as step 01 — same canvas,
-   same phone size — so both cards show phones at identical scale. */
-.how-step--join .how-step__mockup {
-  width: 299px;
-  max-width: 100%;
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
-  overflow: visible;
-}
-.how-step--join .how-step__mockup::before { display: none; }
-.how-step--join .how-step__mockup img {
-  filter: drop-shadow(0 24px 40px rgba(0,0,0,.75));
-}
-
-/* ── Text ── */
+.how-step__photo { overflow: hidden; border-radius: 12px; }
+.how-step__photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
+.how-step__content { grid-row: 3; }
 .how-step__content h3 {
-  font-size: 18px;
+  font-size: 21px;
   font-weight: 800;
+  line-height: 1.3;
   letter-spacing: -.2px;
-  text-transform: uppercase;
-  margin-bottom: 8px;
-  line-height: 1.2;
+  min-height: 2.6em;
+  margin-bottom: 12px;
   color: var(--text);
 }
-html[lang="ar"] .how-step__content h3 { font-family:'Cairo',sans-serif; letter-spacing:0; text-transform:none; }
-.how-step__content p {
-  font-size: 16px;
-  color: var(--muted);
-  line-height: 1.65;
-}
-html[lang="ar"] .how-step__content p { font-family:'Cairo',sans-serif; line-height:1.8; }
-
-/* Step 2 uses the same base padding as Step 1 — no vertical offset */
-.how-step--join { padding-top: 28px; }
-.how-step--discover { padding-top: 28px; }
-
-/* ══════════════════════════════════════
-   STEP 3 — PLAY  (dominant, emotional)
-══════════════════════════════════════ */
-.how-step--play {
-  background: #060808;
-  border-color: rgba(153,202,60,.12);
-  min-height: 490px;
-  justify-content: flex-end;
-  padding: 32px 30px;
-}
-.how-step--play:hover {
-  border-color: rgba(153,202,60,.32);
-  box-shadow: 0 0 64px rgba(153,202,60,.06);
-}
-
-/* Full-bleed football photo */
-.how-step__photo {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
-.how-step__photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 20%;
-  filter: saturate(.85) brightness(.88);
-}
-/* Gradient overlay */
-.how-step__photo::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    170deg,
-    rgba(6,8,8,.05)  0%,
-    rgba(6,8,8,.22)  30%,
-    rgba(6,8,8,.78)  62%,
-    rgba(6,8,8,.97) 100%
-  );
-}
-/* Green ambient glow at bottom */
-.how-step--play::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 200px;
-  background: radial-gradient(ellipse at 35% 100%, rgba(153,202,60,.14) 0%, transparent 70%);
-  z-index: 1;
-  pointer-events: none;
-}
-
-/* Meta sits top-left over the photo */
-.how-step--play .how-step__meta {
-  position: absolute;
-  top: 32px; left: 30px;
-  z-index: 2;
-  margin: 0;
-}
-html[dir="rtl"] .how-step--play .how-step__meta { left: auto; right: 30px; }
-
-/* Content at the bottom, above overlay */
-.how-step--play .how-step__content {
-  position: relative;
-  z-index: 2;
-}
-.how-step--play .how-step__content h3 {
-  font-size: clamp(30px, 2.8vw, 44px);
-  font-weight: 900;
-  letter-spacing: -2.5px;
-  line-height: 1.0;
-  color: #fff;
-  text-transform: uppercase;
-  margin-bottom: 12px;
-}
-html[lang="ar"] .how-step--play .how-step__content h3 {
-  font-family:'Cairo',sans-serif; letter-spacing:0; line-height:1.2;
-}
-.how-step--play .how-step__content p {
-  font-size: 16px;
-  color: var(--text-2);
-  margin-bottom: 28px;
-  line-height: 1.6;
-}
-html[lang="ar"] .how-step--play .how-step__content p {
-  font-family:'Cairo',sans-serif; line-height:1.9;
-}
-
-/* CTA button */
-.how-step__cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: var(--g);
-  color: #060a04;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 1.2px;
-  text-transform: uppercase;
-  min-height: 44px;
-  padding: 12px 22px;
-  border-radius: 100px;
-  text-decoration: none;
-  width: fit-content;
-  transition: transform .22s ease, box-shadow .22s ease;
-}
-html[lang="ar"] .how-step__cta { font-family:'Cairo',sans-serif; letter-spacing:0; flex-direction:row-reverse; }
-.how-step__cta:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(153,202,60,.40);
-}
-.how-step__cta svg { width: 12px; height: 12px; flex-shrink: 0; }
-
-/* ══════════════════════════════════════
-   RESPONSIVE
-══════════════════════════════════════ */
+.how-step__content p { font-size: 16px; line-height: 1.65; color: #c3c9b9; }
+html[lang="ar"] .how-step__content h3 { font-family: 'Cairo', sans-serif; letter-spacing: 0; line-height: 1.5; min-height: 3em; }
+html[lang="ar"] .how-step__content p { line-height: 1.85; }
+.how-section__action { display: flex; flex-direction: column; align-items: center; gap: 16px; margin-top: 32px; text-align: center; }
+.how-section__action-title { margin: 0; color: var(--text); font-size: 24px; font-weight: 800; line-height: 1.3; }
+.how-section__badges { display: flex; justify-content: center; align-items: center; gap: 12px; width: 100%; max-width: 344px; }
+.how-section__badges .store-badge { min-width: 0; flex: 120 1 0; }
+.how-section__badges .store-badge:last-child { flex-grow: 135; }
+.how-section__badges .store-badge svg { display: block; width: 100%; height: auto; max-height: 52px; }
+html[lang="ar"] .how-section__action-title { font-family: 'Cairo', sans-serif; }
 @media (max-width: 960px) {
-  .how-steps {
-    grid-template-columns: 1fr 1fr;
-  }
-  .how-step--play {
-    grid-column: 1 / -1;
-    min-height: 380px;
-  }
-  .how-step--join { margin-top: 0; }
+  .how-steps { grid-template-columns: 1fr; gap: 16px; }
+  .how-step { grid-template-columns: minmax(110px, 30%) minmax(0, 1fr); grid-template-rows: auto 1fr; gap: 12px 24px; }
+  .how-step__meta { grid-column: 2; grid-row: 1; }
+  .how-step__visual, .how-step__photo { grid-column: 1; grid-row: 1 / 3; }
+  .how-step__visual { max-height: 260px; }
+  .how-step__mockup { width: 195px; }
+  .how-step__photo { min-height: 210px; }
+  .how-step__content { grid-column: 2; grid-row: 2; align-self: center; }
+  .how-step__content h3, html[lang="ar"] .how-step__content h3 { min-height: 0; }
 }
-
 @media (max-width: 580px) {
-  .how-steps {
-    grid-template-columns: 1fr;
-    margin-top: 48px;
-  }
-  .how-step--play { min-height: 320px; }
-  .how-step--play .how-step__content h3 { letter-spacing: -1.5px; }
+  .how-steps { margin-top: 28px; }
+  .how-step { padding: 16px; gap: 10px 14px; grid-template-columns: 100px minmax(0, 1fr); }
+  .how-step__content h3 { font-size: 18px; margin-bottom: 8px; }
+  .how-step__content p { font-size: 15px; }
+  .how-step__photo { min-height: 180px; }
+  .how-step__meta { gap: 8px; }
+  .how-section__action { margin-top: 24px; }
+}
+@media (max-width: 360px) {
+  .how-step { grid-template-columns: 80px minmax(0, 1fr); padding: 12px; gap: 10px; }
 }

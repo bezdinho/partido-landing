@@ -389,3 +389,43 @@ html[dir="rtl"] .cp-select-arrow {
     letter-spacing: -1.5px;
   }
 }
+
+/* A short, readable route to contacting Partido. */
+.contact-page { padding: 128px 0 72px; }
+.cp-inner { align-items:start; gap:64px; }
+.cp-left__heading { text-transform:none; font-size:clamp(36px,4.4vw,58px); line-height:1.08; letter-spacing:-1.5px; text-wrap:balance; }
+.cp-left__intro { color:#c3c9b9; font-size:18px; line-height:1.75; }
+.cp-left__direct { margin-top:28px; }
+.cp-left__direct span { color:#bac2b0; font-size:15px; }
+.cp-left__direct a { color:#d5e8b4; font-size:19px; display:inline-flex; align-items:center; min-height:44px; }
+.cp-left__image { margin-top:28px; height:220px; }
+.cp-left__image img { width:100%; height:100%; object-fit:cover; }
+.cp-form-card { padding:32px; border:1px solid #39432f; box-shadow:none; }
+.cp-form-card__header { margin-bottom:24px; }
+.cp-form-card__header p { color:#c3c9b9; font-size:15px; line-height:1.6; }
+.cp-form__field label { color:#e2e7da; text-transform:none; letter-spacing:0; font-size:16px; }
+.cp-form input, .cp-form select, .cp-form textarea { background:#20271b; border:1px solid #566249; color:#f0f2ea; font-size:16px; min-height:50px; }
+.cp-form input::placeholder, .cp-form textarea::placeholder { color:#aeb9a1; opacity:1; }
+.cp-form input:focus, .cp-form select:focus, .cp-form textarea:focus { outline:2px solid #aad64d; outline-offset:2px; }
+.cp-form textarea { min-height:144px; }
+.cp-form [aria-invalid="true"] { border-color:#eeaa9b; }
+.cp-form .cp-field-error { font-size:14px; color:#ffc1b4; line-height:1.5; }
+.cp-field-error[hidden] { display:none; }
+.cp-faq-link { color:#c1df8d; font-size:14px; line-height:1.5; padding:8px 0; text-underline-offset:3px; }
+.cp-submit { min-height:52px; opacity:1; }
+.cp-submit:disabled { opacity:.65; cursor:wait; }
+.cp-form-status { font-size:15px; line-height:1.6; }
+.cp-form-status:empty { display:none; }
+.cp-form-status--err { color:#ffc1b4; }
+.cp-form-status--ok { color:#c6e898; }
+@media(max-width:800px) {
+ .contact-page { padding:100px 0 48px; }
+ .cp-inner { display:flex; flex-direction:column; gap:28px; padding-inline:20px; }
+ .cp-left,.cp-right { width:100%; }
+ .cp-left__image { display:none; }
+ .cp-left__heading { font-size:36px; }
+ .cp-left__intro { font-size:17px; }
+ .cp-form-card { padding:24px 20px; }
+}
+
+.cp-form input, .cp-form select, .cp-form textarea { scroll-margin-top:120px; }

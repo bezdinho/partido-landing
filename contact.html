@@ -16,14 +16,14 @@
 
   <!-- Styles -->
   <link rel="stylesheet" href="css/base.css">
-  <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/nav.css?v=nav-2">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/footer.css">
-  <link rel="stylesheet" href="css/contact-page.css">
+  <link rel="stylesheet" href="css/contact-page.css?v=contact-2">
 
   <!-- Scripts -->
-  <script src="js/main.js" defer></script>
-  <script src="js/contact.js" defer></script>
+  <script src="js/main.js?v=contact-2" defer></script>
+  <script src="js/contact.js?v=contact-4" defer></script>
 </head>
 <body>
 
@@ -86,33 +86,11 @@
       <div class="cp-left__content">
         <span class="sec-label" data-i18n="contact.label">Contact</span>
 
-        <h1 class="cp-left__heading" data-i18n="contact.heading">Get in Touch</h1>
+        <h1 class="cp-left__heading" data-i18n="contact.heading">Parlons foot. Parlons Partido.</h1>
 
-        <p class="cp-left__intro" data-i18n="contact.intro">Have a question, feedback, a partnership idea, or just want to say hello? We'd love to hear from you.</p>
+        <p class="cp-left__intro" data-i18n="contact.intro">Une question sur l’application, un tournoi ou une idée de partenariat ? Écrivez-nous.</p>
 
-        <ul class="cp-left__reasons">
-          <li>
-            <span class="cp-reason__icon">&#9679;</span>
-            <div>
-              <strong data-i18n="contact.r1t">Questions about the app</strong>
-              <p data-i18n="contact.r1p">Something not working? We'll help you out.</p>
-            </div>
-          </li>
-          <li>
-            <span class="cp-reason__icon">&#9679;</span>
-            <div>
-              <strong data-i18n="contact.r2t">Feedback &amp; suggestions</strong>
-              <p data-i18n="contact.r2p">Your ideas shape the product. Share them.</p>
-            </div>
-          </li>
-          <li>
-            <span class="cp-reason__icon">&#9679;</span>
-            <div>
-              <strong data-i18n="contact.r3t">Partnerships &amp; business</strong>
-              <p data-i18n="contact.r3p">Clubs, brands, or investors — let's talk.</p>
-            </div>
-          </li>
-        </ul>
+
 
         <div class="cp-left__direct">
           <span data-i18n="contact.direct">Or reach us directly at:</span>
@@ -133,57 +111,50 @@
 
         <div class="cp-form-card__header">
           <h2 data-i18n="contact.formtitle">Send us a message</h2>
-          <p data-i18n="contact.formsub">We usually reply within 24 hours.</p>
+          <p data-i18n="contact.formsub">Nous vous répondrons à l’adresse e-mail indiquée. Tous les champs sont obligatoires.</p>
         </div>
 
         <form class="cp-form" id="contact-form" novalidate>
 
-          <div class="cp-form__row">
-            <div class="cp-form__field">
-              <label for="cp-fname" data-i18n="contact.fname">First name</label>
-              <input id="cp-fname" type="text" name="first_name"
-                placeholder="Yassine" autocomplete="given-name" required>
-            </div>
-            <div class="cp-form__field">
-              <label for="cp-lname" data-i18n="contact.lname">Last name</label>
-              <input id="cp-lname" type="text" name="last_name"
-                placeholder="El Amrani" autocomplete="family-name" required>
-            </div>
+          <div class="cp-form__field">
+            <label for="cp-name" data-i18n="contact.name">Votre nom</label>
+            <input id="cp-name" type="text" name="name" autocomplete="name" required maxlength="150" aria-describedby="cp-name-error">
+            <span class="cp-field-error" id="cp-name-error" hidden></span>
           </div>
 
           <div class="cp-form__field">
             <label for="cp-email" data-i18n="contact.email">Email address</label>
             <input id="cp-email" type="email" name="email"
-              placeholder="you@example.com" autocomplete="email" required>
+              placeholder="vous@exemple.com" data-i18n-placeholder="contact.emailph" autocomplete="email" required maxlength="254" aria-describedby="cp-email-error">
+            <span class="cp-field-error" id="cp-email-error" hidden></span>
           </div>
 
-          <div class="cp-form__field">
-            <label for="cp-phone" data-i18n="contact.phone">Phone number <span class="cp-optional">(optional)</span></label>
-            <input id="cp-phone" type="tel" name="phone"
-              placeholder="+212 6XX XXX XXX" autocomplete="tel">
-          </div>
+
 
           <div class="cp-form__field">
             <label for="cp-topic" data-i18n="contact.topic">How can we help?</label>
             <div class="cp-select-wrap">
-              <select id="cp-topic" name="topic" required>
+              <select id="cp-topic" name="topic" required aria-describedby="cp-topic-error">
                 <option value="" disabled selected data-i18n="contact.topicph">Select a topic...</option>
                 <option value="question" data-i18n="contact.t1">Question about the app</option>
                 <option value="feedback" data-i18n="contact.t2">Feedback or suggestion</option>
                 <option value="partnership" data-i18n="contact.t3">Partnership or business</option>
-                <option value="press" data-i18n="contact.t4">Press or media</option>
+                <option value="tournament" data-i18n="contact.t4">Tournois</option>
                 <option value="other" data-i18n="contact.t5">Other</option>
               </select>
               <svg class="cp-select-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none">
                 <path d="M2 4.5L6 8.5L10 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
+            <span class="cp-field-error" id="cp-topic-error" hidden></span>
+            <a class="cp-faq-link" href="tournaments.html#questions" data-i18n="contact.faq">Une question sur les tournois ? Consultez la FAQ.</a>
           </div>
 
           <div class="cp-form__field">
             <label for="cp-msg" data-i18n="contact.message">Message</label>
             <textarea id="cp-msg" name="message" rows="5"
-              placeholder="Tell us what's on your mind..." required></textarea>
+              data-i18n-placeholder="contact.messageph" placeholder="Expliquez-nous votre demande…" required maxlength="5000" aria-describedby="cp-msg-error"></textarea>
+            <span class="cp-field-error" id="cp-msg-error" hidden></span>
           </div>
 
           <button type="submit" class="cp-submit btn-p">
