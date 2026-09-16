@@ -73,7 +73,7 @@ const T = {
       t3:'Partnership or business', t4:'Press or media', t5:'Other',
       btn:'Send message', direct:'Or reach us directly at:',
     },
-    footer: { privacy:'Privacy', terms:'Terms', contact:'Contact', getapp:'Get the app', tagline:'Connecting players through the beautiful game.', copy:'© 2026 Partido, a brand of BBF Ventures. All rights reserved.' },
+    footer: { privacy:'Privacy', terms:'Terms', contact:'Contact', getapp:'Get the app', explore:'Explore Partido', delete:'Delete account', tagline:'Football brings us together.', copy:'© 2026 Partido, a brand of BBF Ventures. All rights reserved.' },
     bridge: { text: 'Missing a few players?', sub: 'Publish your match and find the players you need.' },
     tp: {
       heroBadge: 'Coming in 2026',
@@ -217,7 +217,7 @@ const T = {
       },
       s2: {
         title: '2. Eligibility',
-        body: '<p>To use the Service, you must be at least <strong>14 years old</strong>.</p><p>If you are between <strong>14 and 18 years old</strong>, you confirm that you have obtained permission from a parent or legal guardian to use the Service, and that they have reviewed and accepted these Terms on your behalf.</p><p>By using the Service, you represent and warrant that:</p><ul><li>You meet the minimum age requirement;</li><li>All information you provide is accurate and truthful;</li><li>You have the legal capacity to enter into these Terms.</li></ul><p>You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account.</p><p>We reserve the right to suspend or terminate any account if we believe that a user does not meet these eligibility requirements.</p>',
+        body: '<p>To use the Service, you must be at least <strong>13 years old</strong>.</p><p>If you are between <strong>13 and 18 years old</strong>, you confirm that you have obtained permission from a parent or legal guardian to use the Service, and that they have reviewed and accepted these Terms on your behalf.</p><p>By using the Service, you represent and warrant that:</p><ul><li>You meet the minimum age requirement;</li><li>All information you provide is accurate and truthful;</li><li>You have the legal capacity to enter into these Terms.</li></ul><p>You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account.</p><p>We reserve the right to suspend or terminate any account if we believe that a user does not meet these eligibility requirements.</p>',
       },
       s3: {
         title: '3. User Accounts',
@@ -341,7 +341,7 @@ const T = {
       t3:'Partenariat ou business', t4:'Presse ou médias', t5:'Autre',
       btn:'Envoyer le message', direct:'Ou contactez-nous directement à :',
     },
-    footer: { privacy:'Confidentialité', terms:'CGU', contact:'Contact', getapp:"Télécharger l'app", tagline:'Connecter les joueurs à travers le beau jeu.', copy:'© 2026 Partido, une marque de BBF Ventures. Tous droits réservés.' },
+    footer: { privacy:'Confidentialité', terms:'CGU', contact:'Contact', getapp:"Télécharger l'app", explore:'Découvrir Partido', delete:'Supprimer mon compte', tagline:'Le foot nous rassemble.', copy:'© 2026 Partido, une marque de BBF Ventures. Tous droits réservés.' },
     bridge: { text: 'Il vous manque des joueurs ?', sub: 'Publiez votre match et trouvez les participants qu’il vous manque.' },
     tp: {
       heroBadge: 'Arrive en 2026',
@@ -485,7 +485,7 @@ const T = {
       },
       s2: {
         title: '2. Éligibilité',
-        body: '<p>Pour utiliser le Service, vous devez avoir au moins <strong>14 ans</strong>.</p><p>Si vous avez entre <strong>14 et 18 ans</strong>, vous confirmez avoir obtenu l\'autorisation d\'un parent ou tuteur légal pour utiliser le Service, et qu\'ils ont examiné et accepté ces Conditions en votre nom.</p><p>En utilisant le Service, vous déclarez et garantissez que :</p><ul><li>Vous satisfaisez à l\'exigence d\'âge minimum ;</li><li>Toutes les informations que vous fournissez sont exactes et véridiques ;</li><li>Vous avez la capacité juridique de conclure ces Conditions.</li></ul><p>Vous êtes responsable de la confidentialité de vos identifiants de compte et de toutes les activités effectuées sous votre compte.</p><p>Nous nous réservons le droit de suspendre ou de résilier tout compte si nous estimons qu\'un utilisateur ne satisfait pas à ces conditions d\'éligibilité.</p>',
+        body: '<p>Pour utiliser le Service, vous devez avoir au moins <strong>13 ans</strong>.</p><p>Si vous avez entre <strong>13 et 18 ans</strong>, vous confirmez avoir obtenu l\'autorisation d\'un parent ou tuteur légal pour utiliser le Service, et qu\'ils ont examiné et accepté ces Conditions en votre nom.</p><p>En utilisant le Service, vous déclarez et garantissez que :</p><ul><li>Vous satisfaisez à l\'exigence d\'âge minimum ;</li><li>Toutes les informations que vous fournissez sont exactes et véridiques ;</li><li>Vous avez la capacité juridique de conclure ces Conditions.</li></ul><p>Vous êtes responsable de la confidentialité de vos identifiants de compte et de toutes les activités effectuées sous votre compte.</p><p>Nous nous réservons le droit de suspendre ou de résilier tout compte si nous estimons qu\'un utilisateur ne satisfait pas à ces conditions d\'éligibilité.</p>',
       },
       s3: {
         title: '3. Comptes Utilisateurs',
@@ -609,7 +609,7 @@ const T = {
       t3:'شراكة أو أعمال', t4:'صحافة أو إعلام', t5:'أخرى',
       btn:'إرسال الرسالة', direct:'أو تواصل معنا مباشرةً على:',
     },
-    footer: { privacy:'الخصوصية', terms:'الشروط', contact:'تواصل معنا', getapp:'حمّل التطبيق', tagline:'نربط اللاعبين من خلال الجميلة.', copy:'© 2026 Partido، علامة تجارية لـ BBF Ventures. جميع الحقوق محفوظة.' },
+    footer: { privacy:'الخصوصية', terms:'الشروط', contact:'تواصل معنا', getapp:'حمّل التطبيق', explore:'اكتشف بارتيدو', delete:'حذف الحساب', tagline:'الكرة كتجمعنا.', copy:'© 2026 Partido، علامة تجارية لـ BBF Ventures. جميع الحقوق محفوظة.' },
     bridge: { text: 'ينقصكم لاعبون؟', sub: 'انشروا مباراتكم واعثروا على اللاعبين الذين ينقصونكم.' },
     tp: {
       heroBadge: 'قادم في 2026',
@@ -753,7 +753,7 @@ const T = {
       },
       s2: {
         title: '٢. الأهلية',
-        body: '<p>لاستخدام الخدمة، يجب أن يكون عمرك <strong>14 عاماً على الأقل</strong>.</p><p>إذا كان عمرك بين <strong>14 و18 عاماً</strong>، فأنت تؤكد أنك حصلت على إذن من أحد الوالدين أو الوصيّ القانوني لاستخدام الخدمة، وأنهم اطّلعوا على هذه الشروط وقبلوها نيابةً عنك.</p><p>باستخدام الخدمة، تُقرّ وتضمن ما يلي:</p><ul><li>استيفاؤك لشرط الحدّ الأدنى للسن؛</li><li>دقة جميع المعلومات التي تُقدّمها وصحّتها؛</li><li>امتلاكك الأهليةَ القانونية للالتزام بهذه الشروط.</li></ul><p>أنت مسؤول عن الحفاظ على سرية بيانات اعتماد حسابك وعن جميع الأنشطة التي تجري تحت حسابك.</p><p>نحتفظ بالحق في تعليق أي حساب أو إنهائه إذا اعتقدنا أن المستخدم لا يستوفي متطلبات الأهلية هذه.</p>',
+        body: '<p>لاستخدام الخدمة، يجب أن يكون عمرك <strong>13 عاماً على الأقل</strong>.</p><p>إذا كان عمرك بين <strong>13 و18 عاماً</strong>، فأنت تؤكد أنك حصلت على إذن من أحد الوالدين أو الوصيّ القانوني لاستخدام الخدمة، وأنهم اطّلعوا على هذه الشروط وقبلوها نيابةً عنك.</p><p>باستخدام الخدمة، تُقرّ وتضمن ما يلي:</p><ul><li>استيفاؤك لشرط الحدّ الأدنى للسن؛</li><li>دقة جميع المعلومات التي تُقدّمها وصحّتها؛</li><li>امتلاكك الأهليةَ القانونية للالتزام بهذه الشروط.</li></ul><p>أنت مسؤول عن الحفاظ على سرية بيانات اعتماد حسابك وعن جميع الأنشطة التي تجري تحت حسابك.</p><p>نحتفظ بالحق في تعليق أي حساب أو إنهائه إذا اعتقدنا أن المستخدم لا يستوفي متطلبات الأهلية هذه.</p>',
       },
       s3: {
         title: '٣. حسابات المستخدمين',
@@ -834,9 +834,8 @@ const STORE_SVGS = {
   }
 };
 
-// Launch-day presentation: show the full App Store badge now.
-// Add the real URL here when available; until then badges have no destination.
-const APP_STORE_URL = null;
+// Official App Store destination shared by all localized badges.
+const APP_STORE_URL = 'https://apps.apple.com/app/id6751658726';
 
 function activateAppStoreBadges() {
   if (!APP_STORE_URL) return;
@@ -957,6 +956,10 @@ function applyLang(lang) {
     if (val !== undefined) el.innerHTML = val;
   });
 
+  const legalSuffix = lang === 'en' ? '' : '-' + lang;
+  document.querySelectorAll('[data-footer-privacy]').forEach(a => a.href = 'privacy' + legalSuffix + '.html');
+  document.querySelectorAll('[data-footer-delete]').forEach(a => a.href = 'delete-account' + legalSuffix + '.html');
+
   const menuButton = document.querySelector('.nav-burger');
   if (menuButton) menuButton.setAttribute('aria-label', {fr:'Menu de navigation',en:'Navigation menu',ar:'قائمة التنقل'}[lang]);
   if (document.body.classList.contains('tournament-page')) {
@@ -984,6 +987,14 @@ function applyLang(lang) {
     link.href = base + (lang === "fr" ? "" : "-" + lang) + ".html";
   });
 
+  // Shared legal navigation follows the selected language.
+  const legalLabels = {fr:['Conditions d’utilisation','Confidentialité','Suppression du compte'],en:['Terms of use','Privacy','Account deletion'],ar:['شروط الاستخدام','الخصوصية','حذف الحساب']};
+  document.querySelectorAll('[data-legal-link]').forEach(a => {
+    const key = a.dataset.legalLink;
+    a.textContent = legalLabels[lang][['terms','privacy','delete'].indexOf(key)];
+    a.href = key === 'terms' ? 'terms.html' : (key === 'privacy' ? 'privacy' : 'delete-account') + legalSuffix + '.html';
+  });
+
   // Page title
   const pageId = document.body && document.body.getAttribute('data-page');
   if (document.querySelector('.contact-page')) {
@@ -994,6 +1005,8 @@ function applyLang(lang) {
     document.title = document.body.dataset.guideTitle;
   } else if (pageId && t.art && t.art[pageId]) {
     document.title = t.art[pageId].pagetitle;
+  } else if (document.body.dataset.legalPage) {
+    document.title = legalLabels[lang][['terms','privacy','delete'].indexOf(document.body.dataset.legalPage)] + ' — Partido';
   } else {
     const titles = { en:'Partido Sports — Find Your Game', fr:'Partido Sports — Trouve Ton Match', ar:'بارتيدو — العب كرتك' };
     document.title = titles[lang] || titles.en;
@@ -1106,7 +1119,8 @@ window.addEventListener('scroll', () => {
   let saved;
   try { saved = localStorage.getItem('partido_lang'); } catch(e) {}
   const browserLang = (navigator.language || '').slice(0,2).toLowerCase();
-  const lang = document.body.dataset.guideLang || ((saved && T[saved]) ? saved
+  const staticLegalLang = /^(privacy|delete-account)(-fr|-ar)?\.html$/.test(location.pathname.split('/').pop()) ? document.documentElement.lang : null;
+  const lang = staticLegalLang || document.body.dataset.guideLang || ((saved && T[saved]) ? saved
     : (T[browserLang] ? browserLang : 'en'));
   applyLang(lang);
 })();
