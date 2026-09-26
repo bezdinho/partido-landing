@@ -838,7 +838,7 @@ const STORE_SVGS = {
 };
 
 // Official App Store destination shared by all localized badges.
-const APP_STORE_URL = 'https://apps.apple.com/app/id6751658726';
+const APP_STORE_URL = 'https://apps.apple.com/app/apple-store/id6751658726?pt=128093686&ct=website&mt=8';
 
 function activateAppStoreBadges() {
   if (!APP_STORE_URL) return;
