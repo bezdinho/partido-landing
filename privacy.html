@@ -93,7 +93,7 @@
       <header class="pp-header">
         <div class="pp-label">Legal</div>
         <h1 class="pp-title">Privacy Policy</h1>
-        <p class="pp-date"><strong>Last updated:</strong> August 4, 2026</p>
+        <p class="pp-date"><strong>Last updated:</strong> October 21, 2026</p>
         <div class="pp-intro">
           <p>Partido is committed to protecting your personal data and ensuring transparency in how it is used.</p>
           <p>This Privacy Policy explains how your personal data is collected, used, stored, and protected when you use the Partido mobile application, website, and related services.</p>
@@ -157,6 +157,7 @@
           <li>optional biography</li>
         </ul>
         <p>Some profile information may be optional.</p>
+        <p>Your profile (username, photo, and the information you add to it, as well as your matches, your statistics, and your connections) is visible to other players. You can hide your name and your city.</p>
 
         <h3>3.3 Activity and Usage Data</h3>
         <p>We process data related to your activity on Partido, including:</p>
@@ -167,14 +168,21 @@
           <li>in-app interactions</li>
         </ul>
 
-        <h3>3.4 Messaging Data (Match-Based Chat Only)</h3>
-        <p>When you participate in a match:</p>
+        <h3>3.4 Messaging Data (Match Chats and Private Messages)</h3>
+        <p>Partido offers two types of chat.</p>
+        <p><strong>Match group chat.</strong> When you participate in a match:</p>
         <ul>
           <li>you are automatically included in a group chat linked to that match</li>
           <li>messages you send are visible to all participants in that match</li>
           <li>when you leave the match, you lose access to the associated chat</li>
         </ul>
-        <p>Partido does not offer private one-to-one messaging at launch.</p>
+        <p><strong>Private messages.</strong> You can exchange one-to-one messages with another player:</p>
+        <ul>
+          <li>in the app, only the two participants have access to these messages</li>
+          <li>you can block or report the other player</li>
+          <li>a player you have blocked can no longer write to you</li>
+        </ul>
+        <p>Messages may contain text, photos, videos, voice messages, a location (if you send it), or a shared match or profile.</p>
 
         <h3>3.5 Location Data</h3>
         <p>With your consent, Partido may access your device location to:</p>
@@ -231,7 +239,7 @@
         <ul>
           <li>account creation and management</li>
           <li>match organization and participation</li>
-          <li>enabling match-related interactions</li>
+          <li>enabling match-related interactions and messaging between players</li>
         </ul>
         <p><span class="pp-basis"><strong>Legal basis:</strong> contractual necessity</span></p>
 
@@ -312,8 +320,10 @@
         <h2>8. Data Retention</h2>
         <p>We retain personal data as follows:</p>
         <ul>
-          <li>Account data: retained for the duration of your account and deleted within 60 days of account deletion</li>
+          <li>Account data: retained for the duration of your account, then anonymised as soon as you delete it</li>
           <li>Match and activity data: retained for the duration of your account</li>
+          <li>Messages: retained with no automatic deletion; after your account is deleted, they remain visible to the other participants under “User unavailable”</li>
+          <li>Reports: retained</li>
           <li>Technical logs and diagnostic data: retained for up to 12 months</li>
           <li>Support requests: retained for up to 24 months after resolution</li>
         </ul>
@@ -337,12 +347,14 @@
         <p>You may exercise your rights by contacting us at: <strong><a href="mailto:admin@partido.ma">admin@partido.ma</a></strong></p>
         <p>You may also lodge a complaint with the competent authority, including the <strong>CNDP</strong> in Morocco.</p>
         <p>Partido does not generally use your personal data for automated decision-making or profiling. If this changes in the future, this Privacy Policy will be updated accordingly.</p>
+        <p>Leaving a match less than 60 minutes before kick-off automatically records a “late departure” visible on your profile.</p>
       </section>
 
       <!-- 10. Account Deletion -->
       <section id="s10" class="pp-section">
         <h2>10. Account Deletion</h2>
         <p>You may request deletion of your account through the app or by contacting us.</p>
+        <p>When you delete your account, it is anonymised immediately. Messages you sent remain visible to the other participants under “User unavailable”, and reports are retained.</p>
         <p>Certain data may be retained where necessary for legal compliance, security, or dispute resolution.</p>
         <p>For step-by-step instructions, including how to request deletion if you no longer have the app installed, see our <a href="delete-account.html">account deletion page</a>.</p>
       </section>
@@ -372,7 +384,7 @@
       <!-- 14. Disclosure to Other Users and Third Parties -->
       <section id="s14" class="pp-section">
         <h2>14. Disclosure to Other Users and Third Parties</h2>
-        <p>Partido enables users to participate in matches and related group chats. Information that you choose to share within a match, a group chat, or any other user-facing area of the app may be visible to other users participating in that context.</p>
+        <p>Partido enables users to participate in matches and related group chats, and to exchange private messages with other players. Information that you choose to share within a match, a group chat, a private conversation, or any other user-facing area of the app may be visible to other users participating in that context.</p>
         <p>If you disclose information to other users or to third-party services linked from Partido, different privacy practices may apply to that information. Partido does not control the privacy practices of third parties and is not responsible for their independent policies or actions.</p>
         <p>Users should exercise caution when sharing personal information with others through the app.</p>
       </section>
@@ -381,17 +393,14 @@
       <section id="s15" class="pp-section">
         <h2>15. Third-Party Services</h2>
         <p>Partido relies on third-party services to operate certain features of the application.</p>
-        <p>These include:</p>
+        <p>They fall into the following categories:</p>
         <ul>
-          <li><strong>Authentication:</strong> Google, Apple, Facebook</li>
-          <li><strong>Verification SMS delivery:</strong> Twilio</li>
-          <li><strong>Push notifications:</strong> Firebase Cloud Messaging (Google)</li>
-          <li><strong>Real-time messaging:</strong> Pusher</li>
-          <li><strong>Maps and pitch locations:</strong> Google Maps (Google)</li>
-          <li><strong>Hosting and infrastructure:</strong> Google Cloud Platform</li>
-          <li><strong>Database:</strong> MongoDB Atlas</li>
-          <li><strong>Transactional email delivery:</strong> SMTP relay provider</li>
-          <li><strong>Analytics, measurement, and attribution:</strong> see Section 21</li>
+          <li>authentication (Google, Apple, Facebook)</li>
+          <li>SMS and email delivery</li>
+          <li>notifications and real-time messaging</li>
+          <li>audience measurement and diagnostics (Firebase, AppsFlyer; see Section 21)</li>
+          <li>hosting and database</li>
+          <li>mapping and place search services</li>
         </ul>
         <p>These third-party providers may process personal data on our behalf or as independent controllers, in accordance with their own privacy policies.</p>
       </section>
