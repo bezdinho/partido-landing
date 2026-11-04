@@ -1,6 +1,7 @@
 {
   "rewrites": [
-    { "source": "/g/:code", "destination": "/api/group-link?code=:code" }
+    { "source": "/g/:code", "destination": "/api/group-link?code=:code" },
+    { "source": "/m/:id", "destination": "/api/match-link?id=:id" }
   ],
   "headers": [
     {
