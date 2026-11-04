@@ -7,6 +7,8 @@
 // Elle contient le français et l'arabe : js/group-link.js choisit la langue chez
 // le visiteur, si bien qu'une seule version est gardée en cache par Vercel.
 
+const { isIP } = require('net');
+
 const API_BASE = 'https://api.partido.ma/v1/groups/links';
 const ONELINK = 'https://partidoapp.onelink.me/Yi0x';
 const SITE = 'https://www.partido.ma'; // partido.ma renvoie ici : les robots n'ont pas de redirection à suivre
@@ -285,11 +287,24 @@ function ogFromShare(share, code) {
 
 // ── Serveur Partido ────────────────────────────────────────────────
 
-async function fetchPreview(code, ref, lang, signal) {
+// Adresse du vrai visiteur telle que Vercel la donne : une seule, et de forme valide.
+// Elle ne sert qu'à l'appel au serveur : ni la page, ni les journaux, ni le cache ne la voient.
+function visitorIp(req) {
+  const { 'x-real-ip': realIp, 'x-forwarded-for': forwarded = '' } = req.headers;
+  const address = (realIp || forwarded.split(',')[0]).trim();
+  // isIP accepte « fe80::1%eth0 » : un suffixe de zone n'a pas de sens pour un visiteur.
+  return isIP(address) && !address.includes('%') ? address : null;
+}
+
+async function fetchPreview(code, ref, lang, signal, visitor) {
   const query = new URLSearchParams({ lang });
   if (ref) query.set('r', ref);
   const headers = { Accept: 'application/json' };
-  if (process.env.PARTIDO_SITE_KEY) headers['X-Partido-Site-Key'] = process.env.PARTIDO_SITE_KEY;
+  if (process.env.PARTIDO_SITE_KEY) {
+    headers['X-Partido-Site-Key'] = process.env.PARTIDO_SITE_KEY;
+    // Le serveur compte alors ses limites sur le visiteur, pas sur l'adresse de Vercel.
+    if (visitor) headers['X-Partido-Visitor-IP'] = visitor;
+  }
 
   try {
     // redirect: 'error' : le laissez-passer n'est jamais renvoyé vers une autre adresse.
@@ -306,7 +321,7 @@ async function fetchPreview(code, ref, lang, signal) {
   }
 }
 
-async function buildPage(code, ref) {
+async function buildPage(code, ref, visitor) {
   const unknown = () => ({
     status: 404,
     cache: CACHE_NORMAL,
@@ -319,7 +334,7 @@ async function buildPage(code, ref) {
   // Un seul délai pour les deux appels. L'arabe n'est demandé que pour un lien valide :
   // les codes faux comptent dans une limite stricte par adresse IP, côté serveur.
   const signal = AbortSignal.timeout(UPSTREAM_TIMEOUT_MS);
-  const fr = await fetchPreview(code, ref, 'fr', signal);
+  const fr = await fetchPreview(code, ref, 'fr', signal, visitor);
   if (fr.kind === 'notfound') return unknown();
   if (fr.kind !== 'ok' || !fr.data || typeof fr.data !== 'object') return fallback();
 
@@ -337,7 +352,7 @@ async function buildPage(code, ref) {
 
   if (data.status !== 'active' || !cleanText(data.name)) return fallback();
 
-  const ar = await fetchPreview(code, ref, 'ar', signal);
+  const ar = await fetchPreview(code, ref, 'ar', signal, visitor);
   const arOk = ar.kind === 'ok' && ar.data && ar.data.status === 'active';
   const cityAr = arOk ? cleanText(ar.data.city && ar.data.city.name) : null;
   return {
@@ -363,7 +378,7 @@ module.exports = async function groupLink(req, res) {
 
   let page;
   try {
-    page = await buildPage(code, ref);
+    page = await buildPage(code, ref, visitorIp(req));
   } catch (error) {
     console.error('[group-link] erreur de fabrication', error && error.name);
     page = CODE_RE.test(code)
