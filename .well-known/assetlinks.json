@@ -1,0 +1,11 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.partido.master",
+    "sha256_cert_fingerprints": [
+      "CD:01:C4:E2:02:05:11:12:CF:39:76:F6:13:2C:07:3F:35:80:B8:24:DC:8A:E7:0E:F7:E3:55:D8:CD:AB:09:C6",
+      "7A:2E:BA:FD:24:D6:5F:81:1A:A4:54:7F:3C:4A:7C:42:05:4F:9F:8F:8E:B1:C8:4F:87:FD:3F:20:38:D5:6A:40"
+    ]
+  }
+}]

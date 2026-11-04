@@ -1,0 +1,13 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appIDs": ["T6HUX86LM8.com.partido.master"],
+        "components": [{ "/": "/g/*" }, { "/": "/m/*" }],
+        "appID": "T6HUX86LM8.com.partido.master",
+        "paths": ["/g/*", "/m/*"]
+      }
+    ]
+  }
+}
