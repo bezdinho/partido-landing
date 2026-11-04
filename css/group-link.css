@@ -1,0 +1,220 @@
+/* Page d'un lien de groupe (/g/<code>). Autonome : aucune autre feuille du site n'est chargée. */
+
+:root {
+  --g: #99ca3c;
+  --bg: #111310;
+  --text: #f0f2ea;
+  --muted: #a1a795;
+  --bdr: #2a2d25;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; background: var(--bg); }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  color: var(--text);
+  /* Satoshi n'a pas de lettres arabes : Cairo les prend, les mots latins restent en Satoshi. */
+  font-family: 'Satoshi', 'Cairo', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Les deux langues sont dans la page ; une seule est visible. */
+html[lang="fr"] .l-ar,
+html[lang="ar"] .l-fr { display: none !important; }
+
+bdi { unicode-bidi: isolate; }
+
+/* ── Haut de page : logo à gauche et langue à droite, dans les deux sens ── */
+.g-top {
+  direction: ltr;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 8px 18px;
+}
+.g-logo { display: block; flex: none; }
+.g-logo svg { display: block; height: 32px; width: auto; }
+
+.g-lang { display: flex; align-items: center; gap: 2px; color: var(--muted); font-size: 14px; }
+html[dir="rtl"] .g-lang { direction: rtl; }
+.g-lang button {
+  min-height: 40px;
+  padding: 0 6px;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font: inherit;
+  cursor: pointer;
+}
+.g-lang button:hover { color: var(--text); }
+.g-lang button[lang="ar"] { font-family: 'Cairo', sans-serif; }
+html[lang="fr"] .g-lang button[data-lang="fr"],
+html[lang="ar"] .g-lang button[data-lang="ar"] { color: var(--text); font-weight: 700; }
+.g-lang button:focus-visible,
+.g-cta:focus-visible,
+.g-badge:focus-visible,
+.g-logo:focus-visible { outline: 2px solid var(--g); outline-offset: 2px; }
+
+/* ── Photo floutée et hexagone ── */
+.g-main { display: flex; flex-direction: column; }
+
+.g-hero {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: 28px 0 16px;
+  overflow: hidden;
+}
+.g-hero--photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(17, 19, 16, .2) 0%, rgba(17, 19, 16, .35) 55%, var(--bg) 100%);
+}
+.g-hero__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(9px) brightness(.55);
+  transform: scale(1.12);
+}
+.g-hex { position: relative; z-index: 1; display: block; width: 92px; height: auto; }
+
+/* ── Colonne de contenu ── */
+.g-col {
+  width: 100%;
+  max-width: 544px;
+  margin: 0 auto;
+  padding: 0 18px;
+  text-align: center;
+}
+.g-col--dead { padding-top: 62px; }
+
+.g-eyebrow {
+  margin: 0 0 8px;
+  color: var(--g);
+  font-size: 13.5px;
+  font-weight: 700;
+  letter-spacing: .16em;
+}
+html[lang="ar"] .g-eyebrow { font-size: 14.5px; letter-spacing: 0; }
+
+.g-title {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -.01em;
+  text-transform: uppercase;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
+}
+.g-title--long { font-size: 25px; }
+.g-col--dead .g-title { font-size: 27px; }
+html[lang="ar"] .g-title { font-weight: 700; letter-spacing: 0; line-height: 1.3; text-transform: none; }
+
+.g-meta { margin: 12px 0 0; color: var(--muted); font-size: 16px; }
+
+.g-text { margin: 16px 0 0; color: var(--muted); font-size: 16.5px; overflow-wrap: anywhere; }
+.g-text--invite { color: var(--text); }
+.g-text b { font-weight: 700; }
+
+.g-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  margin-top: 24px;
+  padding: 10px 20px;
+  border-radius: 999px;
+  background: radial-gradient(120% 150% at 50% 0%, #b6dc55 0%, #99ca3c 50%, #86b02c 100%);
+  color: #0d0e0c;
+  font-size: 18px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: filter .2s;
+}
+.g-cta:hover { filter: brightness(1.07); }
+
+/* Les badges gardent le même ordre dans les deux langues (maquette 7b). */
+.g-badges { direction: ltr; display: flex; justify-content: center; gap: 12px; margin-top: 16px; }
+.g-badge { display: block; min-width: 0; }
+.g-badge svg { display: block; height: 42px; width: auto; max-width: 100%; }
+
+.g-steps {
+  list-style: none;
+  margin: 24px 0 0;
+  padding: 16px;
+  border: 1px solid var(--bdr);
+  border-radius: 18px;
+  text-align: start;
+  font-size: 15.5px;
+}
+.g-steps li { display: flex; align-items: center; gap: 12px; padding: 4px 0; }
+.g-steps__n {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(153, 202, 60, .16);
+  color: var(--g);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.g-dead-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 96px;
+  height: 96px;
+  margin: 0 auto 24px;
+  border-radius: 50%;
+  background: rgba(153, 202, 60, .16);
+  color: var(--g);
+}
+.g-dead-icon svg { width: 44px; height: 44px; }
+
+.g-pitch { margin: 24px 0 0; color: var(--muted); font-size: 15.5px; }
+
+.g-foot {
+  margin-top: auto;
+  padding: 28px 12px 20px;
+  color: #80867a;
+  font-size: 13px;
+  text-align: center;
+  text-wrap: balance;
+}
+
+@media (max-width: 340px) {
+  .g-badge svg { height: 36px; }
+  .g-title { font-size: 26px; }
+}
+
+@media (min-width: 768px) {
+  .g-top { padding: 12px 32px; }
+  .g-logo svg { height: 40px; }
+  .g-lang { font-size: 15px; }
+  .g-hero { padding: 44px 0 24px; }
+  .g-hex { width: 112px; }
+  .g-title { font-size: 38px; }
+  .g-title--long { font-size: 30px; }
+  .g-col--dead { padding-top: 88px; }
+  .g-col--dead .g-title { font-size: 34px; }
+  .g-badge svg { height: 46px; }
+}
