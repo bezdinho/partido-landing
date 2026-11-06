@@ -118,7 +118,11 @@ function oneLink(code, ref) {
     deep_link_sub1: 'group',
     deep_link_sub2: code,
   });
-  if (ref) params.set('deep_link_sub3', ref);
+  if (ref) {
+    params.set('af_sub1', ref);
+    params.set('af_referrer_customer_id', ref);
+    params.set('deep_link_sub3', ref);
+  }
   return `${ONELINK}?${params}`;
 }
 
