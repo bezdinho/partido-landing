@@ -112,6 +112,8 @@ function metaLine(count, city) {
 
 function oneLink(code, ref) {
   const params = new URLSearchParams({
+    pid: ref ? 'af_app_invites' : 'site_partido', // ref n'arrive ici que s'il est bien formé
+    c: 'page_groupe',
     deep_link_value: 'invite',
     deep_link_sub1: 'group',
     deep_link_sub2: code,

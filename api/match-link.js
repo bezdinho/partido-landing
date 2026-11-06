@@ -188,8 +188,13 @@ function t(key) {
 
 // ── Liens ──────────────────────────────────────────────────────────
 
+// r n'arrive ici que s'il est bien formé.
+function attribution(r) {
+  return { pid: r ? 'af_app_invites' : 'site_partido', c: 'page_match' };
+}
+
 function matchLink(id, { r, s }) {
-  const params = new URLSearchParams({ deep_link_value: id });
+  const params = new URLSearchParams({ ...attribution(r), deep_link_value: id });
   if (r) {
     params.set('af_sub1', r);
     params.set('af_referrer_customer_id', r);
@@ -199,7 +204,9 @@ function matchLink(id, { r, s }) {
 }
 
 function discoverLink({ r }) {
-  return r ? `${ONELINK}?${new URLSearchParams({ af_sub1: r })}` : ONELINK;
+  const params = new URLSearchParams(attribution(r));
+  if (r) params.set('af_sub1', r);
+  return `${ONELINK}?${params}`;
 }
 
 // Adresse complète, r, s et l compris : Facebook relit og:url et perdrait sinon la langue et les boutons du lien partagé.
