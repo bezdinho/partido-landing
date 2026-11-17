@@ -4,9 +4,9 @@
     "details": [
       {
         "appIDs": ["T6HUX86LM8.com.partido.master"],
-        "components": [{ "/": "/g/*" }, { "/": "/m/*" }],
+        "components": [{ "/": "/g/*" }, { "/": "/m/*" }, { "/": "/u/*" }],
         "appID": "T6HUX86LM8.com.partido.master",
-        "paths": ["/g/*", "/m/*"]
+        "paths": ["/g/*", "/m/*", "/u/*"]
       }
     ]
   }
