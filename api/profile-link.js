@@ -129,16 +129,13 @@ function attribution(r) {
   return { pid: r ? 'af_app_invites' : 'site_partido', c: 'page_profil' };
 }
 
-// af_ios_url / af_android_url : sans l'app, OneLink ramène sur cette page au lieu d'un store.
+// Pas d'af_ios_url / af_android_url (comme /m/ et /g/) : sans l'app, OneLink mène au store.
 function profileLink(id, params) {
   const url = new URLSearchParams({ ...attribution(params.r), deep_link_value: 'invite', deep_link_sub1: 'profile', deep_link_sub2: id });
   if (params.r) {
     url.set('af_sub1', params.r);
     url.set('af_referrer_customer_id', params.r);
   }
-  const back = pageUrl(id, params);
-  url.set('af_ios_url', back);
-  url.set('af_android_url', back);
   return `${ONELINK}?${url}`;
 }
 
