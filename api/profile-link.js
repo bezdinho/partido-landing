@@ -3,7 +3,7 @@
 // Page publique d'un profil partagé : www.partido.ma/u/<userId>?r=<id>&l=<fr|en|ar>
 // (vercel.json réécrit /u/:id vers cette fonction). Calquée sur api/match-link.js : mêmes en-têtes, même appel serveur.
 // La page arrive déjà remplie pour les robots de WhatsApp et Facebook, qui n'exécutent aucun script.
-// Elle contient le français et l'arabe : js/group-link.js choisit la langue chez le visiteur ; l'anglais ne sert qu'à l'aperçu.
+// Elle contient le français, l'anglais et l'arabe : js/group-link.js choisit la langue chez le visiteur ; l=, lui, ne règle que l'aperçu.
 // r et l ne partent jamais vers le serveur Partido (l ne sert qu'à choisir la langue de l'aperçu).
 // Rien n'est gardé entre deux appels. Jamais d'e-mail, de téléphone ni de nom : la page n'affiche que ce que le serveur renvoie.
 
@@ -36,17 +36,17 @@ const CSP = [
   "frame-ancestors 'none'",
 ].join('; ');
 
-// [français, arabe]
+// [français, arabe, anglais]
 const TEXT = {
-  player: ['Joueur sur Partido', 'لاعب على Partido'],
-  openInApp: ["Ouvrir dans l'app", 'افتح في التطبيق'],
-  goneTitle: ["Ce profil n'est pas disponible", 'هذا الملف غير متاح'],
-  discover: ['Découvrir Partido', 'اكتشف Partido'],
-  fallbackTitle: ['Un joueur vous attend sur Partido.', 'لاعب ينتظرك على Partido.'],
-  step1: ['Téléchargez Partido (gratuit).', 'حمّل تطبيق Partido (مجانًا).'],
-  step2: ['Créez votre compte en 1 minute.', 'أنشئ حسابك في دقيقة واحدة.'],
-  step3: ['Vous arrivez directement sur le profil.', 'ستصل مباشرةً إلى الملف.'],
-  pitch: ['Partido : trouvez un match de foot près de chez vous, ou les joueurs qui vous manquent.', 'Partido: اعثر على مباراة كرة قدم قريبة منك، أو على اللاعبين الذين ينقصونك.'],
+  player: ['Joueur sur Partido', 'لاعب على Partido', 'Player on Partido'],
+  openInApp: ["Ouvrir dans l'app", 'افتح في التطبيق', 'Open in the app'],
+  goneTitle: ["Ce profil n'est pas disponible", 'هذا الملف غير متاح', 'This profile is not available'],
+  discover: ['Découvrir Partido', 'اكتشف Partido', 'Discover Partido'],
+  fallbackTitle: ['Un joueur vous attend sur Partido.', 'لاعب ينتظرك على Partido.', 'A player is waiting for you on Partido.'],
+  step1: ['Téléchargez Partido (gratuit).', 'حمّل تطبيق Partido (مجانًا).', 'Download Partido (free).'],
+  step2: ['Créez votre compte en 1 minute.', 'أنشئ حسابك في دقيقة واحدة.', 'Create your account in 1 minute.'],
+  step3: ['Vous arrivez directement sur le profil.', 'ستصل مباشرةً إلى الملف.', "You'll land straight on the profile."],
+  pitch: ['Partido : trouvez un match de foot près de chez vous, ou les joueurs qui vous manquent.', 'Partido: اعثر على مباراة كرة قدم قريبة منك، أو على اللاعبين الذين ينقصونك.', 'Partido: find a football match near you, or the players you need.'],
 };
 
 // Aperçu : la langue vient de l=, celle de la personne qui partage. (Le 200 reprend les textes du serveur.)
@@ -76,6 +76,9 @@ const BADGE_APPLE_FR = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120
 const BADGE_APPLE_AR = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40"><rect width="120" height="40" rx="5" fill="#000"/><rect x=".5" y=".5" width="119" height="39" rx="4.5" fill="none" stroke="#a6a6a6" stroke-width="1"/><g fill="#fff"><path d="M24.77 20.3a4.95 4.95 0 0 1 2.36-4.15 5.07 5.07 0 0 0-3.99-2.16c-1.68-.18-3.31 1.01-4.17 1.01-.87 0-2.19-.99-3.62-.96a5.31 5.31 0 0 0-4.47 2.73c-1.93 3.34-.49 8.27 1.36 10.97.93 1.33 2.01 2.82 3.44 2.76 1.39-.06 1.92-.89 3.6-.89 1.68 0 2.16.89 3.62.86 1.5-.03 2.44-1.33 3.33-2.67a11.04 11.04 0 0 0 1.53-3.1 4.78 4.78 0 0 1-2.99-4.4z"/><path d="M22.04 12.21a4.87 4.87 0 0 0 1.12-3.49 4.95 4.95 0 0 0-3.2 1.66 4.64 4.64 0 0 0-1.14 3.37 4.09 4.09 0 0 0 3.22-1.54z"/></g><g fill="#fff"><text font-family="Cairo,Arial,sans-serif" font-size="8" x="76" y="15" text-anchor="middle">متاح على</text><text font-family="SF Pro Display,Helvetica,Arial,sans-serif" font-size="13" font-weight="600" x="76" y="29" text-anchor="middle" letter-spacing="-.02em">App Store</text></g></svg>';
 const BADGE_GOOGLE_FR = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 135 40"><rect width="135" height="40" rx="5" fill="#000"/><rect x=".5" y=".5" width="134" height="39" rx="4.5" fill="none" stroke="#a6a6a6" stroke-width="1"/><g transform="translate(10,8) scale(.55)"><path fill="#00d9ff" d="M0 1.13v40.98c0 .72.4 1.12.89.65l22.61-21.14L.89.48C.4.01 0 .41 0 1.13z"/><path fill="#00f076" d="M30.24 17.77L23.5 21.62.89 43.76c.38.39.97.44 1.65.06l30.7-17.69-3-8.36z"/><path fill="#ff3a44" d="M30.24 25.47l3-8.36L.89.48C.51.09-.1.14.01.53L23.5 21.62l6.74 3.85z"/><path fill="#ffbc00" d="M.89.48C.4.01 0 .41 0 1.13l23.5 20.49 6.74-3.85L2.54.08C1.86-.3 1.27-.25.89.48z"/><path fill="#00d9ff" d="M23.5 21.62L.89 43.76c.48.47 1.07.43 1.65.06L33.24 26.2l-3-4.58-6.74 0z" opacity=".2"/><path fill="none" d="M.89.48l32.35 17.7 0 0L.89.48z"/></g><g fill="#fff"><text font-family="SF Pro Text,Helvetica,Arial,sans-serif" font-size="7.5" x="87" y="13.5" text-anchor="middle" letter-spacing=".05em">DISPONIBLE SUR</text><text font-family="SF Pro Display,Helvetica,Arial,sans-serif" font-size="13.2" font-weight="600" x="87" y="28" text-anchor="middle" letter-spacing="-.01em">Google Play</text></g></svg>';
 const BADGE_GOOGLE_AR = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 135 40"><rect width="135" height="40" rx="5" fill="#000"/><rect x=".5" y=".5" width="134" height="39" rx="4.5" fill="none" stroke="#a6a6a6" stroke-width="1"/><g transform="translate(10,8) scale(.55)"><path fill="#00d9ff" d="M0 1.13v40.98c0 .72.4 1.12.89.65l22.61-21.14L.89.48C.4.01 0 .41 0 1.13z"/><path fill="#00f076" d="M30.24 17.77L23.5 21.62.89 43.76c.38.39.97.44 1.65.06l30.7-17.69-3-8.36z"/><path fill="#ff3a44" d="M30.24 25.47l3-8.36L.89.48C.51.09-.1.14.01.53L23.5 21.62l6.74 3.85z"/><path fill="#ffbc00" d="M.89.48C.4.01 0 .41 0 1.13l23.5 20.49 6.74-3.85L2.54.08C1.86-.3 1.27-.25.89.48z"/><path fill="#00d9ff" d="M23.5 21.62L.89 43.76c.48.47 1.07.43 1.65.06L33.24 26.2l-3-4.58-6.74 0z" opacity=".2"/><path fill="none" d="M.89.48l32.35 17.7 0 0L.89.48z"/></g><g fill="#fff"><text font-family="Cairo,Arial,sans-serif" font-size="6.8" x="87" y="13" text-anchor="middle">احصل عليه على</text><text font-family="SF Pro Display,Helvetica,Arial,sans-serif" font-size="13.2" font-weight="600" x="87" y="28" text-anchor="middle" letter-spacing="-.01em">Google Play</text></g></svg>';
+// Badges anglais : les mêmes que les français, seuls les deux textes changent.
+const BADGE_APPLE_EN = BADGE_APPLE_FR.replace("Télécharger dans l'", 'Download on the');
+const BADGE_GOOGLE_EN = BADGE_GOOGLE_FR.replace('DISPONIBLE SUR', 'GET IT ON');
 const HEX_PATH = 'M60.5 9.5Q70 4 79.5 9.5L126.5 36.5Q136 42 136 53L136 133Q136 144 126.5 149.5L79.5 176.5Q70 182 60.5 176.5L13.5 149.5Q4 144 4 133L4 53Q4 42 13.5 36.5Z';
 
 const ICON_GONE = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="m15 9-6 6M9 9l6 6"/></svg>';
@@ -102,12 +105,13 @@ function pick(table, key) {
   return typeof key === 'string' && Object.hasOwn(table, key) ? table[key] : null;
 }
 
-function bilingual(fr, ar) {
-  return `<span class="l-fr" lang="fr">${fr}</span><span class="l-ar" lang="ar">${ar}</span>`;
+// Un texte absent en anglais retombe sur le français.
+function bilingual(fr, ar, en = fr) {
+  return `<span class="l-fr" lang="fr">${fr}</span><span class="l-en" lang="en">${en}</span><span class="l-ar" lang="ar">${ar}</span>`;
 }
 
 function plain(words) {
-  return bilingual(esc(words[0]), esc(words[1]));
+  return bilingual(esc(words[0]), esc(words[1]), esc(words[2]));
 }
 
 function t(key) {
@@ -149,11 +153,13 @@ function discoverLink({ r }) {
 
 function badges(appleUrl, googleUrl, newTab) {
   const attrs = newTab ? ' target="_blank" rel="noopener noreferrer"' : '';
-  const badge = (url, cls, label, svg) => `<a class="g-badge ${cls}" lang="${cls === 'l-ar' ? 'ar' : 'fr'}" href="${esc(url)}"${attrs} aria-label="${esc(label)}">${svg}</a>`;
+  const badge = (url, cls, label, svg) => `<a class="g-badge ${cls}" lang="${cls.slice(2)}" href="${esc(url)}"${attrs} aria-label="${esc(label)}">${svg}</a>`;
   return `<div class="g-badges">
 ${badge(appleUrl, 'l-fr', 'Télécharger sur l’App Store', BADGE_APPLE_FR)}
+${badge(appleUrl, 'l-en', 'Download on the App Store', BADGE_APPLE_EN)}
 ${badge(appleUrl, 'l-ar', 'حمّل التطبيق من App Store', BADGE_APPLE_AR)}
 ${badge(googleUrl, 'l-fr', 'Télécharger sur Google Play', BADGE_GOOGLE_FR)}
+${badge(googleUrl, 'l-en', 'Get it on Google Play', BADGE_GOOGLE_EN)}
 ${badge(googleUrl, 'l-ar', 'حمّل التطبيق من Google Play', BADGE_GOOGLE_AR)}
 </div>`;
 }
@@ -208,8 +214,8 @@ function shell({ og, main, index }) {
 <body>
 <header class="g-top">
 <a class="g-logo" href="/" aria-label="Partido">${LOGO_SVG}</a>
-<div class="g-lang" role="group" aria-label="Langue · اللغة">
-<button type="button" data-lang="fr" lang="fr">FR</button><span aria-hidden="true">·</span><button type="button" data-lang="ar" lang="ar">العربية</button>
+<div class="g-lang" role="group" aria-label="Langue · Language · اللغة">
+<button type="button" data-lang="fr" lang="fr">FR</button><span aria-hidden="true">·</span><button type="button" data-lang="en" lang="en">EN</button><span aria-hidden="true">·</span><button type="button" data-lang="ar" lang="ar">العربية</button>
 </div>
 </header>
 <main class="g-main">
@@ -221,7 +227,7 @@ ${main}
 }
 
 function countsHtml(profile) {
-  const item = (kind, n) => `<li class="u-count"><span class="l-fr" lang="fr">${esc(COUNTS[kind].fr(n))}</span><span class="l-ar" lang="ar">${esc(COUNTS[kind].ar(n))}</span></li>`;
+  const item = (kind, n) => `<li class="u-count"><span class="l-fr" lang="fr">${esc(COUNTS[kind].fr(n))}</span><span class="l-en" lang="en">${esc(COUNTS[kind].en(n))}</span><span class="l-ar" lang="ar">${esc(COUNTS[kind].ar(n))}</span></li>`;
   return `<ul class="u-counts">\n${item('matches', profile.matchesPlayed)}\n${item('connections', profile.connectionsCount)}\n</ul>`;
 }
 
